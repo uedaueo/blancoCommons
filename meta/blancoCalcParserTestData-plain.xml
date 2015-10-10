@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<blanco-db>
+<sheet name="ProductsInsert">
+<attribute>
+<query-type>Invoker</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>true</single>
+<name>ProductsInsert</name>
+<scroll>FORWARD_ONLY</scroll>
+<updatable>false</updatable>
+</attribute>
+<parameters>
+<parameter>
+<name>ProductID</name>
+<type>int</type>
+</parameter>
+<parameter>
+<name>ProductName</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>SupplierID</name>
+<type>java.lang.Integer</type>
+</parameter>
+<parameter>
+<name>CategoryID</name>
+<type>java.lang.Integer</type>
+</parameter>
+<parameter>
+<name>QuantityPerUnit</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>UnitPrice</name>
+<type>java.math.BigDecimal</type>
+</parameter>
+<parameter>
+<name>UnitsInStock</name>
+<type>java.lang.Short</type>
+</parameter>
+<parameter>
+<name>UnitsOnOrder</name>
+<type>java.lang.Short</type>
+</parameter>
+<parameter>
+<name>ReorderLevel</name>
+<type>java.lang.Short</type>
+</parameter>
+<parameter>
+<name>Discontinued</name>
+<type>java.lang.Boolean</type>
+</parameter>
+</parameters>
+<query>
+<query-line>INSERT</query-line>
+<query-line>  INTO Products</query-line>
+<query-line>       (ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, </query-line>
+<query-line>        UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)</query-line>
+<query-line>VALUES (#ProductID, #ProductName, #SupplierID, #CategoryID, #QuantityPerUnit, #UnitPrice, </query-line>
+<query-line>        #UnitsInStock, #UnitsOnOrder, #ReorderLevel, #Discontinued)</query-line>
+</query>
+</sheet>
+<sheet name="CustomersAll">
+<attribute>
+<query-type>Iterator</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>false</single>
+<name>CustomersAll</name>
+<scroll>INSENSITIVE</scroll>
+<updatable>true</updatable>
+</attribute>
+<parameters/>
+<query>
+<query-line>SELECT CustomerID, CompanyName, ContactName, ContactTitle</query-line>
+<query-line>        ,Address, City, Region, PostalCode, Country, Phone, Fax</query-line>
+<query-line>  FROM Customers</query-line>
+<query-line>  WITH (UPDLOCK)</query-line>
+<query-line> ORDER BY CustomerID</query-line>
+<query-line>----------------------------------------------------------------------------------------------</query-line>
+<query-line>-- SQL Server 2000 で更新ロックを利用する際には下記の要領でロックを実現します。</query-line>
+<query-line>--  0.FOR UPDATEは利用しません。</query-line>
+<query-line>--  1.動作する環境</query-line>
+<query-line>--    Microsoft SQL Server 2000 SP3または それ以降</query-line>
+<query-line>--    SQL Server 2000 Driver for JDBC Service Pack 3 (version 2.2.0040) または それ以降</query-line>
+<query-line>--        http://www.microsoft.com/downloads/details.aspx?FamilyId=07287B11-0502-461A-B138-2AA54BFDC03A</query-line>
+<query-line>--  2.データベース接続文字列に SelectMethod=cursor を加える</query-line>
+<query-line>--    例 jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Northwind;SelectMethod=cursor</query-line>
+<query-line>--  3.自動コミットを off に設定する。</query-line>
+<query-line>--    例 Connection.setAutoCommit(false)</query-line>
+<query-line>--  4.WITH (UPDLOCK) のようにテーブルに対してヒントを与える。</query-line>
+<query-line>--    FROM Customers WITH (UPDLOCK)</query-line>
+<query-line>--    参考 http://www.coredevelopers.net/library/j2ee/locking/db.jsp</query-line>
+<query-line>--    参考 http://www.microsoft.com/japan/msdn/library/default.asp?url=/japan/msdn/library/ja/acdata/ac_8_con_7a_1hf7.asp</query-line>
+<query-line>--  5.それ以外については、一般的な JDBCプログラミングと同じ。</query-line>
+<query-line>----------------------------------------------------------------------------------------------</query-line>
+</query>
+</sheet>
+<sheet name="CustomersWhere">
+<attribute>
+<query-type>Iterator</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>true</single>
+<name>CustomersWhere</name>
+<scroll>FORWARD_ONLY</scroll>
+<updatable>false</updatable>
+</attribute>
+<parameters>
+<parameter>
+<name>CustomerID</name>
+<type>java.lang.String</type>
+</parameter>
+</parameters>
+<query>
+<query-line>SELECT CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax</query-line>
+<query-line>  FROM Customers WHERE CustomerID = #CustomerID</query-line>
+</query>
+</sheet>
+<sheet name="ProductsAll">
+<attribute>
+<query-type>Iterator</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>false</single>
+<name>ProductsAll</name>
+<scroll>INSENSITIVE</scroll>
+<updatable>false</updatable>
+</attribute>
+<parameters/>
+<query>
+<query-line>SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, </query-line>
+<query-line>       UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued</query-line>
+<query-line>  FROM Products</query-line>
+<query-line> ORDER BY ProductID</query-line>
+</query>
+</sheet>
+<sheet name="ProductsCount">
+<attribute>
+<query-type>Iterator</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>true</single>
+<name>ProductsCount</name>
+<scroll>FORWARD_ONLY</scroll>
+<updatable>false</updatable>
+</attribute>
+<parameters/>
+<query>
+<query-line>SELECT COUNT(ProductID) AS CNT</query-line>
+<query-line>  FROM Products</query-line>
+</query>
+</sheet>
+<sheet name="ProductsWhere">
+<attribute>
+<query-type>Iterator</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>true</single>
+<name>ProductsWhere</name>
+<scroll>SENSITIVE</scroll>
+<updatable>false</updatable>
+</attribute>
+<parameters>
+<parameter>
+<name>SupplierID</name>
+<type>java.lang.String</type>
+</parameter>
+</parameters>
+<query>
+<query-line>SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, </query-line>
+<query-line>       UnitsOnOrder, ReorderLevel, Discontinued</query-line>
+<query-line>    FROM Products</query-line>
+<query-line>    WHERE SupplierID = #SupplierID</query-line>
+<query-line>     OR SupplierID = #SupplierID</query-line>
+<query-line>    ORDER BY ProductID</query-line>
+</query>
+</sheet>
+<sheet name="readme">
+<parameters>
+<parameter>
+<name>パラメータのID (多くの場合は列名称に関連した名前)を英字から始まる英数字で指定します。</name>
+</parameter>
+<parameter>
+<name>ここで記載するパラメータIDには、# は含まないようにします。</name>
+</parameter>
+<parameter>
+<name>タイプ</name>
+</parameter>
+<parameter>
+<name>列の型について、ドロップダウンリストから選択して指定します。</name>
+</parameter>
+<parameter>
+<name>パラメータ名</name>
+</parameter>
+<parameter>
+<name>パラメータに対する日本語説明などが必要であれば、ここに記載します。</name>
+</parameter>
+<parameter>
+<name>基本的には、SQL文に登場するSQL入力パラメータの順序に従って記載します。</name>
+</parameter>
+<parameter>
+<name>行の増やし方</name>
+</parameter>
+<parameter>
+<name>行を増やす際には、行を選択してコピーした上で、「コピーしたセルの挿入」を行うようにします。</name>
+</parameter>
+<parameter>
+<name>そのように操作をしないと、セル結合が解除されて、やっかいなことになる場合があります。</name>
+</parameter>
+</parameters>
+<query/>
+</sheet>
+<sheet name="config"/>
+<sheet name="OrdersCustomersEmployeesJoin">
+<attribute>
+<query-type>Iterator</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>false</single>
+<name>OrdersCustomersEmployeesJoin</name>
+</attribute>
+<parameters/>
+<query>
+<query-line>SELECT a.OrderID, a.OrderDate, a.CustomerID, b.CompanyName, c.LastName, c.FirstName</query-line>
+<query-line>    FROM orders a, Customers b, Employees c</query-line>
+<query-line>    WHERE a.CustomerID = b.CustomerID AND a.EmployeeID = c.EmployeeID</query-line>
+<query-line>    ORDER BY a.OrderID</query-line>
+</query>
+</sheet>
+<sheet name="CustomersInsert">
+<attribute>
+<query-type>Invoker</query-type>
+<gamen-id>GAMEN001</gamen-id>
+<single>true</single>
+<name>CustomersInsert</name>
+</attribute>
+<parameters>
+<parameter>
+<name>customerID</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>companyName</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>contactName</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>contactTitle</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>address</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>city</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>region</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>postalCode</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>country</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>phone</name>
+<type>java.lang.String</type>
+</parameter>
+<parameter>
+<name>fax</name>
+<type>java.lang.String</type>
+</parameter>
+</parameters>
+<query>
+<query-line>INSERT INTO Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, </query-line>
+<query-line>        Region, PostalCode, Country, Phone, Fax)</query-line>
+<query-line>  VALUES (#customerID, #companyName, #contactName,</query-line>
+<query-line>        #contactTitle, #address, #city, #region, </query-line>
+<query-line>        #postalCode, #country, #phone, #fax)</query-line>
+</query>
+</sheet>
+</blanco-db>
