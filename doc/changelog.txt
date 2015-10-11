@@ -1,3 +1,6 @@
+2015.10.11 (2.0.0)
+  Change version number.
+
 2015.10.11 (1.1.7)
   Change encode from MS932 to UTF-8.
   Move from OSDN to github.
