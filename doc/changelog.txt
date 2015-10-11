@@ -1,266 +1,270 @@
+2015.10.11 (1.1.7)
+  Change encode from MS932 to UTF-8.
+  Move from OSDN to github.
+
 2012.05.28 (1.1.5.1)
-  �\�[�X�E�p�b�P�[�W���O�̂��߂Ƀr���h���Ȃ����B
+  ソース・パッケージングのためにビルドしなおし。
 
 2010.02.22 (1.1.5)
-  �_�u���o�C�g(�Ƃ����� Windows-31J)�� padLeft, padRight ���郁�\�b�h��ǉ��B
+  ダブルバイト(というか Windows-31J)で padLeft, padRight するメソッドを追加。
 
 2009.05.30 (1.1.4)
-  ���C�Z���X�L�q�𒲐��B
+  ライセンス記述を調整。
 
 2008.12.27 (1.1.3)
-  ���s���擾���邽�߂̃��\�b�h��ǉ��B
+  改行を取得するためのメソッドを追加。
 
 2008.12.10 (1.1.2)
-  XML�t�@�C���ǂݍ��ݕ��ɂ��āAbyte[] ���o�R����悤�ɔ������B
+  XMLファイル読み込み部について、byte[] を経由するように微調整。
 
 2008.10.24 (1.1.1)
-  Java 1.5 �ɑΉ��B
+  Java 1.5 に対応。
 
 2008.03.24 (1.0.8)
-  BlancoStringUtil.replaceAll���\�b�h���������[�v����o�O���������Ă����̂��C���B
-  BlancoStringUtil.replace���\�b�h��V���ɒǉ��B
+  BlancoStringUtil.replaceAllメソッドが無限ループするバグをかかえていたのを修正。
+  BlancoStringUtil.replaceメソッドを新たに追加。
 
 2006.12.26 (1.0.7)
-  (jexcelapi)JExcelApi 2.6.2 �� blanco Framework�p�b�`�K�p��o�[�W�������i�[�B
-    ���̃o�[�W��������AJExcelApi�\�[�X�R�[�h�� JExcelApi��jar�t�@�C���ɓ������Ă��܂��B(���̂��߁A���܂ł����T�C�Y�������Ă��܂�)
-  blancoCalcParserDoc.xls �t�@�C���� doc�t�H���_����폜�B
+  (jexcelapi)JExcelApi 2.6.2 の blanco Frameworkパッチ適用後バージョンを格納。
+    このバージョンから、JExcelApiソースコードを JExcelApiのjarファイルに同梱しています。(そのため、今までよりもサイズが増えています)
+  blancoCalcParserDoc.xls ファイルを docフォルダから削除。
 
 2006.11.30 (1.0.6)
-  (blancoCalcParser)���[�v�̌p������������O���ϐ����B���������ړI�B
-  TODO: blancoCalcParser��blancoCommons����Ɨ�������B
+  (blancoCalcParser)ループの継続判定条件を外部変数化。高速化が目的。
+  TODO: blancoCalcParserをblancoCommonsから独立させる。
 
 2006.11.09 (1.0.5)
-  (blancoCommons)(�d�v)JavaDoc�n�̃G�X�P�[�v: ���s�R�[�h�� ���̂܂܂ł͂Ȃ����H���ďo�͂���悤�ɕύX���܂����B
+  (blancoCommons)(重要)JavaDoc系のエスケープ: 改行コードは そのままではなく加工して出力するように変更しました。
 
 2006.11.08 (1.0.4)
-  (PHP)BlancoPhpSourceUtil: PHP�Ή���ǉ��B
+  (PHP)BlancoPhpSourceUtil: PHP対応を追加。
 
 2006.10.31 (1.0.3)
-  (VB.NET)BlancoVbSourceUtil: �S�p�_�u���N�I�[�g�G�X�P�[�v���ꕔ�ύX�B
+  (VB.NET)BlancoVbSourceUtil: 全角ダブルクオートエスケープを一部変更。
 
 2006.10.30 (1.0.2)
-  VB.NET�p�̕�����G�X�P�[�v�N���X BlancoVbSourceUtil ��ǉ����܂����B
+  VB.NET用の文字列エスケープクラス BlancoVbSourceUtil を追加しました。
 
 2006.09.29 (1.0.1)
-  ���L�� JExcelApi 2.6�Ɋւ��铮��s�ǂ̌��ɑΉ����܂����B
-    JExcelApi 2.6�ł́�u00??�G���A�̏����ɂ����āA�����I�Ɏw�肳�ꂽ�G���R�[�f�B���O�𗘗p���Ă��܂��B
-    �������A���̎d�l�� Excel�̋����Ƃ͈قȂ�܂��BExcel�ɍ��킹��� ISO8859_1 �Œ�̏������Ó��ƍl���܂��B
-    JExcelApi 2.6�̃f�t�H���g�ł́A����̃Z���� ��u00??�G���A�̕��� (��:�~(������)) ���������͂��ꂽ�ꍇ�� Excel�ǂݍ��ݎ��ɕ����������������܂��B
+  下記の JExcelApi 2.6に関する動作不良の件に対応しました。
+    JExcelApi 2.6では￥u00??エリアの処理において、内部的に指定されたエンコーディングを利用しています。
+    しかし、この仕様は Excelの挙動とは異なります。Excelに合わせると ISO8859_1 固定の処理が妥当と考えます。
+    JExcelApi 2.6のデフォルトでは、特定のセルに ￥u00??エリアの文字 (例:×(かける)) だけが入力された場合に Excel読み込み時に文字化けが発生します。
 
 2006.07.24 (1.0.0)
-  (blancoCommons)�o�[�W�����ԍ��� 1.0.0�ւƈ����グ�܂����B�����͈�ؕύX���Ă��܂���B
-  (jexcelapi)JExcelApi 2.6�� Sun Java2 SE 1.4.2_12 �œ��삵�Ȃ��s��ɑΉ��B
-    (��̓I�ɂ� JExcelApi��jar�t�@�C���Ƀp�b�`��K�p���� jxl-2.6blanco.jar�𗘗p�J�n)
+  (blancoCommons)バージョン番号を 1.0.0へと引き上げました。処理は一切変更していません。
+  (jexcelapi)JExcelApi 2.6が Sun Java2 SE 1.4.2_12 で動作しない不具合に対応。
+    (具体的には JExcelApiのjarファイルにパッチを適用した jxl-2.6blanco.jarを利用開始)
 
 2006.04.07 (0.3.9)
-  padRight, padLeft��ǉ����܂����B
+  padRight, padLeftを追加しました。
 
 2006.04.06 (0.3.8)
-  BlancoFileUtil�� file2Bytes�����bytes2File��ǉ����܂����B
-  �o�C�g�z��̔�r���\�b�h��ǉ��B
+  BlancoFileUtilに file2Bytesおよびbytes2Fileを追加しました。
+  バイト配列の比較メソッドを追加。
 
 2006.03.29 (0.3.7)
-  BlancoStringUtil�Ƀ��\�b�h�ǉ��B
-    �EreplaceAll�̕������
-    �EtrimRight
-    �EtrimLeft
-    �Etrim
+  BlancoStringUtilにメソッド追加。
+    ・replaceAllの文字列版
+    ・trimRight
+    ・trimLeft
+    ・trim
 
 2006.03.29 (0.3.6)
-  blancoSqlFormatter��ʂ̃v���W�F�N�g�ɕ����B
-  �y�폜�zblanco.commons.sql.format�p�b�P�[�W�z���B
-  �y�폜�z�e�X�g�N���X�� blanco.commons.sql.format�p�b�P�[�W�z���B
-  �������͓���v���W�F�N�g���Ó��ƍl�������A���ۂɂ͍X�V�^�C�~���O�◘�p�V�[�����قȂ邽��
-    �������ĕʃv���W�F�N�g�����Ó��Ɣ��f���܂����B
-  JDK 1.5�Ńr���h�\�ł��邱�Ƃ��m�F�B
+  blancoSqlFormatterを別のプロジェクトに分離。
+  【削除】blanco.commons.sql.formatパッケージ配下。
+  【削除】テストクラスの blanco.commons.sql.formatパッケージ配下。
+  ※当初は同一プロジェクトが妥当と考えたが、実際には更新タイミングや利用シーンが異なるため
+    分離して別プロジェクト化が妥当と判断しました。
+  JDK 1.5でビルド可能であることを確認。
 
 2006.03.17 (0.3.5)
-  �X�g���[�����������ʃN���X�ABlancoStreamUtil��ǉ����܂����B
-  �t�@�C���w�b�_�𐮔��Bpublic���\�b�h��JavaDoc�L�q�𐮔��B�ق��B
-  getLengthNullable���\�b�h��񐄏��ɕύX�B
+  ストリームを扱う共通クラス、BlancoStreamUtilを追加しました。
+  ファイルヘッダを整備。publicメソッドのJavaDoc記述を整備。ほか。
+  getLengthNullableメソッドを非推奨に変更。
 
 2006.03.09 (0.3.4)
-  blanco.commons.util�p�b�P�[�W���̃N���X�̃��\�b�h���̓`�F�b�N���������܂����B
-  �^����ꂽ������null�̏ꍇ�ɁA����0�̕�����ւƕϊ����郁�\�b�h��ǉ����܂����B
+  blanco.commons.utilパッケージ内のクラスのメソッド入力チェックを強化しました。
+  与えられた文字列がnullの場合に、長さ0の文字列へと変換するメソッドを追加しました。
 
 2006.01.14 (0.3.3)
-  �m�[�h����e�L�X�g���擾���鏈���ɂ��ĉ��P�����{�B
+  ノードからテキストを取得する処理について改善を実施。
 
 2006.01.13 (0.3.2)
-  null�����������B�^����ꂽ������ɒ����������܂܂�邩�ǂ����ɂ��Ē��ׂ郁�\�b�h�B
-  XML Document��V�K�쐬���邽�߂̃��\�b�h��ǉ��B
-  XML�ϊ��̂��߂̃��\�b�h��ǉ��B
+  null処理を強化。与えられた文字列に調整文字が含まれるかどうかについて調べるメソッド。
+  XML Documentを新規作成するためのメソッドを追加。
+  XML変換のためのメソッドを追加。
 
 2005.12.26 (0.3.1)
-  �X�g���[����DOM����� XML�t�@�C����DOM��API��ǉ����܂����B
+  ストリーム→DOMおよび XMLファイル→DOMのAPIを追加しました。
 
 2005.12.02 (0.3.0)
-  JDK 1.4.2_10�Ńr���h������
+  JDK 1.4.2_10でビルドし直し
 
 2005.11.19 (0.2.8)
-  toHexString�̃o���G�[�V����(byte��)��ǉ�
+  toHexStringのバリエーション(byte版)を追加
 
 2005.11.16 (0.2.7)
-  toClassName�̃��\�b�h�ɂ��ăo�O������A������C���B(set_ID�̌�)
+  toClassNameのメソッドについてバグがあり、これを修正。(set_IDの件)
 
 2005.11.07 (0.2.6)
-  (Native2AsciiWriter)java.util.Properties�𗘗p���ăG���R�[�h����悤�ɕύX�B
+  (Native2AsciiWriter)java.util.Propertiesを利用してエンコードするように変更。
 
 2005.11.07 (0.2.5)
-  (Native2AsciiWriter)�o�O���C���BJUnit�R�[�h��ǉ��B
+  (Native2AsciiWriter)バグを修正。JUnitコードを追加。
 
 2005.11.05 (0.2.4)
-  (sqlformatter) HAVING�ɑΉ����܂����B
+  (sqlformatter) HAVINGに対応しました。
 
 2005.11.02 (0.2.3)
-  �y�d�v�zjxl-changes.txt�͕s�v�Ȃ̂ō폜���܂����B
-  �X�g���[���̃t�H�[�N���s���N���X��ǉ��B
-  spritPath��ǉ�
-  �t�@�C��������g���q���������郁�\�b�h��ǉ�
-  URI����Java�p�b�P�[�W�����擾���郁�\�b�h��ǉ��B
-  BlancoNameAdjuster��ǉ�
+  【重要】jxl-changes.txtは不要なので削除しました。
+  ストリームのフォークを行うクラスを追加。
+  spritPathを追加
+  ファイル名から拡張子を除去するメソッドを追加
+  URIからJavaパッケージ名を取得するメソッドを追加。
+  BlancoNameAdjusterを追加
 
 2005.10.31 (0.2.2)
-  File2StreamWrapper ��ǉ����܂����B
-  �t�@�C�����o�͂̂��߂̃N���X��ǉ��B
-  BlancoWsdlXml2WsdlTest��blancoSOAP�Ɉڊ�
+  File2StreamWrapper を追加しました。
+  ファイル入出力のためのクラスを追加。
+  BlancoWsdlXml2WsdlTestをblancoSOAPに移管
 
 2005.10.18 (0.2.1)
-  Native2AsciiWriter�̃R�����g��Ascii�G���R�[�h����悤�ɕύX
+  Native2AsciiWriterのコメントもAsciiエンコードするように変更
 
 2005.10.07 (0.2.0)
-  ���r�W��������C���N�������g
+  リビジョンを一つインクリメント
 
 2005.10.07 (0.1.12)
-  blancoCalcParser: rowname��null�̂Ƃ��ɐ�����ԃo�O���C��
+  blancoCalcParser: rownameがnullのときに吹き飛ぶバグを修正
 
 2005.10.04 (0.1.11)
-  escapeStringAsJavaDoc, getTextContent ��ǉ����܂����B
+  escapeStringAsJavaDoc, getTextContent を追加しました。
 
 2005.09.27 (0.1.10)
-  ��O���C�����悭������΂��悤�ɕύX�B
-  �ݒ�t�@�C���̃X�g���[�����N���[�Y���Ȃ��悤�ɕύX�B
-  �s�v��BufferedInputStream�������B
+  例外を気持ちよく吹っ飛ばすように変更。
+  設定ファイルのストリームもクローズしないように変更。
+  不要なBufferedInputStreamを除去。
 
 2005.09.26 (0.1.9)
-  ���߂ă����[�X���
+  改めてリリース作業
 
 2005.09.26 (0.1.8)
-  blancoCalcParser�̃o�O�C���B
+  blancoCalcParserのバグ修正。
 
 2005.09.25 (0.1.7)
-  main���\�b�h�� process���\�b�h�ɕ���
+  mainメソッドを processメソッドに分割
 
 2005.09.25 (0.1.6)
-  blancoCalcParser��P����XML�ǂݍ��݂ŋ쓮�ł���悤�ɉ��P�B
-  lib�t�H���_�������C���h�J�[�h��荞�݂���悤�ɕύX�B
+  blancoCalcParserを単発でXML読み込みで駆動できるように改善。
+  libフォルダ内をワイルドカード取り込みするように変更。
 
 2005.09.21 (0.1.5)
-  Java�\�[�X�R�[�h������G�X�P�[�v�@�\�̒ǉ�
-  �t�@�C��������@�\�̒ǉ�
+  Javaソースコード文字列エスケープ機能の追加
+  ファイル名判定機能の追加
 
 2005.09.10 (0.1.4)
-  blancoCommons�� blancoSOAP�Ɉڊ�
+  blancoCommonsを blancoSOAPに移管
 
 2005.09.08 (0.1.3)
-  Workbook�̊J�������X�g���[����{�ɏW��B
-  transform�ɓn���� StreamSource, StreamResult�̌��X�g���[���̃N���[�Y�Y����C���B
+  Workbookの開き方をストリーム一本に集約。
+  transformに渡した StreamSource, StreamResultの元ストリームのクローズ忘れを修正。
 
 2005.09.06 (0.1.2)
-  ������
+  微調整
 
 2005.09.06 (0.1.1)
-  blancoWsdl��ǉ�
+  blancoWsdlを追加
 
 2005.09.03 (0.1.0)
-  JExcelApi��gc�����ŋN������悤�ɕύX�B
+  JExcelApiをgc無しで起動するように変更。
 
 2005.08.30 (0.0.22)
-  CASE WHEN END�Ή�
-  LEFT OUTER JOIN�Ή�
+  CASE WHEN END対応
+  LEFT OUTER JOIN対応
 
 2005.08.23 (0.0.21)
-  Native2AsciiWriter��ǉ�
+  Native2AsciiWriterを追加
 
 2005.08.22 (0.0.20)
-  jxl.jar�t�@�C�����X�V
-  ���o�[�X�R���e���c�n���h�� (�tSAX�p�[�T)��ǉ��B
+  jxl.jarファイルを更新
+  リバースコンテンツハンドラ (逆SAXパーサ)を追加。
 
 2005.08.12 (0.0.19)
-  SQL���`: 65535(���Ƃ�-1)�Ƃ����l�͓���ȃP�[�X�ő��݂���̂ŁA�z���C�g�X�y�[�X�����ƂȂ�悤�ɂ���B
+  SQL整形: 65535(もとは-1)という値は特殊なケースで存在するので、ホワイトスペース扱いとなるようにする。
 
 2005.08.12 (0.0.18)
-  SQL���`: �������̃��[�e�B���e�B���\�b�h�ɂ���public static��
+  SQL整形: いくつかのユーティリティメソッドについてpublic static化
 
 2005.08.07 (0.0.17)
-  SQL���`: () �ɂ��� (col3)�̂悤�ȏꍇ�ɂ͋󔒂����Ȃ��悤�ɕύX�B
+  SQL整形: () について (col3)のような場合には空白を入れないように変更。
 
 2005.08.06 (0.0.16)
-  SQL���`: ANSI SQL�L�[���[�h�𕪗�
+  SQL整形: ANSI SQLキーワードを分類
 
 2005.08.03 (0.0.15)
-  SQL���`: ���s�R�[�h���t���Ă���SQL�͐��`������[�ɉ��s�R�[�h���t���悤�ɕύX����B
+  SQL整形: 改行コードが付いているSQLは整形後も末端に改行コードが付くように変更する。
 
 2005.07.27
-  ��O�n�̃e�X�g�R�[�h��ǉ����܂��� (�{�̂ɂ͉e���Ȃ�)
+  例外系のテストコードを追加しました (本体には影響なし)
 
 2005.07.27 (0.0.14)
-  UNION�Ή���������
+  UNION対応を見直し
 
 2005.07.27 (0.0.13)
-  ANSI SQL�\����������
+  ANSI SQL予約語を見直し
 
 2005.07.26 (0.0.12)
-  �����񌋍� || �ɑΉ�
+  文字列結合 || に対応
 
 2005.07.26 (0.0.11)
-  ���ŃZ�~�R�����ɑΉ��B�܂���SQL�����������Ȃ��悤�ɂ���B
+  仮でセミコロンに対応。まずはSQL文が欠損しないようにする。
 
 2005.07.26 (0.0.10)
-  ���A(\r)�ɂ��Ă���������z���C�g�X�y�[�X�����R�[�h�ɒǉ����܂����B
+  復帰(\r)についても無視するホワイトスペース文字コードに追加しました。
 
 2005.07.26 (0.0.9)
-  SQL���`�ɍۂ��āA() �̎��������������B�d�l�ǂ���ɓ��삷��悤���P�B
+  SQL整形に際して、() の字下げを見直し。仕様どおりに動作するよう改善。
 
 2005.07.08 (0.0.8)
-  ���{��\���E�񖼂��K�؂ɏ����ł���悤�ɉ��P�B
-  GROUP BY ���K�؂ɃC���f���g�ł���悤�ɉ��P�B
-  DROP TABLE�ȂǂɑΉ�
+  日本語表名・列名が適切に処理できるように改善。
+  GROUP BY が適切にインデントできるように改善。
+  DROP TABLEなどに対応
 
 2005.07.07 (0.0.7)
-  �A���_�[�o�[����� # �� �K�؂ɐ��`�ł���悤�ɏC���B
-  # �Ȃ� # �ɂ��Ă� blanco�ɂ����ė��p���Ă��邽�߂ɕK�v�B
+  アンダーバーおよび # が 適切に整形できるように修正。
+  # なお # については blancoにおいて利用しているために必要。
 
 2005.07.04 (0.0.6)
-  SqlFormatter�̏����o�[�W��������荞�݂܂����B
+  SqlFormatterの初期バージョンを取り込みました。
 
 2005.06.08 (0.0.6)
-  �R���X�g���N�^�ɍH�v��������.
+  コンストラクタに工夫を加える.
 
 2005.06.07 (0.0.4)
-  �R���e���c�n���h���E�`�F�C���������B���P�B
+  コンテンツハンドラ・チェインを実装。改善。
 
 2005.06.06 (0.0.3)
-  �l�̒u���Ɋւ��Ă��������I���B
-  �P�̎����Ɏ�肩�����ėǂ����x���ɓ��B����B
-  �������񂱂��Ŏ������Ƃ߂ĉ������[�X�Ƃ���B
+  値の置換に関しても実装が終わる。
+  単体試験に取りかかって良いレベルに到達する。
+  いったんここで実装をとめて仮リリースとする。
 
 2005.06.06 (0.0.2)
-  ���񂾂�{�����ۂ������悤�ɂȂ��Ă���B
+  だんだん本物っぽく動くようになってくる。
 
 2005.06.02 (0.0.?)
-  ���ۃN���X�𒊏o���܂����B
-  JUnit��ǉ����܂����B
-  �Œ���̃p�[�X�ɂ��� �Ȃ񂾂������ł��Ă݂�B
+  抽象クラスを抽出しました。
+  JUnitを追加しました。
+  最低限のパースについて なんだか実装できてみる。
   
   SAX: Features and Properties
   http://www.saxproject.org/?selected=get-set
   
 
 2005.06.02 (0.0.1)
-  blancoCommons�T�u�v���W�F�N�g�����F����܂����B
-  blancoCalcParser�����F����܂����B
-  ����ɂƂ��Ȃ��A�v���W�F�N�g���V���ɍ쐬����܂��B
-  �c�Ȃ񂾂�SAX�������o���܂����B
-  CDATA�̗��p�� �Ƃ肠����������߂邱�Ƃɂ��܂��B
+  blancoCommonsサブプロジェクトが承認されました。
+  blancoCalcParserが承認されました。
+  これにともない、プロジェクトが新たに作成されます。
+  …なんだかSAXが動き出しました。
+  CDATAの利用は とりあえずあきらめることにします。
 

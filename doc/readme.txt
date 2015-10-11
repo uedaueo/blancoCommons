@@ -1,20 +1,20 @@
-blancoCommons �� Java����p�̋��ʃN���X���C�u���������ł��B
-blanco Framework�̒�������ɌĂяo���ꂪ���ȃN���X�Q��񋟂��܂��B
+blancoCommons は Java言語用の共通クラスライブラリ実装です。
+blanco Frameworkの中から特に呼び出されがちなクラス群を提供します。
 
 [blancoCalcParser]
-  blanco Framework�Ԃŗ��p����ACalc (Excel)�ݒ�V�[�g�̓��͏����ŗ��p�����
-  ���ʓI�ȋ@�\��񋟂��܂��BSAX2�p�[�T�Ƃ��Ď�������Ă��܂��B
-  main����ݒ��xml�t�@�C������ǂݍ���ŒP�̂ŋ쓮�ł���悤�ɂ��Ȃ��Ă��܂��B
+  blanco Framework間で利用する、Calc (Excel)設定シートの入力処理で利用される
+  共通的な機能を提供します。SAX2パーサとして実装されています。
+  mainから設定をxmlファイルから読み込んで単体で駆動できるようにもなっています。
 
-[���C�Z���X]
- 1.���C�Z���X �Ƃ��� GNU Lesser General Public License �� Eclipse Public License 1.0 ���f���A�����C�Z���X�ō̗p���Ă��܂��B
-   �����ꂩ�̃��C�Z���X���A�܂��͑S�Ẵ��C�Z���X��K�p���܂��B
+[ライセンス]
+ 1.ライセンス として GNU Lesser General Public License と Eclipse Public License 1.0 をデュアルライセンスで採用しています。
+   いずれかのライセンスを、または全てのライセンスを適用します。
 
-[�ˑ����郉�C�u����]
-blancoCommons�͉��L�̃��C�u�����𗘗p���Ă��܂��B
+[依存するライブラリ]
+blancoCommonsは下記のライブラリを利用しています。
  1.JExcelApi - Java Excel API - A Java API to read, write and modify Excel spreadsheets
      http://jexcelapi.sourceforge.net/
      http://sourceforge.net/projects/jexcelapi/
      http://www.andykhan.com/jexcelapi/ 
-   �T�v: Java����Excel�u�b�N�`����ǂݏ������邽�߂̃��C�u�����ł��B
-   ���C�Z���X: GNU Lesser General Public License
+   概要: JavaからExcelブック形式を読み書きするためのライブラリです。
+   ライセンス: GNU Lesser General Public License
