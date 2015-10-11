@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * ‚Ğ‚Æ‚Â‚Ìo—ÍƒXƒgƒŠ[ƒ€‚ğA•¡”‚Ìo—ÍƒXƒgƒŠ[ƒ€‚É•ª‚¯‚é‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚·B
+ * ã²ã¨ã¤ã®å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ã€è¤‡æ•°ã®å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã«åˆ†ã‘ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -31,7 +31,7 @@ public class ForkedOutputStream extends OutputStream {
     private OutputStream[] outStreams = null;
 
     /**
-     * ‚Ğ‚Æ‚Â‚ÌƒXƒgƒŠ[ƒ€‚Ö‚Ìo—Í‚ğ‚Q‚Â‚ÌƒXƒgƒŠ[ƒ€‚Ö‚Ìo—Í‚É•ª‚¯‚Ü‚·B
+     * ã²ã¨ã¤ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å‡ºåŠ›ã‚’ï¼’ã¤ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å‡ºåŠ›ã«åˆ†ã‘ã¾ã™ã€‚
      * 
      * @param outStream1
      * @param outStream2
@@ -42,7 +42,7 @@ public class ForkedOutputStream extends OutputStream {
     }
 
     /**
-     * ‚Ğ‚Æ‚Â‚ÌƒXƒgƒŠ[ƒ€‚Ö‚Ìo—Í‚ğ‚R‚Â‚ÌƒXƒgƒŠ[ƒ€‚Ö‚Ìo—Í‚É•ª‚¯‚Ü‚·B
+     * ã²ã¨ã¤ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å‡ºåŠ›ã‚’ï¼“ã¤ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å‡ºåŠ›ã«åˆ†ã‘ã¾ã™ã€‚
      * 
      * @param outStream1
      * @param outStream2
@@ -54,7 +54,7 @@ public class ForkedOutputStream extends OutputStream {
     }
 
     /**
-     * ‚Ğ‚Æ‚Â‚ÌƒXƒgƒŠ[ƒ€‚Ö‚Ìo—Í‚ğ”CˆÓ‚Ì”‚ÌƒXƒgƒŠ[ƒ€‚Ö‚Ìo—Í‚É•ª‚¯‚Ü‚·B
+     * ã²ã¨ã¤ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å‡ºåŠ›ã‚’ä»»æ„ã®æ•°ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å‡ºåŠ›ã«åˆ†ã‘ã¾ã™ã€‚
      */
     public ForkedOutputStream(final OutputStream[] arg) {
         outStreams = new OutputStream[arg.length];
@@ -81,7 +81,7 @@ public class ForkedOutputStream extends OutputStream {
     }
 
     /**
-     * ƒXƒgƒŠ[ƒ€‚ğ2‚Â‚Æ‚àƒtƒ‰ƒbƒVƒ…‚µ‚Ü‚·B
+     * ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’2ã¤ã¨ã‚‚ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ã—ã¾ã™ã€‚
      */
     public void flush() throws IOException {
         for (int index = 0; index < outStreams.length; index++) {
@@ -90,7 +90,7 @@ public class ForkedOutputStream extends OutputStream {
     }
 
     /**
-     * ƒXƒgƒŠ[ƒ€‚ğ2‚Â‚Æ‚àƒNƒ[ƒY‚µ‚Ü‚·B
+     * ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’2ã¤ã¨ã‚‚ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™ã€‚
      */
     public void close() throws IOException {
         for (int index = 0; index < outStreams.length; index++) {

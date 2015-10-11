@@ -20,52 +20,52 @@
 package blanco.commons.util;
 
 /**
- * blanco Framework‚É‚¨‚¯‚éAƒoƒCƒg‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚ªŠÜ‚Ü‚ê‚Ü‚·B
+ * blanco Frameworkã«ãŠã‘ã‚‹ã€ãƒã‚¤ãƒˆã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãŒå«ã¾ã‚Œã¾ã™ã€‚
  * 
- * Œ´‘¥‚Æ‚µ‚Ä‚Ù‚Æ‚ñ‚Ç‚Ìƒƒ\ƒbƒh‚Ístaticƒƒ\ƒbƒh‚Æ‚µ‚Ä’ñ‹Ÿ‚³‚ê‚Ü‚·B
+ * åŸå‰‡ã¨ã—ã¦ã»ã¨ã‚“ã©ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯staticãƒ¡ã‚½ãƒƒãƒ‰ã¨ã—ã¦æä¾›ã•ã‚Œã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoByteUtil {
     /**
-     * ƒoƒCƒg”z—ñ‚Ì“à—e‚ğ”äŠr‚µ‚Ü‚·B
+     * ãƒã‚¤ãƒˆé…åˆ—ã®å†…å®¹ã‚’æ¯”è¼ƒã—ã¾ã™ã€‚
      * 
      * @param arg0
-     *            ¶•Ó’lB
+     *            å·¦è¾ºå€¤ã€‚
      * @param arg1
-     *            ‰E•Ó’lB
-     * @return ˆê’v‚µ‚½ê‡‚Í0B‚»‚êˆÈŠO‚Ìê‡‚É‚Í¶•Ó’l-‰E•Ó’lB
+     *            å³è¾ºå€¤ã€‚
+     * @return ä¸€è‡´ã—ãŸå ´åˆã¯0ã€‚ãã‚Œä»¥å¤–ã®å ´åˆã«ã¯å·¦è¾ºå€¤-å³è¾ºå€¤ã€‚
      */
     public static final int compare(final byte[] arg0, final byte[] arg1) {
         if (arg0 == null) {
             throw new IllegalArgumentException(
-                    "BlancoStreamUtil.compare‚Ì“ü—Íƒpƒ‰ƒ[ƒ^‚Ì1”Ô–Ú‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoStreamUtil.compareã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®1ç•ªç›®ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (arg1 == null) {
             throw new IllegalArgumentException(
-                    "BlancoStreamUtil.compare‚Ì“ü—Íƒpƒ‰ƒ[ƒ^‚Ì2”Ô–Ú‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoStreamUtil.compareã®å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®2ç•ªç›®ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         for (int index = 0;; index++) {
-            // Å‰‚É’·‚³ƒ`ƒFƒbƒN‚ğ‚¨‚±‚È‚¢‚Ü‚·B
+            // æœ€åˆã«é•·ã•ãƒã‚§ãƒƒã‚¯ã‚’ãŠã“ãªã„ã¾ã™ã€‚
             if (index == arg0.length) {
-                // ’·‚³‚ğ’´‚¦‚Ä‚µ‚Ü‚¢‚Ü‚µ‚½B
+                // é•·ã•ã‚’è¶…ãˆã¦ã—ã¾ã„ã¾ã—ãŸã€‚
                 if (index == arg1.length) {
-                    // ÅŒã‚ÌÅŒã‚Ü‚Åˆê’v‚µ‚Ä‚¢‚Ü‚µ‚½B
+                    // æœ€å¾Œã®æœ€å¾Œã¾ã§ä¸€è‡´ã—ã¦ã„ã¾ã—ãŸã€‚
                     return 0;
                 } else {
-                    // ‰E•Ó’l‚ª‘å‚«‚¢‚Å‚·B
+                    // å³è¾ºå€¤ãŒå¤§ãã„ã§ã™ã€‚
                     return -1;
                 }
             } else if (index == arg1.length) {
-                // ’·‚³‚ğ’´‚¦‚Ä‚µ‚Ü‚¢‚Ü‚µ‚½B
-                // ¶•Ó’l‚ª‘å‚«‚¢‚Å‚·B
+                // é•·ã•ã‚’è¶…ãˆã¦ã—ã¾ã„ã¾ã—ãŸã€‚
+                // å·¦è¾ºå€¤ãŒå¤§ãã„ã§ã™ã€‚
                 return 1;
             }
             if (arg0[index] == arg1[index]) {
                 continue;
             } else {
-                // ˆê’v‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B
+                // ä¸€è‡´ã—ã¾ã›ã‚“ã§ã—ãŸã€‚
                 return arg0[index] - arg1[index];
             }
         }

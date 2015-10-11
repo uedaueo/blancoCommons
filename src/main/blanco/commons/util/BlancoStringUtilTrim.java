@@ -20,26 +20,26 @@
 package blanco.commons.util;
 
 /**
- * blanco Framework�ɂ�����A������Ɋւ��郆�[�e�B���e�B�̓����������܂܂�܂��B
+ * blanco Frameworkにおける、文字列に関するユーティリティの内部処理が含まれます。
  * 
- * ���̃N���X�̓p�b�P�[�W�O����J�Ɛݒ肵�Ă��܂��B
+ * このクラスはパッケージ外非公開と設定しています。
  * 
  * @author IGA Tosiki
  */
 class BlancoStringUtilTrim {
     /**
-     * �^����ꂽ������ɂ��āA�����ɔ��p�󔒂������ ������������܂��B
+     * 与えられた文字列について、左側に半角空白があれば これを除去します。
      * 
-     * ���p�󔒂̂ݏ������܂��B�S�p�󔒂͏������܂���B
+     * 半角空白のみ除去します。全角空白は処理しません。
      * 
      * @param originalString
-     *            �������s������������B
-     * @return ���p�󔒂��؂�l�߂�ꂽ��̕�����B
+     *            処理を行いたい文字列。
+     * @return 半角空白が切り詰められた後の文字列。
      */
     public static final String trimLeft(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "������؂�l��(��)���\�b�h�ɁA�ϊ���������Ƃ���null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "文字列切り詰め(左)メソッドに、変換元文字列としてnullが与えられました。null以外の値を与えてください。");
         }
         int lastSpace = -1;
         for (int index = 0; index < originalString.length(); index++) {
@@ -55,18 +55,18 @@ class BlancoStringUtilTrim {
     }
 
     /**
-     * �^����ꂽ������ɂ��āA�E���ɔ��p�󔒂������ ������������܂��B
+     * 与えられた文字列について、右側に半角空白があれば これを除去します。
      * 
-     * ���p�󔒂̂ݏ������܂��B�S�p�󔒂͏������܂���B
+     * 半角空白のみ除去します。全角空白は処理しません。
      * 
      * @param originalString
-     *            �������s������������B
-     * @return ���p�󔒂��؂�l�߂�ꂽ��̕�����B
+     *            処理を行いたい文字列。
+     * @return 半角空白が切り詰められた後の文字列。
      */
     public static final String trimRight(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "������؂�l��(�E)���\�b�h�ɁA�ϊ���������Ƃ���null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "文字列切り詰め(右)メソッドに、変換元文字列としてnullが与えられました。null以外の値を与えてください。");
         }
         int lastSpace = -1;
         for (int index = originalString.length() - 1; index >= 0; index--) {
@@ -82,18 +82,18 @@ class BlancoStringUtilTrim {
     }
 
     /**
-     * �^����ꂽ������ɂ��āA�E������э����ɔ��p�󔒂������ ������������܂��B
+     * 与えられた文字列について、右側および左側に半角空白があれば これを除去します。
      * 
-     * ���p�󔒂̂ݏ������܂��B�S�p�󔒂͏������܂���B
+     * 半角空白のみ除去します。全角空白は処理しません。
      * 
      * @param originalString
-     *            �������s������������B
-     * @return ���p�󔒂��؂�l�߂�ꂽ��̕�����B
+     *            処理を行いたい文字列。
+     * @return 半角空白が切り詰められた後の文字列。
      */
     public static final String trim(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "������؂�l��(���E)���\�b�h�ɁA�ϊ���������Ƃ���null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "文字列切り詰め(左右)メソッドに、変換元文字列としてnullが与えられました。null以外の値を与えてください。");
         }
         return trimRight(trimLeft(originalString));
     }

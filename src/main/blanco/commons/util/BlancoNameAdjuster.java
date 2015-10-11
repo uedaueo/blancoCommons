@@ -26,20 +26,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * blanco Framework�̖��O�ό`�Ɋւ��郆�[�e�B���e�B���W�߂��N���X�ł��B
+ * blanco Frameworkの名前変形に関するユーティリティを集めたクラスです。
  * 
  * @author IGA Tosiki
  */
 public class BlancoNameAdjuster {
     /**
-     * blanco Framework�̖��O�ό`�Ƃ��āA�������ׂ������ł��邩�ǂ������`�F�b�N���܂��B
+     * blanco Frameworkの名前変形として、調整すべき文字であるかどうかをチェックします。
      * 
-     * Java�̃N���X���⃁�\�b�h���Ƃ��ė��p���s�K�؂ƍl�����镶���ł��邩�ǂ����𔻒f���Ă��܂��B<br>
-     * ����d�l�㗘�p�\�ȕ����ł����Ă��A����blanco Framework�Ƃ��Ă͗��p�������߂Ȃ������͒��������Ƃ��Ĕ��f���܂��B
+     * Javaのクラス名やメソッド名として利用が不適切と考えられる文字であるかどうかを判断しています。<br>
+     * 言語仕様上利用可能な文字であっても、このblanco Frameworkとしては利用をすすめない文字は調整文字として判断します。
      * 
      * @param checkChar
-     *            �`�F�b�N���s���������͕����B
-     * @return �������ׂ������Ɣ��f�����ꍇ�ɂ�true��߂��܂��B
+     *            チェックを行いたい入力文字。
+     * @return 調整すべき文字と判断した場合にはtrueを戻します。
      */
     public static final boolean checkAdjustChar(final char checkChar) {
         switch (checkChar) {
@@ -74,7 +74,7 @@ public class BlancoNameAdjuster {
         case '?':
         case '_':
         case ' ':
-            // �������ׂ������ł���Ɣ��f���܂����B
+            // 調整すべき文字であると判断しました。
             return true;
         default:
             return false;
@@ -82,19 +82,19 @@ public class BlancoNameAdjuster {
     }
 
     /**
-     * blanco Framework�̖��O�ό`�Ƃ��āA�������ׂ������ł��邩�ǂ������`�F�b�N���܂��B
+     * blanco Frameworkの名前変形として、調整すべき文字であるかどうかをチェックします。
      * 
-     * Java�̃N���X���⃁�\�b�h���Ƃ��ė��p���s�K�؂ƍl�����镶�����܂܂�Ă��邩�ǂ����𔻒f���Ă��܂��B<br>
-     * ����d�l�㗘�p�\�ȕ����ł����Ă��A����blanco Framework�Ƃ��Ă͗��p�������߂Ȃ������͒��������Ƃ��Ĕ��f���܂��B
+     * Javaのクラス名やメソッド名として利用が不適切と考えられる文字が含まれているかどうかを判断しています。<br>
+     * 言語仕様上利用可能な文字であっても、このblanco Frameworkとしては利用をすすめない文字は調整文字として判断します。
      * 
      * @param checkChar
-     *            �`�F�b�N���s���������͕�����B
-     * @return �������ׂ������Ɣ��f�����ꍇ�ɂ�true��߂��܂��B
+     *            チェックを行いたい入力文字列。
+     * @return 調整すべき文字と判断した場合にはtrueを戻します。
      */
     public static final boolean checkAdjustCharExist(final String checkChar) {
         if (checkChar == null) {
             throw new IllegalArgumentException(
-                    "���������񂪊܂܂�邩�ǂ������`�F�b�N���郁�\�b�h (BlancoNameAdjuster.checkAdjustCharExist)�� null���^�����܂������A���̃��\�b�h��null��^���邱�Ƃ͂ł��܂���B");
+                    "調整文字列が含まれるかどうかをチェックするメソッド (BlancoNameAdjuster.checkAdjustCharExist)に nullが与えられましたが、このメソッドにnullを与えることはできません。");
         }
 
         for (int index = 0; index < checkChar.length(); index++) {
@@ -106,104 +106,104 @@ public class BlancoNameAdjuster {
     }
 
     /**
-     * �^����ꂽ������̐擪�̕������啶���ɂȂ�悤�ɖ��O�ό`���܂��B
+     * 与えられた文字列の先頭の文字が大文字になるように名前変形します。
      * 
      * @param originalString
-     *            ���͕�����Bnull�ȊO�̕������^���܂��B����0�̕������^���邱�Ƃ͋�����Ă��܂��B
-     * @return �ό`��̕�����
+     *            入力文字列。null以外の文字列を与えます。長さ0の文字列を与えることは許可されています。
+     * @return 変形後の文字列
      */
     public static final String toUpperCaseTitle(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "������̐擪������啶���ɕϊ����郋�[�`����null���^�����܂����B");
+                    "文字列の先頭文字を大文字に変換するルーチンにnullが与えられました。");
         }
         if (originalString.length() == 0) {
-            // ����0�̕�����ɂ��ẮA����������Ă��܂��B���̂܂ܖ߂��܂��B
+            // 長さ0の文字列については、これを許可しています。そのまま戻します。
             return originalString;
         }
 
         final char[] buf = originalString.toCharArray();
         if (buf[0] != Character.toUpperCase(buf[0])) {
-            // �擪�������啶���ł͖����̂ŁA�擪������啶���ɕϊ����܂��B
+            // 先頭文字が大文字では無いので、先頭文字を大文字に変換します。
             buf[0] = Character.toUpperCase(buf[0]);
-            // �ό`��̕������߂��܂��B
+            // 変形後の文字列を戻します。
             return new String(buf);
         } else {
-            // �ό`�̕K�v�������̂ŁA���͕���������̂܂ܖ߂��܂��B
+            // 変形の必要が無いので、入力文字列をそのまま戻します。
             return originalString;
         }
     }
 
     /**
-     * �^����ꂽ������̐擪�̕������������ɂȂ�悤�ɖ��O�ό`���܂��B
+     * 与えられた文字列の先頭の文字が小文字になるように名前変形します。
      * 
      * 
      * @param originalString
-     *            ���͕�����Bnull�ȊO�̕������^���܂��B����0�̕������^���邱�Ƃ͋�����Ă��܂��B
-     * @return �ό`��̕�����
+     *            入力文字列。null以外の文字列を与えます。長さ0の文字列を与えることは許可されています。
+     * @return 変形後の文字列
      */
     public static final String toLowerCaseTitle(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "������̐擪�������������ɕϊ����郋�[�`����null���^�����܂����B");
+                    "文字列の先頭文字を小文字に変換するルーチンにnullが与えられました。");
         }
         if (originalString.length() == 0) {
-            // ����0�̕�����ɂ��ẮA����������Ă��܂��B���̂܂ܖ߂��܂��B
+            // 長さ0の文字列については、これを許可しています。そのまま戻します。
             return originalString;
         }
 
         final char[] buf = originalString.toCharArray();
         if (buf[0] != Character.toLowerCase(buf[0])) {
-            // �擪�������������ł͖����̂ŁA�擪�������������ɕϊ����܂��B
+            // 先頭文字が小文字では無いので、先頭文字を小文字に変換します。
             buf[0] = Character.toLowerCase(buf[0]);
-            // �ό`��̕������߂��܂��B
+            // 変形後の文字列を戻します。
             return new String(buf);
         } else {
-            // �ό`�̕K�v�������̂ŁA���͕���������̂܂ܖ߂��܂��B
+            // 変形の必要が無いので、入力文字列をそのまま戻します。
             return originalString;
         }
     }
 
     /**
-     * �^����ꂽ�������S�đ啶���ł���ꍇ�ɂ́A�擪�����ȊO�̕�����S�ď������ɕϊ����܂��B
+     * 与えられた文字が全て大文字である場合には、先頭文字以外の文字を全て小文字に変換します。
      * 
-     * �S�đ啶�����A�����ł͂Ȃ��đ啶�������������肩�ɂ���ē����ς��Ă��܂��B<br>
-     * ���̃��\�b�h�� blanco Framework�̓�������Ăяo����邱�Ƃ�z�肵�Ă��܂��B
+     * 全て大文字か、そうではなくて大文字小文字混じりかによって動作を変えています。<br>
+     * このメソッドは blanco Frameworkの内部から呼び出されることを想定しています。
      * 
      * @param originalString
-     *            ���͕�����B
-     * @return �ό`��̕�����
+     *            入力文字列。
+     * @return 変形後の文字列
      */
     public static final String weakenUpperCase(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "�����񂪑S�đ啶���ł������ꍇ�ɁA�擪�����ȊO���������ɕϊ����郋�[�`����null���^�����܂����B");
+                    "文字列が全て大文字であった場合に、先頭文字以外を小文字に変換するルーチンにnullが与えられました。");
         }
 
         if (originalString.equals(originalString.toUpperCase())) {
-            // �^����ꂽ������̑S�Ă��啶���ł��B
-            // �擪�����݂̂�啶���ŁA����ȊO�͏������ɂȂ�悤�ɕϊ����܂��B
+            // 与えられた文字列の全てが大文字です。
+            // 先頭文字のみを大文字で、それ以外は小文字になるように変換します。
             return toUpperCaseTitle(originalString.toLowerCase());
         } else {
-            // �ό`�̕K�v�������̂œ��͕���������̂܂ܖ߂��܂��B
+            // 変形の必要が無いので入力文字列をそのまま戻します。
             return originalString;
         }
     }
 
     /**
-     * �^����ꂽ��������Ablanco Framework�ɂ����钲�����ׂ������Ɋւ��Ē��Ⴕ�ĕ����̕�����ւƕ������܂��B
+     * 与えられた文字列を、blanco Frameworkにおける調整すべき文字に関して着眼して複数の文字列へと分割します。
      * 
-     * �S�đ啶���Ƃ����������������ꍇ�ɂ́A�擪�����ȊO�͏������ɕϊ�����Ƃ��������������I�Ɋ܂܂�Ă��܂��B<br>
-     * �����񕪊��̌��ʁA�z��̒��ɂ͒���0�̕����񂪊܂܂��\��������_�ɒ��ӂ��ė��p���Ă��������B
+     * 全て大文字という文字があった場合には、先頭文字以外は小文字に変換するという処理が内部的に含まれています。<br>
+     * 文字列分割の結果、配列の中には長さ0の文字列が含まれる可能性がある点に注意して利用してください。
      * 
      * @param originalString
-     *            ���͕�����B
-     * @return ���������ŕ������ꂽ������̔z��B
+     *            入力文字列。
+     * @return 調整文字で分割された文字列の配列。
      */
     public static final String[] splitByAdjustChar(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "��������������Ƃɕ�����𕪊����郁�\�b�h (BlancoNameAdjuster.splitByAdjustChar)�� null���^�����܂����B���̃��\�b�h��null��^���邱�Ƃ͂ł��܂���B");
+                    "調整文字列をもとに文字列を分割するメソッド (BlancoNameAdjuster.splitByAdjustChar)に nullが与えられました。このメソッドにnullを与えることはできません。");
         }
 
         final List<java.lang.String> result = new ArrayList<java.lang.String>();
@@ -211,12 +211,12 @@ public class BlancoNameAdjuster {
         final CharArrayWriter writerWork = new CharArrayWriter();
         for (int index = 0; index < bufRead.length; index++) {
             if (checkAdjustChar(bufRead[index])) {
-                // �������ׂ�������������܂����B�����������s���܂��B
+                // 調整すべき文字があらわれました。分割処理を行います。
                 writerWork.flush();
                 result.add(weakenUpperCase(writerWork.toString()));
                 writerWork.reset();
             } else {
-                // ���������ȊO�̕����ł��B���ߍ��݂��s���܂��B
+                // 調整文字以外の文字です。溜め込みを行います。
                 writerWork.write(bufRead[index]);
             }
         }
@@ -227,30 +227,30 @@ public class BlancoNameAdjuster {
     }
 
     /**
-     * �^����ꂽ������� blanco Framework�Ƃ��Ă̖��O�ό`���[���ɏ]���đÓ��ȃN���X���ւƖ��O�ό`���܂��B
+     * 与えられた文字列を blanco Frameworkとしての名前変形ルールに従って妥当なクラス名へと名前変形します。
      * 
-     * ���̃��\�b�h�� blanco Framework�̂Ȃ�����悭���p����郁�\�b�h�ł��B�N���X���ւƖ��O�ό`���K�v�ȋǖʂł悭���p����܂��B
+     * このメソッドは blanco Frameworkのなかからよく利用されるメソッドです。クラス名へと名前変形が必要な局面でよく利用されます。
      * 
      * @param originalString
-     *            ���͕�����B
-     * @return �N���X���Ƃ��ĕό`���ꂽ��̕�����B
+     *            入力文字列。
+     * @return クラス名として変形された後の文字列。
      */
     public static final String toClassName(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "�N���X���ւƖ��O�ό`���郁�\�b�h (BlancoNameAdjuster.toClassName)�� null���^�����܂����B���̃��\�b�h��null��^���邱�Ƃ͂ł��܂���B");
+                    "クラス名へと名前変形するメソッド (BlancoNameAdjuster.toClassName)に nullが与えられました。このメソッドにnullを与えることはできません。");
         }
 
         final StringWriter result = new StringWriter();
-        // ������𒲐������ŋ�؂�܂��B
-        // ���������ŋ�؂�����̕������啶�������̏ꍇ�ɂ́A�擪�ȊO�͏������̕����ւƕϊ����܂��B
+        // 文字列を調整文字で区切ります。
+        // 調整文字で区切った後の文字が大文字だけの場合には、先頭以外は小文字の文字へと変換します。
         final String[] work = splitByAdjustChar(originalString);
         for (int index = 0; index < work.length; index++) {
             if (work[index].length() == 0) {
-                // ������0�̏ꍇ�͏������X�L�b�v���܂��B
+                // 長さが0の場合は処理をスキップします。
                 continue;
             }
-            // ���������ŋ�؂�ꂽ���Ƃ̕�����ɂ��āA�擪������啶���ւƕό`���܂��B
+            // 調整文字で区切られたあとの文字列について、先頭文字を大文字へと変形します。
             result.write(toUpperCaseTitle(work[index]));
         }
         try {
@@ -258,27 +258,27 @@ public class BlancoNameAdjuster {
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
-                    "��������N���X���ɒ������郋�[�`���ɂ����āA��������͂��̂Ȃ���O���������܂����B:" + e.toString());
+                    "文字列をクラス名に調整するルーチンにおいて、発生するはずのない例外が発生しました。:" + e.toString());
         }
         return result.toString();
     }
 
     /**
-     * �^����ꂽ������� blanco Framework�Ƃ��Ă̖��O�ό`���[���ɏ]���đÓ��ȃp�����[�^���ւƖ��O�ό`���܂��B
+     * 与えられた文字列を blanco Frameworkとしての名前変形ルールに従って妥当なパラメータ名へと名前変形します。
      * 
-     * �����I�ɂ́AtoClassName���Ăяo������� �擪�������������ւƕό`�����Ă��܂��B
+     * 内部的には、toClassNameを呼び出した上で 先頭文字を小文字へと変形させています。
      * 
      * @param originalString
-     *            ���͕�����B
-     * @return �p�����[�^���Ƃ��ĕό`���ꂽ��̕�����B
+     *            入力文字列。
+     * @return パラメータ名として変形された後の文字列。
      */
     public static final String toParameterName(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "�p�����[�^���ւƖ��O�ό`���郁�\�b�h (BlancoNameAdjuster.toParameterName)�� null���^�����܂����B���̃��\�b�h��null��^���邱�Ƃ͂ł��܂���B");
+                    "パラメータ名へと名前変形するメソッド (BlancoNameAdjuster.toParameterName)に nullが与えられました。このメソッドにnullを与えることはできません。");
         }
 
-        // �N���X���ւƖ��O�ό`��������ɐ擪��������������ւƕό`�����܂��B
+        // クラス名へと名前変形させた後に先頭文字列を小文字へと変形させます。
         return toLowerCaseTitle(toClassName(originalString));
     }
 }

@@ -22,7 +22,7 @@ package blanco.commons.util;
 import junit.framework.TestCase;
 
 /**
- * –¼‘O‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚ÌƒeƒXƒgƒP[ƒX‚Å‚·
+ * åå‰ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã§ã™
  * 
  * @author iga
  */
@@ -40,7 +40,7 @@ public class BlancoNameUtilTest extends TestCase {
     }
 
     public void testSplitPath() throws Exception {
-        // ˆê”Ê“I‚È’l‚ÌŒ±
+        // ä¸€èˆ¬çš„ãªå€¤ã®è©¦é¨“
         assertEqualsStringArray(new String[] { "aaa" }, BlancoNameUtil
                 .splitPath("aaa"));
         assertEqualsStringArray(new String[] { "aaa", "bbb", "ccc" },
@@ -48,17 +48,17 @@ public class BlancoNameUtilTest extends TestCase {
         assertEqualsStringArray(new String[] { "aaa" }, BlancoNameUtil
                 .splitPath("aaa"));
 
-        // ‚â‚â‹«ŠE’l“I‚ÈŒ±
+        // ã‚„ã‚„å¢ƒç•Œå€¤çš„ãªè©¦é¨“
         assertEqualsStringArray(new String[] { "aaa", "", "ccc" },
                 BlancoNameUtil.splitPath("aaa//ccc"));
-        // ƒ|ƒCƒ“ƒgFƒ‹[ƒg‚Íƒ‹[ƒg‚Æ‚µ‚ÄƒJƒEƒ“ƒgƒAƒbƒv‚³‚ê‚Ü‚·B
+        // ãƒã‚¤ãƒ³ãƒˆï¼šãƒ«ãƒ¼ãƒˆã¯ãƒ«ãƒ¼ãƒˆã¨ã—ã¦ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—ã•ã‚Œã¾ã™ã€‚
         assertEqualsStringArray(new String[] { "", "aaa", "bbb" },
                 BlancoNameUtil.splitPath("/aaa/bbb"));
-        // ƒ|ƒCƒ“ƒgFÅŒã‚ÌƒoƒbƒNƒXƒ‰ƒbƒVƒ…‚Í–³‹‚³‚ê‚Ü‚·B
+        // ãƒã‚¤ãƒ³ãƒˆï¼šæœ€å¾Œã®ãƒãƒƒã‚¯ã‚¹ãƒ©ãƒƒã‚·ãƒ¥ã¯ç„¡è¦–ã•ã‚Œã¾ã™ã€‚
         assertEqualsStringArray(new String[] { "", "aaa", "bbb" },
                 BlancoNameUtil.splitPath("/aaa/bbb/"));
 
-        // ‚±‚±‚©‚ç‚Í“Áê‚ÈƒP[ƒX
+        // ã“ã“ã‹ã‚‰ã¯ç‰¹æ®Šãªã‚±ãƒ¼ã‚¹
         assertEqualsStringArray(new String[] { "", "", "" }, BlancoNameUtil
                 .splitPath("///"));
         assertEqualsStringArray(new String[] { "", "" }, BlancoNameUtil
@@ -66,15 +66,15 @@ public class BlancoNameUtilTest extends TestCase {
         assertEqualsStringArray(new String[] { "" }, BlancoNameUtil
                 .splitPath("/"));
 
-        // ‚±‚±‚©‚ç‚Í‹«ŠE‚ÌŒ±
-        // ƒ|ƒCƒ“ƒgF"" ‚Í–³‚¢‚à‚Ì‚Æ‚µ‚Äˆ—‚³‚ê‚Ü‚·B
+        // ã“ã“ã‹ã‚‰ã¯å¢ƒç•Œã®è©¦é¨“
+        // ãƒã‚¤ãƒ³ãƒˆï¼š"" ã¯ç„¡ã„ã‚‚ã®ã¨ã—ã¦å‡¦ç†ã•ã‚Œã¾ã™ã€‚
         assertEqualsStringArray(new String[0], BlancoNameUtil.splitPath(""));
-        // ƒ|ƒCƒ“ƒgFnull‚Í –³‚¢‚à‚Ì‚Æ‚µ‚Äˆ—‚³‚ê‚Ü‚·B
+        // ãƒã‚¤ãƒ³ãƒˆï¼šnullã¯ ç„¡ã„ã‚‚ã®ã¨ã—ã¦å‡¦ç†ã•ã‚Œã¾ã™ã€‚
         assertEqualsStringArray(new String[0], BlancoNameUtil.splitPath(null));
     }
 
     /**
-     * URI‚ªƒpƒbƒP[ƒW–¼‚É•ÏŒ`‚·‚é‚Ì‚ğŒ±‚µ‚Ü‚·B
+     * URIãŒãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã«å¤‰å½¢ã™ã‚‹ã®ã‚’è©¦é¨“ã—ã¾ã™ã€‚
      * 
      * @throws Exception
      */
@@ -98,7 +98,7 @@ public class BlancoNameUtilTest extends TestCase {
                 .uri2JavaPackage("http://aaa.org/"));
         try {
             BlancoNameUtil.uri2JavaPackage("abc.def");
-            fail("—áŠO‚ª”­¶‚·‚×‚«‚Æ‚±‚ë‚ÅA—áŠO‚ª”­¶‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            fail("ä¾‹å¤–ãŒç™ºç”Ÿã™ã¹ãã¨ã“ã‚ã§ã€ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã›ã‚“ã§ã—ãŸã€‚");
         } catch (IllegalArgumentException e) {
         }
     }

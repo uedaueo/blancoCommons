@@ -24,26 +24,26 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 /**
- * blanco Framework�ɂ����� PHP�\�[�X�R�[�h�o�͂̂��߂̃��[�e�B���e�B���W�߂��N���X�ł��B
+ * blanco Frameworkにおける PHPソースコード出力のためのユーティリティを集めたクラスです。
  * 
  * @author IGA Tosiki
  */
 public final class BlancoPhpSourceUtil {
     /**
-     * �^����ꂽ�������PHP�\�[�X�R�[�h������Ƃ��ďo�͂�����̂Ƃ��ăG�X�P�[�v�������܂��B
+     * 与えられた文字列をPHPソースコード文字列として出力するものとしてエスケープ処理します。
      * 
-     * ��/�o�b�N�X���b�V���̃G�X�P�[�v����щ��s�R�[�h�̃G�X�P�[�v���s���܂��B<br>
-     * ����ȊO�̏����͍s���܂���B���Ƃ��΃C���W�F�N�V�����U���Ȃǂւ̑ϐ��́A���̃��\�b�h�͈����܂���B
+     * ￥/バックスラッシュのエスケープおよび改行コードのエスケープを行います。<br>
+     * それ以外の処理は行いません。たとえばインジェクション攻撃などへの耐性は、このメソッドは扱いません。
      * 
      * @param originalString
-     *            ���͕�����
-     * @return �G�X�P�[�v�������s��ꂽ��̕�����
+     *            入力文字列
+     * @return エスケープ処理が行われた後の文字列
      */
     public static final String escapeStringAsPhpSource(
             final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "BlancoPhpSourceUtil.escapeStringAsPhpSource�œ��͈ᔽ�������B���̃��\�b�h��null���p�����[�^�Ƃ��ė^�����܂����Bnull�ȊO�̒l����͂��Ă��������B");
+                    "BlancoPhpSourceUtil.escapeStringAsPhpSourceで入力違反が発生。このメソッドにnullがパラメータとして与えられました。null以外の値を入力してください。");
         }
 
         final StringReader reader = new StringReader(originalString);
@@ -71,7 +71,7 @@ public final class BlancoPhpSourceUtil {
             }
             writer.flush();
         } catch (IOException e) {
-            // �����ɓ����Ă��邱�Ƃ́A���肦�܂���B
+            // ここに入ってくることは、ありえません。
             e.printStackTrace();
         }
         return writer.toString();

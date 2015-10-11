@@ -34,26 +34,26 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 /**
- * SAXƒCƒxƒ“ƒg‚ğ“ü—Í‚É ‚ ‚×‚±‚×‚É‚»‚ê‚ğo—Í‚·‚éƒ\[ƒXƒR[ƒh‚ğ¶¬‚µ‚Ü‚·B <br>
- * ‚Æ‚Á‚Ä‚à•sv‹c‚ÈSAX2ƒRƒ“ƒeƒ“ƒgƒnƒ“ƒhƒ‰‚Å‚·B <br>
- * 2005.08.11 Tosiki Iga V‹Kì¬
+ * SAXã‚¤ãƒ™ãƒ³ãƒˆã‚’å…¥åŠ›ã« ã‚ã¹ã“ã¹ã«ãã‚Œã‚’å‡ºåŠ›ã™ã‚‹ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚ <br>
+ * ã¨ã£ã¦ã‚‚ä¸æ€è­°ãªSAX2ã‚³ãƒ³ãƒ†ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã§ã™ã€‚ <br>
+ * 2005.08.11 Tosiki Iga æ–°è¦ä½œæˆ
  * 
  * @author IGA Tosiki
  */
 public class ReverseContentHandler extends BufferedWriter implements
         ContentHandler {
     /**
-     * ƒŠƒo[ƒXƒRƒ“ƒeƒ“ƒgƒnƒ“ƒhƒ‰‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ü‚·B
+     * ãƒªãƒãƒ¼ã‚¹ã‚³ãƒ³ãƒ†ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param writer
-     *            ƒŠƒo[ƒXŒ‹‰Ê‚Ìƒ\[ƒXƒR[ƒh‚Ìo—Íæ
+     *            ãƒªãƒãƒ¼ã‚¹çµæœã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å‡ºåŠ›å…ˆ
      */
     public ReverseContentHandler(Writer writer) {
         super(writer);
     }
 
     public void setDocumentLocator(Locator arg0) {
-        // ƒhƒLƒ…ƒƒ“ƒgƒƒP[ƒ^‚Í–³‹‚µ‚Ü‚·B
+        // ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆãƒ­ã‚±ãƒ¼ã‚¿ã¯ç„¡è¦–ã—ã¾ã™ã€‚
     }
 
     public void startDocument() throws SAXException {
@@ -105,7 +105,7 @@ public class ReverseContentHandler extends BufferedWriter implements
     }
 
     /**
-     * Å‰‚ÌƒGƒŒƒƒ“ƒg‚©‚Ç‚¤‚©‚ğ”»’f‚µ‚Ü‚·B
+     * æœ€åˆã®ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã‹ã©ã†ã‹ã‚’åˆ¤æ–­ã—ã¾ã™ã€‚
      */
     private boolean isFirstAttributes = true;
 
@@ -149,7 +149,7 @@ public class ReverseContentHandler extends BufferedWriter implements
 
     public void characters(char[] arg0, int arg1, int arg2) throws SAXException {
         try {
-            // ‘æ“ñˆø”‚É0‚ğƒZƒbƒg‚µ‚Ä‚¢‚é“_‚É’ˆÓI
+            // ç¬¬äºŒå¼•æ•°ã«0ã‚’ã‚»ãƒƒãƒˆã—ã¦ã„ã‚‹ç‚¹ã«æ³¨æ„ï¼
             write("handler.characters(\"" + new String(arg0, arg1, arg2)
                     + "\".toCharArray(), 0, " + arg2 + ");");
             newLine();

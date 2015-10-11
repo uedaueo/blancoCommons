@@ -47,7 +47,7 @@ import blanco.commons.parser.SystemOutContentHandler;
 public class BlancoCalcParserTest extends TestCase {
 
     /*
-     * void parse ‚ÌƒeƒXƒg’†‚ÌƒNƒ‰ƒX(String)
+     * void parse ã®ãƒ†ã‚¹ãƒˆä¸­ã®ã‚¯ãƒ©ã‚¹(String)
      */
     @SuppressWarnings("deprecation")
     public void testParseString() {
@@ -55,92 +55,92 @@ public class BlancoCalcParserTest extends TestCase {
 
         BlancoCalcParserPropertyBlock propertyBlock = new BlancoCalcParserPropertyBlock(
                 "attribute");
-        propertyBlock.setStartString(new String[] { "‹Æ–±" });
+        propertyBlock.setStartString(new String[] { "æ¥­å‹™" });
         propertyBlock
                 .setValueMapping(new BlancoCalcParserValueMapping[] {
-                        new BlancoCalcParserValueMapping(new String[] { "›",
-                                "‚ ‚è" }, "true"),
-                        new BlancoCalcParserValueMapping(new String[] { "‚È‚µ" },
+                        new BlancoCalcParserValueMapping(new String[] { "â—‹",
+                                "ã‚ã‚Š" }, "true"),
+                        new BlancoCalcParserValueMapping(new String[] { "ãªã—" },
                                 "false"),
                         new BlancoCalcParserValueMapping(
-                                new String[] { "ŒŸõŒ^" }, "iterator"),
+                                new String[] { "æ¤œç´¢å‹" }, "iterator"),
                         new BlancoCalcParserValueMapping(
-                                new String[] { "ÀsŒ^" }, "invoker"),
+                                new String[] { "å®Ÿè¡Œå‹" }, "invoker"),
                         new BlancoCalcParserValueMapping(
-                                new String[] { "•K‚¸‚PŒˆ—" }, "true"),
+                                new String[] { "å¿…ãšï¼‘ä»¶å‡¦ç†" }, "true"),
                         new BlancoCalcParserValueMapping(
-                                new String[] { "•¡”Œ(0‚ğŠÜ‚Ş)" }, "false") });
+                                new String[] { "è¤‡æ•°ä»¶(0ã‚’å«ã‚€)" }, "false") });
 
         BlancoCalcParserPropertyKey propertyTitle = new BlancoCalcParserPropertyKey(
-                "gamen-id", new String[] { "‰æ–ÊID" });
+                "gamen-id", new String[] { "ç”»é¢ID" });
         propertyTitle.setSearchRangeX(4);
         propertyBlock.add(propertyTitle);
 
         propertyTitle = new BlancoCalcParserPropertyKey("name",
-                new String[] { "ƒNƒGƒŠ–¼" });
+                new String[] { "ã‚¯ã‚¨ãƒªå" });
         propertyTitle.setSearchRangeX(4);
         propertyBlock.add(propertyTitle);
 
         propertyTitle = new BlancoCalcParserPropertyKey("query-type",
-                new String[] { "SQLƒ^ƒCƒv" });
+                new String[] { "SQLã‚¿ã‚¤ãƒ—" });
         propertyTitle.setSearchRangeX(8);
         propertyBlock.add(propertyTitle);
 
         propertyTitle = new BlancoCalcParserPropertyKey("single",
-                new String[] { "Šú‘Ò‚·‚éˆ—Œ”" });
+                new String[] { "æœŸå¾…ã™ã‚‹å‡¦ç†ä»¶æ•°" });
         propertyTitle.setSearchRangeX(8);
         propertyBlock.add(propertyTitle);
 
         propertyTitle = new BlancoCalcParserPropertyKey("scroll",
-                new String[] { "ƒXƒNƒ[ƒ‹‘®«" });
+                new String[] { "ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«å±æ€§" });
         propertyTitle.setSearchRangeX(8);
         propertyBlock.add(propertyTitle);
 
         propertyTitle = new BlancoCalcParserPropertyKey("updatable",
-                new String[] { "XV‰Â”\‘®«" });
+                new String[] { "æ›´æ–°å¯èƒ½å±æ€§" });
         propertyTitle.setSearchRangeX(8);
         propertyBlock.add(propertyTitle);
 
         BlancoCalcParser parser = new BlancoCalcParser();
         parser.add(propertyBlock);
 
-        // •Ê‚ÌƒuƒƒbƒN
+        // åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯
         BlancoCalcParserTableBlock tableBlock = new BlancoCalcParserTableBlock(
                 "parameters");
-        tableBlock.setStartString(new String[] { "SQL“ü—Íƒpƒ‰ƒ[ƒ^" });
+        tableBlock.setStartString(new String[] { "SQLå…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿" });
         tableBlock.setRowName("parameter");
         tableBlock.setSearchRangeForTitleY(2);
         BlancoCalcParserTableColumn tableTitle = new BlancoCalcParserTableColumn(
-                "name", new String[] { "ƒpƒ‰ƒ[ƒ^ID" });
+                "name", new String[] { "ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ID" });
         tableBlock.add(tableTitle);
 
         tableTitle = new BlancoCalcParserTableColumn("type",
-                new String[] { "ƒ^ƒCƒv" });
+                new String[] { "ã‚¿ã‚¤ãƒ—" });
         tableBlock.add(tableTitle);
 
-        tableTitle = new BlancoCalcParserTableColumn("ƒpƒ‰ƒ[ƒ^–¼",
-                new String[] { "ƒpƒ‰ƒ[ƒ^–¼" });
+        tableTitle = new BlancoCalcParserTableColumn("ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å",
+                new String[] { "ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å" });
         tableBlock.add(tableTitle);
 
         parser.add(tableBlock);
 
-        // •Ê‚ÌƒuƒƒbƒN
+        // åˆ¥ã®ãƒ–ãƒ­ãƒƒã‚¯
         tableBlock = new BlancoCalcParserTableBlock("query");
-        tableBlock.setStartString(new String[] { "SQL•¶" });
-        tableBlock.setEndString(new String[] { "SQLƒGƒŠƒAI—¹" });
+        tableBlock.setStartString(new String[] { "SQLæ–‡" });
+        tableBlock.setEndString(new String[] { "SQLã‚¨ãƒªã‚¢çµ‚äº†" });
         tableBlock.setSearchRangeForTitleY(1);
         tableBlock.setSearchRangeY(100);
         tableTitle = new BlancoCalcParserTableColumn("query-line",
-                new String[] { "SQL•¶" });
+                new String[] { "SQLæ–‡" });
         tableBlock.add(tableTitle);
         parser.add(tableBlock);
 
-        // ‹ï‘Ì“I‚Èƒnƒ“ƒhƒ‰‚Í ‚±‚ÌƒeƒXƒg‚©‚ç‚Íœ‹‚µ‚Ü‚·B
+        // å…·ä½“çš„ãªãƒãƒ³ãƒ‰ãƒ©ã¯ ã“ã®ãƒ†ã‚¹ãƒˆã‹ã‚‰ã¯é™¤å»ã—ã¾ã™ã€‚
         parser.chainContentHandlerStream(new BlancoDbExcelContentHandler(
                 new SystemOutContentHandler()));
 
         try {
-            // ƒ‹[ƒgƒm[ƒh–¼‚ğw’èB
+            // ãƒ«ãƒ¼ãƒˆãƒãƒ¼ãƒ‰åã‚’æŒ‡å®šã€‚
             parser.setProperty(BlancoCalcParser.URI_PROPERTY_NAME_WORKBOOK,
                     "blanco-db");
             outStream = new BufferedOutputStream(new FileOutputStream(
@@ -153,18 +153,18 @@ public class BlancoCalcParserTest extends TestCase {
             outStream.close();
             outStream = null;
         } catch (TransformerException ex) {
-            System.out.println("XMLƒhƒLƒ…ƒƒ“ƒg•Û‘¶‚É•ÏŠ·—áŠO‚ª”­¶‚µ‚Ü‚µ‚½.:" + ex.toString());
+            System.out.println("XMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä¿å­˜æ™‚ã«å¤‰æ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ.:" + ex.toString());
             ex.printStackTrace();
             return;
         } catch (IOException ex3) {
-            System.out.println("XMLƒhƒLƒ…ƒƒ“ƒg•Û‘¶‚É“üo—Í—áŠO‚ª”­¶‚µ‚Ü‚µ‚½.:" + ex3.toString());
+            System.out.println("XMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä¿å­˜æ™‚ã«å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ.:" + ex3.toString());
             ex3.printStackTrace();
             return;
         } catch (SAXNotRecognizedException e) {
-            // TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+            // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
             e.printStackTrace();
         } catch (SAXNotSupportedException e) {
-            // TODO ©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+            // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
             e.printStackTrace();
         } finally {
             if (outStream != null) {

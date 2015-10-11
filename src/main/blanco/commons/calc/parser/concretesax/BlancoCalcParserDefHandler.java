@@ -28,808 +28,808 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 /**
- * BlancoCalcParserDefHandler‹ïÛ‰»SAXƒNƒ‰ƒX<br>
- * ‚±‚ÌƒNƒ‰ƒX‚Í‰ğÍ—pXMLƒtƒ@ƒCƒ‹‚ğ“ü—Í‚Æ‚µ‚Ä‹ïÛ‰»SAXƒNƒ‰ƒX‚Æ‚µ‚Ä¶¬‚³‚ê‚Ü‚µ‚½B<br>
- * ‚±‚Ìƒ\[ƒXƒR[ƒh‚ÍblancoIg‚É‚æ‚è‹@ŠB“I‚É©“®¶¬‚³‚ê‚Ä‚¢‚Ü‚·B<br>
- * “TŒ^“I‚È—˜—p•û–@‚Í‰º‹L‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B<br>
+ * BlancoCalcParserDefHandlerå…·è±¡åŒ–SAXã‚¯ãƒ©ã‚¹<br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯è§£æç”¨XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…¥åŠ›ã¨ã—ã¦å…·è±¡åŒ–SAXã‚¯ãƒ©ã‚¹ã¨ã—ã¦ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚<br>
+ * ã“ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¯blancoIgã«ã‚ˆã‚Šæ©Ÿæ¢°çš„ã«è‡ªå‹•ç”Ÿæˆã•ã‚Œã¦ã„ã¾ã™ã€‚<br>
+ * å…¸å‹çš„ãªåˆ©ç”¨æ–¹æ³•ã¯ä¸‹è¨˜ã®ã‚ˆã†ã«ãªã‚Šã¾ã™ã€‚<br>
  * 
  * <pre>
  * TransformerFactory tf = TransformerFactory.newInstance();
  * Transformer transformer = tf.newTransformer();
  * transformer.transform(new StreamSource(inStream), new SAXResult(
- *         new BlancoCalcParserDefHandler())); // ÀÛ‚É‚ÍÀ‘•ƒNƒ‰ƒX‚ÌHandler‚ğ—^‚¦‚Ü‚·B
+ *         new BlancoCalcParserDefHandler())); // å®Ÿéš›ã«ã¯å®Ÿè£…ã‚¯ãƒ©ã‚¹ã®Handlerã‚’ä¸ãˆã¾ã™ã€‚
  * </pre>
  */
 public abstract class BlancoCalcParserDefHandler implements ContentHandler {
     /**
-     * ƒGƒŒƒƒ“ƒg‚ÌƒXƒ^ƒbƒN‚Å‚·<br>
-     * XML‚ÌŠK‘w\‘¢‚ğ‹L‰¯‚µ‚Ü‚·B
+     * ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã®ã‚¹ã‚¿ãƒƒã‚¯ã§ã™<br>
+     * XMLã®éšå±¤æ§‹é€ ã‚’è¨˜æ†¶ã—ã¾ã™ã€‚
      */
     private Stack<java.lang.String> _elementStack = new Stack<java.lang.String>();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerBlanco = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerTarget = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerBlancocalcparser = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerPropertyblock = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerStartstring = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerPropertykey = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerValue = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerValuemapping = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerResult = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerSource = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerTableblock = new CharArrayWriter();
 
     /**
-     * characters‚É“n‚·‚½‚ß‚ÌƒLƒƒƒbƒVƒ…‚Å‚·<br>
-     * •¶š—ñƒf[ƒ^‚ğ’~Ï‚µ‚Ü‚·B
+     * charactersã«æ¸¡ã™ãŸã‚ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã§ã™<br>
+     * æ–‡å­—åˆ—ãƒ‡ãƒ¼ã‚¿ã‚’è“„ç©ã—ã¾ã™ã€‚
      */
     private CharArrayWriter _writerTablecolumn = new CharArrayWriter();
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[blanco]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrVersion
-     *            ƒAƒgƒŠƒrƒ…[ƒg[version]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[version]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementBlanco(String uri, String localName,
             String qName, String attrVersion) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[blanco]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementBlanco(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[blanco]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersBlanco(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[blanco]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceBlanco(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[target]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementTarget(String uri, String localName,
             String qName, String attrName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[target]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementTarget(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[target]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersTarget(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[target]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceTarget(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[blancocalcparser]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementBlancocalcparser(String uri,
             String localName, String qName, String attrName)
             throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[blancocalcparser]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementBlancocalcparser(String uri,
             String localName, String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[blancocalcparser]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersBlancocalcparser(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[blancocalcparser]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceBlancocalcparser(char[] ch,
             int start, int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[propertyblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      * @param attrWaitY
-     *            ƒAƒgƒŠƒrƒ…[ƒg[waitY]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[waitY]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementPropertyblock(String uri,
             String localName, String qName, String attrName, String attrWaitY)
             throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[propertyblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementPropertyblock(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[propertyblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersPropertyblock(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[propertyblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespacePropertyblock(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[startstring]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void startElementStartstring(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[startstring]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementStartstring(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[startstring]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersStartstring(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[startstring]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceStartstring(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[propertykey]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      * @param attrWaitX
-     *            ƒAƒgƒŠƒrƒ…[ƒg[waitX]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[waitX]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementPropertykey(String uri, String localName,
             String qName, String attrName, String attrWaitX)
             throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[propertykey]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementPropertykey(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[propertykey]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersPropertykey(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[propertykey]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespacePropertykey(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[value]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void startElementValue(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[value]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementValue(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[value]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersValue(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[value]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceValue(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[valuemapping]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void startElementValuemapping(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[valuemapping]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementValuemapping(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[valuemapping]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersValuemapping(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[valuemapping]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceValuemapping(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[result]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void startElementResult(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[result]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementResult(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[result]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersResult(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[result]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceResult(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[source]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void startElementSource(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[source]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementSource(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[source]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersSource(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[source]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceSource(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[tableblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      * @param attrWaitY
-     *            ƒAƒgƒŠƒrƒ…[ƒg[waitY]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[waitY]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      * @param attrTitleheight
-     *            ƒAƒgƒŠƒrƒ…[ƒg[titleheight]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[titleheight]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      * @param attrRowname
-     *            ƒAƒgƒŠƒrƒ…[ƒg[rowname]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[rowname]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementTableblock(String uri, String localName,
             String qName, String attrName, String attrWaitY,
             String attrTitleheight, String attrRowname) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[tableblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementTableblock(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[tableblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersTableblock(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[tableblock]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceTableblock(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * startElement‚ªÚ“ª«•t‚«‚ÌCü–¼[tablecolumn]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * startElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ª“n‚³‚ê‚Ü‚·B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ãŒæ¸¡ã•ã‚Œã¾ã™ã€‚
      */
     public abstract void startElementTablecolumn(String uri, String localName,
             String qName, String attrName) throws SAXException;
 
     /**
-     * endElement‚ªÚ“ª«•t‚«‚ÌCü–¼[tablecolumn]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ¦Ú“ª«•t‚«‚ÌCü–¼‚Íƒƒ\ƒbƒh–¼‚ÉŠÜ‚Ü‚ê‚é‚à‚Ì‚Æ“¯“™‚Ì‚à‚Ì‚ª—^‚¦‚ç‚ê‚Ü‚·B
+     * endElementãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * â€»æ¥é ­è¾ä»˜ãã®ä¿®é£¾åã¯ãƒ¡ã‚½ãƒƒãƒ‰åã«å«ã¾ã‚Œã‚‹ã‚‚ã®ã¨åŒç­‰ã®ã‚‚ã®ãŒä¸ãˆã‚‰ã‚Œã¾ã™ã€‚
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public abstract void endElementTablecolumn(String uri, String localName,
             String qName) throws SAXException;
 
     /**
-     * characters‚ªÚ“ª«•t‚«‚ÌCü–¼[tablecolumn]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * charactersãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void charactersTablecolumn(char[] ch, int start, int length)
             throws SAXException;
 
     /**
-     * ignorableWhitespace‚ªÚ“ª«•t‚«‚ÌCü–¼[tablecolumn]‚ÅŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B<br>
-     * ‚à‚Æ‚Ìcharactersƒƒ\ƒbƒh‚ğW–ñ‚µ‚½ã‚Åƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ignorableWhitespaceãŒæ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]ã§å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚<br>
+     * ã‚‚ã¨ã®charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’é›†ç´„ã—ãŸä¸Šã§ãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public abstract void ignorableWhitespaceTablecolumn(char[] ch, int start,
             int length) throws SAXException;
 
     /**
-     * ƒIƒŠƒWƒiƒ‹‚ÌstartElement‚ªŒÄ‚Ño‚³‚ê‚½‚Ì‚ÅA‹ïÛƒƒ\ƒbƒh‚ÉŒÄ‚Ñ‚í‚¯‚Ü‚·
+     * ã‚ªãƒªã‚¸ãƒŠãƒ«ã®startElementãŒå‘¼ã³å‡ºã•ã‚ŒãŸã®ã§ã€å…·è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã«å‘¼ã³ã‚ã‘ã¾ã™
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      * @param atts
-     *            ƒAƒgƒŠƒrƒ…[ƒg‚ÌƒŠƒXƒg
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã®ãƒªã‚¹ãƒˆ
      */
     public final void startElement(String uri, String localName, String qName,
             Attributes atts) throws SAXException {
@@ -968,21 +968,21 @@ public abstract class BlancoCalcParserDefHandler implements ContentHandler {
     }
 
     /**
-     * ƒIƒŠƒWƒiƒ‹‚ÌendElement‚ªŒÄ‚Ño‚³‚ê‚½‚Ì‚ÅA‹ïÛƒƒ\ƒbƒh‚ÉŒÄ‚Ñ‚í‚¯‚Ü‚·
+     * ã‚ªãƒªã‚¸ãƒŠãƒ«ã®endElementãŒå‘¼ã³å‡ºã•ã‚ŒãŸã®ã§ã€å…·è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã«å‘¼ã³ã‚ã‘ã¾ã™
      * 
      * @param uri
-     *            –¼‘O‹óŠÔURI
+     *            åå‰ç©ºé–“URI
      * @param localName
-     *            ƒ[ƒJƒ‹–¼
+     *            ãƒ­ãƒ¼ã‚«ãƒ«å
      * @param qName
-     *            Ú“ª«•t‚«‚ÌCü–¼
+     *            æ¥é ­è¾ä»˜ãã®ä¿®é£¾å
      */
     public final void endElement(String uri, String localName, String qName)
             throws SAXException {
         final String currentElementOnStack = (String) _elementStack.peek();
         if (currentElementOnStack.equals(qName) == false) {
-            throw new SAXException("XMLˆÙíBŠú‘Ò‚·‚éƒGƒŒƒƒ“ƒg[" + currentElementOnStack
-                    + "]‚ÆÚ“ª«•t‚«‚ÌCü–¼[" + qName + "]‚Æ‚ª‚¸‚ê‚Ä‚¢‚Ü‚·.");
+            throw new SAXException("XMLç•°å¸¸ã€‚æœŸå¾…ã™ã‚‹ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆ[" + currentElementOnStack
+                    + "]ã¨æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[" + qName + "]ã¨ãŒãšã‚Œã¦ã„ã¾ã™.");
         }
         if (qName.equals("source")) {
             _writerSource.flush();
@@ -1081,19 +1081,19 @@ public abstract class BlancoCalcParserDefHandler implements ContentHandler {
             }
             endElementResult(uri, localName, qName);
         }
-        // ÅŒã‚Éƒ|ƒbƒv‚µ‚ÄŠK‘w‚ğ‚Ğ‚Æ‚Â–ß‚µ‚Ü‚·B
+        // æœ€å¾Œã«ãƒãƒƒãƒ—ã—ã¦éšå±¤ã‚’ã²ã¨ã¤æˆ»ã—ã¾ã™ã€‚
         _elementStack.pop();
     }
 
     /**
-     * ƒIƒŠƒWƒiƒ‹‚Ìcharacters‚ªŒÄ‚Ño‚³‚ê‚½‚Ì‚ÅA‹ïÛƒƒ\ƒbƒh‚ÉŒÄ‚Ñ‚í‚¯‚Ü‚· W–ñ‚µ‚½ã‚ÅŒÄ‚Ñ‚í‚¯‚ğs‚¢‚Ü‚·B
+     * ã‚ªãƒªã‚¸ãƒŠãƒ«ã®charactersãŒå‘¼ã³å‡ºã•ã‚ŒãŸã®ã§ã€å…·è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã«å‘¼ã³ã‚ã‘ã¾ã™ é›†ç´„ã—ãŸä¸Šã§å‘¼ã³ã‚ã‘ã‚’è¡Œã„ã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public final void characters(char[] ch, int start, int length)
             throws SAXException {
@@ -1138,14 +1138,14 @@ public abstract class BlancoCalcParserDefHandler implements ContentHandler {
     }
 
     /**
-     * ƒIƒŠƒWƒiƒ‹‚ÌignorableWhitespace‚ªŒÄ‚Ño‚³‚ê‚½‚Ì‚ÅA‹ïÛƒƒ\ƒbƒh‚ÉŒÄ‚Ñ‚í‚¯‚Ü‚· W–ñ‚µ‚½ã‚ÅŒÄ‚Ñ‚í‚¯‚ğs‚¢‚Ü‚·B
+     * ã‚ªãƒªã‚¸ãƒŠãƒ«ã®ignorableWhitespaceãŒå‘¼ã³å‡ºã•ã‚ŒãŸã®ã§ã€å…·è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã«å‘¼ã³ã‚ã‘ã¾ã™ é›†ç´„ã—ãŸä¸Šã§å‘¼ã³ã‚ã‘ã‚’è¡Œã„ã¾ã™ã€‚
      * 
      * @param ch
-     *            XML•¶‘‚Ì•¶š
+     *            XMLæ–‡æ›¸ã®æ–‡å­—
      * @param start
-     *            ”z—ñ“à‚ÌŠJnˆÊ’u
+     *            é…åˆ—å†…ã®é–‹å§‹ä½ç½®
      * @param length
-     *            ”z—ñ‚©‚ç“Ç‚İæ‚é•¶š”
+     *            é…åˆ—ã‹ã‚‰èª­ã¿å–ã‚‹æ–‡å­—æ•°
      */
     public final void ignorableWhitespace(char[] ch, int start, int length)
             throws SAXException {
@@ -1177,7 +1177,7 @@ public abstract class BlancoCalcParserDefHandler implements ContentHandler {
         }
     }
 
-    /** ‚±‚Ìƒƒ\ƒbƒh‚ğ–³‹‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Å‚·B */
+    /** ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç„¡è¦–ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚ */
     public void setDocumentLocator(Locator locator) {
     }
 

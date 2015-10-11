@@ -31,27 +31,27 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * blanco Framework‚É‚¨‚¯‚éƒtƒ@ƒCƒ‹ŠÖ˜A‚Ìƒ†[ƒeƒBƒŠƒeƒB‚ğW‚ß‚½ƒNƒ‰ƒX‚Å‚·B
+ * blanco Frameworkã«ãŠã‘ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«é–¢é€£ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚’é›†ã‚ãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoFileUtil {
     /**
-     * ƒfƒoƒbƒOƒ‚[ƒh‚Å“®ì‚·‚é‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒOB
+     * ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã™ã‚‹ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°ã€‚
      */
     private static final boolean IS_DEUBG = false;
 
     /**
-     * —^‚¦‚ç‚ê‚½“ü—Íƒtƒ@ƒCƒ‹‚ğo—Íƒtƒ@ƒCƒ‹‚Ö‚ÆƒRƒs[‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã¸ã¨ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚
      * 
-     * “ü—Íƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢ê‡‚È‚Ç‚É‚Í—áŠO‚ª”­¶‚µ‚Ü‚·B
+     * å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„å ´åˆãªã©ã«ã¯ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã™ã€‚
      * 
      * @param fileInput
-     *            “ü—Íƒtƒ@ƒCƒ‹Bnull‚Í—^‚¦‚È‚¢‚Å‚­‚¾‚³‚¢B
+     *            å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã€‚nullã¯ä¸ãˆãªã„ã§ãã ã•ã„ã€‚
      * @param fileOutput
-     *            o—Íƒtƒ@ƒCƒ‹Bnull‚Í—^‚¦‚È‚¢‚Å‚­‚¾‚³‚¢B
+     *            å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã€‚nullã¯ä¸ãˆãªã„ã§ãã ã•ã„ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final void copy(final File fileInput, final File fileOutput)
             throws IOException {
@@ -61,39 +61,39 @@ public class BlancoFileUtil {
                     + fileOutput.getAbsolutePath() + ")");
         }
         if (fileInput == null) {
-            throw new IllegalArgumentException("“ü—Íƒtƒ@ƒCƒ‹‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            throw new IllegalArgumentException("å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (fileOutput == null) {
-            throw new IllegalArgumentException("o—Íƒtƒ@ƒCƒ‹‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            throw new IllegalArgumentException("å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (fileInput.exists() == false) {
-            throw new IllegalArgumentException("“ü—Íƒtƒ@ƒCƒ‹["
-                    + fileInput.getAbsolutePath() + "]‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«["
+                    + fileInput.getAbsolutePath() + "]ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã€‚");
         }
         if (fileInput.isFile() == false) {
-            throw new IllegalArgumentException("“ü—Íƒtƒ@ƒCƒ‹["
-                    + fileInput.getAbsolutePath() + "]‚ÉƒfƒBƒŒƒNƒgƒŠ‚ğ—^‚¦‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«["
+                    + fileInput.getAbsolutePath() + "]ã«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä¸ãˆã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚");
         }
         if (fileOutput.exists()) {
             if (fileOutput.isFile() == false) {
-                throw new IllegalArgumentException("o—Íƒtƒ@ƒCƒ‹["
-                        + fileInput.getAbsolutePath() + "]‚ÉƒfƒBƒŒƒNƒgƒŠ‚ğ—^‚¦‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB");
+                throw new IllegalArgumentException("å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«["
+                        + fileInput.getAbsolutePath() + "]ã«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä¸ãˆã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚");
             }
             if (fileOutput.canWrite() == false) {
-                throw new IllegalArgumentException("o—Íƒtƒ@ƒCƒ‹["
+                throw new IllegalArgumentException("å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«["
                         + fileInput.getAbsolutePath()
-                        + "]‚ª‘¶İ‚µ‚½‚¤‚¦‚ÉA‘‚«‚İ‚ğs‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñB");
+                        + "]ãŒå­˜åœ¨ã—ãŸã†ãˆã«ã€æ›¸ãè¾¼ã¿ã‚’è¡Œã†ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚");
             }
         }
 
         final File fileTargetParent = fileOutput.getParentFile();
         if (fileTargetParent.exists() == false) {
-            // ‘¶İ‚µ‚È‚¢ê‡‚É‚Íì¬‚µ‚Ü‚·B
+            // å­˜åœ¨ã—ãªã„å ´åˆã«ã¯ä½œæˆã—ã¾ã™ã€‚
             if (fileTargetParent.mkdirs() == false) {
-                throw new IllegalArgumentException("o—Íƒtƒ@ƒCƒ‹["
-                        + fileInput.getAbsolutePath() + "]‚ÌeƒtƒHƒ‹ƒ_["
+                throw new IllegalArgumentException("å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«["
+                        + fileInput.getAbsolutePath() + "]ã®è¦ªãƒ•ã‚©ãƒ«ãƒ€["
                         + fileTargetParent.getAbsolutePath()
-                        + "]‚ª‘¶İ‚µ‚È‚©‚Á‚½‚Ì‚Åì¬‚µ‚æ‚¤‚Æ‚µ‚Ü‚µ‚½‚ªì¬‚É¸”s‚µ‚Ü‚µ‚½B");
+                        + "]ãŒå­˜åœ¨ã—ãªã‹ã£ãŸã®ã§ä½œæˆã—ã‚ˆã†ã¨ã—ã¾ã—ãŸãŒä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
             }
         }
 
@@ -104,18 +104,18 @@ public class BlancoFileUtil {
             outStream = new BufferedOutputStream(new FileOutputStream(
                     fileOutput));
 
-            // ƒXƒgƒŠ[ƒ€‚ÌƒRƒs[‚ğs‚¢‚Ü‚·B
+            // ã‚¹ãƒˆãƒªãƒ¼ãƒ ã®ã‚³ãƒ”ãƒ¼ã‚’è¡Œã„ã¾ã™ã€‚
             BlancoStreamUtil.copy(inStream, outStream);
 
             outStream.flush();
         } finally {
             try {
-                // ƒXƒgƒŠ[ƒ€‚ªŠJ‚¢‚Ä‚¢‚éê‡‚É‚ÍŠmÀ‚ÉƒNƒ[ƒY‚µ‚Ü‚·B
+                // ã‚¹ãƒˆãƒªãƒ¼ãƒ ãŒé–‹ã„ã¦ã„ã‚‹å ´åˆã«ã¯ç¢ºå®Ÿã«ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™ã€‚
                 if (inStream != null) {
                     inStream.close();
                 }
             } finally {
-                // ƒXƒgƒŠ[ƒ€‚ªŠJ‚¢‚Ä‚¢‚éê‡‚É‚ÍŠmÀ‚ÉƒNƒ[ƒY‚µ‚Ü‚·B
+                // ã‚¹ãƒˆãƒªãƒ¼ãƒ ãŒé–‹ã„ã¦ã„ã‚‹å ´åˆã«ã¯ç¢ºå®Ÿã«ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™ã€‚
                 if (outStream != null) {
                     outStream.close();
                 }
@@ -124,61 +124,61 @@ public class BlancoFileUtil {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½“ü—ÍƒXƒgƒŠ[ƒ€‚ğo—ÍƒXƒgƒŠ[ƒ€‚Ö‚ÆƒRƒs[‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸå…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã¨ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ì“à•”‚Å‚Íƒtƒ‰ƒbƒVƒ…ˆ—‚Ís‚¢‚Ü‚¹‚ñB•K—v‚É‰‚¶‚ÄŒÄ‚Ño‚µŒ³ƒƒ\ƒbƒh‚É‚¨‚¢‚Ä flush()‚µ‚Ä‚­‚¾‚³‚¢B<br>
-     * “à•”“I‚É‚Í •ÊƒNƒ‰ƒX‚ÌƒXƒgƒŠ[ƒ€ƒRƒs[‚ğŒÄ‚Ño‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å†…éƒ¨ã§ã¯ãƒ•ãƒ©ãƒƒã‚·ãƒ¥å‡¦ç†ã¯è¡Œã„ã¾ã›ã‚“ã€‚å¿…è¦ã«å¿œã˜ã¦å‘¼ã³å‡ºã—å…ƒãƒ¡ã‚½ãƒƒãƒ‰ã«ãŠã„ã¦ flush()ã—ã¦ãã ã•ã„ã€‚<br>
+     * å†…éƒ¨çš„ã«ã¯ åˆ¥ã‚¯ãƒ©ã‚¹ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚³ãƒ”ãƒ¼ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚
      * 
-     * @deprecated ‚±‚Ìƒƒ\ƒbƒh‚Ì‘ã‚í‚è‚É BlancoStreamUtil.copyƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·‚±‚Æ‚ğ‚¨Š©‚ß‚µ‚Ü‚·B
+     * @deprecated ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ä»£ã‚ã‚Šã« BlancoStreamUtil.copyãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã“ã¨ã‚’ãŠå‹§ã‚ã—ã¾ã™ã€‚
      * @param inStream
-     *            “ü—ÍƒXƒgƒŠ[ƒ€B
+     *            å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
      * @param outStream
-     *            o—ÍƒXƒgƒŠ[ƒ€B
+     *            å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final void copy(final InputStream inStream,
             final OutputStream outStream) throws IOException {
         if (inStream == null) {
             throw new IllegalArgumentException(
-                    "BlancoFileUtil.copyƒƒ\ƒbƒh‚Ì“ü—ÍƒXƒgƒŠ[ƒ€ƒpƒ‰ƒ[ƒ^‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½BnullˆÈŠO‚Ì’l‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+                    "BlancoFileUtil.copyãƒ¡ã‚½ãƒƒãƒ‰ã®å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚nullä»¥å¤–ã®å€¤ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
         }
         if (outStream == null) {
             throw new IllegalArgumentException(
-                    "BlancoFileUtil.copyƒƒ\ƒbƒh‚Ìo—ÍƒXƒgƒŠ[ƒ€ƒpƒ‰ƒ[ƒ^‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½BnullˆÈŠO‚Ì’l‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B");
+                    "BlancoFileUtil.copyãƒ¡ã‚½ãƒƒãƒ‰ã®å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚nullä»¥å¤–ã®å€¤ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚");
         }
 
         BlancoStreamUtil.copy(inStream, outStream);
     }
 
     /**
-     * ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İAbyte”z—ñ‚Ö‚Æ“WŠJ‚µ‚Ü‚·B
+     * ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€byteé…åˆ—ã¸ã¨å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param inputFile
-     *            “ü—Íƒtƒ@ƒCƒ‹B
-     * @return byte”z—ñ‰»‚³‚ê‚½ƒtƒ@ƒCƒ‹‚Ì“à—eB
+     *            å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
+     * @return byteé…åˆ—åŒ–ã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      * @throws IllegalArgumentException
-     *             ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢‚È‚Ç‚Ìê‡B
+     *             ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„ãªã©ã®å ´åˆã€‚
      */
     public static final byte[] file2Bytes(final File inputFile)
             throws IOException, IllegalArgumentException {
         if (inputFile == null) {
             throw new IllegalArgumentException(
-                    "file2Bytes()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Änull‚ª—^‚¦‚ê‚ç‚ê‚Ü‚µ‚½B");
+                    "file2Bytes()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦nullãŒä¸ãˆã‚Œã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (inputFile.exists() == false) {
             throw new IllegalArgumentException(
-                    "file2Bytes()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Ä—^‚¦‚ç‚ê‚½ƒtƒ@ƒCƒ‹‚Í‘¶İ‚µ‚Ü‚¹‚ñB");
+                    "file2Bytes()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦ä¸ãˆã‚‰ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚");
         }
         if (inputFile.canRead() == false) {
             throw new IllegalArgumentException(
-                    "file2Bytes()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Ä—^‚¦‚ç‚ê‚½ƒtƒ@ƒCƒ‹‚Í“Ç‚İ‚Ş‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñB");
+                    "file2Bytes()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦ä¸ãˆã‚‰ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯èª­ã¿è¾¼ã‚€ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚");
         }
         if (inputFile.isDirectory()) {
             throw new IllegalArgumentException(
-                    "file2Bytes()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚ÄƒfƒBƒŒƒNƒgƒŠ‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½BƒfƒBƒŒƒNƒgƒŠ‚Íˆ—‚Å‚«‚Ü‚¹‚ñ");
+                    "file2Bytes()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯å‡¦ç†ã§ãã¾ã›ã‚“");
         }
 
         final ByteArrayOutputStream outStream = new ByteArrayOutputStream();
@@ -195,40 +195,40 @@ public class BlancoFileUtil {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½ƒoƒCƒg”z—ñ‚ğA—^‚¦‚ç‚ê‚½ƒtƒ@ƒCƒ‹‚Éo—Í‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸãƒã‚¤ãƒˆé…åˆ—ã‚’ã€ä¸ãˆã‚‰ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
      * @param inputBytes
-     *            “ü—Í‚Æ‚È‚éƒoƒCƒg”z—ñB
+     *            å…¥åŠ›ã¨ãªã‚‹ãƒã‚¤ãƒˆé…åˆ—ã€‚
      * @param outputFile
-     *            o—Í‚Æ‚È‚éƒtƒ@ƒCƒ‹B
+     *            å‡ºåŠ›ã¨ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      * @throws IllegalArgumentException
-     *             ƒtƒ@ƒCƒ‹‚Énull‚ª—^‚¦‚ç‚ê‚½‚È‚Ç‚Ìê‡B
+     *             ãƒ•ã‚¡ã‚¤ãƒ«ã«nullãŒä¸ãˆã‚‰ã‚ŒãŸãªã©ã®å ´åˆã€‚
      */
     public static final void bytes2File(final byte[] inputBytes,
             final File outputFile) throws IOException, IllegalArgumentException {
         if (inputBytes == null) {
             throw new IllegalArgumentException(
-                    "bytes2File()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Ì“ü—ÍƒoƒCƒg”z—ñ‚Æ‚µ‚Änull‚ª—^‚¦‚ê‚ç‚ê‚Ü‚µ‚½B");
+                    "bytes2File()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å…¥åŠ›ãƒã‚¤ãƒˆé…åˆ—ã¨ã—ã¦nullãŒä¸ãˆã‚Œã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (outputFile == null) {
             throw new IllegalArgumentException(
-                    "bytes2File()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Ìo—Íƒtƒ@ƒCƒ‹‚Æ‚µ‚Änull‚ª—^‚¦‚ê‚ç‚ê‚Ü‚µ‚½B");
+                    "bytes2File()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦nullãŒä¸ãˆã‚Œã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         if (outputFile.exists()) {
             if (outputFile.isDirectory()) {
                 throw new IllegalArgumentException(
-                        "bytes2File()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Äo—Íæƒtƒ@ƒCƒ‹‚ÉƒfƒBƒŒƒNƒgƒŠ‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½BƒfƒBƒŒƒNƒgƒŠ‚Íˆ—‚Å‚«‚Ü‚¹‚ñ");
+                        "bytes2File()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¯å‡¦ç†ã§ãã¾ã›ã‚“");
             }
             if (outputFile.canWrite() == false) {
                 throw new IllegalArgumentException(
-                        "bytes2File()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Ä—^‚¦‚ç‚ê‚½ƒtƒ@ƒCƒ‹‚Í‘¶İ‚·‚éã‚É‘‚«‚İ‚Å‚«‚Ü‚¹‚ñB");
+                        "bytes2File()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦ä¸ãˆã‚‰ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã¯å­˜åœ¨ã™ã‚‹ä¸Šã«æ›¸ãè¾¼ã¿ã§ãã¾ã›ã‚“ã€‚");
             }
         } else {
             if (outputFile.createNewFile() == false) {
                 throw new IllegalArgumentException(
-                        "bytes2File()ƒƒ\ƒbƒh‚É“ü—Íƒpƒ‰ƒ[ƒ^‚Æ‚µ‚Äo—Íæƒtƒ@ƒCƒ‹‚Í¶¬‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñB");
+                        "bytes2File()ãƒ¡ã‚½ãƒƒãƒ‰ã«å…¥åŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¨ã—ã¦å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã¯ç”Ÿæˆã™ã‚‹ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚");
             }
         }
 
@@ -246,35 +246,35 @@ public class BlancoFileUtil {
     }
 
     /**
-     * •K—v‚É‰‚¶‚ÄAƒoƒCƒg”z—ñ‚ğƒtƒ@ƒCƒ‹‚Éo—Í‚µ‚Ü‚·B
+     * å¿…è¦ã«å¿œã˜ã¦ã€ãƒã‚¤ãƒˆé…åˆ—ã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã«å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
      * @param inputBytes
-     *            “ü—ÍƒoƒCƒg”z—ñB
+     *            å…¥åŠ›ãƒã‚¤ãƒˆé…åˆ—ã€‚
      * @param outputFile
-     *            o—Íæƒtƒ@ƒCƒ‹B
-     * @return 0:ì¬‚àXV‚à‚¨‚±‚È‚í‚È‚©‚Á‚½B1:ƒtƒ@ƒCƒ‹‚ğV‹K‚Éì¬‚µ‚½B2:ƒtƒ@ƒCƒ‹‚ğXV‚µ‚½B
+     *            å‡ºåŠ›å…ˆãƒ•ã‚¡ã‚¤ãƒ«ã€‚
+     * @return 0:ä½œæˆã‚‚æ›´æ–°ã‚‚ãŠã“ãªã‚ãªã‹ã£ãŸã€‚1:ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ–°è¦ã«ä½œæˆã—ãŸã€‚2:ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›´æ–°ã—ãŸã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final int bytes2FileIfNecessary(final byte[] inputBytes,
             final File outputFile) throws IOException {
 
         byte[] originalFileImage = null;
         if (outputFile.exists()) {
-            // ƒIƒŠƒWƒiƒ‹‚Ìƒtƒ@ƒCƒ‹ƒCƒ[ƒW‚ğæ“¾‚µ‚Ä‚¨‚«‚Ü‚·B
+            // ã‚ªãƒªã‚¸ãƒŠãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’å–å¾—ã—ã¦ãŠãã¾ã™ã€‚
             originalFileImage = file2Bytes(outputFile);
         }
 
         if (originalFileImage == null) {
-            // —L–³‚ğŒ¾‚í‚³‚¸V‹K‘‚«‚İB
+            // æœ‰ç„¡ã‚’è¨€ã‚ã•ãšæ–°è¦æ›¸ãè¾¼ã¿ã€‚
             bytes2File(inputBytes, outputFile);
             return 1;
         } else {
             if (BlancoByteUtil.compare(originalFileImage, inputBytes) == 0) {
-                // ‘‚«‚Ş•K—v‚È‚µB
+                // æ›¸ãè¾¼ã‚€å¿…è¦ãªã—ã€‚
                 return 0;
             } else {
-                // XV‘‚«‚İB
+                // æ›´æ–°æ›¸ãè¾¼ã¿ã€‚
                 bytes2File(inputBytes, outputFile);
                 return 2;
             }
@@ -282,9 +282,9 @@ public class BlancoFileUtil {
     }
 
     /**
-     * ‰üs‚ğæ“¾‚µ‚Ü‚·B
+     * æ”¹è¡Œã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ‰üsBWindows ‚È‚ç \n
+     * @return æ”¹è¡Œã€‚Windows ãªã‚‰ \n
      */
     public static final String getNewLine() {
         return System.getProperty("line.separator");

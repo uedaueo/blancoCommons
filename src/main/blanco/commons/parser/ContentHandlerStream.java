@@ -22,7 +22,7 @@ package blanco.commons.parser;
 import org.xml.sax.ContentHandler;
 
 /**
- * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚É‚æ‚éƒXƒgƒŠ[ƒ€‚ð’ñ‹Ÿ‚µ‚Ü‚·B
+ * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã«ã‚ˆã‚‹ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’æä¾›ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -30,7 +30,7 @@ public abstract class ContentHandlerStream implements ContentHandler {
     private ContentHandler contentHandler = null;
 
     /**
-     * “à•”“I‚É‹L‰¯‚·‚é•K—v‚Ì‚ ‚éƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ð‹L‰¯‚µ‚Ü‚·B
+     * å†…éƒ¨çš„ã«è¨˜æ†¶ã™ã‚‹å¿…è¦ã®ã‚ã‚‹ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’è¨˜æ†¶ã—ã¾ã™ã€‚
      */
     private ContentHandlerStream chainedContentHandler = null;
 
@@ -38,7 +38,7 @@ public abstract class ContentHandlerStream implements ContentHandler {
     }
 
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰Eƒ`ƒFƒCƒ“‚ð‚Â‚È‚°•¹‚¹‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ãƒ»ãƒã‚§ã‚¤ãƒ³ã‚’ã¤ãªã’ä½µã›ã¾ã™ã€‚
      * 
      * @param arg0
      */
@@ -47,21 +47,21 @@ public abstract class ContentHandlerStream implements ContentHandler {
     }
 
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ðƒZƒbƒg‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
      */
     public void setContentHandler(ContentHandler arg0) {
         contentHandler = arg0;
     }
 
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ðƒXƒgƒŠ[ƒ€ƒ`ƒFƒCƒ“‚ÉÝ’è‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’ã‚¹ãƒˆãƒªãƒ¼ãƒ ãƒã‚§ã‚¤ãƒ³ã«è¨­å®šã—ã¾ã™ã€‚
      */
     protected void chainContentHandler(ContentHandlerStream arg0) {
         chainedContentHandler = arg0;
     }
 
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ðŽæ“¾‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ã—ã¾ã™ã€‚
      */
     public ContentHandler getContentHandler() {
         if (chainedContentHandler == null) {

@@ -35,26 +35,26 @@ import org.xml.sax.helpers.AttributesImpl;
 ;
 
 /**
- * BlancoCalcParserDefSerializer‹ïÛ‰»SAXƒNƒ‰ƒX<br>
- * SAX‚ğ—˜—p‚µ‚½XML‘‚«o‚µ‚ğƒ‰ƒbƒsƒ“ƒO‚·‚éƒNƒ‰ƒX‚Å‚·B<br>
- * ‚±‚ÌƒNƒ‰ƒX‚Í‰ğÍ—pXMLƒtƒ@ƒCƒ‹‚ğ“ü—Í‚Æ‚µ‚Ä‹ïÛ‰»SAXƒNƒ‰ƒX‚Æ‚µ‚Ä¶¬‚³‚ê‚Ü‚µ‚½B<br>
- * ‚±‚Ìƒ\[ƒXƒR[ƒh‚ÍblancoIg‚É‚æ‚è‹@ŠB“I‚É©“®¶¬‚³‚ê‚Ä‚¢‚Ü‚·B ‚±‚ÌƒNƒ‰ƒX‚Í implements ContentHandler ‚Ís‚¢‚Ü‚¹‚ñB<br>
- * “TŒ^“I‚È—˜—p•û–@‚Í‰º‹L‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B<br>
+ * BlancoCalcParserDefSerializerå…·è±¡åŒ–SAXã‚¯ãƒ©ã‚¹<br>
+ * SAXã‚’åˆ©ç”¨ã—ãŸXMLæ›¸ãå‡ºã—ã‚’ãƒ©ãƒƒãƒ”ãƒ³ã‚°ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚<br>
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯è§£æç”¨XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’å…¥åŠ›ã¨ã—ã¦å…·è±¡åŒ–SAXã‚¯ãƒ©ã‚¹ã¨ã—ã¦ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚<br>
+ * ã“ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¯blancoIgã«ã‚ˆã‚Šæ©Ÿæ¢°çš„ã«è‡ªå‹•ç”Ÿæˆã•ã‚Œã¦ã„ã¾ã™ã€‚ ã“ã®ã‚¯ãƒ©ã‚¹ã¯ implements ContentHandler ã¯è¡Œã„ã¾ã›ã‚“ã€‚<br>
+ * å…¸å‹çš„ãªåˆ©ç”¨æ–¹æ³•ã¯ä¸‹è¨˜ã®ã‚ˆã†ã«ãªã‚Šã¾ã™ã€‚<br>
  * 
  * <pre>
  * BlancoCalcParserDefSerializer serializer = new BlancoCalcParserDefSerializer(
  *         outStream);
  * serializer.startDocument();
  * serializer.startElementXXXX();
- * serializer.characters(&quot;”­¶‚³‚¹‚½‚¢•¶š—ñ&quot;);
+ * serializer.characters(&quot;ç™ºç”Ÿã•ã›ãŸã„æ–‡å­—åˆ—&quot;);
  * serializer.endElementXXXX();
  * serializer.endDocument();
  * </pre>
  */
 public class BlancoCalcParserDefSerializer {
     /**
-     * “à•”“I‚É—˜—p‚·‚éo—Í—pSAXƒnƒ“ƒhƒ‰<br>
-     * ˜AŒ‹æ‚ÌƒXƒgƒŠ[ƒ€‚ÍŠO•”‚Åclose‚³‚ê‚é•K—v‚ª‚ ‚è‚Ü‚·B
+     * å†…éƒ¨çš„ã«åˆ©ç”¨ã™ã‚‹å‡ºåŠ›ç”¨SAXãƒãƒ³ãƒ‰ãƒ©<br>
+     * é€£çµå…ˆã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¯å¤–éƒ¨ã§closeã•ã‚Œã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
      */
     private TransformerHandler _saxHandler;
 
@@ -75,56 +75,56 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * startDocument‚ğ”­¶‚³‚¹‚Ü‚·B
+     * startDocumentã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void startDocument() throws SAXException {
         _saxHandler.startDocument();
     }
 
     /**
-     * endDocument‚ğ”­¶‚³‚¹‚Ü‚·B
+     * endDocumentã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void endDocument() throws SAXException {
         _saxHandler.endDocument();
     }
 
-    /** startPrefixMapping‚ğ”­¶‚³‚¹‚Ü‚·B */
+    /** startPrefixMappingã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚ */
     public void startPrefixMapping(String prefix, String uri)
             throws SAXException {
         _saxHandler.startPrefixMapping(prefix, uri);
     }
 
     /**
-     * endPrefixMapping‚ğ”­¶‚³‚¹‚Ü‚·B
+     * endPrefixMappingã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void endPrefixMapping(String prefix) throws SAXException {
         _saxHandler.endPrefixMapping(prefix);
     }
 
     /**
-     * setDocumentLocator‚ğ”­¶‚³‚¹‚Ü‚·BB
+     * setDocumentLocatorã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚ã€‚
      * 
      * @param locator
-     *            ƒƒP[ƒ^
+     *            ãƒ­ã‚±ãƒ¼ã‚¿
      */
     public void setDocumentLocator(Locator locator) {
         _saxHandler.setDocumentLocator(locator);
     }
 
     /**
-     * processingInstruction‚ğ”­¶‚³‚¹‚Ü‚·B
+     * processingInstructionã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void processingInstruction(String target, String data)
             throws SAXException {
@@ -132,27 +132,27 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * skippedEntity‚ğ”­¶‚³‚¹‚Ü‚·B
+     * skippedEntityã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void skippedEntity(String name) throws SAXException {
         _saxHandler.skippedEntity(name);
     }
 
     /**
-     * charactersƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ü‚·B<br>
+     * charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
      * 
      * @param ch
-     *            o—Í‚µ‚½‚¢•¶š—ñ
+     *            å‡ºåŠ›ã—ãŸã„æ–‡å­—åˆ—
      * @param start
-     *            ŠJnˆÊ’u
+     *            é–‹å§‹ä½ç½®
      * @param length
-     *            •¶š—ñ‚Ì’·‚³
+     *            æ–‡å­—åˆ—ã®é•·ã•
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void characters(char[] ch, int start, int length)
             throws SAXException {
@@ -160,14 +160,14 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * charactersƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦ŠÈˆÕ‰»‚Ì‚½‚ß‚É ˆø”‚ğ java.lang.String‰»‚µ‚½‚à‚Ì‚Å‚·B
+     * charactersãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»ç°¡æ˜“åŒ–ã®ãŸã‚ã« å¼•æ•°ã‚’ java.lang.StringåŒ–ã—ãŸã‚‚ã®ã§ã™ã€‚
      * 
      * @param data
-     *            o—Í‚µ‚½‚¢•¶š—ñ
+     *            å‡ºåŠ›ã—ãŸã„æ–‡å­—åˆ—
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void characters(String data) throws SAXException {
         final char[] chars = data.toCharArray();
@@ -175,10 +175,10 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * ignorableWhitespace‚ğ”­¶‚³‚¹‚Ü‚·B
+     * ignorableWhitespaceã‚’ç™ºç”Ÿã•ã›ã¾ã™ã€‚
      * 
      * @throws SAXException
-     *             SAXŠÖ˜A‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXé–¢é€£ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void ignorableWhitespace(char[] ch, int start, int length)
             throws SAXException {
@@ -186,14 +186,14 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[blanco]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [blanco]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[blanco]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [blanco]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]<br>
      * 
      * @param attrVersion
-     *            ƒAƒgƒŠƒrƒ…[ƒg[version]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[version]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementBlanco(String attrVersion) throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -205,25 +205,25 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[blanco]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [blanco]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[blanco]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [blanco]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blanco]<br>
      */
     public void endElementBlanco() throws SAXException {
         _saxHandler.endElement("", "blanco", "blanco");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[target]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [target]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[target]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [target]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]<br>
      * 
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementTarget(String attrName) throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -234,25 +234,25 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[target]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [target]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[target]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [target]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[target]<br>
      */
     public void endElementTarget() throws SAXException {
         _saxHandler.endElement("", "target", "target");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[blancocalcparser]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [blancocalcparser]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[blancocalcparser]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [blancocalcparser]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]<br>
      * 
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementBlancocalcparser(String attrName)
             throws SAXException {
@@ -265,27 +265,27 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[blancocalcparser]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [blancocalcparser]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[blancocalcparser]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [blancocalcparser]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[blancocalcparser]<br>
      */
     public void endElementBlancocalcparser() throws SAXException {
         _saxHandler.endElement("", "blancocalcparser", "blancocalcparser");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[propertyblock]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [propertyblock]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[propertyblock]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [propertyblock]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]<br>
      * 
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      * @param attrWaitY
-     *            ƒAƒgƒŠƒrƒ…[ƒg[waitY]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[waitY]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementPropertyblock(String attrName, String attrWaitY)
             throws SAXException {
@@ -301,22 +301,22 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[propertyblock]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [propertyblock]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[propertyblock]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [propertyblock]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertyblock]<br>
      */
     public void endElementPropertyblock() throws SAXException {
         _saxHandler.endElement("", "propertyblock", "propertyblock");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[startstring]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [startstring]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[startstring]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [startstring]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]<br>
      */
     public void startElementStartstring() throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -324,27 +324,27 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[startstring]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [startstring]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[startstring]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [startstring]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[startstring]<br>
      */
     public void endElementStartstring() throws SAXException {
         _saxHandler.endElement("", "startstring", "startstring");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[propertykey]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [propertykey]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[propertykey]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [propertykey]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]<br>
      * 
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      * @param attrWaitX
-     *            ƒAƒgƒŠƒrƒ…[ƒg[waitX]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[waitX]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementPropertykey(String attrName, String attrWaitX)
             throws SAXException {
@@ -359,22 +359,22 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[propertykey]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [propertykey]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[propertykey]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [propertykey]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[propertykey]<br>
      */
     public void endElementPropertykey() throws SAXException {
         _saxHandler.endElement("", "propertykey", "propertykey");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[value]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [value]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[value]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [value]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]<br>
      */
     public void startElementValue() throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -382,22 +382,22 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[value]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [value]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[value]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [value]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[value]<br>
      */
     public void endElementValue() throws SAXException {
         _saxHandler.endElement("", "value", "value");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[valuemapping]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [valuemapping]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[valuemapping]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [valuemapping]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]<br>
      */
     public void startElementValuemapping() throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -406,22 +406,22 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[valuemapping]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [valuemapping]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[valuemapping]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [valuemapping]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[valuemapping]<br>
      */
     public void endElementValuemapping() throws SAXException {
         _saxHandler.endElement("", "valuemapping", "valuemapping");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[result]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [result]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[result]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [result]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]<br>
      */
     public void startElementResult() throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -429,22 +429,22 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[result]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [result]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[result]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [result]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[result]<br>
      */
     public void endElementResult() throws SAXException {
         _saxHandler.endElement("", "result", "result");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[source]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [source]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[source]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [source]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]<br>
      */
     public void startElementSource() throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -452,32 +452,32 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[source]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [source]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[source]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [source]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[source]<br>
      */
     public void endElementSource() throws SAXException {
         _saxHandler.endElement("", "source", "source");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[tableblock]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [tableblock]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[tableblock]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [tableblock]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]<br>
      * 
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      * @param attrWaitY
-     *            ƒAƒgƒŠƒrƒ…[ƒg[waitY]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[waitY]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      * @param attrTitleheight
-     *            ƒAƒgƒŠƒrƒ…[ƒg[titleheight]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í
-     *            null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[titleheight]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯
+     *            nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      * @param attrRowname
-     *            ƒAƒgƒŠƒrƒ…[ƒg[rowname]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[rowname]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementTableblock(String attrName, String attrWaitY,
             String attrTitleheight, String attrRowname) throws SAXException {
@@ -500,25 +500,25 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[tableblock]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [tableblock]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[tableblock]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [tableblock]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tableblock]<br>
      */
     public void endElementTableblock() throws SAXException {
         _saxHandler.endElement("", "tableblock", "tableblock");
     }
 
     /**
-     * startElement‚ğÚ“ª«•t‚«‚ÌCü–¼[tablecolumn]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [tablecolumn]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[tablecolumn]<br>
+     * startElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [tablecolumn]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]<br>
      * 
      * @param attrName
-     *            ƒAƒgƒŠƒrƒ…[ƒg[name]‚Ì’l‚ğ“n‚µ‚Ü‚·BƒAƒgƒŠƒrƒ…[ƒg‚ğƒZƒbƒg‚µ‚½‚­‚È‚¢ê‡‚É‚Í null‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     *            ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆ[name]ã®å€¤ã‚’æ¸¡ã—ã¾ã™ã€‚ã‚¢ãƒˆãƒªãƒ“ãƒ¥ãƒ¼ãƒˆã‚’ã‚»ãƒƒãƒˆã—ãŸããªã„å ´åˆã«ã¯ nullã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      */
     public void startElementTablecolumn(String attrName) throws SAXException {
         AttributesImpl attributes = new AttributesImpl();
@@ -529,11 +529,11 @@ public class BlancoCalcParserDefSerializer {
     }
 
     /**
-     * endElement‚ğÚ“ª«•t‚«‚ÌCü–¼[tablecolumn]‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ü‚·B<br>
-     * ¦Šî–{“I‚Èî•ñ‚Íƒƒ\ƒbƒhÀ‘•‚ÉŠÜ‚Ü‚ê‚é‚Ì‚Åˆø”‚©‚ç‚Íœ‚©‚ê‚Ä‚¢‚Ü‚·B<br>
-     * –¼‘O‹óŠÔURI []<br>
-     * ƒ[ƒJƒ‹–¼ [tablecolumn]<br>
-     * Ú“ª«•t‚«‚ÌCü–¼[tablecolumn]<br>
+     * endElementã‚’æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]ã¨ã—ã¦å‘¼ã³å‡ºã—ã¾ã™ã€‚<br>
+     * â€»åŸºæœ¬çš„ãªæƒ…å ±ã¯ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè£…ã«å«ã¾ã‚Œã‚‹ã®ã§å¼•æ•°ã‹ã‚‰ã¯é™¤ã‹ã‚Œã¦ã„ã¾ã™ã€‚<br>
+     * åå‰ç©ºé–“URI []<br>
+     * ãƒ­ãƒ¼ã‚«ãƒ«å [tablecolumn]<br>
+     * æ¥é ­è¾ä»˜ãã®ä¿®é£¾å[tablecolumn]<br>
      */
     public void endElementTablecolumn() throws SAXException {
         _saxHandler.endElement("", "tablecolumn", "tablecolumn");

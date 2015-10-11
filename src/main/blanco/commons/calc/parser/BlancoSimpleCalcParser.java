@@ -27,15 +27,15 @@ import org.xml.sax.helpers.AttributesImpl;
 import blanco.commons.calc.BlancoCalcUtil;
 
 /**
- * Calc‚ğ“Ç‚İæ‚Á‚Ä‚İ‚é‚½‚ß‚Ì’´ŠÈ’P‚ÈSAX2ƒp[ƒT‚Å‚·B <br>
- * ‹É‚ß‚Ä’Pƒ‚ÈSAXƒp[ƒXÀ‘•‚Æ‚µ‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+ * Calcã‚’èª­ã¿å–ã£ã¦ã¿ã‚‹ãŸã‚ã®è¶…ç°¡å˜ãªSAX2ãƒ‘ãƒ¼ã‚µã§ã™ã€‚ <br>
+ * æ¥µã‚ã¦å˜ç´”ãªSAXãƒ‘ãƒ¼ã‚¹å®Ÿè£…ã¨ã—ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoSimpleCalcParser extends AbstractBlancoCalcParser {
 
     protected void startSheet(final String sheetName) throws SAXException {
-        System.out.println("ƒV[ƒg[" + sheetName + "]‚ğˆ—...");
+        System.out.println("ã‚·ãƒ¼ãƒˆ[" + sheetName + "]ã‚’å‡¦ç†...");
         AttributesImpl attrImpl = new AttributesImpl();
         attrImpl.addAttribute("", "name", "name", "CDATA", sheetName);
         getContentHandler().startElement("", "sheet", "sheet", attrImpl);
@@ -58,14 +58,14 @@ public class BlancoSimpleCalcParser extends AbstractBlancoCalcParser {
     }
 
     /**
-     * ƒZƒ‹‚ªƒp[ƒX‚³‚ê‚½Û‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ã‚»ãƒ«ãŒãƒ‘ãƒ¼ã‚¹ã•ã‚ŒãŸéš›ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param column
-     *            ‚±‚±‚Å‚Í1ƒIƒŠƒWƒ“‚ÅŒÄ‚Ño‚³‚ê‚Ü‚·B
+     *            ã“ã“ã§ã¯1ã‚ªãƒªã‚¸ãƒ³ã§å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * @param row
-     *            ‚±‚±‚Å‚Í1ƒIƒŠƒWƒ“‚ÅŒÄ‚Ño‚³‚ê‚Ü‚·B
+     *            ã“ã“ã§ã¯1ã‚ªãƒªã‚¸ãƒ³ã§å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * @param cellValue
-     *            ƒZƒ‹‚Ì’lB
+     *            ã‚»ãƒ«ã®å€¤ã€‚
      * @throws SAXException
      */
     protected void fireCell(final int column, final int row,

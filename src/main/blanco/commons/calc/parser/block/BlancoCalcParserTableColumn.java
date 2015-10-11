@@ -20,7 +20,7 @@
 package blanco.commons.calc.parser.block;
 
 /**
- * ƒe[ƒuƒ‹—ñ‚ğ•\Œ»‚µ‚Ü‚·B
+ * ãƒ†ãƒ¼ãƒ–ãƒ«åˆ—ã‚’è¡¨ç¾ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -33,22 +33,22 @@ public class BlancoCalcParserTableColumn {
     private int columnPosition = -1;
 
     /**
-     * ƒe[ƒuƒ‹‚ÌƒJƒ‰ƒ€ƒIƒuƒWƒFƒNƒg‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ãƒ†ãƒ¼ãƒ–ãƒ«ã®ã‚«ãƒ©ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ƒJƒ‰ƒ€–¼B
+     *            ã‚«ãƒ©ãƒ åã€‚
      */
     public BlancoCalcParserTableColumn(final String name) {
         this._columnName = name;
     }
 
     /**
-     * ƒe[ƒuƒ‹‚Ì—‚ŞƒIƒuƒWƒFƒNƒg‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ãƒ†ãƒ¼ãƒ–ãƒ«ã®çµ¡ã‚€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ƒJƒ‰ƒ€–¼B
+     *            ã‚«ãƒ©ãƒ åã€‚
      * @param columnString
-     *            ƒJƒ‰ƒ€•¶š—ñ‚Ì”z—ñB
+     *            ã‚«ãƒ©ãƒ æ–‡å­—åˆ—ã®é…åˆ—ã€‚
      */
     public BlancoCalcParserTableColumn(final String name,
             final String[] columnString) {
@@ -57,40 +57,40 @@ public class BlancoCalcParserTableColumn {
     }
 
     /**
-     * —ñ‚Ì–¼‘O‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—ã®åå‰ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return —ñ‚Ì–¼‘OB
+     * @return åˆ—ã®åå‰ã€‚
      */
     public String getName() {
         return _columnName;
     }
 
     /**
-     * —ñ‚Ì–¼‘O‚ğİ’è‚µ‚Ü‚·B
+     * åˆ—ã®åå‰ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            —ñ‚Ì–¼‘OB
+     *            åˆ—ã®åå‰ã€‚
      */
     public void setName(final String arg) {
         _columnName = arg;
     }
 
     /**
-     * ƒJƒ‰ƒ€•¶š—ñ‚ğ‹L‰¯‚µ‚Ü‚·B
+     * ã‚«ãƒ©ãƒ æ–‡å­—åˆ—ã‚’è¨˜æ†¶ã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ƒJƒ‰ƒ€•¶š—ñ‚Ì”z—ñB
+     *            ã‚«ãƒ©ãƒ æ–‡å­—åˆ—ã®é…åˆ—ã€‚
      */
     public void setColumnString(final String[] arg) {
         _columnString = arg;
     }
 
     /**
-     * ŠJn•¶š—ñ‚Éƒqƒbƒg‚·‚é‚©‚Ç‚¤‚©’²¸‚µ‚Ü‚·B
+     * é–‹å§‹æ–‡å­—åˆ—ã«ãƒ’ãƒƒãƒˆã™ã‚‹ã‹ã©ã†ã‹èª¿æŸ»ã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ŠJn•¶š—ñB
-     * @return ƒqƒbƒg‚µ‚½‚©‚Ç‚¤‚©B
+     *            é–‹å§‹æ–‡å­—åˆ—ã€‚
+     * @return ãƒ’ãƒƒãƒˆã—ãŸã‹ã©ã†ã‹ã€‚
      */
     public boolean isStartString(String arg) {
         final int columnStringLength = _columnString.length;
@@ -103,19 +103,19 @@ public class BlancoCalcParserTableColumn {
     }
 
     /**
-     * —ñ‚ÌƒJƒ‰ƒ€”Ô†‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—ã®ã‚«ãƒ©ãƒ ç•ªå·ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return —ñ‚ÌƒJƒ‰ƒ€”Ô†B
+     * @return åˆ—ã®ã‚«ãƒ©ãƒ ç•ªå·ã€‚
      */
     public int getColumnPosition() {
         return columnPosition;
     }
 
     /**
-     * —ñ‚ÌƒJƒ‰ƒ€”Ô†‚ğ‹L‰¯‚µ‚Ü‚·B
+     * åˆ—ã®ã‚«ãƒ©ãƒ ç•ªå·ã‚’è¨˜æ†¶ã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            —ñ‚ÌƒJƒ‰ƒ€”Ô†B
+     *            åˆ—ã®ã‚«ãƒ©ãƒ ç•ªå·ã€‚
      */
     public void setColumnPosition(int arg) {
         columnPosition = arg;

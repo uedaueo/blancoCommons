@@ -40,13 +40,13 @@ import org.xml.sax.SAXNotSupportedException;
 public class BlancoSimpleCalcParserTest extends TestCase {
 
     /*
-     * void parse ‚ÌƒeƒXƒg’†‚ÌƒNƒ‰ƒX(String)
+     * void parse ã®ãƒ†ã‚¹ãƒˆä¸­ã®ã‚¯ãƒ©ã‚¹(String)
      */
     public void testParseString() {
         OutputStream outStream = null;
         try {
             BlancoSimpleCalcParser parser = new BlancoSimpleCalcParser();
-            // ƒ‹[ƒgƒm[ƒh–¼‚ðŽw’èB
+            // ãƒ«ãƒ¼ãƒˆãƒŽãƒ¼ãƒ‰åã‚’æŒ‡å®šã€‚
             parser.setProperty(
                     BlancoSimpleCalcParser.URI_PROPERTY_NAME_WORKBOOK,
                     "rootNode");
@@ -60,18 +60,18 @@ public class BlancoSimpleCalcParserTest extends TestCase {
             outStream.close();
             outStream = null;
         } catch (TransformerException ex) {
-            System.out.println("XMLƒhƒLƒ…ƒƒ“ƒg•Û‘¶Žž‚É•ÏŠ·—áŠO‚ª”­¶‚µ‚Ü‚µ‚½.:" + ex.toString());
+            System.out.println("XMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä¿å­˜æ™‚ã«å¤‰æ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ.:" + ex.toString());
             ex.printStackTrace();
             return;
         } catch (IOException ex3) {
-            System.out.println("XMLƒhƒLƒ…ƒƒ“ƒg•Û‘¶Žž‚É“üo—Í—áŠO‚ª”­¶‚µ‚Ü‚µ‚½.:" + ex3.toString());
+            System.out.println("XMLãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä¿å­˜æ™‚ã«å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ.:" + ex3.toString());
             ex3.printStackTrace();
             return;
         } catch (SAXNotRecognizedException e) {
-            // TODO Ž©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+            // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
             e.printStackTrace();
         } catch (SAXNotSupportedException e) {
-            // TODO Ž©“®¶¬‚³‚ê‚½ catch ƒuƒƒbƒN
+            // TODO è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸ catch ãƒ–ãƒ­ãƒƒã‚¯
             e.printStackTrace();
         } finally {
             if (outStream != null) {

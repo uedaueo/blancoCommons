@@ -24,28 +24,28 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 /**
- * blanco Framework�ɂ����� Java�\�[�X�R�[�h�o�͂̂��߂̃��[�e�B���e�B���W�߂��N���X�ł��B
+ * blanco Frameworkにおける Javaソースコード出力のためのユーティリティを集めたクラスです。
  * 
- * ���̃N���X�� C#.NET�̃\�[�X�R�[�h������������p����܂��B
+ * このクラスは C#.NETのソースコード生成からも利用されます。
  * 
  * @author IGA Tosiki
  */
 public final class BlancoJavaSourceUtil {
     /**
-     * �^����ꂽ�������Java�\�[�X�R�[�h������Ƃ��ďo�͂�����̂Ƃ��ăG�X�P�[�v�������܂��B
+     * 与えられた文字列をJavaソースコード文字列として出力するものとしてエスケープ処理します。
      * 
-     * ��/�o�b�N�X���b�V���̃G�X�P�[�v����щ��s�R�[�h�̃G�X�P�[�v���s���܂��B<br>
-     * ����ȊO�̏����͍s���܂���B���Ƃ��΃C���W�F�N�V�����U���Ȃǂւ̑ϐ��́A���̃��\�b�h�͈����܂���B
+     * ￥/バックスラッシュのエスケープおよび改行コードのエスケープを行います。<br>
+     * それ以外の処理は行いません。たとえばインジェクション攻撃などへの耐性は、このメソッドは扱いません。
      * 
      * @param originalString
-     *            ���͕�����
-     * @return �G�X�P�[�v�������s��ꂽ��̕�����
+     *            入力文字列
+     * @return エスケープ処理が行われた後の文字列
      */
     public static final String escapeStringAsJavaSource(
             final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "BlancoJavaSourceUtil.escapeStringAsJavaSource�œ��͈ᔽ�������B���̃��\�b�h��null���p�����[�^�Ƃ��ė^�����܂����Bnull�ȊO�̒l����͂��Ă��������B");
+                    "BlancoJavaSourceUtil.escapeStringAsJavaSourceで入力違反が発生。このメソッドにnullがパラメータとして与えられました。null以外の値を入力してください。");
         }
 
         final StringReader reader = new StringReader(originalString);
@@ -73,25 +73,25 @@ public final class BlancoJavaSourceUtil {
             }
             writer.flush();
         } catch (IOException e) {
-            // �����ɓ����Ă��邱�Ƃ́A���肦�܂���B
+            // ここに入ってくることは、ありえません。
             e.printStackTrace();
         }
         return writer.toString();
     }
 
     /**
-     * �^����ꂽ�������JavaDoc������Ƃ��Ĉ������Ƃ��ł�����̂ւƃG�X�P�[�v�������܂��B JavaDoc������Ƃ��ăG�X�P�[�v���s���܂��B
+     * 与えられた文字列をJavaDoc文字列として扱うことができるものへとエスケープ処理します。 JavaDoc文字列としてエスケープを行います。
      * 
-     * HTML�Ƃ��ẴG�X�P�[�v�Ɠ����̏������s���܂��B�������h���G�X�P�[�v����܂��B
+     * HTMLとしてのエスケープと同等の処理が行われます。＜＞＆”がエスケープされます。
      * 
      * @param originalString
-     *            ���͕�����
-     * @return �G�X�P�[�v�������s��ꂽ��̕�����
+     *            入力文字列
+     * @return エスケープ処理が行われた後の文字列
      */
     public static final String escapeStringAsJavaDoc(final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "BlancoJavaSourceUtil.escapeStringAsJavaDoc�œ��͈ᔽ�������B���̃��\�b�h��null���p�����[�^�Ƃ��ė^�����܂����Bnull�ȊO�̒l����͂��Ă��������B");
+                    "BlancoJavaSourceUtil.escapeStringAsJavaDocで入力違反が発生。このメソッドにnullがパラメータとして与えられました。null以外の値を入力してください。");
         }
 
         final StringReader reader = new StringReader(originalString);
@@ -116,7 +116,7 @@ public final class BlancoJavaSourceUtil {
                     writer.write("&quot;");
                     break;
                 case '\n':
-                    // ���s�����̂܂�JavaDoc�ɏo�͂����Ƃ܂����̂ŁA������Ƃ��Ĉ����܂��B
+                    // 改行がそのままJavaDocに出力されるとまずいので、文字列として扱います。
                     writer.write("\\n");
                     break;
                 default:
@@ -126,7 +126,7 @@ public final class BlancoJavaSourceUtil {
             }
             writer.flush();
         } catch (IOException e) {
-            // �����ɓ����Ă��邱�Ƃ́A���肦�܂���B
+            // ここに入ってくることは、ありえません。
             e.printStackTrace();
         }
         return writer.toString();

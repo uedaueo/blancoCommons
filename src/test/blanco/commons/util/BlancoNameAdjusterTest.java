@@ -22,158 +22,158 @@ package blanco.commons.util;
 import junit.framework.TestCase;
 
 /**
- * –¼‘O’²®‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚ÌƒeƒXƒgƒP[ƒX‚Å‚·
+ * åå‰èª¿æ•´ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã§ã™
  * 
  * @author iga
  */
 public class BlancoNameAdjusterTest extends TestCase {
     /**
-     * ƒNƒ‰ƒX–¼•ÏŒ`‚ÌŒ±<br>
+     * ã‚¯ãƒ©ã‚¹åå¤‰å½¢ã®è©¦é¨“<br>
      * 
-     * ¬•¶šFtoUpper‚µ‚Ä•Ï‰»‚·‚é•¶š ‘å•¶šF¬•¶šˆÈŠO‚Ì•¶š
+     * å°æ–‡å­—ï¼štoUpperã—ã¦å¤‰åŒ–ã™ã‚‹æ–‡å­— å¤§æ–‡å­—ï¼šå°æ–‡å­—ä»¥å¤–ã®æ–‡å­—
      * 
-     * ‘å•¶š‚Ì‚İ COLUMNNAME ¨ Columnname (Oracle‚Ì—ñ–¼‚ª‘S‚Ä‘å•¶š)<br>
-     * ¬•¶š‘å•¶š“ü‚è—‚ê ColumnName ¨ ColumnName (æ“ª‚ğ‘å•¶šA•Ï‰»‚È‚µ)<br>
-     * columnName ¨ ColumnName (æ“ª‚ğ‘å•¶š)<br>
-     * ¬•¶š‚Ì‚İ columnname ¨ Columnname<br>
+     * å¤§æ–‡å­—ã®ã¿ COLUMNNAME â†’ Columnname (Oracleã®åˆ—åãŒå…¨ã¦å¤§æ–‡å­—)<br>
+     * å°æ–‡å­—å¤§æ–‡å­—å…¥ã‚Šä¹±ã‚Œ ColumnName â†’ ColumnName (å…ˆé ­ã‚’å¤§æ–‡å­—ã€å¤‰åŒ–ãªã—)<br>
+     * columnName â†’ ColumnName (å…ˆé ­ã‚’å¤§æ–‡å­—)<br>
+     * å°æ–‡å­—ã®ã¿ columnname â†’ Columnname<br>
      * 
-     * ƒAƒ“ƒ_[ƒo[‚È‚Ç‚Íƒg[ƒNƒ“ˆµ‚¢‚Æ‚È‚é<br>
-     * abc_def ¨ AbcDef<br>
+     * ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼ãªã©ã¯ãƒˆãƒ¼ã‚¯ãƒ³æ‰±ã„ã¨ãªã‚‹<br>
+     * abc_def â†’ AbcDef<br>
      * 
      * 
      * @throws Exception
      */
     public void testToClassName() throws Exception {
-        // 1•¶š
+        // 1æ–‡å­—
         assertEquals("A", BlancoNameAdjuster.toClassName("a"));
         assertEquals("A", BlancoNameAdjuster.toClassName("A"));
         assertEquals("1", BlancoNameAdjuster.toClassName("1"));
-        assertEquals("ˆŸ", BlancoNameAdjuster.toClassName("ˆŸ"));
+        assertEquals("äºœ", BlancoNameAdjuster.toClassName("äºœ"));
 
-        // 1•¶šAƒAƒ“ƒ_[ƒo[æ“ª
+        // 1æ–‡å­—ã€ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼å…ˆé ­
         assertEquals("A", BlancoNameAdjuster.toClassName("_a"));
         assertEquals("A", BlancoNameAdjuster.toClassName("_A"));
         assertEquals("1", BlancoNameAdjuster.toClassName("_1"));
-        assertEquals("ˆŸ", BlancoNameAdjuster.toClassName("_ˆŸ"));
+        assertEquals("äºœ", BlancoNameAdjuster.toClassName("_äºœ"));
 
-        // 1•¶šAƒAƒ“ƒ_[ƒo[––”ö
+        // 1æ–‡å­—ã€ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼æœ«å°¾
         assertEquals("A", BlancoNameAdjuster.toClassName("a_"));
         assertEquals("A", BlancoNameAdjuster.toClassName("A_"));
         assertEquals("1", BlancoNameAdjuster.toClassName("1_"));
-        assertEquals("ˆŸ", BlancoNameAdjuster.toClassName("ˆŸ_"));
+        assertEquals("äºœ", BlancoNameAdjuster.toClassName("äºœ_"));
 
-        // 1•¶šAƒAƒ“ƒ_[ƒo[’†ŠÔ
+        // 1æ–‡å­—ã€ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼ä¸­é–“
         assertEquals("AA", BlancoNameAdjuster.toClassName("a_a"));
         assertEquals("AA", BlancoNameAdjuster.toClassName("a_A"));
         assertEquals("A1", BlancoNameAdjuster.toClassName("a_1"));
-        assertEquals("AˆŸ", BlancoNameAdjuster.toClassName("a_ˆŸ"));
+        assertEquals("Aäºœ", BlancoNameAdjuster.toClassName("a_äºœ"));
 
         assertEquals("AA", BlancoNameAdjuster.toClassName("A_a"));
         assertEquals("AA", BlancoNameAdjuster.toClassName("A_A"));
         assertEquals("A1", BlancoNameAdjuster.toClassName("A_1"));
-        assertEquals("AˆŸ", BlancoNameAdjuster.toClassName("A_ˆŸ"));
+        assertEquals("Aäºœ", BlancoNameAdjuster.toClassName("A_äºœ"));
 
         assertEquals("1A", BlancoNameAdjuster.toClassName("1_a"));
         assertEquals("1A", BlancoNameAdjuster.toClassName("1_A"));
         assertEquals("11", BlancoNameAdjuster.toClassName("1_1"));
-        assertEquals("1ˆŸ", BlancoNameAdjuster.toClassName("1_ˆŸ"));
+        assertEquals("1äºœ", BlancoNameAdjuster.toClassName("1_äºœ"));
 
-        assertEquals("ˆŸA", BlancoNameAdjuster.toClassName("ˆŸ_a"));
-        assertEquals("ˆŸA", BlancoNameAdjuster.toClassName("ˆŸ_A"));
-        assertEquals("ˆŸ1", BlancoNameAdjuster.toClassName("ˆŸ_1"));
-        assertEquals("ˆŸˆŸ", BlancoNameAdjuster.toClassName("ˆŸ_ˆŸ"));
+        assertEquals("äºœA", BlancoNameAdjuster.toClassName("äºœ_a"));
+        assertEquals("äºœA", BlancoNameAdjuster.toClassName("äºœ_A"));
+        assertEquals("äºœ1", BlancoNameAdjuster.toClassName("äºœ_1"));
+        assertEquals("äºœäºœ", BlancoNameAdjuster.toClassName("äºœ_äºœ"));
 
-        // ‚Q•¶š
+        // ï¼’æ–‡å­—
         assertEquals("Aa", BlancoNameAdjuster.toClassName("aa"));
         assertEquals("AA", BlancoNameAdjuster.toClassName("aA"));
         assertEquals("A1", BlancoNameAdjuster.toClassName("a1"));
-        assertEquals("AˆŸ", BlancoNameAdjuster.toClassName("aˆŸ"));
+        assertEquals("Aäºœ", BlancoNameAdjuster.toClassName("aäºœ"));
 
         assertEquals("Aa", BlancoNameAdjuster.toClassName("Aa"));
         assertEquals("Aa", BlancoNameAdjuster.toClassName("AA"));
         assertEquals("A1", BlancoNameAdjuster.toClassName("A1"));
-        assertEquals("AˆŸ", BlancoNameAdjuster.toClassName("AˆŸ"));
+        assertEquals("Aäºœ", BlancoNameAdjuster.toClassName("Aäºœ"));
 
         assertEquals("1a", BlancoNameAdjuster.toClassName("1a"));
         assertEquals("1a", BlancoNameAdjuster.toClassName("1A"));
         assertEquals("11", BlancoNameAdjuster.toClassName("11"));
-        assertEquals("1ˆŸ", BlancoNameAdjuster.toClassName("1ˆŸ"));
+        assertEquals("1äºœ", BlancoNameAdjuster.toClassName("1äºœ"));
 
-        assertEquals("ˆŸa", BlancoNameAdjuster.toClassName("ˆŸa"));
-        assertEquals("ˆŸa", BlancoNameAdjuster.toClassName("ˆŸA"));
-        assertEquals("ˆŸ1", BlancoNameAdjuster.toClassName("ˆŸ1"));
-        assertEquals("ˆŸˆŸ", BlancoNameAdjuster.toClassName("ˆŸˆŸ"));
+        assertEquals("äºœa", BlancoNameAdjuster.toClassName("äºœa"));
+        assertEquals("äºœa", BlancoNameAdjuster.toClassName("äºœA"));
+        assertEquals("äºœ1", BlancoNameAdjuster.toClassName("äºœ1"));
+        assertEquals("äºœäºœ", BlancoNameAdjuster.toClassName("äºœäºœ"));
 
-        // ‚R•¶š
+        // ï¼“æ–‡å­—
         assertEquals("Aaa", BlancoNameAdjuster.toClassName("aaa"));
         assertEquals("AaA", BlancoNameAdjuster.toClassName("aaA"));
         assertEquals("Aa1", BlancoNameAdjuster.toClassName("aa1"));
-        assertEquals("AaˆŸ", BlancoNameAdjuster.toClassName("aaˆŸ"));
+        assertEquals("Aaäºœ", BlancoNameAdjuster.toClassName("aaäºœ"));
         assertEquals("AAa", BlancoNameAdjuster.toClassName("aAa"));
         assertEquals("AAA", BlancoNameAdjuster.toClassName("aAA"));
         assertEquals("AA1", BlancoNameAdjuster.toClassName("aA1"));
-        assertEquals("AAˆŸ", BlancoNameAdjuster.toClassName("aAˆŸ"));
+        assertEquals("AAäºœ", BlancoNameAdjuster.toClassName("aAäºœ"));
         assertEquals("A1a", BlancoNameAdjuster.toClassName("a1a"));
         assertEquals("A1A", BlancoNameAdjuster.toClassName("a1A"));
         assertEquals("A11", BlancoNameAdjuster.toClassName("a11"));
-        assertEquals("A1ˆŸ", BlancoNameAdjuster.toClassName("a1ˆŸ"));
-        assertEquals("AˆŸa", BlancoNameAdjuster.toClassName("aˆŸa"));
-        assertEquals("AˆŸA", BlancoNameAdjuster.toClassName("aˆŸA"));
-        assertEquals("AˆŸ1", BlancoNameAdjuster.toClassName("aˆŸ1"));
-        assertEquals("AˆŸˆŸ", BlancoNameAdjuster.toClassName("aˆŸˆŸ"));
+        assertEquals("A1äºœ", BlancoNameAdjuster.toClassName("a1äºœ"));
+        assertEquals("Aäºœa", BlancoNameAdjuster.toClassName("aäºœa"));
+        assertEquals("AäºœA", BlancoNameAdjuster.toClassName("aäºœA"));
+        assertEquals("Aäºœ1", BlancoNameAdjuster.toClassName("aäºœ1"));
+        assertEquals("Aäºœäºœ", BlancoNameAdjuster.toClassName("aäºœäºœ"));
 
         assertEquals("Aaa", BlancoNameAdjuster.toClassName("Aaa"));
         assertEquals("AaA", BlancoNameAdjuster.toClassName("AaA"));
         assertEquals("Aa1", BlancoNameAdjuster.toClassName("Aa1"));
-        assertEquals("AaˆŸ", BlancoNameAdjuster.toClassName("AaˆŸ"));
+        assertEquals("Aaäºœ", BlancoNameAdjuster.toClassName("Aaäºœ"));
         assertEquals("AAa", BlancoNameAdjuster.toClassName("AAa"));
         assertEquals("Aaa", BlancoNameAdjuster.toClassName("AAA"));
         assertEquals("Aa1", BlancoNameAdjuster.toClassName("AA1"));
-        assertEquals("AaˆŸ", BlancoNameAdjuster.toClassName("AAˆŸ"));
+        assertEquals("Aaäºœ", BlancoNameAdjuster.toClassName("AAäºœ"));
         assertEquals("A1a", BlancoNameAdjuster.toClassName("A1a"));
         assertEquals("A1a", BlancoNameAdjuster.toClassName("A1A"));
         assertEquals("A11", BlancoNameAdjuster.toClassName("A11"));
-        assertEquals("A1ˆŸ", BlancoNameAdjuster.toClassName("A1ˆŸ"));
-        assertEquals("AˆŸa", BlancoNameAdjuster.toClassName("AˆŸa"));
-        assertEquals("AˆŸa", BlancoNameAdjuster.toClassName("AˆŸA"));
-        assertEquals("AˆŸ1", BlancoNameAdjuster.toClassName("AˆŸ1"));
-        assertEquals("AˆŸˆŸ", BlancoNameAdjuster.toClassName("AˆŸˆŸ"));
+        assertEquals("A1äºœ", BlancoNameAdjuster.toClassName("A1äºœ"));
+        assertEquals("Aäºœa", BlancoNameAdjuster.toClassName("Aäºœa"));
+        assertEquals("Aäºœa", BlancoNameAdjuster.toClassName("AäºœA"));
+        assertEquals("Aäºœ1", BlancoNameAdjuster.toClassName("Aäºœ1"));
+        assertEquals("Aäºœäºœ", BlancoNameAdjuster.toClassName("Aäºœäºœ"));
 
         assertEquals("1aa", BlancoNameAdjuster.toClassName("1aa"));
         assertEquals("1aA", BlancoNameAdjuster.toClassName("1aA"));
         assertEquals("1a1", BlancoNameAdjuster.toClassName("1a1"));
-        assertEquals("1aˆŸ", BlancoNameAdjuster.toClassName("1aˆŸ"));
+        assertEquals("1aäºœ", BlancoNameAdjuster.toClassName("1aäºœ"));
         assertEquals("1Aa", BlancoNameAdjuster.toClassName("1Aa"));
         assertEquals("1aa", BlancoNameAdjuster.toClassName("1AA"));
         assertEquals("1a1", BlancoNameAdjuster.toClassName("1A1"));
-        assertEquals("1aˆŸ", BlancoNameAdjuster.toClassName("1AˆŸ"));
+        assertEquals("1aäºœ", BlancoNameAdjuster.toClassName("1Aäºœ"));
         assertEquals("11a", BlancoNameAdjuster.toClassName("11a"));
         assertEquals("11a", BlancoNameAdjuster.toClassName("11A"));
         assertEquals("111", BlancoNameAdjuster.toClassName("111"));
-        assertEquals("11ˆŸ", BlancoNameAdjuster.toClassName("11ˆŸ"));
-        assertEquals("1ˆŸa", BlancoNameAdjuster.toClassName("1ˆŸa"));
-        assertEquals("1ˆŸa", BlancoNameAdjuster.toClassName("1ˆŸA"));
-        assertEquals("1ˆŸ1", BlancoNameAdjuster.toClassName("1ˆŸ1"));
-        assertEquals("1ˆŸˆŸ", BlancoNameAdjuster.toClassName("1ˆŸˆŸ"));
+        assertEquals("11äºœ", BlancoNameAdjuster.toClassName("11äºœ"));
+        assertEquals("1äºœa", BlancoNameAdjuster.toClassName("1äºœa"));
+        assertEquals("1äºœa", BlancoNameAdjuster.toClassName("1äºœA"));
+        assertEquals("1äºœ1", BlancoNameAdjuster.toClassName("1äºœ1"));
+        assertEquals("1äºœäºœ", BlancoNameAdjuster.toClassName("1äºœäºœ"));
 
-        assertEquals("ˆŸaa", BlancoNameAdjuster.toClassName("ˆŸaa"));
-        assertEquals("ˆŸaA", BlancoNameAdjuster.toClassName("ˆŸaA"));
-        assertEquals("ˆŸa1", BlancoNameAdjuster.toClassName("ˆŸa1"));
-        assertEquals("ˆŸaˆŸ", BlancoNameAdjuster.toClassName("ˆŸaˆŸ"));
-        assertEquals("ˆŸAa", BlancoNameAdjuster.toClassName("ˆŸAa"));
-        assertEquals("ˆŸaa", BlancoNameAdjuster.toClassName("ˆŸAA"));
-        assertEquals("ˆŸa1", BlancoNameAdjuster.toClassName("ˆŸA1"));
-        assertEquals("ˆŸaˆŸ", BlancoNameAdjuster.toClassName("ˆŸAˆŸ"));
-        assertEquals("ˆŸ1a", BlancoNameAdjuster.toClassName("ˆŸ1a"));
-        assertEquals("ˆŸ1a", BlancoNameAdjuster.toClassName("ˆŸ1A"));
-        assertEquals("ˆŸ11", BlancoNameAdjuster.toClassName("ˆŸ11"));
-        assertEquals("ˆŸ1ˆŸ", BlancoNameAdjuster.toClassName("ˆŸ1ˆŸ"));
-        assertEquals("ˆŸˆŸa", BlancoNameAdjuster.toClassName("ˆŸˆŸa"));
-        assertEquals("ˆŸˆŸa", BlancoNameAdjuster.toClassName("ˆŸˆŸA"));
-        assertEquals("ˆŸˆŸ1", BlancoNameAdjuster.toClassName("ˆŸˆŸ1"));
-        assertEquals("ˆŸˆŸˆŸ", BlancoNameAdjuster.toClassName("ˆŸˆŸˆŸ"));
+        assertEquals("äºœaa", BlancoNameAdjuster.toClassName("äºœaa"));
+        assertEquals("äºœaA", BlancoNameAdjuster.toClassName("äºœaA"));
+        assertEquals("äºœa1", BlancoNameAdjuster.toClassName("äºœa1"));
+        assertEquals("äºœaäºœ", BlancoNameAdjuster.toClassName("äºœaäºœ"));
+        assertEquals("äºœAa", BlancoNameAdjuster.toClassName("äºœAa"));
+        assertEquals("äºœaa", BlancoNameAdjuster.toClassName("äºœAA"));
+        assertEquals("äºœa1", BlancoNameAdjuster.toClassName("äºœA1"));
+        assertEquals("äºœaäºœ", BlancoNameAdjuster.toClassName("äºœAäºœ"));
+        assertEquals("äºœ1a", BlancoNameAdjuster.toClassName("äºœ1a"));
+        assertEquals("äºœ1a", BlancoNameAdjuster.toClassName("äºœ1A"));
+        assertEquals("äºœ11", BlancoNameAdjuster.toClassName("äºœ11"));
+        assertEquals("äºœ1äºœ", BlancoNameAdjuster.toClassName("äºœ1äºœ"));
+        assertEquals("äºœäºœa", BlancoNameAdjuster.toClassName("äºœäºœa"));
+        assertEquals("äºœäºœa", BlancoNameAdjuster.toClassName("äºœäºœA"));
+        assertEquals("äºœäºœ1", BlancoNameAdjuster.toClassName("äºœäºœ1"));
+        assertEquals("äºœäºœäºœ", BlancoNameAdjuster.toClassName("äºœäºœäºœ"));
 
-        // ‚â‚Î‚»‚¤‚È‚Ì‚ÍAˆê•¶šŒn
+        // ã‚„ã°ãã†ãªã®ã¯ã€ä¸€æ–‡å­—ç³»
         assertEquals("ABC", BlancoNameAdjuster.toClassName("A_b_c"));
         assertEquals("ABC", BlancoNameAdjuster.toClassName("a_B_c"));
         assertEquals("ABC", BlancoNameAdjuster.toClassName("a_b_C"));
@@ -182,7 +182,7 @@ public class BlancoNameAdjusterTest extends TestCase {
         assertEquals("ABC", BlancoNameAdjuster.toClassName("A_b_C"));
         assertEquals("ABC", BlancoNameAdjuster.toClassName("A_B_C"));
 
-        // ƒg[ƒNƒ“
+        // ãƒˆãƒ¼ã‚¯ãƒ³
         assertEquals("AaaBbb", BlancoNameAdjuster.toClassName("aaa_bbb"));
         assertEquals("AaaBbb", BlancoNameAdjuster.toClassName("_aaa_bbb"));
         assertEquals("AaaBbb", BlancoNameAdjuster.toClassName("aaa_bbb_"));
@@ -206,11 +206,11 @@ public class BlancoNameAdjusterTest extends TestCase {
         assertEquals("AaaBbb", BlancoNameAdjuster.toClassName("_aaa__bbb__"));
         assertEquals("AaaBbb", BlancoNameAdjuster.toClassName("__aaa__bbb__"));
 
-        // ‚Ü‚ñ‚ª‚¢‚¿ƒRƒƒ“‚È‚Ç‚ªŠÜ‚Ü‚ê‚½ê‡AƒAƒ“ƒ_[ƒo[‚Æ“¯‚¶ˆµ‚¢‚Æ‚·‚é
+        // ã¾ã‚“ãŒã„ã¡ã‚³ãƒ­ãƒ³ãªã©ãŒå«ã¾ã‚ŒãŸå ´åˆã€ã‚¢ãƒ³ãƒ€ãƒ¼ãƒãƒ¼ã¨åŒã˜æ‰±ã„ã¨ã™ã‚‹
         assertEquals("AbCDef", BlancoNameAdjuster.toClassName("abC:DEF"));
         assertEquals("AbCDef", BlancoNameAdjuster.toClassName("abC DEF"));
 
-        // ƒ‰ƒ“ƒ_ƒ€Œ±
+        // ãƒ©ãƒ³ãƒ€ãƒ è©¦é¨“
         assertEquals("Abc", BlancoNameAdjuster.toClassName("abc"));
         assertEquals("AbcD", BlancoNameAdjuster.toClassName("abcD"));
         assertEquals("AbcDef", BlancoNameAdjuster.toClassName("abcDef"));
@@ -236,7 +236,7 @@ public class BlancoNameAdjusterTest extends TestCase {
     }
 
     /**
-     * ƒpƒ‰ƒ[ƒ^•ÏŒ`‚ÌŒ±
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿å¤‰å½¢ã®è©¦é¨“
      * 
      * @throws Exception
      */

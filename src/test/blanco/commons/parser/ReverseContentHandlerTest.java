@@ -33,14 +33,14 @@ import org.xml.sax.InputSource;
 import blanco.commons.calc.parser.BlancoCalcParser;
 
 /**
- * ReverseContentHandlerの単体試験を行います。
+ * ReverseContentHandler縺ｮ蜊倅ｽ楢ｩｦ鬨薙ｒ陦後＞縺ｾ縺吶�
  * 
  * @author IGA Tosiki
  */
 public class ReverseContentHandlerTest extends TestCase {
 
     /*
-     * void parse のテスト中のクラス(String)
+     * void parse 縺ｮ繝�繧ｹ繝井ｸｭ縺ｮ繧ｯ繝ｩ繧ｹ(String)
      */
     public void testParseString() {
         try {
@@ -55,7 +55,7 @@ public class ReverseContentHandlerTest extends TestCase {
             writer.flush();
             System.out.println(writer.toString());
         } catch (TransformerException ex) {
-            System.out.println("XMLドキュメント保存時に変換例外が発生しました.:" + ex.toString());
+            System.out.println("XML繝峨く繝･繝｡繝ｳ繝井ｿ晏ｭ俶凾縺ｫ螟画鋤萓句､悶′逋ｺ逕溘＠縺ｾ縺励◆.:" + ex.toString());
             ex.printStackTrace();
             return;
         }

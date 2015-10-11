@@ -22,21 +22,21 @@ package blanco.commons.io;
 import junit.framework.TestCase;
 
 /**
- * BlancoSqlFormatter: SQL®Œ`ƒc[ƒ‹. SQL•¶‚ğŒˆ‚ß‚ç‚ê‚½ƒ‹[ƒ‹‚É]‚¢®Œ`‚µ‚Ü‚·B <br>
- * SQL•¶‚Æ‚µ‚Ä³‚µ‚¢‚±‚Æ‚ª‘O’ñğŒ‚Å‚·B
+ * BlancoSqlFormatter: SQLæ•´å½¢ãƒ„ãƒ¼ãƒ«. SQLæ–‡ã‚’æ±ºã‚ã‚‰ã‚ŒãŸãƒ«ãƒ¼ãƒ«ã«å¾“ã„æ•´å½¢ã—ã¾ã™ã€‚ <br>
+ * SQLæ–‡ã¨ã—ã¦æ­£ã—ã„ã“ã¨ãŒå‰ææ¡ä»¶ã§ã™ã€‚
  * http://homepage2.nifty.com/igat/igapyon/diary/2005/ig050613.html <br>
- * ‰Šú‚ÌSQL®Œ`ƒR[ƒfƒBƒ“ƒOƒ‹[ƒ‹‚É]‚¢A’P‘ÌŒ±‚ğÀ{‚µ‚Ü‚·B
+ * åˆæœŸã®SQLæ•´å½¢ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãƒ«ãƒ¼ãƒ«ã«å¾“ã„ã€å˜ä½“è©¦é¨“ã‚’å®Ÿæ–½ã—ã¾ã™ã€‚
  * 
  * @author iga
  */
 public class Native2AsciiTest extends TestCase {
     /**
-     * ƒL[‚ğŒ±
+     * ã‚­ãƒ¼ã‚’è©¦é¨“
      * 
      * @throws Exception
      */
     public void testNative2Key() throws Exception {
-        // ƒL[‚È‚ç‚Å‚Í‚Ì‘Šˆá“_
+        // ã‚­ãƒ¼ãªã‚‰ã§ã¯ã®ç›¸é•ç‚¹
         assertEquals("\\ ABC", Native2AsciiWriter.encodeNative2AsciiKey(" ABC"));
         assertEquals("A\\=BC", Native2AsciiWriter.encodeNative2AsciiKey("A=BC"));
         assertEquals("A\\:BC", Native2AsciiWriter.encodeNative2AsciiKey("A:BC"));
@@ -45,11 +45,11 @@ public class Native2AsciiTest extends TestCase {
     }
 
     /**
-     * ’l‚ğŒ±
+     * å€¤ã‚’è©¦é¨“
      */
     public void testNative2AsciiValue() throws Exception {
         assertEquals("\\u3048\\u304A\\u304B\\u304D", Native2AsciiWriter
-                .encodeNative2AsciiValue("‚¦‚¨‚©‚«"));
+                .encodeNative2AsciiValue("ãˆãŠã‹ã"));
         assertEquals("\\ ABC", Native2AsciiWriter
                 .encodeNative2AsciiValue(" ABC"));
         assertEquals("A\\=BC", Native2AsciiWriter
@@ -61,10 +61,10 @@ public class Native2AsciiTest extends TestCase {
     }
 
     /**
-     * ’l‚ğŒ±
+     * å€¤ã‚’è©¦é¨“
      */
     private void native2AsciiCommonCheck(final boolean isKey) throws Exception {
-        // ˆê”Ê“I‚ÈŒ±ŠÏ“_
+        // ä¸€èˆ¬çš„ãªè©¦é¨“è¦³ç‚¹
         assertEquals("A\\tBC", Native2AsciiWriter
                 .encodeNative2AsciiKey("A\tBC"));
         assertEquals("A\\nBC", Native2AsciiWriter
@@ -84,14 +84,14 @@ public class Native2AsciiTest extends TestCase {
     }
 
     /**
-     * ƒRƒƒ“ƒgs‚ÌƒGƒ“ƒR[ƒhŒ±
+     * ã‚³ãƒ¡ãƒ³ãƒˆè¡Œã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰è©¦é¨“
      * 
      * @throws Exception
      */
     public void testComment() throws Exception {
         assertEquals("\\u3048\\u304A\\u304B", Native2AsciiWriter
-                .encodeNative2AsciiComment("‚¦‚¨‚©"));
-        // ƒRƒƒ“ƒgs‚Í : ‚ÌƒGƒXƒP[ƒv‚Í‚ ‚è‚Ü‚¹‚ñB
+                .encodeNative2AsciiComment("ãˆãŠã‹"));
+        // ã‚³ãƒ¡ãƒ³ãƒˆè¡Œã¯ : ã®ã‚¨ã‚¹ã‚±ãƒ¼ãƒ—ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
         assertEquals("A:B:C", Native2AsciiWriter
                 .encodeNative2AsciiComment("A:B:C"));
     }

@@ -20,21 +20,21 @@
 package blanco.commons.calc;
 
 /**
- * •\ŒvŽZ‚Æ‚µ‚ÄƒJƒ‰ƒ€”Ô†‚©‚çƒ‰ƒxƒ‹•¶Žš—ñ‚ðŽæ“¾‚µ‚Ü‚·B
+ * è¡¨è¨ˆç®—ã¨ã—ã¦ã‚«ãƒ©ãƒ ç•ªå·ã‹ã‚‰ãƒ©ãƒ™ãƒ«æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public final class BlancoCalcUtil {
     private BlancoCalcUtil() {
-        // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Í–³Œø‰»‚³‚ê‚Ä‚¢‚Ü‚·B
+        // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã¯ç„¡åŠ¹åŒ–ã•ã‚Œã¦ã„ã¾ã™ã€‚
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½ƒJƒ‰ƒ€”Ô†‚ðƒJƒ‰ƒ€‚Ìƒ‰ƒxƒ‹•¶Žš—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * ä¸Žãˆã‚‰ã‚ŒãŸã‚«ãƒ©ãƒ ç•ªå·ã‚’ã‚«ãƒ©ãƒ ã®ãƒ©ãƒ™ãƒ«æ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      * 
      * @param column
-     *            ƒJƒ‰ƒ€‚ð•\‚·”’lB‚PƒIƒŠƒWƒ“‚ÅŽw’è‚µ‚Ü‚·B
-     * @return —áF26=Z, 27=AA
+     *            ã‚«ãƒ©ãƒ ã‚’è¡¨ã™æ•°å€¤ã€‚ï¼‘ã‚ªãƒªã‚¸ãƒ³ã§æŒ‡å®šã—ã¾ã™ã€‚
+     * @return ä¾‹ï¼š26=Z, 27=AA
      */
     public static final String columnToLabel(int column) {
         String output = "";

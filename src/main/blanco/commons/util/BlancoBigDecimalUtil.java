@@ -22,23 +22,23 @@ package blanco.commons.util;
 import java.math.BigDecimal;
 
 /**
- * blanco Framework�ɂ�����ABigDecimal�Ɋւ��郆�[�e�B���e�B���܂܂�܂��B
+ * blanco Frameworkにおける、BigDecimalに関するユーティリティが含まれます。
  * 
- * �����Ƃ��ĂقƂ�ǂ̃��\�b�h��static���\�b�h�Ƃ��Ē񋟂���܂��B
+ * 原則としてほとんどのメソッドはstaticメソッドとして提供されます。
  * 
  * @author IGA Tosiki
  */
 public class BlancoBigDecimalUtil {
     /**
-     * int��BigDecimal�ɕϊ����܂��B
+     * intをBigDecimalに変換します。
      * 
-     * BigDecimal�̃R���X�g���N�^�Ő��l����͂�����̂�JDK 1.5�ȍ~�ɓ�������Ă��܂��B<br>
-     * ���̃��\�b�h�́A1.4�ȑO�œ��삳���邽�߂ɁABigDecimal��JDK
-     * 1.5�ȍ~�œ������ꂽ�R���X�g���N�^������ė��p���Ă��܂�Ȃ����߂̃��\�b�h�ł��B
+     * BigDecimalのコンストラクタで数値を入力するものはJDK 1.5以降に導入されています。<br>
+     * このメソッドは、1.4以前で動作させるために、BigDecimalのJDK
+     * 1.5以降で導入されたコンストラクタを誤って利用してしまわないためのメソッドです。
      * 
      * @param valueSource
-     *            �ϊ����Ƃ̒l�B
-     * @return BigDecimal�ɕϊ���̒l�B
+     *            変換もとの値。
+     * @return BigDecimalに変換後の値。
      */
     public static final BigDecimal toBigDecimal(final int valueSource) {
         return new BigDecimal(String.valueOf(valueSource));

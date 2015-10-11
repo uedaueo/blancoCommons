@@ -30,7 +30,7 @@ import org.w3c.dom.Element;
 public class BlancoXmlUtilTest extends TestCase {
 
     /*
-     * 'blanco.commons.util.BlancoXmlUtil.getElement(Node, String)' �̂��߂̃e�X�g�E���\�b�h
+     * 'blanco.commons.util.BlancoXmlUtil.getElement(Node, String)' のためのテスト・メソッド
      */
     public void testGetElement() {
         final DOMResult result = BlancoXmlUtil.transformFile2Dom(new File(

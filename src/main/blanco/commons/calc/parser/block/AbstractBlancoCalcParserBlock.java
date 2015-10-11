@@ -20,48 +20,48 @@
 package blanco.commons.calc.parser.block;
 
 /**
- * ’ŠÛ“I‚ÈƒuƒƒbƒN‚ğ•\Œ»‚µ‚Ü‚·B
+ * æŠ½è±¡çš„ãªãƒ–ãƒ­ãƒƒã‚¯ã‚’è¡¨ç¾ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public abstract class AbstractBlancoCalcParserBlock {
 
     /**
-     * Y•ûŒü‚Ì‰ä–‚·‚é‰ñ” (œ‚­ƒ^ƒCƒgƒ‹s‚ÌƒJƒEƒ“ƒgˆ—)
+     * Yæ–¹å‘ã®æˆ‘æ…¢ã™ã‚‹å›æ•° (é™¤ãã‚¿ã‚¤ãƒˆãƒ«è¡Œã®ã‚«ã‚¦ãƒ³ãƒˆå‡¦ç†)
      */
     private int waitForValueY = 1;
 
     /**
-     * ƒuƒƒbƒN‚ÌŠJn•¶š—ñŒQ
+     * ãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹æ–‡å­—åˆ—ç¾¤
      */
     private String[] startString = null;
 
     /**
-     * ƒuƒƒbƒN‚ÌI—¹•¶š—ñŒQ
+     * ãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†æ–‡å­—åˆ—ç¾¤
      */
     private String[] endString = null;
 
     /**
-     * ƒuƒƒbƒN‚É—^‚¦‚ç‚ê‚½–¼‘O(ID)
+     * ãƒ–ãƒ­ãƒƒã‚¯ã«ä¸ãˆã‚‰ã‚ŒãŸåå‰(ID)
      */
     private String blockName = "name";
 
     /**
-     * ’lƒ}ƒbƒsƒ“ƒOî•ñ
+     * å€¤ãƒãƒƒãƒ”ãƒ³ã‚°æƒ…å ±
      */
     private BlancoCalcParserValueMapping[] valueMapping = null;
 
     /**
-     * ƒuƒƒbƒN‚Ì–¼‘O‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ–ãƒ­ãƒƒã‚¯ã®åå‰ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ƒuƒƒbƒN–¼B
+     * @return ãƒ–ãƒ­ãƒƒã‚¯åã€‚
      */
     public String getName() {
         return blockName;
     }
 
     /**
-     * ƒuƒƒbƒN‚Ì–¼‘O‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ–ãƒ­ãƒƒã‚¯ã®åå‰ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg
      */
@@ -70,21 +70,21 @@ public abstract class AbstractBlancoCalcParserBlock {
     }
 
     /**
-     * ŠJn•¶š—ñŒQ‚ğƒZƒbƒg‚µ‚Ü‚·
+     * é–‹å§‹æ–‡å­—åˆ—ç¾¤ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
      * 
      * @param arg
-     *            ŠJn•¶š—ñ‚Ì”z—ñB
+     *            é–‹å§‹æ–‡å­—åˆ—ã®é…åˆ—ã€‚
      */
     public void setStartString(String[] arg) {
         startString = arg;
     }
 
     /**
-     * ŠJn•¶š—ñ‚Éƒqƒbƒg‚·‚é‚©‚Ç‚¤‚©’²¸‚µ‚Ü‚·B
+     * é–‹å§‹æ–‡å­—åˆ—ã«ãƒ’ãƒƒãƒˆã™ã‚‹ã‹ã©ã†ã‹èª¿æŸ»ã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return ŠJn•¶š—ñ‚Éƒqƒbƒg‚µ‚½‚©‚Ç‚¤‚©B
+     *            ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return é–‹å§‹æ–‡å­—åˆ—ã«ãƒ’ãƒƒãƒˆã—ãŸã‹ã©ã†ã‹ã€‚
      */
     public boolean isStartString(String arg) {
         if (startString == null) {
@@ -101,23 +101,23 @@ public abstract class AbstractBlancoCalcParserBlock {
     }
 
     /**
-     * I—¹•¶š—ñŒQ‚ğƒZƒbƒg‚µ‚Ü‚·
+     * çµ‚äº†æ–‡å­—åˆ—ç¾¤ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
      * 
-     * @deprecated I—¹•¶š—ñ‚Ìƒ`ƒFƒbƒN‚Í„§‚³‚ê‚Ü‚¹‚ñB
+     * @deprecated çµ‚äº†æ–‡å­—åˆ—ã®ãƒã‚§ãƒƒã‚¯ã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ã€‚
      * @param arg
-     *            I—¹•¶š—ñ‚Ì”z—ñB
+     *            çµ‚äº†æ–‡å­—åˆ—ã®é…åˆ—ã€‚
      */
     public void setEndString(String[] arg) {
         endString = arg;
     }
 
     /**
-     * I—¹•¶š—ñ‚Éƒqƒbƒg‚·‚é‚©‚Ç‚¤‚©’²¸‚µ‚Ü‚·B
+     * çµ‚äº†æ–‡å­—åˆ—ã«ãƒ’ãƒƒãƒˆã™ã‚‹ã‹ã©ã†ã‹èª¿æŸ»ã—ã¾ã™ã€‚
      * 
-     * @deprecated I—¹•¶š—ñ‚Ìƒ`ƒFƒbƒN‚Í„§‚³‚ê‚Ü‚¹‚ñB
+     * @deprecated çµ‚äº†æ–‡å­—åˆ—ã®ãƒã‚§ãƒƒã‚¯ã¯æ¨å¥¨ã•ã‚Œã¾ã›ã‚“ã€‚
      * @param arg
-     *            ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return ƒqƒbƒg‚µ‚½‚©‚Ç‚¤‚©B
+     *            ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return ãƒ’ãƒƒãƒˆã—ãŸã‹ã©ã†ã‹ã€‚
      */
     public boolean isEndString(String arg) {
         if (endString == null) {
@@ -134,38 +134,38 @@ public abstract class AbstractBlancoCalcParserBlock {
     }
 
     /**
-     * ‚x•ûŒü‚ÌŒŸõ”ÍˆÍ‚ğw’è‚µ‚Ü‚·B
+     * ï¼¹æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã‚’æŒ‡å®šã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ‚x•ûŒü‚ÌŒŸõ”ÍˆÍB
+     *            ï¼¹æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã€‚
      */
     public void setSearchRangeY(int arg) {
         waitForValueY = arg;
     }
 
     /**
-     * ‚x•ûŒü‚ÌŒŸõ”ÍˆÍ‚ğæ“¾‚µ‚Ü‚·B
+     * ï¼¹æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ‚x•ûŒü‚ÌŒŸõ”ÍˆÍB
+     * @return ï¼¹æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã€‚
      */
     public int getSearchRangeY() {
         return waitForValueY;
     }
 
     /**
-     * ’l‚Ì“Ç‚İ‘Ö‚¦ƒ}ƒbƒsƒ“ƒO‚ğw’è‚µ‚Ü‚·B
+     * å€¤ã®èª­ã¿æ›¿ãˆãƒãƒƒãƒ”ãƒ³ã‚°ã‚’æŒ‡å®šã—ã¾ã™ã€‚
      * 
      * @param mapping
-     *            ’l‚Ì“Ç‚İ‘Ö‚¦ƒ}ƒbƒsƒ“ƒOB
+     *            å€¤ã®èª­ã¿æ›¿ãˆãƒãƒƒãƒ”ãƒ³ã‚°ã€‚
      */
     public void setValueMapping(BlancoCalcParserValueMapping[] mapping) {
         valueMapping = mapping;
     }
 
     /**
-     * ’l‚Ì“Ç‚İ‘Ö‚¦ƒ}ƒbƒsƒ“ƒO‚ğæ“¾‚µ‚Ü‚·B
+     * å€¤ã®èª­ã¿æ›¿ãˆãƒãƒƒãƒ”ãƒ³ã‚°ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ’l‚Ì“Ç‚İ‘Ö‚¦ƒ}ƒbƒsƒ“ƒOB
+     * @return å€¤ã®èª­ã¿æ›¿ãˆãƒãƒƒãƒ”ãƒ³ã‚°ã€‚
      */
     public BlancoCalcParserValueMapping[] getValueMapping() {
         return valueMapping;

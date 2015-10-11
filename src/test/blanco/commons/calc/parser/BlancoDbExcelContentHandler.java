@@ -27,7 +27,7 @@ import org.xml.sax.helpers.AttributesImpl;
 import blanco.commons.parser.ContentHandlerStream;
 
 /**
- * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰EƒXƒgƒŠ[ƒ€‚Ì’P‘ÌŒ±‚É—˜—p.
+ * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ãƒ»ã‚¹ãƒˆãƒªãƒ¼ãƒ ã®å˜ä½“è©¦é¨“ã«åˆ©ç”¨.
  * 
  * @author iga
  */
@@ -70,7 +70,7 @@ public class BlancoDbExcelContentHandler extends ContentHandlerStream {
         getContentHandler().skippedEntity(arg0);
     }
 
-    // ‚±‚±‚©‚çŠg’£‚µ‚½‚¢ƒ|ƒCƒ“ƒg
+    // ã“ã“ã‹ã‚‰æ‹¡å¼µã—ãŸã„ãƒã‚¤ãƒ³ãƒˆ
     private boolean isSheetValid = false;
 
     private boolean isInParameters = false;
@@ -173,7 +173,7 @@ public class BlancoDbExcelContentHandler extends ContentHandlerStream {
                     }
                 }
 
-                // ƒŠƒZƒbƒg
+                // ãƒªã‚»ãƒƒãƒˆ
                 isSheetValid = false;
                 name = "";
                 gamenId = "";
@@ -205,8 +205,8 @@ public class BlancoDbExcelContentHandler extends ContentHandlerStream {
                 query += currentValue;
                 currentValue = "";
             } else if (arg1.equals("query")) {
-                // TODO ‚±‚ê‚ÍÅI“I‚É‚Íœ‹‚µ‚Ü‚·B
-                // –³—‚â‚èÅŒã‚É‰üs‚ğ•t—^‚µ‚Ä‚¢‚Ü‚·B
+                // TODO ã“ã‚Œã¯æœ€çµ‚çš„ã«ã¯é™¤å»ã—ã¾ã™ã€‚
+                // ç„¡ç†ã‚„ã‚Šæœ€å¾Œã«æ”¹è¡Œã‚’ä»˜ä¸ã—ã¦ã„ã¾ã™ã€‚
                 query += "\n";
 
                 char[] charArray = query.toCharArray();
@@ -217,7 +217,7 @@ public class BlancoDbExcelContentHandler extends ContentHandlerStream {
                 if (isSheetValid)
                     getContentHandler().endElement(arg0, arg1, arg2);
             } else {
-                System.out.println("ƒGƒŒƒƒ“ƒg" + currentElement + "—ˆ‚Ä‚Ü‚·.");
+                System.out.println("ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆ" + currentElement + "æ¥ã¦ã¾ã™.");
                 if (isSheetValid)
                     getContentHandler().endElement(arg0, arg1, arg2);
             }
@@ -240,7 +240,7 @@ public class BlancoDbExcelContentHandler extends ContentHandlerStream {
                 parameterType = currentValue;
                 currentValue = "";
             } else if (arg1.equals("parameters")) {
-                // ƒNƒ[ƒY‚µ‚Ü‚·
+                // ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™
                 isInParameters = false;
                 if (isSheetValid)
                     getContentHandler().endElement(arg0, arg1, arg2);

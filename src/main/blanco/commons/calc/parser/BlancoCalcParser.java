@@ -54,29 +54,29 @@ import blanco.commons.calc.parser.block.BlancoCalcParserValueMapping;
 import blanco.commons.calc.parser.concretesax.BlancoCalcParserDefHandler;
 
 /**
- * Calc‚ğ“Ç‚İæ‚é‚½‚ß‚ÌSAX2ƒp[ƒT‚Å‚·B <br>
- * ŠJn•¶š—ñ‚ÆƒGƒ“ƒeƒBƒeƒB–¼‚Æ‚ÌŠÖ˜A‚Ã‚¯‚È‚Ç‚ğÀŒ»‚µ‚Ü‚·B
+ * Calcã‚’èª­ã¿å–ã‚‹ãŸã‚ã®SAX2ãƒ‘ãƒ¼ã‚µã§ã™ã€‚ <br>
+ * é–‹å§‹æ–‡å­—åˆ—ã¨ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£åã¨ã®é–¢é€£ã¥ã‘ãªã©ã‚’å®Ÿç¾ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCalcParser extends AbstractBlancoCalcParser {
     /**
-     * ƒfƒoƒbƒOƒ‚[ƒh‚Å“®ì‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+     * ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
      */
     private static final boolean IS_DEBUG = false;
 
     /**
-     * “à•”“I‚É•Û‚µ‚Ä‚¢‚éƒuƒƒbƒN
+     * å†…éƒ¨çš„ã«ä¿æŒã—ã¦ã„ã‚‹ãƒ–ãƒ­ãƒƒã‚¯
      */
     private List<AbstractBlancoCalcParserBlock> listBlock = new ArrayList<AbstractBlancoCalcParserBlock>();
 
     /**
-     * ƒJƒŒƒ“ƒgƒuƒƒbƒN
+     * ã‚«ãƒ¬ãƒ³ãƒˆãƒ–ãƒ­ãƒƒã‚¯
      */
     private AbstractBlancoCalcParserBlock currentBlock = null;
 
     /**
-     * ƒL[ƒ}ƒbƒv‚ÌÛ‚ÌƒJƒŒƒ“ƒgƒAƒCƒeƒ€
+     * ã‚­ãƒ¼ãƒãƒƒãƒ—ã®éš›ã®ã‚«ãƒ¬ãƒ³ãƒˆã‚¢ã‚¤ãƒ†ãƒ 
      */
     private BlancoCalcParserPropertyKey currentKeyMapItem = null;
 
@@ -91,16 +91,16 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
     private boolean isFirstIteratorRowItem = true;
 
     /**
-     * Œ»İ‚Í BlancoCalcParser‚Ì‹N“®ƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚Æ‚È‚Á‚Ä‚¢‚Ü‚·B<br>
-     * —á:
+     * ç¾åœ¨ã¯ BlancoCalcParserã®èµ·å‹•ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã¨ãªã£ã¦ã„ã¾ã™ã€‚<br>
+     * ä¾‹:
      * <code>BlancoCalcParser ./meta/BlancoCalcParserDef.xml ./meta/blancoCsvTemplate.xls ./output.xml</code>
      * 
      * @param args
-     *            0”Ô–Ú:İ’èƒtƒ@ƒCƒ‹ 1”Ô–Ú:“ü—Íƒtƒ@ƒCƒ‹ 2”Ô–Ú:o—Íƒtƒ@ƒCƒ‹
+     *            0ç•ªç›®:è¨­å®šãƒ•ã‚¡ã‚¤ãƒ« 1ç•ªç›®:å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ« 2ç•ªç›®:å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«
      */
     public static final void main(final String[] args) {
         if (args.length < 3) {
-            System.out.println("usage: BlancoCalcParser İ’èƒtƒ@ƒCƒ‹ “ü—Íƒtƒ@ƒCƒ‹ o—Íƒtƒ@ƒCƒ‹");
+            System.out.println("usage: BlancoCalcParser è¨­å®šãƒ•ã‚¡ã‚¤ãƒ« å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ« å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«");
             return;
         }
 
@@ -146,20 +146,20 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
     }
 
     /**
-     * BlancoCalcParser‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * BlancoCalcParserã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      */
     public BlancoCalcParser() {
     }
 
     /**
-     * İ’èî•ñ‚ğ‚à‚Æ‚ÉExcelƒtƒ@ƒCƒ‹‚ğXML‰»‚µ‚Ü‚·B
+     * è¨­å®šæƒ…å ±ã‚’ã‚‚ã¨ã«Excelãƒ•ã‚¡ã‚¤ãƒ«ã‚’XMLåŒ–ã—ã¾ã™ã€‚
      * 
      * @param inStreamDef
-     *            İ’èî•ñ
+     *            è¨­å®šæƒ…å ±
      * @param inStreamCalc
-     *            Excel“ü—ÍƒXƒgƒŠ[ƒ€
+     *            Excelå…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
      * @param outStreamXml
-     *            XMLo—ÍƒXƒgƒŠ[ƒ€
+     *            XMLå‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ 
      * @throws TransformerException
      */
     public void process(final InputStream inStreamDef,
@@ -177,10 +177,10 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
     }
 
     /**
-     * w’è‚Ì’è‹`ƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ‚Ü‚·
+     * æŒ‡å®šã®å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã¾ã™
      * 
      * @param inStreamDef
-     *            “ü—ÍƒXƒgƒŠ[ƒ€B‚±‚ÌƒXƒgƒŠ[ƒ€‚Í“à•”“I‚ÉƒNƒ[ƒY‚µ‚Ü‚¹‚ñB
+     *            å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã€‚ã“ã®ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¯å†…éƒ¨çš„ã«ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã›ã‚“ã€‚
      * @throws TransformerException
      */
     public void readDef(final InputStream inStreamDef)
@@ -188,27 +188,27 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
         SAXResult result = new SAXResult(new BlancoCalcParserDefHandler() {
 
             /**
-             * ƒuƒƒbƒN‚Ì’ŠÛƒNƒ‰ƒX
+             * ãƒ–ãƒ­ãƒƒã‚¯ã®æŠ½è±¡ã‚¯ãƒ©ã‚¹
              */
             private AbstractBlancoCalcParserBlock blockHeader = null;
 
             /**
-             * ŠJn•¶š—ñ‚ğ‹L‰¯
+             * é–‹å§‹æ–‡å­—åˆ—ã‚’è¨˜æ†¶
              */
             private List<java.lang.String> startStringList = new ArrayList<java.lang.String>();
 
             /**
-             * PropertyKeyŠÖ˜A
+             * PropertyKeyé–¢é€£
              */
             private BlancoCalcParserPropertyKey propKey = null;
 
             /**
-             * Value‚Ì”z—ñ‚ğì¬‚·‚é‚½‚ß‚Ì‚à‚Ì
+             * Valueã®é…åˆ—ã‚’ä½œæˆã™ã‚‹ãŸã‚ã®ã‚‚ã®
              */
             private List<java.lang.String> valueList = new ArrayList<java.lang.String>();
 
             /**
-             * ValuMappingŠÖ˜A
+             * ValuMappingé–¢é€£
              */
             private List<BlancoCalcParserValueMapping> valueMappingList = new ArrayList<BlancoCalcParserValueMapping>();
 
@@ -217,7 +217,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
             private String result = null;
 
             /**
-             * TableColumnŠÖ˜A
+             * TableColumné–¢é€£
              */
             private BlancoCalcParserTableColumn tableColumn = null;
 
@@ -281,7 +281,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
             public void startElementPropertyblock(String uri, String localName,
                     String qName, String attrName, String attrWaitY)
                     throws SAXException {
-                // ƒuƒƒbƒN‚ÌV‹Kì¬B
+                // ãƒ–ãƒ­ãƒƒã‚¯ã®æ–°è¦ä½œæˆã€‚
                 blockHeader = new BlancoCalcParserPropertyBlock(attrName);
                 blockHeader.setSearchRangeY(Integer.parseInt(attrWaitY));
 
@@ -299,7 +299,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                 valueMappingList.toArray(valuemappings);
                 valueMappingList.clear();
 
-                // ƒuƒƒbƒN‚ÌI—¹
+                // ãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†
                 blockHeader.setStartString(startString);
                 blockHeader.setValueMapping(valuemappings);
             }
@@ -433,7 +433,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                     String attrTitleheight, String attrRowname)
                     throws SAXException {
 
-                // ƒuƒƒbƒN‚ÌV‹Kì¬B
+                // ãƒ–ãƒ­ãƒƒã‚¯ã®æ–°è¦ä½œæˆã€‚
                 blockHeader = new BlancoCalcParserTableBlock(attrName);
                 blockHeader.setSearchRangeY(Integer.parseInt(attrWaitY));
                 ((BlancoCalcParserTableBlock) blockHeader)
@@ -455,7 +455,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                 valueMappingList.toArray(valuemappings);
                 valueMappingList.clear();
 
-                // ƒuƒƒbƒN‚ÌI—¹
+                // ãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†
                 blockHeader.setStartString(startString);
                 blockHeader.setValueMapping(valuemappings);
             }
@@ -498,10 +498,10 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
     }
 
     /**
-     * ƒuƒƒbƒN‚ğ’Ç‰Á‚µ‚Ü‚·B
+     * ãƒ–ãƒ­ãƒƒã‚¯ã‚’è¿½åŠ ã—ã¾ã™ã€‚
      * 
      * @param block
-     *            ’Ç‰Á‚µ‚½‚¢ƒuƒƒbƒNƒIƒuƒWƒFƒNƒgB
+     *            è¿½åŠ ã—ãŸã„ãƒ–ãƒ­ãƒƒã‚¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     public void add(final AbstractBlancoCalcParserBlock block) {
         listBlock.add(block);
@@ -509,7 +509,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
 
     protected void startSheet(String sheetName) throws SAXException {
         if (IS_DEBUG)
-            System.out.println("ƒV[ƒg[" + sheetName + "]‚ğˆ—...");
+            System.out.println("ã‚·ãƒ¼ãƒˆ[" + sheetName + "]ã‚’å‡¦ç†...");
     }
 
     protected void endSheet(Sheet sheet) throws SAXException {
@@ -534,8 +534,8 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
         waitForValueX = -1;
 
         if (waitForIteratorTitleSearchY >= 0) {
-            // ƒ^ƒCƒgƒ‹sƒT[ƒ`‚Ìê‡‚É‚ÍA‚±‚±‚É“ü‚éB
-            // ó‘Ô‚ª‰½‚Å‚ ‚êAƒJƒEƒ“ƒgƒ_ƒEƒ“‚ÍÀ{‚µ‚Ü‚·B
+            // ã‚¿ã‚¤ãƒˆãƒ«è¡Œã‚µãƒ¼ãƒã®å ´åˆã«ã¯ã€ã“ã“ã«å…¥ã‚‹ã€‚
+            // çŠ¶æ…‹ãŒä½•ã§ã‚ã‚Œã€ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³ã¯å®Ÿæ–½ã—ã¾ã™ã€‚
             waitForIteratorTitleSearchY--;
         }
 
@@ -544,7 +544,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                 final BlancoCalcParserTableBlock blockLook = (BlancoCalcParserTableBlock) currentBlock;
                 if (blockLook.getRowName() != null
                         && blockLook.getRowName().length() > 0) {
-                    // ƒuƒƒbƒN‚ÌŒJ‚è•Ô‚µ€–Ú‚ÉƒGƒ“ƒeƒBƒeƒB‚ğ’Ç‰Á
+                    // ãƒ–ãƒ­ãƒƒã‚¯ã®ç¹°ã‚Šè¿”ã—é …ç›®ã«ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã‚’è¿½åŠ 
                     getContentHandler().endElement("", blockLook.getRowName(),
                             blockLook.getRowName());
                 }
@@ -558,8 +558,8 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
             if (waitForValueY <= 0) {
                 if (currentBlock != null) {
                     if (IS_DEBUG)
-                        System.out.println("ƒuƒƒbƒN[" + currentBlock.getName()
-                                + "]‚ğI—¹‚µ‚Ü‚·.");
+                        System.out.println("ãƒ–ãƒ­ãƒƒã‚¯[" + currentBlock.getName()
+                                + "]ã‚’çµ‚äº†ã—ã¾ã™.");
                     getContentHandler().endElement("", currentBlock.getName(),
                             currentBlock.getName());
 
@@ -597,16 +597,16 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
     }
 
     /**
-     * ƒZƒ‹‚ªƒp[ƒX‚³‚ê‚½Û‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ã‚»ãƒ«ãŒãƒ‘ãƒ¼ã‚¹ã•ã‚ŒãŸéš›ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param column
-     *            ‚±‚±‚Å‚Í1ƒIƒŠƒWƒ“‚ÅŒÄ‚Ño‚³‚ê‚Ü‚·B
+     *            ã“ã“ã§ã¯1ã‚ªãƒªã‚¸ãƒ³ã§å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * @param row
-     *            ‚±‚±‚Å‚Í1ƒIƒŠƒWƒ“‚ÅŒÄ‚Ño‚³‚ê‚Ü‚·B
+     *            ã“ã“ã§ã¯1ã‚ªãƒªã‚¸ãƒ³ã§å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * @param cellValue
-     *            ƒZƒ‹‚Ì’lB
+     *            ã‚»ãƒ«ã®å€¤ã€‚
      * @throws SAXException
-     *             SAX—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     @SuppressWarnings("deprecation")
     protected void fireCell(final int column, final int row,
@@ -616,20 +616,20 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
             return;
         }
 
-        // ­‚È‚­‚Æ‚àÀ‘Ì‚ğ”­Œ©‚µ‚Ü‚µ‚½B
+        // å°‘ãªãã¨ã‚‚å®Ÿä½“ã‚’ç™ºè¦‹ã—ã¾ã—ãŸã€‚
         isNoCellExistOnRow = false;
 
         if (currentBlock != null) {
             if (currentBlock.isEndString(cellValue)) {
-                // "‹Æ–±"‚ğ”­Œ©‚µ‚½‚Ì‚Å‹Æ–±ƒuƒƒbƒN‰ğÍ‚É“ü‚è‚Ü‚·B
+                // "æ¥­å‹™"ã‚’ç™ºè¦‹ã—ãŸã®ã§æ¥­å‹™ãƒ–ãƒ­ãƒƒã‚¯è§£æã«å…¥ã‚Šã¾ã™ã€‚
                 if (IS_DEBUG)
-                    System.out.println("ƒuƒƒbƒN[" + currentBlock.getName()
-                            + "]‚Ì‹­§I—¹•¶š—ñ(" + cellValue + ")‚ğ”­Œ©");
+                    System.out.println("ãƒ–ãƒ­ãƒƒã‚¯[" + currentBlock.getName()
+                            + "]ã®å¼·åˆ¶çµ‚äº†æ–‡å­—åˆ—(" + cellValue + ")ã‚’ç™ºè¦‹");
 
                 getContentHandler().endElement("", currentBlock.getName(),
                         currentBlock.getName());
 
-                // ƒJƒŒƒ“ƒgƒuƒƒbƒN‚ğ”jŠü
+                // ã‚«ãƒ¬ãƒ³ãƒˆãƒ–ãƒ­ãƒƒã‚¯ã‚’ç ´æ£„
                 currentBlock = null;
 
             }
@@ -641,9 +641,9 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                     final String value = BlancoCalcParserValueMapping.mapping(
                             cellValue, currentBlock.getValueMapping());
                     if (IS_DEBUG)
-                        System.out.println("ƒL[[" + currentKeyMapItem.getName()
-                                + "] = ’l[" + value + "]");
-                    // ‚±‚±‚Å‰½‚©‚µ‚ç‚Ì‹L‰¯ˆ—
+                        System.out.println("ã‚­ãƒ¼[" + currentKeyMapItem.getName()
+                                + "] = å€¤[" + value + "]");
+                    // ã“ã“ã§ä½•ã‹ã—ã‚‰ã®è¨˜æ†¶å‡¦ç†
                     saveNode(currentKeyMapItem.getName(), value);
                     return;
                 }
@@ -655,7 +655,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                     if (item == null) {
                         if (IS_DEBUG)
                             System.out
-                                    .println("ŠY“–‚·‚é—ñ(" + column + ")‚Í”­Œ©‚Å‚«‚Ü‚¹‚ñ.");
+                                    .println("è©²å½“ã™ã‚‹åˆ—(" + column + ")ã¯ç™ºè¦‹ã§ãã¾ã›ã‚“.");
                         return;
                     }
 
@@ -663,7 +663,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                         isFirstIteratorRowItem = false;
                         if (blockLook.getRowName() != null
                                 && blockLook.getRowName().length() > 0) {
-                            // ƒuƒƒbƒN‚ÌŒJ‚è•Ô‚µ€–Ú‚ÉƒGƒ“ƒeƒBƒeƒB‚ğ’Ç‰Á
+                            // ãƒ–ãƒ­ãƒƒã‚¯ã®ç¹°ã‚Šè¿”ã—é …ç›®ã«ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã‚’è¿½åŠ 
                             getContentHandler().startElement("",
                                     blockLook.getRowName(),
                                     blockLook.getRowName(),
@@ -671,11 +671,11 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                         }
                     }
 
-                    // ‚±‚±‚Å‰½‚©‚µ‚ç‚Ì‹L‰¯ˆ—
+                    // ã“ã“ã§ä½•ã‹ã—ã‚‰ã®è¨˜æ†¶å‡¦ç†
                     final String value = BlancoCalcParserValueMapping.mapping(
                             cellValue, blockLook.getValueMapping());
                     if (IS_DEBUG)
-                        System.out.println("—ñ[" + item.getName() + "] = ’l["
+                        System.out.println("åˆ—[" + item.getName() + "] = å€¤["
                                 + value + "]");
                     saveNode(item.getName(), value);
                     return;
@@ -691,15 +691,15 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
             AbstractBlancoCalcParserBlock blockItem = (AbstractBlancoCalcParserBlock) listBlock
                     .get(index);
             if (blockItem.isStartString(cellValue)) {
-                // "‹Æ–±"‚ğ”­Œ©‚µ‚½‚Ì‚Å‹Æ–±ƒuƒƒbƒN‰ğÍ‚É“ü‚è‚Ü‚·B
+                // "æ¥­å‹™"ã‚’ç™ºè¦‹ã—ãŸã®ã§æ¥­å‹™ãƒ–ãƒ­ãƒƒã‚¯è§£æã«å…¥ã‚Šã¾ã™ã€‚
                 if (IS_DEBUG)
-                    System.out.println("ƒuƒƒbƒN[" + blockItem.getName() + "]‚ğ”­Œ©");
+                    System.out.println("ãƒ–ãƒ­ãƒƒã‚¯[" + blockItem.getName() + "]ã‚’ç™ºè¦‹");
 
                 final AttributesImpl attrImpl = new AttributesImpl();
                 getContentHandler().startElement("", blockItem.getName(),
                         blockItem.getName(), attrImpl);
 
-                // ƒJƒŒƒ“ƒgƒuƒƒbƒN‚ğ‹L‰¯
+                // ã‚«ãƒ¬ãƒ³ãƒˆãƒ–ãƒ­ãƒƒã‚¯ã‚’è¨˜æ†¶
                 currentBlock = blockItem;
                 waitForValueY = currentBlock.getSearchRangeY();
                 if (currentBlock instanceof BlancoCalcParserTableBlock) {
@@ -715,7 +715,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
         }
 
         if (currentBlock instanceof BlancoCalcParserPropertyBlock) {
-            // ƒL[‚ğ’T‚·ˆ—‚ğs‚¢‚Ü‚·B
+            // ã‚­ãƒ¼ã‚’æ¢ã™å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
             final BlancoCalcParserPropertyKey item = ((BlancoCalcParserPropertyBlock) currentBlock)
                     .findByStartString(cellValue);
             if (item != null) {
@@ -725,32 +725,32 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
         } else if (currentBlock instanceof BlancoCalcParserTableBlock) {
             final BlancoCalcParserTableBlock block = (BlancoCalcParserTableBlock) currentBlock;
 
-            // ƒ^ƒCƒgƒ‹‚ğ’T‚·ˆ—‚ğs‚¢‚Ü‚·
+            // ã‚¿ã‚¤ãƒˆãƒ«ã‚’æ¢ã™å‡¦ç†ã‚’è¡Œã„ã¾ã™
             final BlancoCalcParserTableColumn item = (block)
                     .findByTitleString(cellValue);
             if (item != null) {
-                // ƒ^ƒCƒgƒ‹ˆÊ’u‚ğƒT[ƒ`‚Å‚«‚Ü‚µ‚½B
+                // ã‚¿ã‚¤ãƒˆãƒ«ä½ç½®ã‚’ã‚µãƒ¼ãƒã§ãã¾ã—ãŸã€‚
                 if (IS_DEBUG)
-                    System.out.println("—ñ(" + column + ")‚ÍƒL[[" + cellValue
-                            + "]‚Å‚·");
+                    System.out.println("åˆ—(" + column + ")ã¯ã‚­ãƒ¼[" + cellValue
+                            + "]ã§ã™");
                 item.setColumnPosition(column);
             } else {
                 if (IS_DEBUG)
-                    System.out.println("—ñ(" + column + ")‚ÌƒL[[" + cellValue
-                            + "]‚Í“o˜^‚³‚ê‚½‚à‚Ì‚Ì’†‚ÉŒ©‚Â‚©‚è‚Ü‚¹‚ñ.");
+                    System.out.println("åˆ—(" + column + ")ã®ã‚­ãƒ¼[" + cellValue
+                            + "]ã¯ç™»éŒ²ã•ã‚ŒãŸã‚‚ã®ã®ä¸­ã«è¦‹ã¤ã‹ã‚Šã¾ã›ã‚“.");
             }
         }
     }
 
     /**
-     * ƒm[ƒh‚ğ•Û‘¶‚µ‚Ü‚·B
+     * ãƒãƒ¼ãƒ‰ã‚’ä¿å­˜ã—ã¾ã™ã€‚
      * 
      * @param key
-     *            ƒL[B
+     *            ã‚­ãƒ¼ã€‚
      * @param value
-     *            ’lB
+     *            å€¤ã€‚
      * @throws SAXException
-     *             SAX—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     protected void saveNode(final String key, final String value)
             throws SAXException {

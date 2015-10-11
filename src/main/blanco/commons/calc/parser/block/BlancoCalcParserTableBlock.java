@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ŒJ‚è•Ô‚µŒ^‚ÌƒuƒƒbƒN‚ğÀ‘•‚µ‚Ü‚·B
+ * ç¹°ã‚Šè¿”ã—å‹ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’å®Ÿè£…ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -33,36 +33,36 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
     private String blockRowName = "";
 
     /**
-     * ƒ^ƒCƒgƒ‹‚ğƒT[ƒ`‚·‚éÛ‚ÉAƒ^ƒCƒgƒ‹‚Ìs”i’Êí‚Í‚Psj ‚Ì”‚ğ’ñ‹Ÿ‚µ‚Ü‚·B
+     * ã‚¿ã‚¤ãƒˆãƒ«ã‚’ã‚µãƒ¼ãƒã™ã‚‹éš›ã«ã€ã‚¿ã‚¤ãƒˆãƒ«ã®è¡Œæ•°ï¼ˆé€šå¸¸ã¯ï¼‘è¡Œï¼‰ ã®æ•°ã‚’æä¾›ã—ã¾ã™ã€‚
      */
     private int waitForIteratorTitleSearchY = 1;
 
     /**
-     * ŒJ‚è•Ô‚µŒ^‚ÌƒuƒƒbƒNƒIƒuƒWƒFƒNƒg‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚·B
+     * ç¹°ã‚Šè¿”ã—å‹ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã™ã€‚
      * 
      * @param name
-     *            ƒuƒƒbƒN–¼B
+     *            ãƒ–ãƒ­ãƒƒã‚¯åã€‚
      */
     public BlancoCalcParserTableBlock(String name) {
         setName(name);
     }
 
     /**
-     * ŒJ‚è•Ô‚µŒ^‚ÌƒuƒƒbƒNƒIƒuƒWƒFƒNƒg‚ÉƒJƒ‰ƒ€‚ğ’Ç‰Á‚µ‚Ü‚·B
+     * ç¹°ã‚Šè¿”ã—å‹ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚«ãƒ©ãƒ ã‚’è¿½åŠ ã—ã¾ã™ã€‚
      * 
      * @param item
-     *            ƒuƒƒbƒN‚Ö‚Æ’Ç‰Á‚µ‚½‚¢ƒJƒ‰ƒ€B
+     *            ãƒ–ãƒ­ãƒƒã‚¯ã¸ã¨è¿½åŠ ã—ãŸã„ã‚«ãƒ©ãƒ ã€‚
      */
     public void add(BlancoCalcParserTableColumn item) {
         list.add(item);
     }
 
     /**
-     * ƒ^ƒCƒgƒ‹s‚ğ‚«‚Á‚©‚¯‚ÉA—ñƒAƒCƒeƒ€‚ğŒŸõ‚µ‚Ü‚·B
+     * ã‚¿ã‚¤ãƒˆãƒ«è¡Œã‚’ãã£ã‹ã‘ã«ã€åˆ—ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
      * 
      * @param titleString
-     *            ƒ^ƒCƒgƒ‹•¶š—ñB
-     * @return ”­Œ©‚³‚ê‚½—ñƒAƒCƒeƒ€B
+     *            ã‚¿ã‚¤ãƒˆãƒ«æ–‡å­—åˆ—ã€‚
+     * @return ç™ºè¦‹ã•ã‚ŒãŸåˆ—ã‚¢ã‚¤ãƒ†ãƒ ã€‚
      */
     public BlancoCalcParserTableColumn findByTitleString(String titleString) {
         final int listSize = list.size();
@@ -77,11 +77,11 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
     }
 
     /**
-     * —ñ”Ô†‚ğ‚«‚Á‚©‚¯‚ÉA—ñƒAƒCƒeƒ€‚ğŒŸõ‚µ‚Ü‚·B
+     * åˆ—ç•ªå·ã‚’ãã£ã‹ã‘ã«ã€åˆ—ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
      * 
      * @param pos
-     *            —ñ‚Ì”Ô†B
-     * @return ”­Œ©‚³‚ê‚½—ñƒAƒCƒeƒ€B
+     *            åˆ—ã®ç•ªå·ã€‚
+     * @return ç™ºè¦‹ã•ã‚ŒãŸåˆ—ã‚¢ã‚¤ãƒ†ãƒ ã€‚
      */
     public BlancoCalcParserTableColumn findByColumnPosition(int pos) {
         final int listSize = list.size();
@@ -96,38 +96,38 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
     }
 
     /**
-     * ‚x•ûŒü‚ÌŒŸõ”ÍˆÍ‚ğæ“¾‚µ‚Ü‚·B
+     * ï¼¹æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ‚x•ûŒü‚ÌŒŸõ”ÍˆÍB
+     * @return ï¼¹æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã€‚
      */
     public int getSearchRangeForTitleY() {
         return waitForIteratorTitleSearchY;
     }
 
     /**
-     * ƒ^ƒCƒgƒ‹•¶š—ñ‚©‚ç‚Ì‚w•ûŒü‚ÌŒŸõ”ÍˆÍ‚ğæ“¾‚µ‚Ü‚·B
+     * ã‚¿ã‚¤ãƒˆãƒ«æ–‡å­—åˆ—ã‹ã‚‰ã®ï¼¸æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ‚w•ûŒü‚ÌŒŸõ”ÍˆÍB
+     *            ï¼¸æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã€‚
      */
     public void setSearchRangeForTitleY(int arg) {
         waitForIteratorTitleSearchY = arg;
     }
 
     /**
-     * —ñ‚Ì–¼‘O‚ğİ’è‚µ‚Ü‚·B
+     * åˆ—ã®åå‰ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            —ñ‚Ì–¼‘OB
+     *            åˆ—ã®åå‰ã€‚
      */
     public void setRowName(String arg) {
         blockRowName = arg;
     }
 
     /**
-     * —ñ‚Ì–¼‘O‚ğæ“¾‚µ‚Ü‚·B
+     * åˆ—ã®åå‰ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return —ñ‚Ì–¼‘OB
+     * @return åˆ—ã®åå‰ã€‚
      */
     public String getRowName() {
         return blockRowName;

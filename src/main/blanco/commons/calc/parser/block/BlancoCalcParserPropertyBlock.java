@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ƒL[ƒ}ƒbƒv‚ÌƒuƒƒbƒN‚ğÀ‘•‚µ‚Ü‚·B
+ * ã‚­ãƒ¼ãƒãƒƒãƒ—ã®ãƒ–ãƒ­ãƒƒã‚¯ã‚’å®Ÿè£…ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -33,31 +33,31 @@ public class BlancoCalcParserPropertyBlock extends
     private List<BlancoCalcParserPropertyKey> list = new ArrayList<BlancoCalcParserPropertyKey>();
 
     /**
-     * ƒvƒƒpƒeƒBƒuƒƒbƒN‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ–ãƒ­ãƒƒã‚¯ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ƒuƒƒbƒN–¼B
+     *            ãƒ–ãƒ­ãƒƒã‚¯åã€‚
      */
     public BlancoCalcParserPropertyBlock(String name) {
         setName(name);
     }
 
     /**
-     * ƒvƒƒpƒeƒBƒuƒƒbƒN‚ÉƒvƒƒpƒeƒBƒL[‚ğ’Ç‰Á‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ–ãƒ­ãƒƒã‚¯ã«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã‚’è¿½åŠ ã—ã¾ã™ã€‚
      * 
      * @param item
-     *            ƒvƒƒpƒeƒBƒL[ƒIƒuƒWƒFƒNƒgB
+     *            ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     public void add(BlancoCalcParserPropertyKey item) {
         list.add(item);
     }
 
     /**
-     * ŠJn•¶š—ñ‚ğ‚«‚Á‚©‚¯‚É—ñƒAƒCƒeƒ€‚ğŒŸõ‚µ‚Ü‚·B
+     * é–‹å§‹æ–‡å­—åˆ—ã‚’ãã£ã‹ã‘ã«åˆ—ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
      * 
      * @param startString
-     *            ŠJn•¶š—ñB
-     * @return ŒŸõ‚³‚ê‚½ƒvƒƒpƒeƒBƒL[ƒIƒuƒWƒFƒNƒgB
+     *            é–‹å§‹æ–‡å­—åˆ—ã€‚
+     * @return æ¤œç´¢ã•ã‚ŒãŸãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     public BlancoCalcParserPropertyKey findByStartString(String startString) {
         final int listSize = list.size();

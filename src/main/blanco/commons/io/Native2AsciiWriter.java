@@ -32,9 +32,9 @@ import java.util.Properties;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * Native2Asciiƒ‰ƒCƒ^[
+ * Native2Asciiãƒ©ã‚¤ã‚¿ãƒ¼
  * 
- * java.util.Properties‚Ì—Í‚ğg‚Á‚Ä Native2Ascii‚ğs‚¢‚Ü‚·B
+ * java.util.Propertiesã®åŠ›ã‚’ä½¿ã£ã¦ Native2Asciiã‚’è¡Œã„ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  * @see java.util.Properties#load(java.io.InputStream)
@@ -43,38 +43,38 @@ public class Native2AsciiWriter {
     private BufferedWriter fWriter;
 
     /**
-     * Šî–{“I‚É‚ÍA8859_1ƒGƒ“ƒR[ƒh‚Ìƒ‰ƒCƒ^[‚ğ“n‚µ‚Ä‚­‚¾‚³‚¢B
+     * åŸºæœ¬çš„ã«ã¯ã€8859_1ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã®ãƒ©ã‚¤ã‚¿ãƒ¼ã‚’æ¸¡ã—ã¦ãã ã•ã„ã€‚
      * 
      * @param writer
-     *            o—Íæƒ‰ƒCƒ^[B
+     *            å‡ºåŠ›å…ˆãƒ©ã‚¤ã‚¿ãƒ¼ã€‚
      */
     public Native2AsciiWriter(final BufferedWriter writer) {
         this.fWriter = writer;
     }
 
     /**
-     * ƒ‰ƒCƒ^[‚ğƒtƒ‰ƒbƒVƒ…‚µ‚Ü‚·B
+     * ãƒ©ã‚¤ã‚¿ãƒ¼ã‚’ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ã—ã¾ã™ã€‚
      * 
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void flush() throws IOException {
         fWriter.flush();
     }
 
     /**
-     * ƒ‰ƒCƒ^[‚ğƒNƒ[ƒY‚µ‚Ü‚·B
+     * ãƒ©ã‚¤ã‚¿ãƒ¼ã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™ã€‚
      * 
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void close() throws IOException {
         fWriter.close();
     }
 
     /**
-     * ƒ‰ƒCƒ^[‚ÉƒRƒƒ“ƒg‚ğo—Í‚µ‚Ü‚·B<br>
-     * ƒXƒy[ƒX‚ª—~‚µ‚¢ê‡‚É‚ÍA—^‚¦‚é•¶š—ñ‚Ìæ“ª‚ÉƒXƒy[ƒX‚ğ‰Á‚¦‚Ä‚­‚¾‚³‚¢B
+     * ãƒ©ã‚¤ã‚¿ãƒ¼ã«ã‚³ãƒ¡ãƒ³ãƒˆã‚’å‡ºåŠ›ã—ã¾ã™ã€‚<br>
+     * ã‚¹ãƒšãƒ¼ã‚¹ãŒæ¬²ã—ã„å ´åˆã«ã¯ã€ä¸ãˆã‚‹æ–‡å­—åˆ—ã®å…ˆé ­ã«ã‚¹ãƒšãƒ¼ã‚¹ã‚’åŠ ãˆã¦ãã ã•ã„ã€‚
      * 
      * @param comment
      * @throws IOException
@@ -85,14 +85,14 @@ public class Native2AsciiWriter {
     }
 
     /**
-     * ƒ‰ƒCƒ^[‚ÉƒvƒƒpƒeƒB‚ğo—Í‚µ‚Ü‚·B
+     * ãƒ©ã‚¤ã‚¿ãƒ¼ã«ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
      * @param key
-     *            ƒL[B
+     *            ã‚­ãƒ¼ã€‚
      * @param value
-     *            ’lB
+     *            å€¤ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void writeProperty(final String key, final String value)
             throws IOException {
@@ -103,13 +103,13 @@ public class Native2AsciiWriter {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½ƒlƒCƒeƒBƒu•¶š—ñ‚ğ‰¼‘zƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìbyte”z—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸãƒã‚¤ãƒ†ã‚£ãƒ–æ–‡å­—åˆ—ã‚’ä»®æƒ³ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®byteé…åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      * 
      * @param nativeString
-     *            ƒlƒCƒeƒBƒu•¶š—ñB
-     * @return ƒoƒCƒg”z—ñB
+     *            ãƒã‚¤ãƒ†ã‚£ãƒ–æ–‡å­—åˆ—ã€‚
+     * @return ãƒã‚¤ãƒˆé…åˆ—ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     private static final byte[] encodeNative2AsciiKeyByteArray(
             final String nativeString) throws IOException {
@@ -126,13 +126,13 @@ public class Native2AsciiWriter {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½ƒlƒCƒeƒBƒu•¶š—ñ‚ğ‰¼‘zƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ìbyte”z—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸãƒã‚¤ãƒ†ã‚£ãƒ–æ–‡å­—åˆ—ã‚’ä»®æƒ³ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®byteé…åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      * 
      * @param nativeString
-     *            •ÏŠ·‚à‚Æ‚Ì•¶š—ñB
-     * @return •ÏŠ·Œã‚ÌƒoƒCƒg”z—ñB
+     *            å¤‰æ›ã‚‚ã¨ã®æ–‡å­—åˆ—ã€‚
+     * @return å¤‰æ›å¾Œã®ãƒã‚¤ãƒˆé…åˆ—ã€‚
      * @throws IOException
-     *             “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     private static final byte[] encodeNative2AsciiValueByteArray(
             final String nativeString) throws IOException {
@@ -149,15 +149,15 @@ public class Native2AsciiWriter {
     }
 
     /**
-     * native2ascii‚ğÀs‚µ‚Ü‚·B
+     * native2asciiã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
      * 
-     * Ú‚µ‚­‚Í
+     * è©³ã—ãã¯
      * http://java.sun.com/j2se/1.4/ja/docs/ja/api/java/util/Properties.html
-     * #load(java.io.InputStream) ‚ğQÆ‚­‚¾‚³‚¢B
+     * #load(java.io.InputStream) ã‚’å‚ç…§ãã ã•ã„ã€‚
      * 
      * @param nativeString
-     *            •ÏŠ·‚à‚Æ‚Ì•¶š—ñB
-     * @return •ÏŠ·Œã‚Ì•¶š—ñB
+     *            å¤‰æ›ã‚‚ã¨ã®æ–‡å­—åˆ—ã€‚
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚
      * @see java.util.Properties#load(java.io.InputStream)
      */
     public static final String encodeNative2AsciiKey(final String nativeString) {
@@ -172,10 +172,10 @@ public class Native2AsciiWriter {
                     throw new IllegalArgumentException(
                             "encodeNative2Ascii("
                                     + nativeString
-                                    + ")‚Ìˆ—‚Ì‰ß’ö‚É‚¨‚¢‚ÄA’†ŠÔƒƒ‚ƒŠƒtƒ@ƒCƒ‹‚Ì—\Šú‚¹‚ÊI’[‚ª”­¶‚µ‚Ü‚µ‚½B‚±‚ÌƒP[ƒX‚Í‚ ‚è‚¦‚Ü‚¹‚ñB");
+                                    + ")ã®å‡¦ç†ã®éç¨‹ã«ãŠã„ã¦ã€ä¸­é–“ãƒ¡ãƒ¢ãƒªãƒ•ã‚¡ã‚¤ãƒ«ã®äºˆæœŸã›ã¬çµ‚ç«¯ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ã“ã®ã‚±ãƒ¼ã‚¹ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚");
                 }
                 if (look.startsWith("#")) {
-                    // ƒRƒƒ“ƒgs‚Í“Ç‚İ”ò‚Î‚µ‚Ü‚·B
+                    // ã‚³ãƒ¡ãƒ³ãƒˆè¡Œã¯èª­ã¿é£›ã°ã—ã¾ã™ã€‚
                     continue;
                 }
                 reader.close();
@@ -183,26 +183,26 @@ public class Native2AsciiWriter {
                     return look.substring(0, look.lastIndexOf("=value"));
                 }
                 throw new IllegalArgumentException("encodeNative2AsciiKey("
-                        + nativeString + ")‚Ìˆ—‚Ì‰ß’ö‚É‚¨‚¢‚ÄA’†ŠÔƒƒ‚ƒŠƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ÌŒ‹‰ÊA—\Šú‚¹‚Ês["
-                        + look + "]‚ª–ß‚è‚Ü‚µ‚½B‚±‚ÌƒP[ƒX‚Í‚ ‚è‚¦‚Ü‚¹‚ñB");
+                        + nativeString + ")ã®å‡¦ç†ã®éç¨‹ã«ãŠã„ã¦ã€ä¸­é–“ãƒ¡ãƒ¢ãƒªãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã®çµæœã€äºˆæœŸã›ã¬è¡Œ["
+                        + look + "]ãŒæˆ»ã‚Šã¾ã—ãŸã€‚ã“ã®ã‚±ãƒ¼ã‚¹ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚");
             }
         } catch (IOException ex) {
             throw new IllegalArgumentException("encodeNative2Ascii("
-                    + nativeString + ")‚Ìˆ—‚Ì‰ß’ö‚É‚¨‚¢‚ÄA—\Šú‚¹‚Ê—áŠO‚ª”­¶‚µ‚Ü‚µ‚½B‚±‚ÌƒP[ƒX‚Í‚ ‚è‚¦‚Ü‚¹‚ñB:"
+                    + nativeString + ")ã®å‡¦ç†ã®éç¨‹ã«ãŠã„ã¦ã€äºˆæœŸã›ã¬ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ã“ã®ã‚±ãƒ¼ã‚¹ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚:"
                     + ex.toString());
         }
     }
 
     /**
-     * native2ascii‚ğÀs‚µ‚Ü‚·B
+     * native2asciiã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
      * 
-     * Ú‚µ‚­‚Í
+     * è©³ã—ãã¯
      * http://java.sun.com/j2se/1.4/ja/docs/ja/api/java/util/Properties.html
-     * #load(java.io.InputStream) ‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+     * #load(java.io.InputStream) ã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚
      * 
      * @param nativeString
-     *            •ÏŠ·‚à‚Æ‚Ì•¶š—ñB
-     * @return •ÏŠ·Œã‚Ì•¶š—ñB
+     *            å¤‰æ›ã‚‚ã¨ã®æ–‡å­—åˆ—ã€‚
+     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚
      * @see java.util.Properties#load(java.io.InputStream)
      */
     public static final String encodeNative2AsciiValue(final String nativeString) {
@@ -217,10 +217,10 @@ public class Native2AsciiWriter {
                     throw new IllegalArgumentException(
                             "encodeNative2Ascii("
                                     + nativeString
-                                    + ")‚Ìˆ—‚Ì‰ß’ö‚É‚¨‚¢‚ÄA’†ŠÔƒƒ‚ƒŠƒtƒ@ƒCƒ‹‚Ì—\Šú‚¹‚ÊI’[‚ª”­¶‚µ‚Ü‚µ‚½B‚±‚ÌƒP[ƒX‚Í‚ ‚è‚¦‚Ü‚¹‚ñB");
+                                    + ")ã®å‡¦ç†ã®éç¨‹ã«ãŠã„ã¦ã€ä¸­é–“ãƒ¡ãƒ¢ãƒªãƒ•ã‚¡ã‚¤ãƒ«ã®äºˆæœŸã›ã¬çµ‚ç«¯ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ã“ã®ã‚±ãƒ¼ã‚¹ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚");
                 }
                 if (look.startsWith("#")) {
-                    // ƒRƒƒ“ƒgs‚Í“Ç‚İ”ò‚Î‚µ‚Ü‚·B
+                    // ã‚³ãƒ¡ãƒ³ãƒˆè¡Œã¯èª­ã¿é£›ã°ã—ã¾ã™ã€‚
                     continue;
                 }
                 reader.close();
@@ -228,22 +228,22 @@ public class Native2AsciiWriter {
                     return look.substring("key=".length());
                 }
                 throw new IllegalArgumentException("encodeNative2Ascii("
-                        + nativeString + ")‚Ìˆ—‚Ì‰ß’ö‚É‚¨‚¢‚ÄA’†ŠÔƒƒ‚ƒŠƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ÌŒ‹‰ÊA—\Šú‚¹‚Ês["
-                        + look + "]‚ª–ß‚è‚Ü‚µ‚½B‚±‚ÌƒP[ƒX‚Í‚ ‚è‚¦‚Ü‚¹‚ñB");
+                        + nativeString + ")ã®å‡¦ç†ã®éç¨‹ã«ãŠã„ã¦ã€ä¸­é–“ãƒ¡ãƒ¢ãƒªãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã®çµæœã€äºˆæœŸã›ã¬è¡Œ["
+                        + look + "]ãŒæˆ»ã‚Šã¾ã—ãŸã€‚ã“ã®ã‚±ãƒ¼ã‚¹ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚");
             }
         } catch (IOException ex) {
             throw new IllegalArgumentException("encodeNative2Ascii("
-                    + nativeString + ")‚Ìˆ—‚Ì‰ß’ö‚É‚¨‚¢‚ÄA—\Šú‚¹‚Ê—áŠO‚ª”­¶‚µ‚Ü‚µ‚½B‚±‚ÌƒP[ƒX‚Í‚ ‚è‚¦‚Ü‚¹‚ñB:"
+                    + nativeString + ")ã®å‡¦ç†ã®éç¨‹ã«ãŠã„ã¦ã€äºˆæœŸã›ã¬ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚ã“ã®ã‚±ãƒ¼ã‚¹ã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚:"
                     + ex.toString());
         }
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½•¶š—ñ‚ªƒRƒƒ“ƒg‚Å‚ ‚é‚à‚Ì‚Æ‚µ‚ÄNative2Ascii‚ğÀs‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸæ–‡å­—åˆ—ãŒã‚³ãƒ¡ãƒ³ãƒˆã§ã‚ã‚‹ã‚‚ã®ã¨ã—ã¦Native2Asciiã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
      * 
      * @param nativeString
-     *            •ÏŠ·‚ğs‚¢‚½‚¢‘ÎÛ‚Ì•¶š—ñB
-     * @return asciiƒRƒƒ“ƒg‚Æ‚µ‚Ä•ÏŠ·Œã‚Ì•¶š—ñB
+     *            å¤‰æ›ã‚’è¡Œã„ãŸã„å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+     * @return asciiã‚³ãƒ¡ãƒ³ãƒˆã¨ã—ã¦å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚
      */
     public static final String encodeNative2AsciiComment(
             final String nativeString) {
@@ -256,18 +256,18 @@ public class Native2AsciiWriter {
                     break;
                 }
                 if ((iRead < 0x0020) || (iRead > 0x007E)) {
-                    // ‚æ‚è‚à¬‚³‚¢‚à‚Ì‚Æ \u007E‚æ‚è‚à‘å‚«‚¢‚à‚Ì‚Í
-                    // \\uxxxx‚Ì‚æ‚¤‚É16i•\¦‚ğs‚¢‚Ü‚·B
+                    // ã‚ˆã‚Šã‚‚å°ã•ã„ã‚‚ã®ã¨ \u007Eã‚ˆã‚Šã‚‚å¤§ãã„ã‚‚ã®ã¯
+                    // \\uxxxxã®ã‚ˆã†ã«16é€²è¡¨ç¤ºã‚’è¡Œã„ã¾ã™ã€‚
                     writer.write(toHexString((char) iRead));
                 } else {
-                    // ‰½‚à‚¹‚¸A‚»‚Ì‚Ü‚Ü‘‚«o‚µ‚Ü‚·B
+                    // ä½•ã‚‚ã›ãšã€ãã®ã¾ã¾æ›¸ãå‡ºã—ã¾ã™ã€‚
                     writer.write((char) iRead);
                 }
             }
             writer.flush();
             return writer.toString();
         } catch (IOException e) {
-            // ‚Ü‚¸‚±‚ê‚Í‚ ‚è‚¦‚Ü‚¹‚ñB
+            // ã¾ãšã“ã‚Œã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚
             e.printStackTrace();
             return null;
         } finally {
@@ -275,7 +275,7 @@ public class Native2AsciiWriter {
                 try {
                     writer.close();
                 } catch (IOException e) {
-                    // ‚Ü‚¸‚±‚ê‚Í‚ ‚è‚¦‚Ü‚¹‚ñB
+                    // ã¾ãšã“ã‚Œã¯ã‚ã‚Šãˆã¾ã›ã‚“ã€‚
                     e.printStackTrace();
                 }
             }
@@ -286,13 +286,13 @@ public class Native2AsciiWriter {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½char•¶š‚ğUnicode•\‹L‚É•ÏŠ·‚µ‚Ü‚·B<br>
-     * native2ascii.exe‚Ìd—l‚Æ‚ÍˆÙ‚È‚è‚Ü‚·‚ªAjava.util.Properties‚Ìd—l‚É]‚¢A‘å•¶š‚É•ÏŠ·‚µ‚Ü‚·B<br>
-     * ‚±‚Ìƒ‹[ƒ`ƒ“‚ÍANative2AsciiWriter‚ÌƒRƒƒ“ƒgƒGƒ“ƒR[ƒh‚É—˜—p‚³‚ê‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸcharæ–‡å­—ã‚’Unicodeè¡¨è¨˜ã«å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * native2ascii.exeã®ä»•æ§˜ã¨ã¯ç•°ãªã‚Šã¾ã™ãŒã€java.util.Propertiesã®ä»•æ§˜ã«å¾“ã„ã€å¤§æ–‡å­—ã«å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * ã“ã®ãƒ«ãƒ¼ãƒãƒ³ã¯ã€Native2AsciiWriterã®ã‚³ãƒ¡ãƒ³ãƒˆã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã«åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚
      * 
      * @param arg
-     *            HEX•\‹L‚ğ‚¨‚±‚È‚¢‚½‚¢•¶š—ñB
-     * @return HEX•\‹L‚É•ÏŠ·Œã‚Ì•¶š—ñB
+     *            HEXè¡¨è¨˜ã‚’ãŠã“ãªã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return HEXè¡¨è¨˜ã«å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚
      */
     private static final String toHexString(final char arg) {
         return "\\u" + BlancoStringUtil.toHexString(arg).toUpperCase();

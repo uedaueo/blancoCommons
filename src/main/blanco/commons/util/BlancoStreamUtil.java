@@ -25,39 +25,39 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * blanco Framework�ɂ�����A�X�g���[���Ɋւ��郆�[�e�B���e�B���܂܂�܂��B
+ * blanco Frameworkにおける、ストリームに関するユーティリティが含まれます。
  * 
- * �����Ƃ��ĂقƂ�ǂ̃��\�b�h��static���\�b�h�Ƃ��Ē񋟂���܂��B
+ * 原則としてほとんどのメソッドはstaticメソッドとして提供されます。
  * 
  * @author IGA Tosiki
  */
 public class BlancoStreamUtil {
     /**
-     * �X�g���[���R�s�[�Ȃǂ̍ۂ̃o�b�t�@�T�C�Y�B
+     * ストリームコピーなどの際のバッファサイズ。
      */
     public static final int BUF_SIZE = 8192;
 
     /**
-     * �^����ꂽ�X�g���[�����o�C�g�z��ɕϊ����܂��B
+     * 与えられたストリームをバイト配列に変換します。
      * 
-     * ByteArrayInputStream�̋t�̌��ʂ𓾂邽�߂̃��\�b�h�ł��B
+     * ByteArrayInputStreamの逆の効果を得るためのメソッドです。
      * 
      * @param inStream
-     *            ���̓X�g���[���B
-     * @return �ϊ���̃o�C�g�z��B
+     *            入力ストリーム。
+     * @return 変換後のバイト配列。
      * @throws IOException
-     *             ���o�͗�O�����������ꍇ�B
+     *             入出力例外が発生した場合。
      */
     public static byte[] stream2Bytes(final InputStream inStream)
             throws IOException {
         if (inStream == null) {
             throw new IllegalArgumentException(
-                    "���̓X�g���[������o�C�g�z��ɕϊ����郁�\�b�h�ɓ��̓X�g���[���Ƃ���null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "入力ストリームからバイト配列に変換するメソッドに入力ストリームとしてnullが与えられました。null以外の値を与えてください。");
         }
 
         final ByteArrayOutputStream result = new ByteArrayOutputStream();
 
-        // �X�g���[���̃R�s�[���s���܂��B
+        // ストリームのコピーを行います。
         copy(inStream, result);
 
         result.flush();
@@ -65,27 +65,27 @@ public class BlancoStreamUtil {
     }
 
     /**
-     * �^����ꂽ���̓X�g���[�����o�̓X�g���[���ւƃR�s�[���܂��B
+     * 与えられた入力ストリームを出力ストリームへとコピーします。
      * 
-     * �o�b�t�@�T�C�Y8192�o�C�g�ŃX�g���[�����u���b�N�R�s�[���܂��B<br>
-     * ���̃��\�b�h�̓����ł̓t���b�V�������͍s���܂���B�K�v�ɉ����ČĂяo�������\�b�h�ɂ����� flush()���Ă��������B
+     * バッファサイズ8192バイトでストリームをブロックコピーします。<br>
+     * このメソッドの内部ではフラッシュ処理は行いません。必要に応じて呼び出し元メソッドにおいて flush()してください。
      * 
      * @param inStream
-     *            ���̓X�g���[���B
+     *            入力ストリーム。
      * @param outStream
-     *            �o�̓X�g���[���B
+     *            出力ストリーム。
      * @throws IOException
-     *             ���o�͗�O�����������ꍇ�B
+     *             入出力例外が発生した場合。
      */
     public static final void copy(final InputStream inStream,
             final OutputStream outStream) throws IOException {
         if (inStream == null) {
             throw new IllegalArgumentException(
-                    "BlancoStreamUtil.copy���\�b�h�̓��̓X�g���[���p�����[�^��null���^�����܂����Bnull�ȊO�̒l���w�肵�Ă��������B");
+                    "BlancoStreamUtil.copyメソッドの入力ストリームパラメータにnullが与えられました。null以外の値を指定してください。");
         }
         if (outStream == null) {
             throw new IllegalArgumentException(
-                    "BlancoStreamUtil.copy���\�b�h�̏o�̓X�g���[���p�����[�^��null���^�����܂����Bnull�ȊO�̒l���w�肵�Ă��������B");
+                    "BlancoStreamUtil.copyメソッドの出力ストリームパラメータにnullが与えられました。null以外の値を指定してください。");
         }
 
         final byte[] buf = new byte[BUF_SIZE];

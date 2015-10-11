@@ -22,7 +22,7 @@ package blanco.commons.calc;
 import junit.framework.TestCase;
 
 /**
- * Calcƒ†[ƒeƒBƒŠƒeƒB‚ð’P‘ÌŽŽŒ±‚µ‚Ü‚·B
+ * Calcãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚’å˜ä½“è©¦é¨“ã—ã¾ã™ã€‚
  * 
  * @author iga
  */

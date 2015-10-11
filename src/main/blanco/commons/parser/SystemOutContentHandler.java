@@ -24,8 +24,8 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 /**
- * ’P‚É•W€o—Í‚ÉƒŠƒ_ƒCƒŒƒNƒg‚·‚é‚¾‚¯‚ÌSAX2ƒp[ƒT‚Å‚·B <br>
- * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ð•Ê“rƒZƒbƒg‚·‚é‚±‚Æ‚É‚æ‚èASAXƒ`ƒFƒCƒ“‚ð‚Ì‚¼‚«Œ©‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+ * å˜ã«æ¨™æº–å‡ºåŠ›ã«ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆã™ã‚‹ã ã‘ã®SAX2ãƒ‘ãƒ¼ã‚µã§ã™ã€‚ <br>
+ * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’åˆ¥é€”ã‚»ãƒƒãƒˆã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€SAXãƒã‚§ã‚¤ãƒ³ã‚’ã®ãžãè¦‹ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -135,8 +135,8 @@ public class SystemOutContentHandler extends ContentHandlerStream {
     }
 
     /**
-     * •¶Žš—ñ‚ðƒNƒI[ƒg <br>
-     * TODO:‚³‚·‚ª‚É‹¤’Êƒ‹[ƒ`ƒ“‰»‚ª•K—v‚©‚à‚Å‚·
+     * æ–‡å­—åˆ—ã‚’ã‚¯ã‚ªãƒ¼ãƒˆ <br>
+     * TODO:ã•ã™ãŒã«å…±é€šãƒ«ãƒ¼ãƒãƒ³åŒ–ãŒå¿…è¦ã‹ã‚‚ã§ã™
      * 
      * @param arg
      * @return

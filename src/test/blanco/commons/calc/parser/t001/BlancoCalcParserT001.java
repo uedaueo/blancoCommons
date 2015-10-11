@@ -32,9 +32,9 @@ import blanco.commons.calc.parser.BlancoCalcParser;
 
 /**
  * blancoResourceBundle <br>
- * ƒƒ^î•ñ‚©‚çƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚âƒŠƒ\[ƒXƒoƒ“ƒhƒ‹ƒAƒNƒZƒTJavaƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬ <br>
+ * ãƒ¡ã‚¿æƒ…å ±ã‹ã‚‰ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚„ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã‚¢ã‚¯ã‚»ã‚µJavaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆ <br>
  * 
- * ƒƒ^î•ñ‚ð“ü—Í‚µ‚ÄXML‚ðo—Í(XML‚Ö•ÏŠ·)‚µ‚Ü‚·B <br>
+ * ãƒ¡ã‚¿æƒ…å ±ã‚’å…¥åŠ›ã—ã¦XMLã‚’å‡ºåŠ›(XMLã¸å¤‰æ›)ã—ã¾ã™ã€‚ <br>
  * 
  * @author IGA Tosiki
  */

@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.ext.LexicalHandler;
 
 /**
- * ƒCƒxƒ“ƒg‚ğSystem.out‚Ö‚ÆƒŠƒ_ƒCƒŒƒNƒg‚µ‚Ü‚·B
+ * ã‚¤ãƒ™ãƒ³ãƒˆã‚’System.outã¸ã¨ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -40,14 +40,14 @@ public class SystemOutLexicalHandler implements LexicalHandler {
     }
 
     /**
-     * ƒnƒ“ƒhƒ‰‚ğƒZƒbƒg‚µ‚Ü‚·B
+     * ãƒãƒ³ãƒ‰ãƒ©ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
      */
     public final void setLexicalHandler(LexicalHandler arg0) {
         lexicalHandler = arg0;
     }
 
     /**
-     * ƒnƒ“ƒhƒ‰‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ã—ã¾ã™ã€‚
      */
     public final LexicalHandler getLexicalHandler() {
         return lexicalHandler;
@@ -107,8 +107,8 @@ public class SystemOutLexicalHandler implements LexicalHandler {
     }
 
     /**
-     * •¶š—ñ‚ğƒNƒI[ƒg <br>
-     * TODO:‚³‚·‚ª‚É‹¤’Êƒ‹[ƒ`ƒ“‰»‚ª•K—v‚©‚à‚Å‚·
+     * æ–‡å­—åˆ—ã‚’ã‚¯ã‚ªãƒ¼ãƒˆ <br>
+     * TODO:ã•ã™ãŒã«å…±é€šãƒ«ãƒ¼ãƒãƒ³åŒ–ãŒå¿…è¦ã‹ã‚‚ã§ã™
      * 
      * @param arg
      * @return

@@ -20,7 +20,7 @@
 package blanco.commons.calc.parser.block;
 
 /**
- * �\���p�̒l�Ǝ��ۂ̒l�Ƃ��}�b�s���O���܂��B
+ * 表示用の値と実際の値とをマッピングします。
  * 
  * @author IGA Tosiki
  */
@@ -48,11 +48,11 @@ public class BlancoCalcParserValueMapping {
     }
 
     /**
-     * ������}�b�s���O���s���܂��B�}�b�s���O�����s�����ꍇ�ɂ�null��߂��܂��B
+     * 文字列マッピングを行います。マッピングが失敗した場合にはnullを戻します。
      * 
      * @param value
-     *            ���͒l�B
-     * @return �}�b�s���O�Ƀq�b�g������ϊ���̒l��߂��܂��B�}�b�s���O�Ƀq�b�g���Ȃ������ꍇ�ɂ͓��͒l�����̂܂ܖ߂��܂��B
+     *            入力値。
+     * @return マッピングにヒットしたら変換後の値を戻します。マッピングにヒットしなかった場合には入力値をそのまま戻します。
      */
     private String mapping(final String value) {
         if (source == null) {
@@ -69,13 +69,13 @@ public class BlancoCalcParserValueMapping {
     }
 
     /**
-     * �l�̃}�b�s���O���s���܂��B�}�b�s���O�ł��Ȃ������ꍇ�ɂ� ���͒l�����̂܂ܖ߂��܂��B
+     * 値のマッピングを行います。マッピングできなかった場合には 入力値をそのまま戻します。
      * 
      * @param value
-     *            �}�b�s���O�̃}�b�`���O���s���������͒l�B
+     *            マッピングのマッチングを行いたい入力値。
      * @param mappings
-     *            �}�b�s���O�\�B
-     * @return �}�b�s���O��̒l�B�}�b�s���O���s���Ȃ������ꍇ�ɂ͓��͒l���̂��́B
+     *            マッピング表。
+     * @return マッピング後の値。マッピングが行われなかった場合には入力値そのもの。
      */
     public static final String mapping(final String value,
             final BlancoCalcParserValueMapping[] mappings) {

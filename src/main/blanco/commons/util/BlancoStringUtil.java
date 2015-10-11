@@ -20,19 +20,19 @@
 package blanco.commons.util;
 
 /**
- * blanco Framework�ɂ�����A������Ɋւ��郆�[�e�B���e�B���܂܂�܂��B
+ * blanco Frameworkにおける、文字列に関するユーティリティが含まれます。
  * 
- * �����Ƃ��ĂقƂ�ǂ̃��\�b�h��static���\�b�h�Ƃ��Ē񋟂���܂��B
+ * 原則としてほとんどのメソッドはstaticメソッドとして提供されます。
  * 
  * @author IGA Tosiki
  */
 public class BlancoStringUtil {
     /**
-     * �^����ꂽbyte�z���16�i�\�L���擾���܂��B�������Ŗ߂�܂��B
+     * 与えられたbyte配列の16進表記を取得します。小文字で戻ります。
      * 
      * @param arg
-     *            ���͂ƂȂ�o�C�g�z��B
-     * @return 16�i�\�L�̕�����B
+     *            入力となるバイト配列。
+     * @return 16進表記の文字列。
      */
     public static final String toHexString(final byte[] arg) {
         final StringBuffer buf = new StringBuffer();
@@ -43,14 +43,14 @@ public class BlancoStringUtil {
     }
 
     /**
-     * �^����ꂽbyte��16�i�\�L���擾���܂��B�������Ŗ߂�܂��B
+     * 与えられたbyteの16進表記を取得します。小文字で戻ります。
      * 
      * @param arg
-     *            �o�C�g�B
-     * @return 16�i�\�L�̕�����B
+     *            バイト。
+     * @return 16進表記の文字列。
      */
     public static final String toHexString(final byte arg) {
-        // ���̒l�ɂ���������16�i�\�L���擾���܂��B
+        // 正の値にしたうえで16進表記を取得します。
         String strResult = Integer.toHexString(arg & 0xff);
         for (; strResult.length() < 2;) {
             strResult = "0" + strResult;
@@ -59,11 +59,11 @@ public class BlancoStringUtil {
     }
 
     /**
-     * �^����ꂽchar������16�i�\�L�ɕϊ����܂��B�������Ŗ߂�܂��B
+     * 与えられたchar文字を16進表記に変換します。小文字で戻ります。
      * 
      * @param arg
-     *            �����B
-     * @return 16�i�\�L�̕�����B
+     *            文字。
+     * @return 16進表記の文字列。
      */
     public static final String toHexString(final char arg) {
         String strResult = Integer.toHexString(arg);
@@ -74,18 +74,18 @@ public class BlancoStringUtil {
     }
 
     /**
-     * ���K�\���Ƃ͊֌W�Ȃ�������̒u�����s���܂��B
+     * 正規表現とは関係なく文字列の置換を行います。
      * 
-     * ���̃��\�b�h�ł� java.lang.String�Ƃ͈قȂ萳�K�\���͊֗^���܂���B<br>
-     * ���K�\�����@�\���Ăق����Ȃ�������u���̍ۂɗ��p���܂��B
+     * このメソッドでは java.lang.Stringとは異なり正規表現は関与しません。<br>
+     * 正規表現が機能してほしくない文字列置換の際に利用します。
      * 
      * @param source
-     *            �ϊ��O�̕�����B
+     *            変換前の文字列。
      * @param replaceFrom
-     *            �u���������B
+     *            置換元文字。
      * @param replaceTo
-     *            �u���敶���B
-     * @return �ϊ���̕�����B
+     *            置換先文字。
+     * @return 変換後の文字列。
      */
     public static final String replaceAll(final String source,
             final char replaceFrom, final char replaceTo) {
@@ -94,18 +94,18 @@ public class BlancoStringUtil {
     }
 
     /**
-     * ���K�\���Ƃ͊֌W�Ȃ�������̒u�����s���܂��B
+     * 正規表現とは関係なく文字列の置換を行います。
      * 
-     * ���̃��\�b�h�ł� java.lang.String�Ƃ͈قȂ萳�K�\���͊֗^���܂���B<br>
-     * ���K�\�����@�\���Ăق����Ȃ�������u���̍ۂɗ��p���܂��B
+     * このメソッドでは java.lang.Stringとは異なり正規表現は関与しません。<br>
+     * 正規表現が機能してほしくない文字列置換の際に利用します。
      * 
      * @param source
-     *            �ϊ��O�̕�����B
+     *            変換前の文字列。
      * @param replaceFrom
-     *            �u����������B
+     *            置換元文字列。
      * @param replaceTo
-     *            �u���敶����B
-     * @return �ϊ���̕�����B
+     *            置換先文字列。
+     * @return 変換後の文字列。
      */
     public static final String replaceAll(final String source,
             final String replaceFrom, final String replaceTo) {
@@ -114,20 +114,20 @@ public class BlancoStringUtil {
     }
 
     /**
-     * ���K�\���Ƃ͊֌W�Ȃ�������̒u�����s���܂��B
+     * 正規表現とは関係なく文字列の置換を行います。
      * 
-     * ���̃��\�b�h�ł� java.lang.String�Ƃ͈قȂ萳�K�\���͊֗^���܂���B<br>
-     * ���K�\�����@�\���Ăق����Ȃ�������u���̍ۂɗ��p���܂��B
+     * このメソッドでは java.lang.Stringとは異なり正規表現は関与しません。<br>
+     * 正規表現が機能してほしくない文字列置換の際に利用します。
      * 
      * @param source
-     *            �ϊ��O�̕�����B
+     *            変換前の文字列。
      * @param replaceFrom
-     *            �u����������B
+     *            置換元文字列。
      * @param replaceTo
-     *            �u���敶����B
+     *            置換先文字列。
      * @param isReplaceAll
-     *            �S�Ēu�����邩�ǂ����B
-     * @return �ϊ���̕�����B
+     *            全て置換するかどうか。
+     * @return 変換後の文字列。
      */
     public static final String replace(final String source,
             final String replaceFrom, final String replaceTo,
@@ -137,88 +137,88 @@ public class BlancoStringUtil {
     }
 
     /**
-     * �^����ꂽ������null�̏ꍇ�ɁA����0�̕�����ւƕϊ����܂��B�����Ŗ����ꍇ�ɂ́A���̂܂܂̕����񂪖߂�܂��B
+     * 与えられた文字列がnullの場合に、長さ0の文字列へと変換します。そうで無い場合には、そのままの文字列が戻ります。
      * 
-     * null�𒷂�0�̕�����ɒu�����������ꍇ�ɁA���̃��\�b�h�𗘗p���܂��B<br>
-     * �����񏈗��̉ߒ��� null�����肤��̂��� ����͒���0�̕�����Ƃ݂Ȃ������ꍇ�ɂ��̃��\�b�h�𗘗p���邱�Ƃ�z�肵�܂��B
+     * nullを長さ0の文字列に置き換えたい場合に、このメソッドを利用します。<br>
+     * 文字列処理の過程で nullが入りうるのだが それは長さ0の文字列とみなしたい場合にこのメソッドを利用することを想定します。
      * 
      * @param originalString
-     *            ���͕�����B������null��^����� ����0�̕�����ɕϊ�����܂��B
-     * @return �ϊ���̕�����B�K�� null�ȊO���߂�܂��B
+     *            入力文字列。ここにnullを与えると 長さ0の文字列に変換されます。
+     * @return 変換後の文字列。必ず null以外が戻ります。
      */
     public static final String null2Blank(final String originalString) {
         if (originalString == null) {
-            // null�̏ꍇ�ɂ́A����0�̕�����ɒu���������܂��B
+            // nullの場合には、長さ0の文字列に置き換えられます。
             return "";
         }
-        // �����łȂ��ꍇ�ɂ́A���Ƃ̕����񂪂��̂܂ܖ߂�܂��B
+        // そうでない場合には、もとの文字列がそのまま戻ります。
         return originalString;
     }
 
     /**
-     * ������̒������擾���܂��Bnull�̏ꍇ�ɂ� ����0�Ƃ݂Ȃ��܂��B
+     * 文字列の長さを取得します。nullの場合には 長さ0とみなします。
      * 
-     * null�����肤�镶����̒������擾�������ꍇ�ɗ��p����邱�Ƃ�z�肵�Ă��܂��B
+     * nullが入りうる文字列の長さを取得したい場合に利用されることを想定しています。
      * 
-     * @deprecated �������̊m�ۂ̂��߂ɁAnull2Blank��length()�𒼐ڌĂяo�����Ƃ������߂��܂��B
+     * @deprecated 自明さの確保のために、null2Blankとlength()を直接呼び出すことをお勧めします。
      * @param sourceString
-     *            �������擾������������B
-     * @return ������̒����Bnull���^����ꂽ�ꍇ�ɂ�0���߂�܂��B
+     *            長さを取得したい文字列。
+     * @return 文字列の長さ。nullが与えられた場合には0が戻ります。
      */
     public static final int getLengthNullable(final String sourceString) {
-        // null���^�����Ă�����0�ł���Ɣ��f���܂��B
+        // nullが与えられても長さ0であると判断します。
         return null2Blank(sourceString).length();
     }
 
     /**
-     * �^����ꂽ������ɂ��āA�����ɔ��p�󔒂������ ������������܂��B
+     * 与えられた文字列について、左側に半角空白があれば これを除去します。
      * 
-     * ���p�󔒂̂ݏ������܂��B�S�p�󔒂͏������܂���B
+     * 半角空白のみ除去します。全角空白は処理しません。
      * 
      * @param originalString
-     *            �������s������������B
-     * @return ���p�󔒂��؂�l�߂�ꂽ��̕�����B
+     *            処理を行いたい文字列。
+     * @return 半角空白が切り詰められた後の文字列。
      */
     public static final String trimLeft(final String originalString) {
         return BlancoStringUtilTrim.trimLeft(originalString);
     }
 
     /**
-     * �^����ꂽ������ɂ��āA�E���ɔ��p�󔒂������ ������������܂��B
+     * 与えられた文字列について、右側に半角空白があれば これを除去します。
      * 
-     * ���p�󔒂̂ݏ������܂��B�S�p�󔒂͏������܂���B
+     * 半角空白のみ除去します。全角空白は処理しません。
      * 
      * @param originalString
-     *            �������s������������B
-     * @return ���p�󔒂��؂�l�߂�ꂽ��̕�����B
+     *            処理を行いたい文字列。
+     * @return 半角空白が切り詰められた後の文字列。
      */
     public static final String trimRight(final String originalString) {
         return BlancoStringUtilTrim.trimRight(originalString);
     }
 
     /**
-     * �^����ꂽ������ɂ��āA�E������э����ɔ��p�󔒂������ ������������܂��B
+     * 与えられた文字列について、右側および左側に半角空白があれば これを除去します。
      * 
-     * ���p�󔒂̂ݏ������܂��B�S�p�󔒂͏������܂���B
+     * 半角空白のみ除去します。全角空白は処理しません。
      * 
      * @param originalString
-     *            �������s������������B
-     * @return ���p�󔒂��؂�l�߂�ꂽ��̕�����B
+     *            処理を行いたい文字列。
+     * @return 半角空白が切り詰められた後の文字列。
      */
     public static final String trim(final String originalString) {
         return BlancoStringUtilTrim.trim(originalString);
     }
 
     /**
-     * �w��̒����ɂȂ�܂ŁA������̉E���ɕ�����ǉ����܂��B
+     * 指定の長さになるまで、文字列の右側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padRight(final String argSource,
             final int argLength, final char argPadChar) {
@@ -226,15 +226,15 @@ public class BlancoStringUtil {
     }
 
     /**
-     * �w��̒����ɂȂ�܂ŁA������̍����ɕ�����ǉ����܂��B
+     * 指定の長さになるまで、文字列の左側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padLeft(final String argSource,
             final int argLength, final char argPadChar) {
@@ -242,15 +242,15 @@ public class BlancoStringUtil {
     }
 
     /**
-     * Windows 31J���Z�Ŏw��̒����ɂȂ�܂ŁA������̉E���ɕ�����ǉ����܂��B
+     * Windows 31J換算で指定の長さになるまで、文字列の右側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padRightWindows31J(final String argSource,
             final int argLength, final char argPadChar) {
@@ -259,15 +259,15 @@ public class BlancoStringUtil {
     }
 
     /**
-     * Windows-31J ���Z�Ŏw��̒����ɂȂ�܂ŁA������̍����ɕ�����ǉ����܂��B
+     * Windows-31J 換算で指定の長さになるまで、文字列の左側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padLeftWindows31J(final String argSource,
             final int argLength, final char argPadChar) {

@@ -22,7 +22,7 @@ package blanco.commons.util;
 import junit.framework.TestCase;
 
 /**
- * –¼‘O‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚ÌƒeƒXƒgƒP[ƒX‚Å‚·
+ * åå‰ã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã®ãƒ†ã‚¹ãƒˆã‚±ãƒ¼ã‚¹ã§ã™
  * 
  * @author iga
  */
@@ -30,20 +30,20 @@ public class BlancoStringUtilTest extends TestCase {
     public void testReplaceAllString() throws Exception {
         assertEquals("BBB", BlancoStringUtil.replaceAll("AAA", "A", "B"));
         assertEquals("BBC", BlancoStringUtil.replaceAll("ABC", "A", "B"));
-        assertEquals("—×‚Ì‹q‚Í—Ç‚­‚è‚ñ‚²H‚¤‹q‚¾", BlancoStringUtil.replaceAll(
-                "—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", "Š`", "‚è‚ñ‚²"));
-        assertEquals("—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¼", BlancoStringUtil.replaceAll("—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾",
-                "‚¾", "‚¼"));
-        assertEquals("‰¡‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", BlancoStringUtil.replaceAll("—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾",
-                "—×", "‰¡"));
-        assertEquals("—×‚Ìl‚Í—Ç‚­Š`H‚¤l‚¾", BlancoStringUtil.replaceAll("—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾",
-                "‹q", "l"));
-        assertEquals("—×‚Ì‚«‚á‚­‚Í—Ç‚­Š`H‚¤‚«‚á‚­‚¾", BlancoStringUtil.replaceAll(
-                "—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", "‹q", "‚«‚á‚­"));
-        assertEquals("—×‚Ì‚«‚á‚­‚Í—Ç‚­Š`H‚¤‚«‚á‚­‚¾", BlancoStringUtil.replaceAll(
-                "—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", "‹q", "‚«‚á‚­"));
-        assertEquals("—×‚Ì‚Í—Ç‚­Š`H‚¤‚¾", BlancoStringUtil.replaceAll("—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾",
-                "‹q", ""));
+        assertEquals("éš£ã®å®¢ã¯è‰¯ãã‚Šã‚“ã”é£Ÿã†å®¢ã ", BlancoStringUtil.replaceAll(
+                "éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", "æŸ¿", "ã‚Šã‚“ã”"));
+        assertEquals("éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã", BlancoStringUtil.replaceAll("éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ",
+                "ã ", "ã"));
+        assertEquals("æ¨ªã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", BlancoStringUtil.replaceAll("éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ",
+                "éš£", "æ¨ª"));
+        assertEquals("éš£ã®äººã¯è‰¯ãæŸ¿é£Ÿã†äººã ", BlancoStringUtil.replaceAll("éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ",
+                "å®¢", "äºº"));
+        assertEquals("éš£ã®ãã‚ƒãã¯è‰¯ãæŸ¿é£Ÿã†ãã‚ƒãã ", BlancoStringUtil.replaceAll(
+                "éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", "å®¢", "ãã‚ƒã"));
+        assertEquals("éš£ã®ãã‚ƒãã¯è‰¯ãæŸ¿é£Ÿã†ãã‚ƒãã ", BlancoStringUtil.replaceAll(
+                "éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", "å®¢", "ãã‚ƒã"));
+        assertEquals("éš£ã®ã¯è‰¯ãæŸ¿é£Ÿã†ã ", BlancoStringUtil.replaceAll("éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ",
+                "å®¢", ""));
         assertEquals("DEF", BlancoStringUtil.replaceAll("ABC", "ABC", "DEF"));
         assertEquals("ABC", BlancoStringUtil.replaceAll("ABC", "ABD", "DEF"));
         assertEquals("DEFDEF", BlancoStringUtil.replaceAll("ABCABC", "ABC",
@@ -52,16 +52,16 @@ public class BlancoStringUtilTest extends TestCase {
                 "DEF"));
         assertEquals("ZDEFZDEFZ", BlancoStringUtil.replaceAll("ZABCZABCZ",
                 "ABC", "DEF"));
-        // –³ŒÀƒ‹[ƒvƒ`ƒFƒbƒN—pB
-        assertEquals("—×‚Ì‚«‚á‚­‹q‚Í—Ç‚­Š`H‚¤‚«‚á‚­‹q‚¾", BlancoStringUtil.replaceAll(
-                "—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", "‹q", "‚«‚á‚­‹q"));
+        // ç„¡é™ãƒ«ãƒ¼ãƒ—ãƒã‚§ãƒƒã‚¯ç”¨ã€‚
+        assertEquals("éš£ã®ãã‚ƒãå®¢ã¯è‰¯ãæŸ¿é£Ÿã†ãã‚ƒãå®¢ã ", BlancoStringUtil.replaceAll(
+                "éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", "å®¢", "ãã‚ƒãå®¢"));
     }
 
     public void testReplaceString() throws Exception {
-        assertEquals("—×‚Ì‚«‚á‚­‹q‚Í—Ç‚­Š`H‚¤‚«‚á‚­‹q‚¾", BlancoStringUtil.replace(
-                "—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", "‹q", "‚«‚á‚­‹q", true));
-        assertEquals("—×‚Ì‚«‚á‚­‹q‚Í—Ç‚­Š`H‚¤‹q‚¾", BlancoStringUtil.replace("—×‚Ì‹q‚Í—Ç‚­Š`H‚¤‹q‚¾",
-                "‹q", "‚«‚á‚­‹q", false));
+        assertEquals("éš£ã®ãã‚ƒãå®¢ã¯è‰¯ãæŸ¿é£Ÿã†ãã‚ƒãå®¢ã ", BlancoStringUtil.replace(
+                "éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", "å®¢", "ãã‚ƒãå®¢", true));
+        assertEquals("éš£ã®ãã‚ƒãå®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ", BlancoStringUtil.replace("éš£ã®å®¢ã¯è‰¯ãæŸ¿é£Ÿã†å®¢ã ",
+                "å®¢", "ãã‚ƒãå®¢", false));
     }
 
     public void testTrimLeft() throws Exception {
@@ -109,13 +109,13 @@ public class BlancoStringUtilTest extends TestCase {
         assertEquals("ABCDEF", BlancoStringUtil.padLeft("ABCDEF", 5, 'Z'));
     }
     public void testPadWindows31J() throws Exception {
-        assertEquals("‚ ‚¢‚¤Z", BlancoStringUtil.padRightWindows31J("‚ ‚¢‚¤", 7, 'Z'));
-        assertEquals("‚ ", BlancoStringUtil.padRightWindows31J("‚ ", 1, 'Z'));
-        assertEquals("‚ ", BlancoStringUtil.padRightWindows31J("‚ ", 2, 'Z'));
-        assertEquals("‚ Z", BlancoStringUtil.padRightWindows31J("‚ ", 3, 'Z'));
-        assertEquals("‚ ", BlancoStringUtil.padLeftWindows31J("‚ ", 1, 'Z'));
-        assertEquals("‚ ", BlancoStringUtil.padLeftWindows31J("‚ ", 2, 'Z'));
-        assertEquals("Z‚ ", BlancoStringUtil.padLeftWindows31J("‚ ", 3, 'Z'));
-        assertEquals("Z‚ ‚¢‚¤", BlancoStringUtil.padLeftWindows31J("‚ ‚¢‚¤", 7, 'Z'));
+        assertEquals("ã‚ã„ã†Z", BlancoStringUtil.padRightWindows31J("ã‚ã„ã†", 7, 'Z'));
+        assertEquals("ã‚", BlancoStringUtil.padRightWindows31J("ã‚", 1, 'Z'));
+        assertEquals("ã‚", BlancoStringUtil.padRightWindows31J("ã‚", 2, 'Z'));
+        assertEquals("ã‚Z", BlancoStringUtil.padRightWindows31J("ã‚", 3, 'Z'));
+        assertEquals("ã‚", BlancoStringUtil.padLeftWindows31J("ã‚", 1, 'Z'));
+        assertEquals("ã‚", BlancoStringUtil.padLeftWindows31J("ã‚", 2, 'Z'));
+        assertEquals("Zã‚", BlancoStringUtil.padLeftWindows31J("ã‚", 3, 'Z'));
+        assertEquals("Zã‚ã„ã†", BlancoStringUtil.padLeftWindows31J("ã‚ã„ã†", 7, 'Z'));
     }
 }

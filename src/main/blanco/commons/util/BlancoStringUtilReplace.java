@@ -24,32 +24,32 @@ import java.io.StringReader;
 import java.io.StringWriter;
 
 /**
- * blanco Framework�ɂ�����A������Ɋւ��郆�[�e�B���e�B�̓����������܂܂�܂��B
+ * blanco Frameworkにおける、文字列に関するユーティリティの内部処理が含まれます。
  * 
- * ���̃N���X�̓p�b�P�[�W�O����J�Ɛݒ肵�Ă��܂��B
+ * このクラスはパッケージ外非公開と設定しています。
  * 
  * @author IGA Tosiki
  */
 class BlancoStringUtilReplace {
     /**
-     * ���K�\���Ƃ͊֌W�Ȃ�������̒u�����s���܂��B
+     * 正規表現とは関係なく文字列の置換を行います。
      * 
-     * ���̃��\�b�h�ł� java.lang.String�Ƃ͈قȂ萳�K�\���͊֗^���܂���B<br>
-     * ���K�\�����@�\���Ăق����Ȃ�������u���̍ۂɗ��p���܂��B
+     * このメソッドでは java.lang.Stringとは異なり正規表現は関与しません。<br>
+     * 正規表現が機能してほしくない文字列置換の際に利用します。
      * 
      * @param source
-     *            �ϊ��O�̕�����B
+     *            変換前の文字列。
      * @param replaceFrom
-     *            �u���������B
+     *            置換元文字。
      * @param replaceTo
-     *            �u���敶���B
-     * @return �ϊ���̕�����B
+     *            置換先文字。
+     * @return 変換後の文字列。
      */
     public static final String replaceAll(final String source,
             final char replaceFrom, final char replaceTo) {
         if (source == null) {
             throw new IllegalArgumentException(
-                    "������u���̃��\�b�h�ɁA�ϊ���������Ƃ���null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "文字列置換のメソッドに、変換元文字列としてnullが与えられました。null以外の値を与えてください。");
         }
 
         try {
@@ -73,44 +73,44 @@ class BlancoStringUtilReplace {
             }
         } catch (IOException ex) {
             throw new IllegalArgumentException(
-                    "������u���̃��\�b�h�̏������ɁA�z�肳��Ȃ���O���������܂����B�������f���܂��B" + ex.toString());
+                    "文字列置換のメソッドの処理中に、想定されない例外が発生しました。処理中断します。" + ex.toString());
         }
     }
 
     /**
-     * ���K�\���Ƃ͊֌W�Ȃ�������̒u�����s���܂��B
+     * 正規表現とは関係なく文字列の置換を行います。
      * 
-     * ���̃��\�b�h�ł� java.lang.String�Ƃ͈قȂ萳�K�\���͊֗^���܂���B<br>
-     * ���K�\�����@�\���Ăق����Ȃ�������u���̍ۂɗ��p���܂��B
+     * このメソッドでは java.lang.Stringとは異なり正規表現は関与しません。<br>
+     * 正規表現が機能してほしくない文字列置換の際に利用します。
      * 
      * @param source
-     *            �ϊ��O�̕�����B
+     *            変換前の文字列。
      * @param replaceFrom
-     *            �u����������B
+     *            置換元文字列。
      * @param replaceTo
-     *            �u���敶����B
+     *            置換先文字列。
      * @param isReplaceAll
-     *            �S�Ēu�����邩�ǂ����B
-     * @return �ϊ���̕�����B
+     *            全て置換するかどうか。
+     * @return 変換後の文字列。
      */
     public static final String replace(final String source,
             final String replaceFrom, final String replaceTo,
             final boolean isReplaceAll) {
         if (source == null) {
             throw new IllegalArgumentException(
-                    "������u���̃��\�b�h�ɁA�ϊ���������Ƃ���null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "文字列置換のメソッドに、変換元文字列としてnullが与えられました。null以外の値を与えてください。");
         }
         if (replaceFrom == null) {
             throw new IllegalArgumentException(
-                    "������u���̃��\�b�h�ɁA�u���������Ƃ���null���^�����܂����B");
+                    "文字列置換のメソッドに、置換元文字としてnullが与えられました。");
         }
         if (replaceFrom.length() == 0) {
             throw new IllegalArgumentException(
-                    "������u���̃��\�b�h�ɁA�u���������Ƃ��Ē���0�̕����񂪗^�����܂����B");
+                    "文字列置換のメソッドに、置換元文字として長さ0の文字列が与えられました。");
         }
         if (replaceTo == null) {
             throw new IllegalArgumentException(
-                    "������u���̃��\�b�h�ɁA�u���敶���Ƃ���null���^�����܂����B");
+                    "文字列置換のメソッドに、置換先文字としてnullが与えられました。");
         }
 
         final int indexFound = source.indexOf(replaceFrom);

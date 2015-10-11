@@ -20,7 +20,7 @@
 package blanco.commons.calc.parser.block;
 
 /**
- * ƒvƒƒpƒeƒBƒL[‚ğ•\Œ»‚µ‚Ü‚·B
+ * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã‚’è¡¨ç¾ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -31,27 +31,27 @@ public class BlancoCalcParserPropertyKey {
     private String[] startString = null;
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚Å1—ñ‚Ì‚İ“Ç‚İ‚İ‚Ü‚·B
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§1åˆ—ã®ã¿èª­ã¿è¾¼ã¿ã¾ã™ã€‚
      */
     private int waitForValueX = 1;
 
     /**
-     * ƒvƒƒpƒeƒBƒL[ƒIƒuƒWƒFƒNƒg‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ƒvƒƒpƒeƒBƒL[‚Ì–¼‘OB
+     *            ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã®åå‰ã€‚
      */
     public BlancoCalcParserPropertyKey(final String name) {
         this.keyName = name;
     }
 
     /**
-     * ƒvƒƒpƒeƒBƒL[ƒIƒuƒWƒFƒNƒg‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
      * @param name
-     *            ƒvƒƒpƒeƒBƒL[‚Ì–¼‘OB
+     *            ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼ã®åå‰ã€‚
      * @param startString
-     *            ŠJn•¶š—ñ‚Ì”z—ñB
+     *            é–‹å§‹æ–‡å­—åˆ—ã®é…åˆ—ã€‚
      */
     public BlancoCalcParserPropertyKey(final String name,
             final String[] startString) {
@@ -60,40 +60,40 @@ public class BlancoCalcParserPropertyKey {
     }
 
     /**
-     * ƒL[‚Ì–¼‘O‚ğæ“¾‚µ‚Ü‚·B
+     * ã‚­ãƒ¼ã®åå‰ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ƒL[‚Ì–¼‘OB
+     * @return ã‚­ãƒ¼ã®åå‰ã€‚
      */
     public String getName() {
         return keyName;
     }
 
     /**
-     * ƒL[‚Ì–¼‘O‚ğİ’è‚µ‚Ü‚·B
+     * ã‚­ãƒ¼ã®åå‰ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ƒL[‚Ì–¼‘OB
+     *            ã‚­ãƒ¼ã®åå‰ã€‚
      */
     public void setName(String arg) {
         keyName = arg;
     }
 
     /**
-     * ŠJn•¶š—ñŒQ‚ğƒZƒbƒg‚µ‚Ü‚·B
+     * é–‹å§‹æ–‡å­—åˆ—ç¾¤ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ŠJn•¶š—ñ‚Ì”z—ñB
+     *            é–‹å§‹æ–‡å­—åˆ—ã®é…åˆ—ã€‚
      */
     public void setKeyString(String[] arg) {
         startString = arg;
     }
 
     /**
-     * ŠJn•¶š—ñ‚Éƒqƒbƒg‚·‚é‚©‚Ç‚¤‚©’²¸‚µ‚Ü‚·B
+     * é–‹å§‹æ–‡å­—åˆ—ã«ãƒ’ãƒƒãƒˆã™ã‚‹ã‹ã©ã†ã‹èª¿æŸ»ã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return ƒqƒbƒg‚µ‚½‚©‚Ç‚¤‚©B
+     *            ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return ãƒ’ãƒƒãƒˆã—ãŸã‹ã©ã†ã‹ã€‚
      */
     public boolean isStartString(String arg) {
         final int startStringLength = startString.length;
@@ -106,19 +106,19 @@ public class BlancoCalcParserPropertyKey {
     }
 
     /**
-     * ‚w•ûŒü‚ÌŒŸõ”ÍˆÍ‚ğİ’è‚µ‚Ü‚·B
+     * ï¼¸æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg
-     *            ‚w•ûŒü‚ÌŒŸõ”ÍˆÍB
+     *            ï¼¸æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã€‚
      */
     public void setSearchRangeX(int arg) {
         waitForValueX = arg;
     }
 
     /**
-     * ‚w•ûŒü‚ÌŒŸõ”ÍˆÍ‚ğæ“¾‚µ‚Ü‚·B
+     * ï¼¸æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ‚w•ûŒü‚ÌŒŸõ”ÍˆÍB
+     * @return ï¼¸æ–¹å‘ã®æ¤œç´¢ç¯„å›²ã€‚
      */
     public int getSearchRangeX() {
         return waitForValueX;

@@ -47,24 +47,24 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.Text;
 
 /**
- * blanco Framework�ɂ�����XML�֘A�̃��[�e�B���e�B���W�߂��N���X�ł��B
+ * blanco FrameworkにおけるXML関連のユーティリティを集めたクラスです。
  * 
  * @author IGA Tosiki
  */
 public class BlancoXmlUtil {
     /**
-     * �I�����ꂽ�m�[�h(�G�������g�ł���)���當������擾���܂��B
+     * 選択されたノード(エレメントでも可)から文字列を取得します。
      * 
-     * ����m�[�h�ɂԂ炳�����Ă���S�Ẵe�L�X�g�f�[�^���擾����ꍇ�ɗ��p���܂��B
+     * あるノードにぶらさがっている全てのテキストデータを取得する場合に利用します。
      * 
      * @param nodeTarget
-     *            �ΏۂƂ���^�[�Q�b�g�m�[�h
-     * @return �擾���ꂽ�e�L�X�g������
+     *            対象とするターゲットノード
+     * @return 取得されたテキスト文字列
      */
     public static final String getTextContent(final Node nodeTarget) {
         if (nodeTarget == null) {
             throw new IllegalArgumentException(
-                    "�m�[�h����e�L�X�g���擾���郁�\�b�h��null���^�����܂����Bnull�ȊO�̒l��^����悤�ɂ��Ă��������B");
+                    "ノードからテキストを取得するメソッドにnullが与えられました。null以外の値を与えるようにしてください。");
         }
 
         String result = null;
@@ -82,23 +82,23 @@ public class BlancoXmlUtil {
     }
 
     /**
-     * �G�������g����w��̃^�O���̕������ǂݍ��݂܂��B
+     * エレメントから指定のタグ名の文字列を読み込みます。
      * 
      * @param elementTarget
-     *            �ΏۂƂ���^�[�Q�b�g�G�������g
+     *            対象とするターゲットエレメント
      * @param tagName
-     *            �^�O��
-     * @return �擾���ꂽ�e�L�X�g������
+     *            タグ名
+     * @return 取得されたテキスト文字列
      */
     public static final String getTextContent(final Element elementTarget,
             final String tagName) {
         if (elementTarget == null) {
             throw new IllegalArgumentException(
-                    "�G�������g����e�L�X�g���擾���郁�\�b�h�ɃG�������g�Ƃ���null���^�����܂����Bnull�ȊO�̒l��^����悤�ɂ��Ă��������B");
+                    "エレメントからテキストを取得するメソッドにエレメントとしてnullが与えられました。null以外の値を与えるようにしてください。");
         }
         if (tagName == null) {
             throw new IllegalArgumentException(
-                    "�G�������g����e�L�X�g���擾���郁�\�b�h�Ƀ^�O���Ƃ���null���^�����܂����Bnull�ȊO�̒l��^����悤�ɂ��Ă��������B");
+                    "エレメントからテキストを取得するメソッドにタグ名としてnullが与えられました。null以外の値を与えるようにしてください。");
         }
 
         String result = null;
@@ -126,34 +126,34 @@ public class BlancoXmlUtil {
     }
 
     /**
-     * �^����ꂽXML�t�@�C����DOM�c���[�ɕϊ����܂��B
+     * 与えられたXMLファイルをDOMツリーに変換します。
      * 
-     * �����I�ɂ́A��ʓI�ɗ��p�����XML�ϊ�API��p���ĕϊ����s���܂��B
+     * 内部的には、一般的に利用されるXML変換APIを用いて変換を行います。
      * 
      * @param metaXmlSourceFile
-     *            ����XML�t�@�C��
-     * @return �o��DOM�c���[
+     *            入力XMLファイル
+     * @return 出力DOMツリー
      * @throws IllegalArgumentException
-     *             ���̓t�@�C�����s���ł���ꍇ�BXML�ϊ��擾�Ɏ��s�����ꍇ�ȂǁB
+     *             入力ファイルが不正である場合。XML変換取得に失敗した場合など。
      */
     public static final DOMResult transformFile2Dom(final File metaXmlSourceFile) {
         if (metaXmlSourceFile == null) {
             throw new IllegalArgumentException(
-                    "�t�@�C������͂Ƃ���DOM�c���[�𐶐����郁�\�b�h��null���^�����܂����Bnull�ȊO�̒l��^����悤�ɂ��Ă��������B");
+                    "ファイルを入力としてDOMツリーを生成するメソッドにnullが与えられました。null以外の値を与えるようにしてください。");
         }
 
         if (metaXmlSourceFile.exists() == false) {
-            throw new IllegalArgumentException("XML�t�@�C������DOM�ւ̕ϊ�: �w�肳�ꂽ�t�@�C��["
-                    + metaXmlSourceFile.getAbsolutePath() + "]��������܂���ł����B");
+            throw new IllegalArgumentException("XMLファイルからDOMへの変換: 指定されたファイル["
+                    + metaXmlSourceFile.getAbsolutePath() + "]が見つかりませんでした。");
         }
         if (metaXmlSourceFile.isFile() == false) {
-            throw new IllegalArgumentException("XML�t�@�C������DOM�ւ̕ϊ�: �w�肳�ꂽ�t�@�C��["
+            throw new IllegalArgumentException("XMLファイルからDOMへの変換: 指定されたファイル["
                     + metaXmlSourceFile.getAbsolutePath()
-                    + "]�����ۂɂ̓t�@�C���ł͂���܂���ł����B");
+                    + "]が実際にはファイルではありませんでした。");
         }
         if (metaXmlSourceFile.canRead() == false) {
-            throw new IllegalArgumentException("XML�t�@�C������DOM�ւ̕ϊ�: �w�肳�ꂽ�t�@�C��["
-                    + metaXmlSourceFile.getAbsolutePath() + "]���ǂݍ��ݕs�\�ł����B");
+            throw new IllegalArgumentException("XMLファイルからDOMへの変換: 指定されたファイル["
+                    + metaXmlSourceFile.getAbsolutePath() + "]が読み込み不能でした。");
         }
 
         try {
@@ -162,30 +162,30 @@ public class BlancoXmlUtil {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
-                    "�z�肵�Ȃ���O: XML�ϊ����Ƀt�@�C����������Ȃ���O���������܂����B" + e.toString());
+                    "想定しない例外: XML変換時にファイルが見つからない例外が発生しました。" + e.toString());
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
-                    "�z�肵�Ȃ���O: XML�ϊ����Ƀt�@�C�����o�͗�O���������܂����B" + e.toString());
+                    "想定しない例外: XML変換時にファイル入出力例外が発生しました。" + e.toString());
         }
     }
 
     /**
-     * �^����ꂽXML�X�g���[����DOM�c���[�ɕϊ����܂��B
+     * 与えられたXMLストリームをDOMツリーに変換します。
      * 
-     * �����I�ɂ́A��ʓI�ɗ��p�����XML�ϊ�API��p���ĕϊ����s���܂��B
+     * 内部的には、一般的に利用されるXML変換APIを用いて変換を行います。
      * 
      * @param inXmlSource
-     *            ����XML�X�g���[��
-     * @return �o��DOM�c���[
+     *            入力XMLストリーム
+     * @return 出力DOMツリー
      * @throws IllegalArgumentException
-     *             ���̓t�@�C�����s���ł���ꍇ�BXML�ϊ��擾�Ɏ��s�����ꍇ�ȂǁB
+     *             入力ファイルが不正である場合。XML変換取得に失敗した場合など。
      */
     public static final DOMResult transformStream2Dom(
             final InputStream inXmlSource) {
         if (inXmlSource == null) {
             throw new IllegalArgumentException(
-                    "����XML�X�g���[����DOM�c���[�ɕϊ����鏈���ɁA�X�g���[���Ƃ���null���n����܂����B�X�g���[���ɂ�null�ȊO��^���Ă��������B");
+                    "入力XMLストリームをDOMツリーに変換する処理に、ストリームとしてnullが渡されました。ストリームにはnull以外を与えてください。");
         }
 
         try {
@@ -197,40 +197,40 @@ public class BlancoXmlUtil {
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
-                    "�z�肵�Ȃ���O: XML�ϊ��R���t�B�O���[�V������O���������܂����B" + e.toString());
+                    "想定しない例外: XML変換コンフィグレーション例外が発生しました。" + e.toString());
         } catch (TransformerException e) {
-            throw new IllegalArgumentException("�z�肵�Ȃ���O: XML�ϊ���O���������܂����B"
+            throw new IllegalArgumentException("想定しない例外: XML変換例外が発生しました。"
                     + e.toString());
         }
     }
 
     /**
-     * �^����ꂽDOM�c���[��XML�t�@�C���ɕϊ����܂��B
+     * 与えられたDOMツリーをXMLファイルに変換します。
      * 
-     * �����I�ɂ́A��ʓI�ɗ��p�����XML�ϊ�API��p���ĕϊ����s���܂��B
+     * 内部的には、一般的に利用されるXML変換APIを用いて変換を行います。
      * 
      * @param document
-     *            XML�h�L�������g
+     *            XMLドキュメント
      * @param metaXmlResultFile
-     *            �o��XML�t�@�C��
+     *            出力XMLファイル
      * @throws IllegalArgumentException
-     *             ����XML�c���[���s���ł���ꍇ�BXML�ϊ��擾�Ɏ��s�����ꍇ�ȂǁB
+     *             入力XMLツリーが不正である場合。XML変換取得に失敗した場合など。
      */
     public static final void transformDom2File(final Document document,
             final File metaXmlResultFile) {
         if (document == null) {
             throw new IllegalArgumentException(
-                    "DOM����XML�t�@�C���ւ̕ϊ�: ����XML�h�L�������g��null���^�����܂������A���̃p�����[�^�ɂ�null�ȊO�̒l���w�肷��K�v������܂��B");
+                    "DOMからXMLファイルへの変換: 入力XMLドキュメントにnullが与えられましたが、このパラメータにはnull以外の値を指定する必要があります。");
         }
         if (metaXmlResultFile == null) {
             throw new IllegalArgumentException(
-                    "DOM����XML�t�@�C���ւ̕ϊ�: �o��XML�t�@�C����null���^�����܂������A���̃p�����[�^�ɂ�null�ȊO�̒l���w�肷��K�v������܂��B");
+                    "DOMからXMLファイルへの変換: 出力XMLファイルにnullが与えられましたが、このパラメータにはnull以外の値を指定する必要があります。");
         }
 
         if (metaXmlResultFile.exists() == true
                 && metaXmlResultFile.canWrite() == false) {
-            throw new IllegalArgumentException("DOM����XML�t�@�C���ւ̕ϊ�: �w�肳�ꂽ�t�@�C��["
-                    + metaXmlResultFile.getAbsolutePath() + "]�͏������݂ł��܂���ł����B");
+            throw new IllegalArgumentException("DOMからXMLファイルへの変換: 指定されたファイル["
+                    + metaXmlResultFile.getAbsolutePath() + "]は書き込みできませんでした。");
         }
 
         try {
@@ -238,39 +238,39 @@ public class BlancoXmlUtil {
                     new FileOutputStream(metaXmlResultFile));
             try {
                 transformDom2Stream(document, outStream);
-                // ����I�������ꍇ�ɂ̓t���b�V�����s���܂��B
+                // 正常終了した場合にはフラッシュを行います。
                 outStream.flush();
             } finally {
                 outStream.close();
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException("DOM����XML�t�@�C���ւ̕ϊ�: �w�肳�ꂽ�t�@�C��["
+            throw new IllegalArgumentException("DOMからXMLファイルへの変換: 指定されたファイル["
                     + metaXmlResultFile.getAbsolutePath()
-                    + "]�ւ̕ϊ��̉ߒ��œ��o�͗�O���������܂����B" + e.toString());
+                    + "]への変換の過程で入出力例外が発生しました。" + e.toString());
         }
     }
 
     /**
-     * �^����ꂽDOM�c���[��XML�X�g���[���ɕϊ����܂��B
+     * 与えられたDOMツリーをXMLストリームに変換します。
      * 
-     * �����I�ɂ́A��ʓI�ɗ��p�����XML�ϊ�API��p���ĕϊ����s���܂��B
+     * 内部的には、一般的に利用されるXML変換APIを用いて変換を行います。
      * 
      * @param document
-     *            ����XML�c���[
+     *            入力XMLツリー
      * @param outXmlResult
-     *            �o��DOM�X�g���[��
+     *            出力DOMストリーム
      * @throws IllegalArgumentException
-     *             �p�����[�^���s���ł���ꍇ�BXML�ϊ��擾�Ɏ��s�����ꍇ�ȂǁB
+     *             パラメータが不正である場合。XML変換取得に失敗した場合など。
      */
     public static final void transformDom2Stream(final Document document,
             final OutputStream outXmlResult) {
         if (document == null) {
             throw new IllegalArgumentException(
-                    "DOM�c���[���o��XML�X�g���[���ɕϊ����鏈���ɁAXML�h�L�������g�Ƃ���null���n����܂����BXML�h�L�������g�ɂ�null�ȊO��^���Ă��������B");
+                    "DOMツリーを出力XMLストリームに変換する処理に、XMLドキュメントとしてnullが渡されました。XMLドキュメントにはnull以外を与えてください。");
         }
         if (outXmlResult == null) {
             throw new IllegalArgumentException(
-                    "DOM�c���[���o��XML�X�g���[���ɕϊ����鏈���ɁA�X�g���[���Ƃ���null���n����܂����B�X�g���[���ɂ�null�ȊO��^���Ă��������B");
+                    "DOMツリーを出力XMLストリームに変換する処理に、ストリームとしてnullが渡されました。ストリームにはnull以外を与えてください。");
         }
 
         try {
@@ -281,21 +281,21 @@ public class BlancoXmlUtil {
         } catch (TransformerConfigurationException e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
-                    "�z�肵�Ȃ���O: XML�ϊ��R���t�B�O���[�V������O���������܂����B" + e.toString());
+                    "想定しない例外: XML変換コンフィグレーション例外が発生しました。" + e.toString());
         } catch (TransformerException e) {
-            throw new IllegalArgumentException("�z�肵�Ȃ���O: XML�ϊ���O���������܂����B"
+            throw new IllegalArgumentException("想定しない例外: XML変換例外が発生しました。"
                     + e.toString());
         }
     }
 
     /**
-     * XML�h�L�������g��V�K�쐬���܂��B
+     * XMLドキュメントを新規作成します。
      * 
-     * �h�L�������g�t�@�N�g������h�L�������g�r���_�[���擾���A���ꂩ��XML�h�L�������g��V�K�쐬���܂��B
+     * ドキュメントファクトリからドキュメントビルダーを取得し、それからXMLドキュメントを新規作成します。
      * 
-     * @return �V�K�ɍ쐬���ꂽXML�h�L�������g�E�I�u�W�F�N�g
+     * @return 新規に作成されたXMLドキュメント・オブジェクト
      * @throws IllegalArgumentException
-     *             �h�L�������g�r���_�[�̐V�K�쐬�Ɏ��s�����ꍇ�B
+     *             ドキュメントビルダーの新規作成に失敗した場合。
      */
     public static final Document newDocument() {
         final DocumentBuilderFactory builderFactory = DocumentBuilderFactory
@@ -305,75 +305,75 @@ public class BlancoXmlUtil {
             builder = builderFactory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
             throw new IllegalArgumentException(
-                    "�h�L�������g�r���_�[(DocumentBuilder)�̐V�K�����Ɏ��s���܂����B" + e.toString());
+                    "ドキュメントビルダー(DocumentBuilder)の新規生成に失敗しました。" + e.toString());
         }
         return builder.newDocument();
     }
 
     /**
-     * �w��̃G�������g�Ɏw��̃G�������g���ɂ��q�G�������g��ǉ����܂��B
+     * 指定のエレメントに指定のエレメント名による子エレメントを追加します。
      * 
-     * �e�L�X�g�̎w�肪����΃e�L�X�g�m�[�h��ǉ����܂��B�e�L�X�g��null���w�肵���ꍇ�ɂ͎q�G�������g�̒ǉ��݂̂��s���܂��B
+     * テキストの指定があればテキストノードを追加します。テキストにnullを指定した場合には子エレメントの追加のみが行われます。
      * 
      * @param document
-     *            XML�h�L�������g
+     *            XMLドキュメント
      * @param elementParent
-     *            �e�G�������g
+     *            親エレメント
      * @param addElementName
-     *            �V�G�������g�̖��O
+     *            新エレメントの名前
      * @param addElementText
-     *            �V�G�������g�ɒǉ�����e�L�X�g�Bnull���w�肵���ꍇ�ɂ̓e�L�X�g�ǉ��͏ȗ������B
+     *            新エレメントに追加するテキスト。nullを指定した場合にはテキスト追加は省略される。
      */
     public static final void addChildElement(final Document document,
             final Element elementParent, final String addElementName,
             final String addElementText) {
         if (document == null) {
             throw new IllegalArgumentException(
-                    "�G�������g�ǉ� (addElementText) �ɁA�h�L�������g�Ƃ���null���n����܂����Bnull�ȊO�̒l���w�肵�Ă��������B");
+                    "エレメント追加 (addElementText) に、ドキュメントとしてnullが渡されました。null以外の値を指定してください。");
         }
         if (elementParent == null) {
             throw new IllegalArgumentException(
-                    "�G�������g�ǉ� (addElementText) �ɁA�e�G�������g�Ƃ���null���n����܂����Bnull�ȊO�̒l���w�肵�Ă��������B");
+                    "エレメント追加 (addElementText) に、親エレメントとしてnullが渡されました。null以外の値を指定してください。");
         }
         if (addElementName == null) {
             throw new IllegalArgumentException(
-                    "�G�������g�ǉ� (addElementText) �ɁA�V�G�������g�̖��O�Ƃ���null���n����܂����Bnull�ȊO�̒l���w�肵�Ă��������B");
+                    "エレメント追加 (addElementText) に、新エレメントの名前としてnullが渡されました。null以外の値を指定してください。");
         }
         if (addElementName.length() == 0) {
             throw new IllegalArgumentException(
-                    "�G�������g�ǉ� (addElementText) �ɁA�V�G�������g�̖��O�Ƃ��Ē���0�̕����񂪓n����܂����B1�ȏ�̒����̒l���w�肵�Ă��������B");
+                    "エレメント追加 (addElementText) に、新エレメントの名前として長さ0の文字列が渡されました。1以上の長さの値を指定してください。");
         }
 
-        // �ŏ��ɒǉ��������G�������g�𐶐����܂��B
+        // 最初に追加したいエレメントを生成します。
         final Element elementAdd = document.createElement(addElementName);
         if (addElementText != null) {
-            // �e�L�X�g�̎w�肪����ꍇ�ɂ̂ݒǉ��������s���܂��B
-            // �e�L�X�g�m�[�h�𐶐����܂��B
+            // テキストの指定がある場合にのみ追加処理を行います。
+            // テキストノードを生成します。
             final Text elemnetTextNode = document
                     .createTextNode(addElementText);
-            // �e�L�X�g�m�[�h���G�������g�ɒǉ����܂��B
+            // テキストノードをエレメントに追加します。
             elementAdd.appendChild(elemnetTextNode);
         }
-        // �Ō�ɐe�G�������g�ɐV�G�������g��ǉ����܂��B
+        // 最後に親エレメントに新エレメントを追加します。
         elementParent.appendChild(elementAdd);
     }
 
     /**
-     * �w��̃G�������g���̃G�������g���������܂��B
+     * 指定のエレメント名のエレメントを検索します。
      * 
      * @param path
-     *            �p�X aaa/bbb �̂悤�Ɏw�肵�܂��B
-     * @return �擾���ꂽ�G�������g
+     *            パス aaa/bbb のように指定します。
+     * @return 取得されたエレメント
      */
     public static final Element getElement(final Node nodeTarget,
             final String path) {
         if (nodeTarget == null) {
             throw new IllegalArgumentException(
-                    "�w��̃G�������g������G�������g���������郁�\�b�h�̃m�[�h��null���^�����܂����Bnull�ȊO�̒l��^����悤�ɂ��Ă��������B");
+                    "指定のエレメント名からエレメントを検索するメソッドのノードにnullが与えられました。null以外の値を与えるようにしてください。");
         }
         if (nodeTarget == null) {
             throw new IllegalArgumentException(
-                    "�w��̃G�������g������G�������g���������郁�\�b�h�̃p�X����null���^�����܂����Bnull�ȊO�̒l��^����悤�ɂ��Ă��������B");
+                    "指定のエレメント名からエレメントを検索するメソッドのパス名にnullが与えられました。null以外の値を与えるようにしてください。");
         }
 
         final String[] splitPath = BlancoNameUtil.splitPath(path);
@@ -385,13 +385,13 @@ public class BlancoXmlUtil {
             if (nodeLook instanceof Element) {
                 final Element elementLook = (Element) nodeLook;
                 if (elementLook.getNodeName().equals(splitPath[0])) {
-                    // �q�b�g���܂����B
+                    // ヒットしました。
                     if (splitPath.length == 1) {
-                        // System.out.println("�������܂����B" +
+                        // System.out.println("発見しました。" +
                         // elementLook.getNodeName());
                         return elementLook;
                     } else {
-                        // System.out.println("�ċA���s���܂��B" +
+                        // System.out.println("再帰を行います。" +
                         // elementLook.getNodeName());
                         return getElement(elementLook, path
                                 .substring(splitPath[0].length() + 1));
@@ -399,7 +399,7 @@ public class BlancoXmlUtil {
                 }
             }
         }
-        // �����ł��܂���ł����B
+        // 発見できませんでした。
         return null;
     }
 }

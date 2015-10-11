@@ -48,14 +48,14 @@ import org.xml.sax.helpers.AttributesImpl;
 import blanco.commons.parser.ContentHandlerStream;
 
 /**
- * Calc‚ğ“Ç‚İæ‚é‚½‚ß‚ÌSAX2ƒp[ƒT‚Å‚·B <br>
- * •\ŒvZƒtƒ@ƒCƒ‹“Ç‚İæ‚è‚ÌÛ‚Ì”Ä—p“I‚Å’ŠÛ“I‚ÈSAX2ƒnƒ“ƒhƒ‰‚ğ’ñ‹Ÿ‚µ‚Ü‚·B
+ * Calcã‚’èª­ã¿å–ã‚‹ãŸã‚ã®SAX2ãƒ‘ãƒ¼ã‚µã§ã™ã€‚ <br>
+ * è¡¨è¨ˆç®—ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿å–ã‚Šã®éš›ã®æ±ç”¨çš„ã§æŠ½è±¡çš„ãªSAX2ãƒãƒ³ãƒ‰ãƒ©ã‚’æä¾›ã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public abstract class AbstractBlancoCalcParser implements XMLReader {
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ğ‹L‰¯‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’è¨˜æ†¶ã—ã¾ã™ã€‚
      */
     private ContentHandler contentHandler = null;
 
@@ -70,10 +70,10 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     private String _propertyNameSheet = "sheet";
 
     /**
-     * ƒtƒB[ƒ`ƒƒ[‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒãƒ£ãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param arg0
-     *            ƒtƒB[ƒ`ƒƒ[B
+     *            ãƒ•ã‚£ãƒ¼ãƒãƒ£ãƒ¼ã€‚
      * @see org.xml.sax.XMLReader#getFeature(java.lang.String)
      */
     public final boolean getFeature(final String arg0)
@@ -82,12 +82,12 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒtƒB[ƒ`ƒƒ[‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒãƒ£ãƒ¼ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param name
-     *            ƒtƒB[ƒ`ƒƒ[–¼B
+     *            ãƒ•ã‚£ãƒ¼ãƒãƒ£ãƒ¼åã€‚
      * @param value
-     *            ƒtƒB[ƒ`ƒƒ[‚Ì’lB
+     *            ãƒ•ã‚£ãƒ¼ãƒãƒ£ãƒ¼ã®å€¤ã€‚
      * @see org.xml.sax.XMLReader#setFeature(java.lang.String, boolean)
      */
     public final void setFeature(final String name, boolean value)
@@ -95,7 +95,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒvƒƒpƒeƒB‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’å–å¾—ã—ã¾ã™ã€‚
      */
     public final Object getProperty(final String name)
             throws SAXNotRecognizedException, SAXNotSupportedException {
@@ -105,12 +105,12 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
         } else if (name.equals(URI_PROPERTY_NAME_SHEET)) {
             return _propertyNameSheet;
         } else {
-            throw new SAXNotRecognizedException("‚±‚Ì–¼Ì‚Íƒnƒ“ƒhƒŠƒ“ƒO‚Å‚«‚Ü‚¹‚ñ." + name);
+            throw new SAXNotRecognizedException("ã“ã®åç§°ã¯ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ã§ãã¾ã›ã‚“." + name);
         }
     }
 
     /**
-     * ƒvƒƒpƒeƒB‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¨­å®šã—ã¾ã™ã€‚
      */
     public final void setProperty(final String name, final Object value)
             throws SAXNotRecognizedException, SAXNotSupportedException {
@@ -119,24 +119,24 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
         } else if (name.equals(URI_PROPERTY_NAME_SHEET)) {
             _propertyNameSheet = (String) value;
         } else {
-            throw new SAXNotRecognizedException("‚±‚Ì–¼Ì‚Íƒnƒ“ƒhƒŠƒ“ƒO‚Å‚«‚Ü‚¹‚ñ." + name);
+            throw new SAXNotRecognizedException("ã“ã®åç§°ã¯ãƒãƒ³ãƒ‰ãƒªãƒ³ã‚°ã§ãã¾ã›ã‚“." + name);
         }
     }
 
     /**
-     * ƒGƒ“ƒeƒBƒeƒBƒŠƒ]ƒ‹ƒo‚ğİ’è‚µ‚Ü‚·B
+     * ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ãƒªã‚¾ãƒ«ãƒã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg0
-     *            ƒGƒ“ƒeƒBƒeƒBƒŠƒ]ƒ‹ƒo‚ÌƒIƒuƒWƒFƒNƒgB
+     *            ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ãƒªã‚¾ãƒ«ãƒã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @see org.xml.sax.XMLReader#setEntityResolver(org.xml.sax.EntityResolver)
      */
     public final void setEntityResolver(final EntityResolver arg0) {
     }
 
     /**
-     * ƒGƒ“ƒeƒBƒeƒBƒŠƒ]ƒ‹ƒo‚ğæ“¾‚µ‚Ü‚·B
+     * ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ãƒªã‚¾ãƒ«ãƒã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ƒGƒ“ƒeƒBƒeƒBƒŠƒ]ƒ‹ƒo‚ÌƒIƒuƒWƒFƒNƒgB
+     * @return ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ãƒªã‚¾ãƒ«ãƒã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @see org.xml.sax.XMLReader#getEntityResolver()
      */
     public final EntityResolver getEntityResolver() {
@@ -144,19 +144,19 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * DTDƒnƒ“ƒhƒ‰‚ğİ’è‚µ‚Ü‚·B
+     * DTDãƒãƒ³ãƒ‰ãƒ©ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg0
-     *            DTDƒnƒ“ƒhƒ‰‚ÌƒIƒuƒWƒFƒNƒgB
+     *            DTDãƒãƒ³ãƒ‰ãƒ©ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @see org.xml.sax.XMLReader#setDTDHandler(org.xml.sax.DTDHandler)
      */
     public final void setDTDHandler(final DTDHandler arg0) {
     }
 
     /**
-     * DTDƒnƒ“ƒhƒ‰‚ÌƒIƒuƒWƒFƒNƒg‚ğæ“¾‚µ‚Ü‚·B
+     * DTDãƒãƒ³ãƒ‰ãƒ©ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return DTDƒnƒ“ƒhƒ‰‚ÌƒIƒuƒWƒFƒNƒgB
+     * @return DTDãƒãƒ³ãƒ‰ãƒ©ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @see org.xml.sax.XMLReader#getDTDHandler()
      */
     public final DTDHandler getDTDHandler() {
@@ -164,7 +164,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ğƒZƒbƒg‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
      */
     public final void setContentHandler(ContentHandler arg0) {
         contentHandler = arg0;
@@ -174,7 +174,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒRƒ“ƒeƒ“ƒcƒnƒ“ƒhƒ‰‚ğæ“¾‚µ‚Ü‚·B
+     * ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ãƒãƒ³ãƒ‰ãƒ©ã‚’å–å¾—ã—ã¾ã™ã€‚
      */
     public final ContentHandler getContentHandler() {
         if (chainedContentHandler == null) {
@@ -189,19 +189,19 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒGƒ‰[ƒnƒ“ƒhƒ‰[‚ğİ’è‚µ‚Ü‚·B
+     * ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ãƒ¼ã‚’è¨­å®šã—ã¾ã™ã€‚
      * 
      * @param arg0
-     *            ƒGƒ‰[ƒnƒ“ƒhƒ‰[ƒIƒuƒWƒFƒNƒgB
+     *            ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @see org.xml.sax.XMLReader#setErrorHandler(org.xml.sax.ErrorHandler)
      */
     public final void setErrorHandler(ErrorHandler arg0) {
     }
 
     /**
-     * ƒGƒ‰[ƒnƒ“ƒhƒ‰[‚ğæ“¾‚µ‚Ü‚·B
+     * ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ƒGƒ‰[ƒnƒ“ƒhƒ‰[ƒIƒuƒWƒFƒNƒgB
+     * @return ã‚¨ãƒ©ãƒ¼ãƒãƒ³ãƒ‰ãƒ©ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @see org.xml.sax.XMLReader#getErrorHandler()
      */
     public final ErrorHandler getErrorHandler() {
@@ -209,56 +209,56 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒp[ƒX‚ğs‚¢‚Ü‚·B
+     * ãƒ‘ãƒ¼ã‚¹ã‚’è¡Œã„ã¾ã™ã€‚
      * 
      * @param inputSource
-     *            ‰ğÍ‘ÎÛ‚Æ‚È‚é“ü—Íƒ\[ƒXB
+     *            è§£æå¯¾è±¡ã¨ãªã‚‹å…¥åŠ›ã‚½ãƒ¼ã‚¹ã€‚
      * @see org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
      */
     public final void parse(final InputSource inputSource) throws IOException,
             SAXException {
         Workbook workbook = null;
         final WorkbookSettings settings = new WorkbookSettings();
-        // JExcelApi‚Ì“à•”gcŒÄ‚Ño‚µ‚ğ–³Œø‰»‚µ‚Ü‚·B
+        // JExcelApiã®å†…éƒ¨gcå‘¼ã³å‡ºã—ã‚’ç„¡åŠ¹åŒ–ã—ã¾ã™ã€‚
         settings.setGCDisabled(true);
-        // ƒ[ƒjƒ“ƒO‚Ì•W€o—Í‚ğ–³Œø‰»‚µ‚Ü‚·B
+        // ãƒ¯ãƒ¼ãƒ‹ãƒ³ã‚°ã®æ¨™æº–å‡ºåŠ›ã‚’ç„¡åŠ¹åŒ–ã—ã¾ã™ã€‚
         settings.setSuppressWarnings(true);
 
         // 2006.09.29 t.iga
-        // JExcelApi 2.6‚Å‚Íu00??ƒGƒŠƒA‚Ìˆ—‚É‚¨‚¢‚ÄA“à•”“I‚Éw’è‚³‚ê‚½ƒGƒ“ƒR[ƒfƒBƒ“ƒO‚ğ—˜—p‚µ‚Ä‚¢‚Ü‚·B
-        // ‚µ‚©‚µA‚±‚Ìd—l‚Í Excel‚Ì‹““®‚Æ‚ÍˆÙ‚È‚è‚Ü‚·BExcel‚É‡‚í‚¹‚é‚Æ ISO8859_1 ŒÅ’è‚Ìˆ—‚ª‘Ã“–‚Æl‚¦‚Ü‚·B
-        // JExcelApi 2.6‚ÌƒfƒtƒHƒ‹ƒg‚Å‚ÍA“Á’è‚ÌƒZƒ‹‚É u00??ƒGƒŠƒA‚Ì•¶š (—á:~(‚©‚¯‚é)) ‚¾‚¯‚ª“ü—Í‚³‚ê‚½ê‡‚É
-        // Excel“Ç‚İ‚İ‚É•¶š‰»‚¯‚ª”­¶‚µ‚Ü‚·B
+        // JExcelApi 2.6ã§ã¯ï¿¥u00??ã‚¨ãƒªã‚¢ã®å‡¦ç†ã«ãŠã„ã¦ã€å†…éƒ¨çš„ã«æŒ‡å®šã•ã‚ŒãŸã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã‚’åˆ©ç”¨ã—ã¦ã„ã¾ã™ã€‚
+        // ã—ã‹ã—ã€ã“ã®ä»•æ§˜ã¯ Excelã®æŒ™å‹•ã¨ã¯ç•°ãªã‚Šã¾ã™ã€‚Excelã«åˆã‚ã›ã‚‹ã¨ ISO8859_1 å›ºå®šã®å‡¦ç†ãŒå¦¥å½“ã¨è€ƒãˆã¾ã™ã€‚
+        // JExcelApi 2.6ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€ç‰¹å®šã®ã‚»ãƒ«ã« ï¿¥u00??ã‚¨ãƒªã‚¢ã®æ–‡å­— (ä¾‹:Ã—(ã‹ã‘ã‚‹)) ã ã‘ãŒå…¥åŠ›ã•ã‚ŒãŸå ´åˆã«
+        // Excelèª­ã¿è¾¼ã¿æ™‚ã«æ–‡å­—åŒ–ã‘ãŒç™ºç”Ÿã—ã¾ã™ã€‚
         settings.setEncoding("ISO8859_1");
 
-        // ‚»‚êˆÈŠO‚É‚àlocaleİ’è‚È‚Ç‚ª‚ ‚èAŒŸ“¢‚Ì—]’n‚Í‘¶İ‚·‚é‚ªAŒ»ó‚Ìd—l‚Æ‚µ‚Ä‚Í‚±‚±‚Ü‚Å‚Æ‚·‚éBB
+        // ãã‚Œä»¥å¤–ã«ã‚‚localeè¨­å®šãªã©ãŒã‚ã‚Šã€æ¤œè¨ã®ä½™åœ°ã¯å­˜åœ¨ã™ã‚‹ãŒã€ç¾çŠ¶ã®ä»•æ§˜ã¨ã—ã¦ã¯ã“ã“ã¾ã§ã¨ã™ã‚‹ã€‚ã€‚
 
         InputStream inStream = null;
         try {
             if (inputSource.getByteStream() != null) {
-                // OK‚Å‚·B‚±‚Ì‚Ü‚Üˆ—‚ği‚ß‚Ü‚·B
+                // OKã§ã™ã€‚ã“ã®ã¾ã¾å‡¦ç†ã‚’é€²ã‚ã¾ã™ã€‚
             } else if (inputSource.getSystemId() != null
                     && inputSource.getSystemId().length() > 0) {
                 inStream = new FileInputStream(inputSource.getSystemId());
                 inputSource.setByteStream(inStream);
             } else {
-                throw new IOException("w’è‚³‚ê‚½InputSource‚Íˆ—‚Å‚«‚Ü‚¹‚ñ.");
+                throw new IOException("æŒ‡å®šã•ã‚ŒãŸInputSourceã¯å‡¦ç†ã§ãã¾ã›ã‚“.");
             }
             workbook = Workbook.getWorkbook(inputSource.getByteStream(),
                     settings);
 
-            // ‚±‚±‚©‚ç–{“–‚Ìƒp[ƒX‚ªn‚Ü‚è‚Ü‚·B
+            // ã“ã“ã‹ã‚‰æœ¬å½“ã®ãƒ‘ãƒ¼ã‚¹ãŒå§‹ã¾ã‚Šã¾ã™ã€‚
             parseWorkbook(workbook);
         } catch (BiffException e) {
             e.printStackTrace();
-            throw new IOException("—\Šú‚¹‚Ê—áŠO‚ª”­¶‚µ‚Ü‚µ‚½.: " + e.toString());
+            throw new IOException("äºˆæœŸã›ã¬ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸ.: " + e.toString());
         } finally {
             if (workbook != null) {
                 workbook.close();
             }
 
-            // InputSource‚ÌƒNƒ[ƒY‚ÍŠO•”‚Ås‚í‚ê‚Ü‚·B
-            // ‚±‚Ì’†‚Å‚Í –¾¦“I‚ÉŠJ‚¢‚½ƒXƒgƒŠ[ƒ€‚Ì‚İˆ—‚µ‚Ü‚·B
+            // InputSourceã®ã‚¯ãƒ­ãƒ¼ã‚ºã¯å¤–éƒ¨ã§è¡Œã‚ã‚Œã¾ã™ã€‚
+            // ã“ã®ä¸­ã§ã¯ æ˜ç¤ºçš„ã«é–‹ã„ãŸã‚¹ãƒˆãƒªãƒ¼ãƒ ã®ã¿å‡¦ç†ã—ã¾ã™ã€‚
             if (inStream != null) {
                 inStream.close();
             }
@@ -266,12 +266,12 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½ƒtƒ@ƒCƒ‹‚ğƒp[ƒX‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã¾ã™ã€‚
      * 
-     * Šî–{“I‚É‚Í inputSource”Å‚Ìƒp[ƒX‚ğ„§‚µ‚Ü‚·B
+     * åŸºæœ¬çš„ã«ã¯ inputSourceç‰ˆã®ãƒ‘ãƒ¼ã‚¹ã‚’æ¨å¥¨ã—ã¾ã™ã€‚
      * 
      * @param arg0
-     *            ƒtƒ@ƒCƒ‹‚ÌƒpƒXB
+     *            ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹ã€‚
      */
     public final void parse(final String arg0) throws IOException, SAXException {
         InputSource inputSource = new InputSource(arg0);
@@ -280,12 +280,12 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒ[ƒNƒuƒbƒN‚ğƒp[ƒX‚µ‚Ü‚·
+     * ãƒ¯ãƒ¼ã‚¯ãƒ–ãƒƒã‚¯ã‚’ãƒ‘ãƒ¼ã‚¹ã—ã¾ã™
      * 
      * @param workbook
-     *            ƒ[ƒNƒuƒbƒN
+     *            ãƒ¯ãƒ¼ã‚¯ãƒ–ãƒƒã‚¯
      * @throws SAXException
-     *             SAX—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     private void parseWorkbook(final Workbook workbook) throws SAXException {
         getContentHandler().startDocument();
@@ -305,15 +305,15 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     }
 
     /**
-     * ƒV[ƒg‚ğƒp[ƒX‚µ‚Ü‚·B
+     * ã‚·ãƒ¼ãƒˆã‚’ãƒ‘ãƒ¼ã‚¹ã—ã¾ã™ã€‚
      * 
      * @param sheet
-     *            ƒV[ƒgƒIƒuƒWƒFƒNƒgB
+     *            ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @throws SAXException
-     *             SAX—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     private final void parseSheet(final Sheet sheet) throws SAXException {
-        // ƒV[ƒg‚ÌƒGƒŒƒƒ“ƒg‚ÍãˆÊƒNƒ‰ƒX‚Åˆ—
+        // ã‚·ãƒ¼ãƒˆã®ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã¯ä¸Šä½ã‚¯ãƒ©ã‚¹ã§å‡¦ç†
         AttributesImpl attrImpl = new AttributesImpl();
         attrImpl.addAttribute("", "name", "name", "CDATA", sheet.getName());
         getContentHandler().startElement("",
@@ -329,7 +329,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
             Cell[] cells = sheet.getRow(row);
             for (int column = 0; column < cells.length; column++) {
                 startColumn(column + 1);
-                // ƒRƒ“ƒeƒ“ƒc‚Ítrim()‚¹‚¸‚ÉA‚»‚Ì‚Ü‚Ü‚í‚½‚µ‚Ü‚·B
+                // ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã¯trim()ã›ãšã«ã€ãã®ã¾ã¾ã‚ãŸã—ã¾ã™ã€‚
                 String value = cells[column].getContents();
                 fireCell(column + 1, row + 1, value);
                 endColumn(column + 1);
@@ -339,29 +339,29 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
 
         endSheet(sheet);
 
-        // ƒV[ƒg‚ÌƒGƒŒƒƒ“ƒg‚ÍãˆÊƒNƒ‰ƒX‚Åˆ—
+        // ã‚·ãƒ¼ãƒˆã®ã‚¨ãƒ¬ãƒ¡ãƒ³ãƒˆã¯ä¸Šä½ã‚¯ãƒ©ã‚¹ã§å‡¦ç†
         getContentHandler().endElement("",
                 (String) getProperty(URI_PROPERTY_NAME_SHEET),
                 (String) getProperty(URI_PROPERTY_NAME_SHEET));
     }
 
     /**
-     * ƒV[ƒg‚ªŠJn‚³‚ê‚éÛ‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ã‚·ãƒ¼ãƒˆãŒé–‹å§‹ã•ã‚Œã‚‹éš›ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param sheetName
-     *            ƒV[ƒg–¼B
+     *            ã‚·ãƒ¼ãƒˆåã€‚
      * @throws SAXException
-     *             SAX—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     protected abstract void startSheet(String sheetName) throws SAXException;
 
     /**
-     * ƒV[ƒg‚ªI—¹‚³‚ê‚éÛ‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ã‚·ãƒ¼ãƒˆãŒçµ‚äº†ã•ã‚Œã‚‹éš›ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param sheet
-     *            ƒV[ƒgƒIƒuƒWƒFƒNƒgB
+     *            ã‚·ãƒ¼ãƒˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @throws SAXException
-     *             SAX—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             SAXä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     protected abstract void endSheet(final Sheet sheet) throws SAXException;
 
@@ -374,7 +374,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     protected abstract void endColumn(int column) throws SAXException;
 
     /**
-     * ƒZƒ‹‚ª‚ ‚éÛ‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ã‚»ãƒ«ãŒã‚ã‚‹éš›ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param column
      * @param row
@@ -385,13 +385,13 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
             throws SAXException;
 
     /**
-     * Transformer‚ğæ“¾‚µ‚Ü‚·B
+     * Transformerã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return ƒgƒ‰ƒ“ƒXƒtƒH[‚Ü[ƒIƒuƒWƒFƒNƒgB
+     * @return ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ã¾ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @throws TransformerFactoryConfigurationError
-     *             ƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[ƒtƒ@ƒNƒgƒŠ[‚ÌƒRƒ“ƒtƒBƒOƒŒ[ƒVƒ‡ƒ“‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ãƒ•ã‚¡ã‚¯ãƒˆãƒªãƒ¼ã®ã‚³ãƒ³ãƒ•ã‚£ã‚°ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      * @throws TransformerConfigurationException
-     *             ƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[ƒRƒ“ƒtƒBƒOƒŒ[ƒVƒ‡ƒ“‚Ì—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚³ãƒ³ãƒ•ã‚£ã‚°ãƒ¬ãƒ¼ã‚·ãƒ§ãƒ³ã®ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public static final Transformer getTransformer()
             throws TransformerFactoryConfigurationError,

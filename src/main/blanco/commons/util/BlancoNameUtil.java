@@ -26,24 +26,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * blanco Framework�̖��O�Ɋւ��郆�[�e�B���e�B���W�߂��N���X�ł��B
+ * blanco Frameworkの名前に関するユーティリティを集めたクラスです。
  * 
  * @author IGA Tosiki
  */
 public class BlancoNameUtil {
     /**
-     * �^����ꂽ���O���t�@�C�����Ƃ��ė��p���Ó����ǂ����𔻒f���܂��B
+     * 与えられた名前がファイル名として利用が妥当かどうかを判断します。
      * 
-     * �^���F�G���H�h�����b���^����ꂽ��false��߂��܂��B
+     * ／￥：；＊？”＞＜｜が与えられたらfalseを戻します。
      * 
      * @param checkString
-     *            �t�@�C�����Ƃ��Ĕ��肷�镶����B
-     * @return �t�@�C�����Ƃ��đÓ��ł����true���A�Ó��łȂ���� false��߂��܂��B
+     *            ファイル名として判定する文字列。
+     * @return ファイル名として妥当であればtrueを、妥当でなければ falseを戻します。
      */
     public static final boolean isValidFileName(final String checkString) {
         if (checkString == null) {
             throw new IllegalArgumentException(
-                    "�t�@�C�����Ƃ��đÓ����ǂ������肷�郁�\�b�h��null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "ファイル名として妥当かどうか判定するメソッドにnullが与えられました。null以外の値を与えてください。");
         }
 
         if (checkString.indexOf('/') >= 0 || checkString.indexOf('\\') >= 0
@@ -55,46 +55,46 @@ public class BlancoNameUtil {
                 || checkString.indexOf('>') >= 0
                 || checkString.indexOf('<') >= 0
                 || checkString.indexOf('|') >= 0) {
-            // �����̕������܂܂�Ă�����t�@�C�����Ƃ��Ă͕s�K�؂ł��B
+            // これらの文字が含まれていたらファイル名としては不適切です。
             return false;
         }
         return true;
     }
 
     /**
-     * �t�@�C�����Ƃ��ė��p���ׂ��łȂ������̈ꗗ��\���`���Ŏ擾���܂��B
+     * ファイル名として利用すべきでない文字の一覧を表示形式で取得します。
      * 
-     * @return ���p���ׂ��łȂ�������̈ꗗ��\���`���ł���킵�����́B
+     * @return 利用すべきでない文字列の一覧を表示形式であらわしたもの。
      */
     public static final String invalidFileNameChar() {
         return "/ \\ : ; * ? \" > < |";
     }
 
     /**
-     * �t�@�C����(�f�B���N�g�����͊܂܂Ȃ���Ԃŗ^���܂�)����g���q���������܂��B
+     * ファイル名(ディレクトリ名は含まない状態で与えます)から拡張子を除去します。
      * 
-     * �h�b�g�͊g���q�Ɠ�������������܂��B<br>
-     * ���� .cvsignore�̂悤�ȃt�@�C�������^����ꂽ�ꍇ�ɂ́A���̂܂ܖ߂�܂��B
+     * ドットは拡張子と同じく除去されます。<br>
+     * もし .cvsignoreのようなファイル名が与えられた場合には、そのまま戻ります。
      * 
      * @param checkString
-     *            �t�@�C����(�f�B���N�g�����܂܂Ȃ�����)
-     * @return �g���q���܂܂Ȃ��t�@�C����
+     *            ファイル名(ディレクトリを含まないもの)
+     * @return 拡張子を含まないファイル名
      */
     public static final String trimFileExtension(final String checkString) {
         if (checkString == null) {
             throw new IllegalArgumentException(
-                    "�t�@�C��������g���q����菜�����\�b�h��null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "ファイル名から拡張子を取り除くメソッドにnullが与えられました。null以外の値を与えてください。");
         }
 
-        // �Ō�̊g���q��T���o���܂��B
+        // 最後の拡張子を探し出します。
         final int posDot = checkString.lastIndexOf(".");
         if (posDot == 0) {
-            // ���̃t�@�C�����̓h�b�g����J�n�����t�@�C�����ł��B
-            // �g���q�̐؂���͍s�킸�ɁA���̂܂ܕԂ��܂��B
+            // このファイル名はドットから開始されるファイル名です。
+            // 拡張子の切り取りは行わずに、そのまま返します。
             return checkString;
         }
         if (posDot > 0) {
-            // �g���q���������܂��B
+            // 拡張子を除去します。
             return checkString.substring(0, posDot);
         }
 
@@ -102,29 +102,29 @@ public class BlancoNameUtil {
     }
 
     /**
-     * �^����ꂽ��������w�肳�ꂽ��؂蕶���ŕ������܂��B
+     * 与えられた文字列を指定された区切り文字で分割します。
      * 
-     * ��؂蕶���� '/'�ł���ꍇ�̋����͉��L�̒ʂ�B<br>
-     * �ʏ�P�[�X1�F[aaa/bbb/ccc]��{ "aaa", "bbb", "ccc" }<br>
-     * �ʏ�P�[�X2�F[aaa//ccc]��{ "aaa", "", "ccc" }<br>
-     * �ʏ�P�[�X3: [/aaa/bbb]��{ "", "aaa", "bbb" }<br>
-     * ���ŏ��̃X���b�V���͈�Ƃ��ăJ�E���g���܂��B<br>
-     * �ʏ�P�[�X4�F[/aaa/bbb/]��{ "", "aaa", "bbb" }<br>
-     * ���Ō�̃X���b�V���͖������܂��B<br>
+     * 区切り文字が '/'である場合の挙動は下記の通り。<br>
+     * 通常ケース1：[aaa/bbb/ccc]→{ "aaa", "bbb", "ccc" }<br>
+     * 通常ケース2：[aaa//ccc]→{ "aaa", "", "ccc" }<br>
+     * 通常ケース3: [/aaa/bbb]→{ "", "aaa", "bbb" }<br>
+     * ※最初のスラッシュは一つとしてカウントします。<br>
+     * 通常ケース4：[/aaa/bbb/]→{ "", "aaa", "bbb" }<br>
+     * ※最後のスラッシュは無視します。<br>
      * <br>
-     * ���E�P�[�X1�F[/]��{ "" }<br>
-     * ���E�P�[�X2�F[///]��{ "", "", "" }<br>
-     * ���E�P�[�X3�F[]������0�̔z��<br>
-     * ���E�P�[�X4�Fnull������0�̔z��<br>
+     * 境界ケース1：[/]→{ "" }<br>
+     * 境界ケース2：[///]→{ "", "", "" }<br>
+     * 境界ケース3：[]→長さ0の配列<br>
+     * 境界ケース4：null→長さ0の配列<br>
      * 
      * @param originalString
-     *            ��؂蕶���ŋ�؂�ꂽ������Bnull��^�����ꍇ�ɂ� ����0��String�z�񂪖߂�܂��B
-     * @return �������ꂽ������B��؂蕶�����̂��̂͊܂܂�܂���B
+     *            区切り文字で区切られた文字列。nullを与えた場合には 長さ0のString配列が戻ります。
+     * @return 分割された文字列。区切り文字そのものは含まれません。
      */
     public static final String[] splitString(final String originalString,
             final char delimiter) {
         if (originalString == null) {
-            // null�Ɋւ��ẮA������ڂ��Ȃ����̂Ƃ��Ĉ����܂��B
+            // nullに関しては、一つも項目がないものとして扱います。
             return new String[0];
         }
 
@@ -138,7 +138,7 @@ public class BlancoNameUtil {
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new IllegalArgumentException(
-                        "���[�N��StringReader����̓ǂݍ��݂ŗ�O���������܂����B�S���z�肵�Ȃ��P�[�X�ł��B:"
+                        "ワークのStringReaderからの読み込みで例外が発生しました。全く想定しないケースです。:"
                                 + e.toString());
             }
             if (read < 0) {
@@ -154,11 +154,11 @@ public class BlancoNameUtil {
                     } catch (IOException e) {
                         e.printStackTrace();
                         throw new IllegalArgumentException(
-                                "���[�N��StringWriter�̃N���[�Y�ŗ�O���������܂����B�S���z�肵�Ȃ��P�[�X�ł��B:"
+                                "ワークのStringWriterのクローズで例外が発生しました。全く想定しないケースです。:"
                                         + e.toString());
                     }
                     result.add(writer.toString());
-                    // ���[�N�ϐ��̒��g�����Z�b�g���܂��B
+                    // ワーク変数の中身をリセットします。
                     writer = null;
                 }
             } else {
@@ -171,76 +171,76 @@ public class BlancoNameUtil {
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new IllegalArgumentException(
-                        "�S���z�肵�Ȃ��A���肦�Ȃ��P�[�X�ł̃G���[���������܂����B:" + e.toString());
+                        "全く想定しない、ありえないケースでのエラーが発生しました。:" + e.toString());
             }
             result.add(writer.toString());
-            // ���[�N�ϐ��̒��g�����Z�b�g���܂��B
+            // ワーク変数の中身をリセットします。
             writer = null;
         }
         return (String[]) result.toArray(new String[result.size()]);
     }
 
     /**
-     * �^����ꂽ��������p�X�ł���Ɖ��肵�A/(�X���b�V��)�L���ŋ�؂��ĕ�����𕪊����܂��B
+     * 与えられた文字列をパスであると仮定し、/(スラッシュ)記号で区切って文字列を分割します。
      * 
-     * �ʏ�P�[�X1�F[aaa/bbb/ccc]��{ "aaa", "bbb", "ccc" }<br>
-     * �ʏ�P�[�X2�F[aaa//ccc]��{ "aaa", "", "ccc" }<br>
-     * �ʏ�P�[�X3: [/aaa/bbb]��{ "", "aaa", "bbb" }<br>
-     * ���ŏ��̃X���b�V���͈�Ƃ��ăJ�E���g���܂��B<br>
-     * �ʏ�P�[�X4�F[/aaa/bbb/]��{ "", "aaa", "bbb" }<br>
-     * ���Ō�̃X���b�V���͖������܂��B<br>
+     * 通常ケース1：[aaa/bbb/ccc]→{ "aaa", "bbb", "ccc" }<br>
+     * 通常ケース2：[aaa//ccc]→{ "aaa", "", "ccc" }<br>
+     * 通常ケース3: [/aaa/bbb]→{ "", "aaa", "bbb" }<br>
+     * ※最初のスラッシュは一つとしてカウントします。<br>
+     * 通常ケース4：[/aaa/bbb/]→{ "", "aaa", "bbb" }<br>
+     * ※最後のスラッシュは無視します。<br>
      * <br>
-     * ���E�P�[�X1�F[/]��{ "" }<br>
-     * ���E�P�[�X2�F[///]��{ "", "", "" }<br>
-     * ���E�P�[�X3�F[]������0�̔z��<br>
-     * ���E�P�[�X4�Fnull������0�̔z��<br>
+     * 境界ケース1：[/]→{ "" }<br>
+     * 境界ケース2：[///]→{ "", "", "" }<br>
+     * 境界ケース3：[]→長さ0の配列<br>
+     * 境界ケース4：null→長さ0の配列<br>
      * 
      * @param originalString
-     *            /(�X���b�V��)�L���ŋ�؂�ꂽ������Bnull��^�����ꍇ�ɂ� ����0��String�z�񂪖߂�܂��B
-     * @return �������ꂽ������B/(�X���b�V��)�L���͊܂܂�܂���B
+     *            /(スラッシュ)記号で区切られた文字列。nullを与えた場合には 長さ0のString配列が戻ります。
+     * @return 分割された文字列。/(スラッシュ)記号は含まれません。
      */
     public static final String[] splitPath(final String originalString) {
         return splitString(originalString, '/');
     }
 
     /**
-     * �^����ꂽ�N���X������p�b�P�[�W�����������܂��B
+     * 与えられたクラス名からパッケージ名を除去します。
      * 
      * @param argClassName
-     *            �t���p�b�P�[�W���t���̃N���X���B
-     * @return �p�b�P�[�W�������̃N���X���B
+     *            フルパッケージ名付きのクラス名。
+     * @return パッケージ名無しのクラス名。
      */
     public static final String trimJavaPackage(final String argClassName) {
         if (argClassName == null) {
             throw new IllegalArgumentException(
-                    "�N���X������p�b�P�[�W������菜�����\�b�h��null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "クラス名からパッケージ名を取り除くメソッドにnullが与えられました。null以外の値を与えてください。");
         }
 
-        // �h�b�g�Ńt���N���X���𕪊����܂��B
+        // ドットでフルクラス名を分割します。
         final String[] work = splitString(argClassName, '.');
         for (int index = work.length - 1; index >= 0; index--) {
             if (work[index].length() > 0) {
-                // ������̕���������Ă����A�������������Ō�̕�����������ăN���X���Ƃ��܂��B
+                // 分割後の文字列を見ていき、長さをもった最後の文字列をもってクラス名とします。
                 return work[index];
             }
         }
 
-        // �ЂƂ����̂����������O��������܂���ł����B
-        throw new IllegalArgumentException("������[" + argClassName
-                + "]���p�b�P�[�W���t��Java�N���X���Ƃ��ď����ł��܂���B");
+        // ひとつも実体をもった名前が見つかりませんでした。
+        throw new IllegalArgumentException("文字列[" + argClassName
+                + "]がパッケージ名付きJavaクラス名として処理できません。");
     }
 
     /**
-     * �^����ꂽURI����A���閽���K���ɏ]���� Java�p�b�P�[�W�����擾���܂��B
+     * 与えられたURIから、ある命名規則に従って Javaパッケージ名を取得します。
      * 
      * @param uri
-     *            ���͂ƂȂ�URI�B
-     * @return Java�p�b�P�[�W���B
+     *            入力となるURI。
+     * @return Javaパッケージ名。
      */
     public static final String uri2JavaPackage(final String uri) {
         if (uri == null) {
             throw new IllegalArgumentException(
-                    "URI����p�b�P�[�W�����擾���郁�\�b�h��null���^�����܂����Bnull�ȊO�̒l��^���Ă��������B");
+                    "URIからパッケージ名を取得するメソッドにnullが与えられました。null以外の値を与えてください。");
         }
 
         final StringWriter writer = new StringWriter();
@@ -248,9 +248,9 @@ public class BlancoNameUtil {
         boolean isFirst = true;
         if (splitedUri.length < 2) {
             throw new IllegalArgumentException(
-                    "�^����ꂽURI["
+                    "与えられたURI["
                             + uri
-                            + "]�͌`�����s���ł��B[http://www.w3.org/XML/Schema]�̂悤�Ȍ`���Ŏw�肵�Ă��������B");
+                            + "]は形式が不正です。[http://www.w3.org/XML/Schema]のような形式で指定してください。");
         }
         final String[] splitDir = BlancoNameUtil
                 .splitString(splitedUri[1], '/');
@@ -258,7 +258,7 @@ public class BlancoNameUtil {
             final String[] splitDomain = BlancoNameUtil.splitString(
                     splitDir[index], '.');
             for (int indexDomain = splitDomain.length - 1; indexDomain >= 0; indexDomain--) {
-                // �h���C����\���Ǝv����ӏ��ł���̂ŁA�t���ŏ������s���܂��B
+                // ドメインを表すと思われる箇所であるので、逆順で処理を行います。
                 if (splitDomain[indexDomain].length() > 0) {
                     if (isFirst) {
                         isFirst = false;
@@ -272,7 +272,7 @@ public class BlancoNameUtil {
         for (int indexUri = 2; indexUri < splitedUri.length; indexUri++) {
             final String[] splitDirAfter = BlancoNameUtil.splitString(
                     splitedUri[indexUri], '/');
-            // �|�C���g�F�ŏ��̃m�[�h�� �|�[�g�ԍ��ł��낤���� ����𖳎������܂��B
+            // ポイント：最初のノードは ポート番号であろうから これを無視をします。
             for (int index = 1; index < splitDirAfter.length; index++) {
                 if (isFirst) {
                     isFirst = false;
@@ -288,7 +288,7 @@ public class BlancoNameUtil {
         } catch (IOException e) {
             e.printStackTrace();
             throw new IllegalArgumentException(
-                    "���肦�Ȃ���O: StringWriter��close()�̍ۂɗ�O���������܂����B:"
+                    "ありえない例外: StringWriterのclose()の際に例外が発生しました。:"
                             + e.toString());
         }
         return writer.toString();

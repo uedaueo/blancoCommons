@@ -29,8 +29,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * ƒtƒ@ƒCƒ‹‚©‚çƒXƒgƒŠ[ƒ€‚Ö‚Ì“üo—Íƒ‰ƒbƒp[<br>
- * java.io.File‚©‚çjava.io.XXPutStreamŒn‚Ì“üo—Í‚Ö‚Æ•ÏŠ·‚ğs‚¢‚Ü‚·B
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¸ã®å…¥å‡ºåŠ›ãƒ©ãƒƒãƒ‘ãƒ¼<br>
+ * java.io.Fileã‹ã‚‰java.io.XXPutStreamç³»ã®å…¥å‡ºåŠ›ã¸ã¨å¤‰æ›ã‚’è¡Œã„ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
@@ -40,8 +40,8 @@ public abstract class File2StreamWrapper {
     private OutputStream outStream = null;
 
     /**
-     * java.io.File‚Å—^‚¦‚ç‚ê‚½“üo—Í‚ğƒXƒgƒŠ[ƒ€ƒx[ƒX‚É•ÏŠ·‚µ‚Ü‚·B<br>
-     * ‚à‚µ•Ğ•û‚¾‚¯ƒXƒgƒŠ[ƒ€‚ª‚ ‚éê‡‚É‚ÍA•Ê‚ÌŒo˜H‚É‚ÄÀs‰ÓŠ‚É—^‚¦‚Ä‚­‚¾‚³‚¢B
+     * java.io.Fileã§ä¸ãˆã‚‰ã‚ŒãŸå…¥å‡ºåŠ›ã‚’ã‚¹ãƒˆãƒªãƒ¼ãƒ ãƒ™ãƒ¼ã‚¹ã«å¤‰æ›ã—ã¾ã™ã€‚<br>
+     * ã‚‚ã—ç‰‡æ–¹ã ã‘ã‚¹ãƒˆãƒªãƒ¼ãƒ ãŒã‚ã‚‹å ´åˆã«ã¯ã€åˆ¥ã®çµŒè·¯ã«ã¦å®Ÿè¡Œç®‡æ‰€ã«ä¸ãˆã¦ãã ã•ã„ã€‚
      * 
      * @param fileInput
      * @param fileOutput
@@ -59,27 +59,27 @@ public abstract class File2StreamWrapper {
     }
 
     /**
-     * “üo—Íˆ—‚ğÀÛ‚ÉÀs‚µ‚Ü‚·B
+     * å…¥å‡ºåŠ›å‡¦ç†ã‚’å®Ÿéš›ã«å®Ÿè¡Œã—ã¾ã™ã€‚
      * 
      * @throws Exception
-     *             ‰½‚©—áŠO‚ª”­¶‚µ‚½ê‡B
+     *             ä½•ã‹ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     public void run() throws Exception {
         try {
             process(inStream, outStream);
 
-            // ˆ—‚ª³í‚ÉI—¹‚µ‚½ê‡‚É‚Íflush‚ğŒÄ‚Ño‚µ‚Ä•Û—¯‚Ì‘‚«‚İ‚ğÀs‚µ‚Ü‚·B
+            // å‡¦ç†ãŒæ­£å¸¸ã«çµ‚äº†ã—ãŸå ´åˆã«ã¯flushã‚’å‘¼ã³å‡ºã—ã¦ä¿ç•™ã®æ›¸ãè¾¼ã¿ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
             if (outStream != null) {
                 outStream.flush();
             }
         } finally {
-            // í‚Éclose‚Í’Ê‚·‚æ‚¤‚É‚µ‚Ü‚·B
+            // å¸¸ã«closeã¯é€šã™ã‚ˆã†ã«ã—ã¾ã™ã€‚
             closeStream();
         }
     }
 
     /**
-     * ÀÛ‚Ì“üo—Íˆ—‚ğ‚±‚±‚É‹LÚ‚µ‚Ü‚·B
+     * å®Ÿéš›ã®å…¥å‡ºåŠ›å‡¦ç†ã‚’ã“ã“ã«è¨˜è¼‰ã—ã¾ã™ã€‚
      * 
      * @param inStream
      * @param outStream
@@ -89,7 +89,7 @@ public abstract class File2StreamWrapper {
             final OutputStream outStream) throws Exception;
 
     /**
-     * ƒXƒgƒŠ[ƒ€‚ğƒNƒ[ƒY‚µ‚Ü‚·B‚±‚Ìƒƒ\ƒbƒh‚ÍƒRƒ“ƒXƒgƒ‰ƒNƒ^“à‚©‚ç©“®“I‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™ã€‚ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿å†…ã‹ã‚‰è‡ªå‹•çš„ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @throws IOException
      */

@@ -22,36 +22,36 @@ package blanco.commons.util;
 import java.io.UnsupportedEncodingException;
 
 /**
- * blanco Framework�ɂ�����A������Ɋւ��郆�[�e�B���e�B�̓����������܂܂�܂��B
+ * blanco Frameworkにおける、文字列に関するユーティリティの内部処理が含まれます。
  * 
- * ���̃N���X�̓p�b�P�[�W�O����J�Ɛݒ肵�Ă��܂��B
+ * このクラスはパッケージ外非公開と設定しています。
  * 
  * @author IGA Tosiki
  */
 class BlancoStringUtilPad {
     /**
-     * �w��̒����ɂȂ�܂ŁA������̉E���ɕ�����ǉ����܂��B
+     * 指定の長さになるまで、文字列の右側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padRight(final String argSource,
             final int argLength, final char argPadChar) {
         if (argSource == null) {
             throw new IllegalArgumentException(
-                    "BlancoStringUtil.padRight�̓��͕������null���^�����܂����B");
+                    "BlancoStringUtil.padRightの入力文字列にnullが与えられました。");
         }
 
         final StringBuffer buf = new StringBuffer();
         buf.append(argSource);
 
         for (; buf.length() < argLength;) {
-            // �ꕶ�������₵�Ă����܂��B
+            // 一文字ずつ増やしていきます。
             buf.append(argPadChar);
         }
 
@@ -59,28 +59,28 @@ class BlancoStringUtilPad {
     }
 
     /**
-     * �w��̒����ɂȂ�܂ŁA������̍����ɕ�����ǉ����܂��B
+     * 指定の長さになるまで、文字列の左側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padLeft(final String argSource,
             final int argLength, final char argPadChar) {
         if (argSource == null) {
             throw new IllegalArgumentException(
-                    "BlancoStringUtil.padLefo�̓��͕������null���^�����܂����B");
+                    "BlancoStringUtil.padLefoの入力文字列にnullが与えられました。");
         }
 
         final int originalLength = argSource.length();
         final StringBuffer buf = new StringBuffer();
 
         for (; buf.length() + originalLength < argLength;) {
-            // �ꕶ�������₵�Ă����܂��B
+            // 一文字ずつ増やしていきます。
             buf.append(argPadChar);
         }
 
@@ -88,21 +88,21 @@ class BlancoStringUtilPad {
     }
 
     /**
-     * Windows-31J ���Z�Ŏw��̒����ɂȂ�܂ŁA������̉E���ɕ�����ǉ����܂��B
+     * Windows-31J 換算で指定の長さになるまで、文字列の右側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padRightWindows31J(final String argSource,
             final int argLength, final char argPadChar) {
         if (argSource == null) {
             throw new IllegalArgumentException(
-                    "BlancoStringUtil.padRight�̓��͕������null���^�����܂����B");
+                    "BlancoStringUtil.padRightの入力文字列にnullが与えられました。");
         }
 
         final StringBuffer buf = new StringBuffer();
@@ -110,32 +110,32 @@ class BlancoStringUtilPad {
 
         try {
             for (; buf.toString().getBytes("Windows-31J").length < argLength;) {
-                // �ꕶ�������₵�Ă����܂��B
+                // 一文字ずつ増やしていきます。
                 buf.append(argPadChar);
             }
             return buf.toString();
         } catch (UnsupportedEncodingException ex) {
             throw new IllegalArgumentException(
-                    "�z�肵�Ȃ���O���������܂����BWindows-31J �G���R�[�f�B���O���擾�ł��܂���ł����B", ex);
+                    "想定しない例外が発生しました。Windows-31J エンコーディングが取得できませんでした。", ex);
         }
     }
 
     /**
-     * Windows-31J ���Z�Ŏw��̒����ɂȂ�܂ŁA������̍����ɕ�����ǉ����܂��B
+     * Windows-31J 換算で指定の長さになるまで、文字列の左側に文字を追加します。
      * 
      * @param argSource
-     *            �I���W�i��������B
+     *            オリジナル文字列。
      * @param argLength
-     *            ��]���钷���B
+     *            希望する長さ。
      * @param argPadChar
-     *            �l�ߍ��݂ɗ��p���镶���B
-     * @return �w��̒����ɉ��H��̕�����B�w��̒��������I���W�i�������񂪒����ꍇ�ɂ́A�I���W�i�������񂪂��̂܂ܖ߂�܂��B
+     *            詰め込みに利用する文字。
+     * @return 指定の長さに加工後の文字列。指定の長さよりもオリジナル文字列が長い場合には、オリジナル文字列がそのまま戻ります。
      */
     public static final String padLeftWindows31J(final String argSource,
             final int argLength, final char argPadChar) {
         if (argSource == null) {
             throw new IllegalArgumentException(
-                    "BlancoStringUtil.padLefo�̓��͕������null���^�����܂����B");
+                    "BlancoStringUtil.padLefoの入力文字列にnullが与えられました。");
         }
 
         try {
@@ -144,13 +144,13 @@ class BlancoStringUtilPad {
 
             for (; buf.toString().getBytes("Windows-31J").length
                     + originalLength < argLength;) {
-                // �ꕶ�������₵�Ă����܂��B
+                // 一文字ずつ増やしていきます。
                 buf.append(argPadChar);
             }
             return buf.toString() + argSource;
         } catch (UnsupportedEncodingException ex) {
             throw new IllegalArgumentException(
-                    "�z�肵�Ȃ���O���������܂����BWindows-31J �G���R�[�f�B���O���擾�ł��܂���ł����B", ex);
+                    "想定しない例外が発生しました。Windows-31J エンコーディングが取得できませんでした。", ex);
         }
     }
 }
