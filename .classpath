@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="src/main"/>
 	<classpathentry kind="src" path="src/test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="lib/jxl-2.6.2blanco4.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="lib" path="lib/jxl-2.6.12-java150.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
