@@ -22,18 +22,18 @@ package blanco.commons.calc.parser;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import jxl.WorkbookSettings;
-import jxl.read.biff.BiffException;
-
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.*;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.DTDHandler;
 import org.xml.sax.EntityResolver;
@@ -217,21 +217,10 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
      */
     public final void parse(final InputSource inputSource) throws IOException,
             SAXException {
+
+        System.out.println("AbstractBlancoCalcParser#:parse");
+
         Workbook workbook = null;
-        final WorkbookSettings settings = new WorkbookSettings();
-        // JExcelApiの内部gc呼び出しを無効化します。
-        settings.setGCDisabled(true);
-        // ワーニングの標準出力を無効化します。
-        settings.setSuppressWarnings(true);
-
-        // 2006.09.29 t.iga
-        // JExcelApi 2.6では￥u00??エリアの処理において、内部的に指定されたエンコーディングを利用しています。
-        // しかし、この仕様は Excelの挙動とは異なります。Excelに合わせると ISO8859_1 固定の処理が妥当と考えます。
-        // JExcelApi 2.6のデフォルトでは、特定のセルに ￥u00??エリアの文字 (例:×(かける)) だけが入力された場合に
-        // Excel読み込み時に文字化けが発生します。
-        settings.setEncoding("ISO8859_1");
-
-        // それ以外にもlocale設定などがあり、検討の余地は存在するが、現状の仕様としてはここまでとする。。
 
         InputStream inStream = null;
         try {
@@ -244,12 +233,14 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
             } else {
                 throw new IOException("指定されたInputSourceは処理できません.");
             }
-            workbook = Workbook.getWorkbook(inputSource.getByteStream(),
-                    settings);
+            workbook = WorkbookFactory.create(inputSource.getByteStream());
 
             // ここから本当のパースが始まります。
             parseWorkbook(workbook);
-        } catch (BiffException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
+        } catch (InvalidFormatException e) {
             e.printStackTrace();
             throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
         } finally {
@@ -295,7 +286,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
                 new AttributesImpl());
 
         for (int indexSheet = 0; indexSheet < workbook.getNumberOfSheets(); indexSheet++) {
-            Sheet sheet = workbook.getSheet(indexSheet);
+            Sheet sheet = workbook.getSheetAt(indexSheet);
             parseSheet(sheet);
         }
         getContentHandler().endElement("",
@@ -315,24 +306,30 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
     private final void parseSheet(final Sheet sheet) throws SAXException {
         // シートのエレメントは上位クラスで処理
         AttributesImpl attrImpl = new AttributesImpl();
-        attrImpl.addAttribute("", "name", "name", "CDATA", sheet.getName());
+        attrImpl.addAttribute("", "name", "name", "CDATA", sheet.getSheetName());
         getContentHandler().startElement("",
                 (String) getProperty(URI_PROPERTY_NAME_SHEET),
                 (String) getProperty(URI_PROPERTY_NAME_SHEET), attrImpl);
 
-        startSheet(sheet.getName());
+        startSheet(sheet.getSheetName());
 
-        int maxRows = sheet.getRows();
+        int maxRows = sheet.getLastRowNum();
 
         for (int row = 0; row < maxRows; row++) {
             startRow(row + 1);
-            Cell[] cells = sheet.getRow(row);
-            for (int column = 0; column < cells.length; column++) {
-                startColumn(column + 1);
-                // コンテンツはtrim()せずに、そのままわたします。
-                String value = cells[column].getContents();
-                fireCell(column + 1, row + 1, value);
-                endColumn(column + 1);
+            Row line = sheet.getRow(row);
+            if (line != null) {
+                for (int column = 0; column < line.getLastCellNum(); column++) {
+//                    System.out.println("row:" + row
+//                            + "　column:" + column + "を進行中");
+
+                    startColumn(column + 1);
+                    Cell cell = line.getCell(column);
+                    // コンテンツはtrim()せずに、そのままわたします。
+                    String value = getCellValue(cell);
+                    fireCell(column + 1, row + 1, value);
+                    endColumn(column + 1);
+                }
             }
             endRow(row + 1);
         }
@@ -343,6 +340,65 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
         getContentHandler().endElement("",
                 (String) getProperty(URI_PROPERTY_NAME_SHEET),
                 (String) getProperty(URI_PROPERTY_NAME_SHEET));
+    }
+
+    public static String getCellValue(Cell cell) {
+        // 2016.01.20 j.amano
+        // 今回のjxl to poi においての仕様
+        //------------------------
+        //セルの書式:\-1,000
+        //jxl:($1,000)←$になってしまっている
+        //poi:-1000
+        //------------------------
+        //セルの書式:2016/1/20
+        //jxl:0020, 1月 20, 2016
+        //poi:2016/01/20 00:00:00
+        //------------------------
+        //セルの書式:#REF!←エラーの場合
+        //jxl:#REF!
+        //poi:#REF!
+        //------------------------
+        //セルの書式:▲1,000
+        //jxl:"▲ "1,000
+        //poi:-1000
+        //------------------------
+
+        if(cell != null) {
+            switch (cell.getCellType()) {
+                case Cell.CELL_TYPE_BLANK:
+                    return "";
+                case Cell.CELL_TYPE_STRING:
+                    return cell.getRichStringCellValue().getString();
+                case Cell.CELL_TYPE_BOOLEAN:
+                    return String.valueOf(cell.getBooleanCellValue());
+                case Cell.CELL_TYPE_NUMERIC:
+                    // 日付・整数・少数の判別を行う
+                    if (DateUtil.isCellDateFormatted(cell)) {
+                        // 日付型として値を取得
+                        Date dt =cell.getDateCellValue();
+                        // 変換後の日付文字列の書式を指定
+                        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                        String sDate = df.format(dt);
+                        return sDate;
+                    }
+                    // 整数の場合、.0を除去
+                    DecimalFormat format = new DecimalFormat("0.#");
+                    return format.format(cell.getNumericCellValue());
+                case Cell.CELL_TYPE_FORMULA:
+                    Workbook wb = cell.getSheet().getWorkbook();
+                    CreationHelper crateHelper = wb.getCreationHelper();
+                    FormulaEvaluator evaluator = crateHelper.createFormulaEvaluator();
+                    return getCellValue(evaluator.evaluateInCell(cell));
+                case Cell.CELL_TYPE_ERROR:
+                    byte errorCode = cell.getErrorCellValue();
+                    FormulaError error = FormulaError.forInt(errorCode);
+                    String errorText = error.getString();
+                    return errorText;
+                default:
+                    return "";
+            }
+        }
+        return "";
     }
 
     /**
