@@ -54,7 +54,7 @@ public class BlancoSimpleCalcParserTest extends TestCase {
                     "./meta/blancoCalcParserTestData.xml"));
             BlancoCalcParser.getTransformer().transform(
                     new SAXSource(parser, new InputSource(
-                            "./meta/blancoCalcParserTestData.xls")),
+                            "./meta/blancoCalcParserTestData.xlsx")),
                     new StreamResult(outStream));
             outStream.flush();
             outStream.close();
