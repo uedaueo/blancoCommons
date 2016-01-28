@@ -313,7 +313,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
 
         startSheet(sheet.getSheetName());
 
-        //getLastRowNum()もgetPhysicalNumberOfRows()も、最後の行よりなぜか一つ少ない +1する。
+        //getLastRowNum()は、0から数えるので +1する。
         int maxRows = sheet.getLastRowNum() + 1;
 
         for (int row = 0; row < maxRows; row++) {

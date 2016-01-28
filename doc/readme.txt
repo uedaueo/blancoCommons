@@ -12,9 +12,8 @@ blanco Frameworkの中から特に呼び出されがちなクラス群を提供�
 
 [依存するライブラリ]
 blancoCommonsは下記のライブラリを利用しています。
- 1.JExcelApi - Java Excel API - A Java API to read, write and modify Excel spreadsheets
-     http://jexcelapi.sourceforge.net/
-     http://sourceforge.net/projects/jexcelapi/
-     http://www.andykhan.com/jexcelapi/ 
+ 1.Apache POI - the Java API for Microsoft Documents
+     https://poi.apache.org/
+     https://ja.wikipedia.org/wiki/Apache_POI
    概要: JavaからExcelブック形式を読み書きするためのライブラリです。
-   ライセンス: GNU Lesser General Public License
+   ライセンス: Apache License 2.0
