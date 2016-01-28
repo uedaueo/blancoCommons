@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<blanco-db>
+<query-invoker name="ProductsInsert" single="true">
+<parameters>
+<parameter name="ProductID" type="int"/>
+<parameter name="ProductName" type="java.lang.String"/>
+<parameter name="SupplierID" type="java.lang.Integer"/>
+<parameter name="CategoryID" type="java.lang.Integer"/>
+<parameter name="QuantityPerUnit" type="java.lang.String"/>
+<parameter name="UnitPrice" type="java.math.BigDecimal"/>
+<parameter name="UnitsInStock" type="java.lang.Short"/>
+<parameter name="UnitsOnOrder" type="java.lang.Short"/>
+<parameter name="ReorderLevel" type="java.lang.Short"/>
+<parameter name="Discontinued" type="java.lang.Boolean"/>
+</parameters>
+<query>INSERT
+  INTO Products
+       (ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, 
+        UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+VALUES (#ProductID, #ProductName, #SupplierID, #CategoryID, #QuantityPerUnit, #UnitPrice, 
+        #UnitsInStock, #UnitsOnOrder, #ReorderLevel, #Discontinued)
+</query>
+</query-invoker>
+<query-iterator name="CustomersAll" scroll="INSENSITIVE" updatable="true">
+<parameters/>
+<query>SELECT CustomerID, CompanyName, ContactName, ContactTitle
+        ,Address, City, Region, PostalCode, Country, Phone, Fax
+  FROM Customers
+  WITH (UPDLOCK)
+ ORDER BY CustomerID
+----------------------------------------------------------------------------------------------
+-- SQL Server 2000 で更新ロックを利用する際には下記の要領でロックを実現します。
+--  0.FOR UPDATEは利用しません。
+--  1.動作する環境
+--    Microsoft SQL Server 2000 SP3または それ以降
+--    SQL Server 2000 Driver for JDBC Service Pack 3 (version 2.2.0040) または それ以降
+--        http://www.microsoft.com/downloads/details.aspx?FamilyId=07287B11-0502-461A-B138-2AA54BFDC03A
+--  2.データベース接続文字列に SelectMethod=cursor を加える
+--    例 jdbc:microsoft:sqlserver://localhost:1433;DatabaseName=Northwind;SelectMethod=cursor
+--  3.自動コミットを off に設定する。
+--    例 Connection.setAutoCommit(false)
+--  4.WITH (UPDLOCK) のようにテーブルに対してヒントを与える。
+--    FROM Customers WITH (UPDLOCK)
+--    参考 http://www.coredevelopers.net/library/j2ee/locking/db.jsp
+--    参考 http://www.microsoft.com/japan/msdn/library/default.asp?url=/japan/msdn/library/ja/acdata/ac_8_con_7a_1hf7.asp
+--  5.それ以外については、一般的な JDBCプログラミングと同じ。
+----------------------------------------------------------------------------------------------
+</query>
+</query-iterator>
+<query-iterator name="CustomersWhere" single="true" scroll="FORWARD_ONLY" updatable="false">
+<parameters>
+<parameter name="CustomerID" type="java.lang.String"/>
+</parameters>
+<query>SELECT CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax
+  FROM Customers WHERE CustomerID = #CustomerID
+</query>
+</query-iterator>
+<query-iterator name="ProductsAll" scroll="INSENSITIVE" updatable="false">
+<parameters/>
+<query>SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, 
+       UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued
+  FROM Products
+ ORDER BY ProductID
+</query>
+</query-iterator>
+<query-iterator name="ProductsCount" single="true" scroll="FORWARD_ONLY" updatable="false">
+<parameters/>
+<query>SELECT COUNT(ProductID) AS CNT
+  FROM Products
+</query>
+</query-iterator>
+<query-iterator name="ProductsWhere" single="true" scroll="SENSITIVE" updatable="false">
+<parameters>
+<parameter name="SupplierID" type="java.lang.String"/>
+</parameters>
+<query>SELECT ProductID, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, 
+       UnitsOnOrder, ReorderLevel, Discontinued
+    FROM Products
+    WHERE SupplierID = #SupplierID
+     OR SupplierID = #SupplierID
+    ORDER BY ProductID
+</query>
+</query-iterator>
+<query-iterator name="OrdersCustomersEmployeesJoin" scroll="SENSITIVE" updatable="false">
+<parameters/>
+<query>SELECT a.OrderID, a.OrderDate, a.CustomerID, b.CompanyName, c.LastName, c.FirstName
+    FROM orders a, Customers b, Employees c
+    WHERE a.CustomerID = b.CustomerID AND a.EmployeeID = c.EmployeeID
+    ORDER BY a.OrderID
+</query>
+</query-iterator>
+<query-invoker name="CustomersInsert" single="true">
+<parameters>
+<parameter name="customerID" type="java.lang.String"/>
+<parameter name="companyName" type="java.lang.String"/>
+<parameter name="contactName" type="java.lang.String"/>
+<parameter name="contactTitle" type="java.lang.String"/>
+<parameter name="address" type="java.lang.String"/>
+<parameter name="city" type="java.lang.String"/>
+<parameter name="region" type="java.lang.String"/>
+<parameter name="postalCode" type="java.lang.String"/>
+<parameter name="country" type="java.lang.String"/>
+<parameter name="phone" type="java.lang.String"/>
+<parameter name="fax" type="java.lang.String"/>
+</parameters>
+<query>INSERT INTO Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, 
+        Region, PostalCode, Country, Phone, Fax)
+  VALUES (#customerID, #companyName, #contactName,
+        #contactTitle, #address, #city, #region, 
+        #postalCode, #country, #phone, #fax)
+</query>
+</query-invoker>
+</blanco-db>

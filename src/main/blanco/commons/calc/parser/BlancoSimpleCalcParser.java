@@ -19,8 +19,7 @@
  *******************************************************************************/
 package blanco.commons.calc.parser;
 
-import jxl.Sheet;
-
+import org.apache.poi.ss.usermodel.Sheet;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 

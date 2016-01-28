@@ -48,9 +48,9 @@ public class BlancoCalcParserT001 extends TestCase {
         InputStream inStreamDef = null;
         try {
             inStream = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/t001/t001.xls"));
+                    "./test/calc/parser/t001/t001.xlsx"));
             outStream = new BufferedOutputStream(new FileOutputStream(
-                    "./tmp/test/calc/parser/t001.out.xml"));
+                    "./tmp/test/calc/parser/t001x.out.xml"));
             inStreamDef = new BufferedInputStream(new FileInputStream(
                     "./test/calc/parser/t001/t001.xml"));
             new BlancoCalcParser().process(inStreamDef, inStream, outStream);
