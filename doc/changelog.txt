@@ -1,3 +1,8 @@
+2016.05.20 (2.0.2)
+  Change version number.
+  blancoCalcWriter追加。
+  ひな形excelとひな形xmlより、値を埋め込んだexcelとxmlを出力。
+
 2016.01.28 (2.0.1)
   Change version number.
   JExcelApiからApache POIに変更(.xlsxを読めるように修正)

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- blancoCalcParser define file for blancoWsdl -->
+<blanco version="0.1.0">
+    <target name="blancoCalcParser">
+        <blancocalcparser name="wsdl">
+            <propertyblock name="meta2xml" waitY="1">
+                <startstring>CarecoApiTest処理定義・共通</startstring>
+                <propertykey name="name" waitX="2">
+                    <value>クラス名</value>
+                    <propertydata>1ArrayRequestSample</propertydata>
+                    <propertydata>2ArrayRequestSample</propertydata>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                    <propertydata>blanco.rest.test.ArrayRequestSample</propertydata>
+                </propertykey>
+                <propertykey name="description" waitX="2">
+                    <value>説明</value>
+                    <propertydata>このクラスは、CarecoApiTestのためのJUnit処理を定義します。</propertydata>
+                </propertykey>
+                <propertykey name="fileDescription" waitX="2">
+                    <value>ファイル説明</value>
+                    <propertydata>ログインtokenを使用し、API：ArrayRequestSampleのResponse値が正しく取れること</propertydata>
+                </propertykey>
+            </propertyblock>
+
+            <propertyblock name="blancotelegram-common-ArrayRequestSample" waitY="1">
+                <startstring>テスト電文定義・共通</startstring>
+                <propertykey name="name" waitX="2">
+                    <value>電文ID</value>
+                    <propertydata>ArrayRequestSample</propertydata>
+                </propertykey>
+                <propertykey name="description" waitX="2">
+                    <value>説明</value>
+                    <propertydata></propertydata>
+                </propertykey>
+                <propertykey name="type" waitX="2">
+                    <value>電文種類</value>
+                    <propertydata>要求電文(C→S)</propertydata>
+                </propertykey>
+                <propertykey name="superClass" waitX="2">
+                    <value>電文の親クラス</value>
+                    <propertydata></propertydata>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                    <propertydata>careco.api</propertydata>
+                </propertykey>
+                <propertykey name="max" waitX="2">
+                    <value>MAX</value>
+                    <propertydata>10</propertydata>
+                </propertykey>
+
+            </propertyblock>
+
+            <tableblock name="blancotelegram-list-ArrayRequestSample" waitY="1" titleheight="3" rowname="field">
+                <startstring>テスト電文定義・一覧</startstring>
+
+                <tablecolumn name="no">
+                    <value>No.</value>
+                    <columndata>1</columndata>
+                    <columndata>2</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldName">
+                    <value>項目名</value>
+                    <columndata>reservationId</columndata>
+                    <columndata>arrayObject</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldType">
+                    <value>型</value>
+                    <columndata>java.lang.String</columndata>
+                    <columndata>careco.api.objects.ArrayObjectSample</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldGeneric">
+                    <value>総称型</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="pattern">
+                    <value>正規表現</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="maxLength">
+                    <value>Max桁長</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="switch">
+                    <value>SWITCH</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="minInclusive">
+                    <value>Min値</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="maxInclusive">
+                    <value>Max値</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+            </tableblock>
+
+            <propertyblock name="blancotelegram-common-ArrayObjectSample" waitY="1">
+                <startstring>テスト電文定義・共通</startstring>
+                <propertykey name="name" waitX="2">
+                    <value>電文ID</value>
+                    <propertydata>ArrayObjectSample</propertydata>
+                </propertykey>
+                <propertykey name="description" waitX="2">
+                    <value>説明</value>
+                    <propertydata></propertydata>
+                </propertykey>
+                <propertykey name="type" waitX="2">
+                    <value>電文種類</value>
+                    <propertydata>要求電文(C→S)</propertydata>
+                </propertykey>
+                <propertykey name="superClass" waitX="2">
+                    <value>電文の親クラス</value>
+                    <propertydata></propertydata>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                    <propertydata>careco.api</propertydata>
+                </propertykey>
+                <propertykey name="max" waitX="2">
+                    <value>MAX</value>
+                    <propertydata>10</propertydata>
+                </propertykey>
+
+            </propertyblock>
+
+            <tableblock name="blancotelegram-list-ArrayObjectSample" waitY="1" titleheight="3" rowname="field">
+                <startstring>テスト電文定義・一覧</startstring>
+
+                <tablecolumn name="no">
+                    <value>No.</value>
+                    <columndata>1</columndata>
+                    <columndata>2</columndata>
+                    <columndata>3</columndata>
+                    <columndata>4</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldName">
+                    <value>項目名</value>
+                    <columndata>stringField1</columndata>
+                    <columndata>arrayObject</columndata>
+                    <columndata>begin</columndata>
+                    <columndata>end</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldType">
+                    <value>型</value>
+                    <columndata>java.lang.String</columndata>
+                    <columndata>java.util.array&lt;SimpleObjectSample&gt;</columndata>
+                    <columndata>java.lang.Long</columndata>
+                    <columndata>java.lang.Long</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldGeneric">
+                    <value>総称型</value>
+                    <columndata></columndata>
+                    <columndata>careco.api.objects.SimpleObjectSample</columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="pattern">
+                    <value>正規表現</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="maxLength">
+                    <value>Max桁長</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="switch">
+                    <value>SWITCH</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="minInclusive">
+                    <value>Min値</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="maxInclusive">
+                    <value>Max値</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+            </tableblock>
+
+            <propertyblock name="blancotelegram-common-ArrayObjectSample2" waitY="1">
+                <startstring>テスト電文定義・共通</startstring>
+                <propertykey name="name" waitX="2">
+                    <value>電文ID</value>
+                    <propertydata>ArrayObjectSample2</propertydata>
+                </propertykey>
+                <propertykey name="description" waitX="2">
+                    <value>説明</value>
+                    <propertydata></propertydata>
+                </propertykey>
+                <propertykey name="type" waitX="2">
+                    <value>電文種類</value>
+                    <propertydata>要求電文(C→S)</propertydata>
+                </propertykey>
+                <propertykey name="superClass" waitX="2">
+                    <value>電文の親クラス</value>
+                    <propertydata></propertydata>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                    <propertydata>careco.api</propertydata>
+                </propertykey>
+                <propertykey name="max" waitX="2">
+                    <value>MAX</value>
+                    <propertydata>10</propertydata>
+                </propertykey>
+
+            </propertyblock>
+
+            <tableblock name="blancotelegram-list-ArrayObjectSample2" waitY="1" titleheight="3" rowname="field">
+                <startstring>テスト電文定義・一覧</startstring>
+
+                <tablecolumn name="no">
+                    <value>No.</value>
+                    <columndata>1</columndata>
+                    <columndata>2</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldName">
+                    <value>項目名</value>
+                    <columndata>stringField1</columndata>
+                    <columndata>stringField2</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldType">
+                    <value>型</value>
+                    <columndata>java.lang.String</columndata>
+                    <columndata>java.lang.String</columndata>
+                </tablecolumn>
+                <tablecolumn name="fieldGeneric">
+                    <value>総称型</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="pattern">
+                    <value>正規表現</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="maxLength">
+                    <value>Max桁長</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="switch">
+                    <value>SWITCH</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="minInclusive">
+                    <value>Min値</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+                <tablecolumn name="maxInclusive">
+                    <value>Max値</value>
+                    <columndata></columndata>
+                    <columndata></columndata>
+                </tablecolumn>
+            </tableblock>
+
+        </blancocalcparser>
+    </target>
+</blanco>

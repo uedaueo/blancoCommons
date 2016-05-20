@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="blancoCommons" default="build" basedir=".">
 	<!-- blancoAnt(0.2.0)により自動生成されました。 (2010/02/22) -->
-	<property name="version" value="2.0.1" />
+	<property name="version" value="2.0.2" />
 
 	<property name="project" value="blancoCommons" />
 	<property name="project.lower" value="blancocommons" />
@@ -47,6 +47,10 @@
 			<zipfileset dir="bin" includes="**/*" excludes="blanco/sample/**" />
 			<!-- Javaソースコード(通常)の取り込み (※sampleは除外) -->
 			<zipfileset dir="src" includes="**/*" prefix="src" excludes="blanco/sample/**" />
+			<!-- Javaソースコード(自動生成)の取り込み (※sampleは除外) -->
+			<zipfileset dir="blanco/main" includes="**/*.java" prefix="src" excludes="blanco/sample/**" />
+			<!-- プロパティファイルの取り込み -->
+			<zipfileset dir="blanco/main" includes="**/*.properties" excludes="blanco/sample/**" />
 		</jar>
 	</target>
 
@@ -54,6 +58,7 @@
 		<delete dir="bin" />
 		<mkdir dir="bin" />
 		<javac destdir="bin" debug="true" source="1.7" target="1.7" fork="true" encoding="${encoding}">
+			<src path="blanco/main/" />
 			<src path="src/main" />
 			<classpath>
 				<!-- ワイルドカードで一括取り込み -->
@@ -69,6 +74,7 @@
 		<delete dir="javadoc" />
 		<javadoc destdir="javadoc" encoding="${encoding}">
 			<fileset dir="src" includes="**/*.java" />
+			<fileset dir="blanco/main" includes="**/*.java" />
 			<classpath>
 				<fileset dir="lib" includes="*.jar" />
 				<fileset dir="lib.ant" includes="*.jar" />
@@ -76,8 +82,17 @@
 		</javadoc>
 	</target>
 
+	<taskdef name="blancoconstants" classname="blanco.constants.task.BlancoConstantsTask">
+		<classpath>
+			<fileset dir="lib" includes="*.jar" />
+			<fileset dir="lib.ant" includes="*.jar" />
+		</classpath>
+	</taskdef>
+
 	<target name="meta">
+		<blancoconstants metadir="meta/program" targetdir="blanco" encoding="${encoding}" />
 	</target>
+
 
 	<target name="build" depends="meta,compile,jar,pack">
 	</target>

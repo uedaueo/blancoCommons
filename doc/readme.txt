@@ -17,3 +17,17 @@ blancoCommonsは下記のライブラリを利用しています。
      https://ja.wikipedia.org/wiki/Apache_POI
    概要: JavaからExcelブック形式を読み書きするためのライブラリです。
    ライセンス: Apache License 2.0
+
+[blancoCalcWriter](ver2.0.2以降)
+  blanco Framework間で利用するCalc (Excel)設定シートに、
+  値付き定義xmlで定義した値をプロットする機能を提供します。
+  mainから設定をひな形excelとひな形xmlファイルから読み込んで単体で駆動できるようにもなっています。
+  ビルドには、
+  * ant clean
+  * ant meta
+  * ant compile
+  * ant jar
+  を行い、実行には、
+  * ant -f writer.xml BlancoCalcWriterEXE001
+  などと行って下さい。
+
