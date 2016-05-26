@@ -27,8 +27,8 @@ import java.util.List;
  * 
  * @author IGA Tosiki
  */
-public class BlancoCalcWriterTableBlock extends AbstractBlancoCalcParserBlock {
-    private List<BlancoCalcWriterTableColumn> list = new ArrayList<BlancoCalcWriterTableColumn>();
+public class BlancoCalcTransformerTableBlock extends AbstractBlancoCalcParserBlock {
+    private List<BlancoCalcTransformerTableColumn> list = new ArrayList<BlancoCalcTransformerTableColumn>();
 
     private String blockRowName = "";
 
@@ -43,7 +43,7 @@ public class BlancoCalcWriterTableBlock extends AbstractBlancoCalcParserBlock {
      * @param name
      *            ブロック名。
      */
-    public BlancoCalcWriterTableBlock(String name) {
+    public BlancoCalcTransformerTableBlock(String name) {
         setName(name);
     }
 
@@ -53,7 +53,7 @@ public class BlancoCalcWriterTableBlock extends AbstractBlancoCalcParserBlock {
      * @param item
      *            ブロックへと追加したいカラム。
      */
-    public void add(BlancoCalcWriterTableColumn item) {
+    public void add(BlancoCalcTransformerTableColumn item) {
         list.add(item);
     }
 
@@ -64,10 +64,10 @@ public class BlancoCalcWriterTableBlock extends AbstractBlancoCalcParserBlock {
      *            タイトル文字列。
      * @return 発見された列アイテム。
      */
-    public BlancoCalcWriterTableColumn findByTitleString(String titleString) {
+    public BlancoCalcTransformerTableColumn findByTitleString(String titleString) {
         final int listSize = list.size();
         for (int index = 0; index < listSize; index++) {
-            final BlancoCalcWriterTableColumn item = (BlancoCalcWriterTableColumn) list
+            final BlancoCalcTransformerTableColumn item = (BlancoCalcTransformerTableColumn) list
                     .get(index);
             if (item.isStartString(titleString)) {
                 return item;
@@ -83,10 +83,10 @@ public class BlancoCalcWriterTableBlock extends AbstractBlancoCalcParserBlock {
      *            列の番号。
      * @return 発見された列アイテム。
      */
-    public BlancoCalcWriterTableColumn findByColumnPosition(int pos) {
+    public BlancoCalcTransformerTableColumn findByColumnPosition(int pos) {
         final int listSize = list.size();
         for (int index = 0; index < listSize; index++) {
-            final BlancoCalcWriterTableColumn item = (BlancoCalcWriterTableColumn) list
+            final BlancoCalcTransformerTableColumn item = (BlancoCalcTransformerTableColumn) list
                     .get(index);
             if (item.getColumnPosition() == pos) {
                 return item;

@@ -27,10 +27,10 @@ import java.util.List;
  * 
  * @author IGA Tosiki
  */
-public class BlancoCalcWriterPropertyBlock extends
+public class BlancoCalcTransformerPropertyBlock extends
         AbstractBlancoCalcParserBlock {
 
-    private List<BlancoCalcWriterPropertyKey> list = new ArrayList<BlancoCalcWriterPropertyKey>();
+    private List<BlancoCalcTransformerPropertyKey> list = new ArrayList<BlancoCalcTransformerPropertyKey>();
 
     /**
      * プロパティブロックのコンストラクタ。
@@ -38,11 +38,11 @@ public class BlancoCalcWriterPropertyBlock extends
      * @param name
      *            ブロック名。
      */
-    public BlancoCalcWriterPropertyBlock(String name) {
+    public BlancoCalcTransformerPropertyBlock(String name) {
         setName(name);
     }
 
-    public List<BlancoCalcWriterPropertyKey> getList() {
+    public List<BlancoCalcTransformerPropertyKey> getList() {
         return list;
     }
 
@@ -52,7 +52,7 @@ public class BlancoCalcWriterPropertyBlock extends
      * @param item
      *            プロパティキーオブジェクト。
      */
-    public void add(BlancoCalcWriterPropertyKey item) {
+    public void add(BlancoCalcTransformerPropertyKey item) {
         list.add(item);
     }
 
@@ -63,10 +63,10 @@ public class BlancoCalcWriterPropertyBlock extends
      *            開始文字列。
      * @return 検索されたプロパティキーオブジェクト。
      */
-    public BlancoCalcWriterPropertyKey findByStartString(String startString) {
+    public BlancoCalcTransformerPropertyKey findByStartString(String startString) {
         final int listSize = list.size();
         for (int index = 0; index < listSize; index++) {
-            final BlancoCalcWriterPropertyKey item = (BlancoCalcWriterPropertyKey) list
+            final BlancoCalcTransformerPropertyKey item = (BlancoCalcTransformerPropertyKey) list
                     .get(index);
             if (item.isStartString(startString)) {
                 return item;

@@ -28,7 +28,7 @@ import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
 
 /**
- * BlancoCalcWriterDefHandler具象化SAXクラス<br>
+ * BlancoCalcTransformerDefHandler具象化SAXクラス<br>
  * このクラスは解析用XMLファイルを入力として具象化SAXクラスとして生成されました。<br>
  * このソースコードはblancoIgにより機械的に自動生成されています。<br>
  * 典型的な利用方法は下記のようになります。<br>
@@ -40,7 +40,7 @@ import org.xml.sax.SAXException;
  *         new BlancoCalcParserDefHandler())); // 実際には実装クラスのHandlerを与えます。
  * </pre>
  */
-public abstract class BlancoCalcWriterDefHandler implements ContentHandler {
+public abstract class BlancoCalcTransformerDefHandler implements ContentHandler {
     /**
      * エレメントのスタックです<br>
      * XMLの階層構造を記憶します。

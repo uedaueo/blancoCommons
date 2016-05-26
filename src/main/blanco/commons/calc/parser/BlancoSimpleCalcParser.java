@@ -19,11 +19,17 @@
  *******************************************************************************/
 package blanco.commons.calc.parser;
 
-import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.*;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.AttributesImpl;
 
 import blanco.commons.calc.BlancoCalcUtil;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Calcを読み取ってみるための超簡単なSAX2パーサです。 <br>
@@ -89,4 +95,99 @@ public class BlancoSimpleCalcParser extends AbstractBlancoCalcParser {
         getContentHandler().characters(charArray, 0, charArray.length);
         getContentHandler().endElement("", "cell", "cell");
     }
+
+    /**
+     * パースを行います。
+     *
+     * @param inputSource
+     *            解析対象となる入力ソース。
+     * @see org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
+     */
+    public final void parse(final InputSource inputSource) throws IOException,
+            SAXException {
+
+        System.out.println("AbstractBlancoCalcParser#:parse");
+
+        Workbook workbook = null;
+
+        InputStream inStream = null;
+        try {
+            if (inputSource.getByteStream() != null) {
+                // OKです。このまま処理を進めます。
+            } else if (inputSource.getSystemId() != null
+                    && inputSource.getSystemId().length() > 0) {
+                inStream = new FileInputStream(inputSource.getSystemId());
+                inputSource.setByteStream(inStream);
+            } else {
+                throw new IOException("指定されたInputSourceは処理できません.");
+            }
+            workbook = WorkbookFactory.create(inputSource.getByteStream());
+
+            // ここから本当のパースが始まります。
+            parseWorkbook(workbook);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
+        } catch (InvalidFormatException e) {
+            e.printStackTrace();
+            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
+        } finally {
+            if (workbook != null) {
+                workbook.close();
+            }
+
+            // InputSourceのクローズは外部で行われます。
+            // この中では 明示的に開いたストリームのみ処理します。
+            if (inStream != null) {
+                inStream.close();
+            }
+        }
+    }
+
+    /**
+     * シートをパースします。
+     *
+     * @param sheet
+     *            シートオブジェクト。
+     * @throws SAXException
+     *             SAX例外が発生した場合。
+     */
+    protected final void parseSheet(final Sheet sheet) throws SAXException {
+        // シートのエレメントは上位クラスで処理
+        AttributesImpl attrImpl = new AttributesImpl();
+        attrImpl.addAttribute("", "name", "name", "CDATA", sheet.getSheetName());
+        getContentHandler().startElement("",
+                (String) getProperty(URI_PROPERTY_NAME_SHEET),
+                (String) getProperty(URI_PROPERTY_NAME_SHEET), attrImpl);
+
+        startSheet(sheet.getSheetName());
+
+        //getLastRowNum()は、0から数えるので +1する。
+        int maxRows = sheet.getLastRowNum() + 1;
+
+        for (int row = 0; row < maxRows; row++) {
+            startRow(row + 1);
+            Row line = sheet.getRow(row);
+            if (line != null) {
+                for (int column = 0; column < line.getLastCellNum(); column++) {
+
+                    startColumn(column + 1);
+                    Cell cell = line.getCell(column);
+                    // コンテンツはtrim()せずに、そのままわたします。
+                    String value = getCellValue(cell);
+                    fireCell(column + 1, row + 1, value);
+                    endColumn(column + 1);
+                }
+            }
+            endRow(row + 1);
+        }
+
+        endSheet(sheet);
+
+        // シートのエレメントは上位クラスで処理
+        getContentHandler().endElement("",
+                (String) getProperty(URI_PROPERTY_NAME_SHEET),
+                (String) getProperty(URI_PROPERTY_NAME_SHEET));
+    }
+
 }

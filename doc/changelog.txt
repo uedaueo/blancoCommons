@@ -1,6 +1,6 @@
 2016.05.20 (2.0.2)
   Change version number.
-  blancoCalcWriter追加。
+  blancoCalcTransformer追加。
   ひな形excelとひな形xmlより、値を埋め込んだexcelとxmlを出力。
 
 2016.01.28 (2.0.1)

@@ -208,53 +208,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
         return null;
     }
 
-    /**
-     * パースを行います。
-     * 
-     * @param inputSource
-     *            解析対象となる入力ソース。
-     * @see org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
-     */
-    public final void parse(final InputSource inputSource) throws IOException,
-            SAXException {
 
-        System.out.println("AbstractBlancoCalcParser#:parse");
-
-        Workbook workbook = null;
-
-        InputStream inStream = null;
-        try {
-            if (inputSource.getByteStream() != null) {
-                // OKです。このまま処理を進めます。
-            } else if (inputSource.getSystemId() != null
-                    && inputSource.getSystemId().length() > 0) {
-                inStream = new FileInputStream(inputSource.getSystemId());
-                inputSource.setByteStream(inStream);
-            } else {
-                throw new IOException("指定されたInputSourceは処理できません.");
-            }
-            workbook = WorkbookFactory.create(inputSource.getByteStream());
-
-            // ここから本当のパースが始まります。
-            parseWorkbook(workbook);
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
-        } catch (InvalidFormatException e) {
-            e.printStackTrace();
-            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
-        } finally {
-            if (workbook != null) {
-                workbook.close();
-            }
-
-            // InputSourceのクローズは外部で行われます。
-            // この中では 明示的に開いたストリームのみ処理します。
-            if (inStream != null) {
-                inStream.close();
-            }
-        }
-    }
 
     /**
      * 与えられたファイルをパースします。
@@ -278,7 +232,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
      * @throws SAXException
      *             SAX例外が発生した場合。
      */
-    private void parseWorkbook(final Workbook workbook) throws SAXException {
+    protected void parseWorkbook(final Workbook workbook) throws SAXException {
         getContentHandler().startDocument();
         getContentHandler().startElement("",
                 (String) getProperty(URI_PROPERTY_NAME_WORKBOOK),
@@ -295,51 +249,7 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
         getContentHandler().endDocument();
     }
 
-    /**
-     * シートをパースします。
-     * 
-     * @param sheet
-     *            シートオブジェクト。
-     * @throws SAXException
-     *             SAX例外が発生した場合。
-     */
-    private final void parseSheet(final Sheet sheet) throws SAXException {
-        // シートのエレメントは上位クラスで処理
-        AttributesImpl attrImpl = new AttributesImpl();
-        attrImpl.addAttribute("", "name", "name", "CDATA", sheet.getSheetName());
-        getContentHandler().startElement("",
-                (String) getProperty(URI_PROPERTY_NAME_SHEET),
-                (String) getProperty(URI_PROPERTY_NAME_SHEET), attrImpl);
-
-        startSheet(sheet.getSheetName());
-
-        //getLastRowNum()は、0から数えるので +1する。
-        int maxRows = sheet.getLastRowNum() + 1;
-
-        for (int row = 0; row < maxRows; row++) {
-            startRow(row + 1);
-            Row line = sheet.getRow(row);
-            if (line != null) {
-                for (int column = 0; column < line.getLastCellNum(); column++) {
-
-                    startColumn(column + 1);
-                    Cell cell = line.getCell(column);
-                    // コンテンツはtrim()せずに、そのままわたします。
-                    String value = getCellValue(cell);
-                    fireCell(column + 1, row + 1, value);
-                    endColumn(column + 1);
-                }
-            }
-            endRow(row + 1);
-        }
-
-        endSheet(sheet);
-
-        // シートのエレメントは上位クラスで処理
-        getContentHandler().endElement("",
-                (String) getProperty(URI_PROPERTY_NAME_SHEET),
-                (String) getProperty(URI_PROPERTY_NAME_SHEET));
-    }
+    protected abstract void parseSheet(final Sheet sheet) throws SAXException;
 
     public static String getCellValue(Cell cell) {
         // 2016.01.20 j.amano

@@ -24,7 +24,7 @@ package blanco.commons.calc.parser.block;
  * 
  * @author IGA Tosiki
  */
-public class BlancoCalcWriterTableColumn {
+public class BlancoCalcTransformerTableColumn {
 
     private String _columnName = "name";
 
@@ -40,7 +40,7 @@ public class BlancoCalcWriterTableColumn {
      * @param name
      *            カラム名。
      */
-    public BlancoCalcWriterTableColumn(final String name) {
+    public BlancoCalcTransformerTableColumn(final String name) {
         this._columnName = name;
     }
 
@@ -52,8 +52,8 @@ public class BlancoCalcWriterTableColumn {
      * @param columnString
      *            カラム文字列の配列。
      */
-    public BlancoCalcWriterTableColumn(final String name,
-                                       final String[] columnString) {
+    public BlancoCalcTransformerTableColumn(final String name,
+                                            final String[] columnString) {
         this._columnName = name;
         this._columnString = columnString;
     }

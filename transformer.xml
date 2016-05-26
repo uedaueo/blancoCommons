@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="blancoCommons" default="build" basedir=".">
+	<import file="build.xml"/>
+
+	<target name="BlancoCalcTransformerEXE001">
+		<echo>BlancoCalcTransformerEXE001</echo>
+		<blancocommons metadir="test/calc/parser/transformer/" targetdir="tmp/test/calc/parser/"
+					   inStream = "templateT001.xlsx" outstream="t001.out.xml"
+					   instreamdef="BlancoCarecoApiTestMeta2MetaT001.xml" outstreamexcel="t001.out.xlsx" />
+
+	</target>
+
+</project>

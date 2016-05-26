@@ -38,7 +38,7 @@ import org.xml.sax.helpers.AttributesImpl;
 
 import blanco.commons.calc.BlancoCalcUtil;
 import blanco.commons.calc.parser.block.*;
-import blanco.commons.calc.parser.concretesax.BlancoCalcWriterDefHandler;
+import blanco.commons.calc.parser.concretesax.BlancoCalcTransformerDefHandler;
 import blanco.commons.calc.parser.constants.BlancoCommonsConstantsConstants;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
@@ -48,7 +48,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
  * 
  * @author IGA Tosiki
  */
-public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
+public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
     /**
      * デバッグモードで動作しているかどうか。
      */
@@ -72,7 +72,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
     /**
      * キーマップの際のカレントアイテム
      */
-    private BlancoCalcWriterPropertyKey currentKeyMapItem = null;
+    private BlancoCalcTransformerPropertyKey currentKeyMapItem = null;
 
     private int waitForValueX = -1;
 
@@ -113,7 +113,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                     args[2]));
             outStreamExcel = new BufferedOutputStream(new FileOutputStream(
                     args[3]));
-            new BlancoCalcWriter().process(inStreamDef, inStream, outStream, outStreamExcel);
+            new BlancoCalcTransformer().process(inStreamDef, inStream, outStream, outStreamExcel);
             outStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
@@ -157,7 +157,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
     /**
      * BlancoCalcWriterのコンストラクタ。
      */
-    public BlancoCalcWriter() {
+    public BlancoCalcTransformer() {
     }
 
     /**
@@ -177,7 +177,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
             final InputStream inStreamCalc, final OutputStream outStreamXml, final OutputStream outStreamMeta)
             throws TransformerException, IOException, InvalidFormatException {
 
-        final BlancoCalcWriter parser = new BlancoCalcWriter();
+        final BlancoCalcTransformer parser = new BlancoCalcTransformer();
 
 
         parser.readDef(inStreamDef);
@@ -214,7 +214,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
      */
     public void readDef(final InputStream inStreamDef)
             throws TransformerException {
-        SAXResult result = new SAXResult(new BlancoCalcWriterDefHandler() {
+        SAXResult result = new SAXResult(new BlancoCalcTransformerDefHandler() {
 
             /**
              * ブロックの抽象クラス
@@ -229,7 +229,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
             /**
              * PropertyKey関連
              */
-            private BlancoCalcWriterPropertyKey propKey = null;
+            private BlancoCalcTransformerPropertyKey propKey = null;
 
             /**
              * Valueの配列を作成するためのもの
@@ -258,7 +258,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
             /**
              * TableColumn関連
              */
-            private BlancoCalcWriterTableColumn tableColumn = null;
+            private BlancoCalcTransformerTableColumn tableColumn = null;
 
             public void startDocument() throws SAXException {
             }
@@ -324,7 +324,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                     String qName, String attrName, String attrWaitY)
                     throws SAXException {
                 // ブロックの新規作成。
-                blockHeader = new BlancoCalcWriterPropertyBlock(attrName);
+                blockHeader = new BlancoCalcTransformerPropertyBlock(attrName);
                 blockHeader.setSearchRangeY(Integer.parseInt(attrWaitY));
 
                 add(blockHeader);
@@ -374,10 +374,10 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
             public void startElementPropertykey(String uri, String localName,
                     String qName, String attrName, String attrWaitX)
                     throws SAXException {
-                propKey = new BlancoCalcWriterPropertyKey(attrName);
+                propKey = new BlancoCalcTransformerPropertyKey(attrName);
                 propKey.setSearchRangeX(Integer.parseInt(attrWaitX));
 
-                ((BlancoCalcWriterPropertyBlock) blockHeader).add(propKey);
+                ((BlancoCalcTransformerPropertyBlock) blockHeader).add(propKey);
             }
 
             public void endElementPropertykey(String uri, String localName,
@@ -525,12 +525,12 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                     throws SAXException {
 
                 // ブロックの新規作成。
-                blockHeader = new BlancoCalcWriterTableBlock(attrName);
+                blockHeader = new BlancoCalcTransformerTableBlock(attrName);
                 blockHeader.setSearchRangeY(Integer.parseInt(attrWaitY));
-                ((BlancoCalcWriterTableBlock) blockHeader)
+                ((BlancoCalcTransformerTableBlock) blockHeader)
                         .setSearchRangeForTitleY(Integer
                                 .parseInt(attrTitleheight));
-                ((BlancoCalcWriterTableBlock) blockHeader)
+                ((BlancoCalcTransformerTableBlock) blockHeader)
                         .setRowName(attrRowname);
                 add(blockHeader);
             }
@@ -561,7 +561,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
 
             public void startElementTablecolumn(String uri, String localName,
                     String qName, String attrName) throws SAXException {
-                tableColumn = new BlancoCalcWriterTableColumn(attrName);
+                tableColumn = new BlancoCalcTransformerTableColumn(attrName);
             }
 
             public void endElementTablecolumn(String uri, String localName,
@@ -577,7 +577,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                 columndataList.clear();
                 tableColumn.setColumnData(data);
 
-                ((BlancoCalcWriterTableBlock) blockHeader).add(tableColumn);
+                ((BlancoCalcTransformerTableBlock) blockHeader).add(tableColumn);
             }
 
             public void charactersTablecolumn(char[] ch, int start, int length)
@@ -626,7 +626,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                 AbstractBlancoCalcParserBlock blockItem = (AbstractBlancoCalcParserBlock) listBlock
                         .get(index);
 
-                if (blockItem instanceof BlancoCalcWriterPropertyBlock) {
+                if (blockItem instanceof BlancoCalcTransformerPropertyBlock) {
 
                     if(blockItem.getName().equals(BlancoCommonsConstantsConstants.SHEETNAME_META2XML)){
 
@@ -732,9 +732,9 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
             waitForIteratorTitleSearchY--;
         }
 
-        if (currentBlock instanceof BlancoCalcWriterTableBlock) {
+        if (currentBlock instanceof BlancoCalcTransformerTableBlock) {
             if (isFirstIteratorRowItem == false) {
-                final BlancoCalcWriterTableBlock blockLook = (BlancoCalcWriterTableBlock) currentBlock;
+                final BlancoCalcTransformerTableBlock blockLook = (BlancoCalcTransformerTableBlock) currentBlock;
                 if (blockLook.getRowName() != null
                         && blockLook.getRowName().length() > 0) {
                     // ブロックの繰り返し項目にエンティティを追加
@@ -753,15 +753,15 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                 if (currentBlock != null) {
 
                     //テーブルブロック値挿入処理 追加
-                    if (currentBlock instanceof BlancoCalcWriterTableBlock) {
+                    if (currentBlock instanceof BlancoCalcTransformerTableBlock) {
 
-                        final BlancoCalcWriterTableBlock blockLook = (BlancoCalcWriterTableBlock) currentBlock;
+                        final BlancoCalcTransformerTableBlock blockLook = (BlancoCalcTransformerTableBlock) currentBlock;
 
                         TreeMap <Integer,LinkedHashMap<String, String>> mapTableData = new TreeMap <Integer,LinkedHashMap<String, String>>();
 
                         for (int intColumn = 0; intColumn < blockLook.getListSize(); intColumn++) {
 
-                            final BlancoCalcWriterTableColumn item = blockLook
+                            final BlancoCalcTransformerTableColumn item = blockLook
                                     .findByColumnPosition(intColumn + 1);//ColumnPositionは、1から始まる。
 
                             //System.out.println("BlancoCalcWriter size:" + item.getColumnData().length);
@@ -822,7 +822,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
             }
         }
 
-        if (currentBlock instanceof BlancoCalcWriterPropertyBlock) {
+        if (currentBlock instanceof BlancoCalcTransformerPropertyBlock) {
             currentKeyMapItem = null;
         }
     }
@@ -840,7 +840,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
         }
 
         if (waitForValueX < 0) {
-            if (currentBlock instanceof BlancoCalcWriterPropertyBlock) {
+            if (currentBlock instanceof BlancoCalcTransformerPropertyBlock) {
                 currentKeyMapItem = null;
             }
         }
@@ -857,7 +857,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
         }
 
         if (waitForValueX < 0) {
-            if (currentBlock instanceof BlancoCalcWriterPropertyBlock) {
+            if (currentBlock instanceof BlancoCalcTransformerPropertyBlock) {
 
                 //プロパティブロック値挿入処理 追加
                 //キーがある際に、Cellに割り込み値を代入
@@ -928,7 +928,7 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
         //値の保存
         if (currentBlock != null) {
             //プロパティブロックの時
-            if (currentBlock instanceof BlancoCalcWriterPropertyBlock) {
+            if (currentBlock instanceof BlancoCalcTransformerPropertyBlock) {
                 //キーが見つかっている時
                 if (currentKeyMapItem != null) {
                     //セル値を読み替えて違う値にマッピングする。
@@ -943,10 +943,10 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                     return;
                 }
                 //テーブルブロックの時
-            } else if (currentBlock instanceof BlancoCalcWriterTableBlock) {
+            } else if (currentBlock instanceof BlancoCalcTransformerTableBlock) {
                 if (waitForIteratorTitleSearchY <= 0) {
-                    final BlancoCalcWriterTableBlock blockLook = (BlancoCalcWriterTableBlock) currentBlock;
-                    final BlancoCalcWriterTableColumn item = blockLook
+                    final BlancoCalcTransformerTableBlock blockLook = (BlancoCalcTransformerTableBlock) currentBlock;
+                    final BlancoCalcTransformerTableColumn item = blockLook
                             .findByColumnPosition(column);
                     if (item == null) {
                         if (IS_DEBUG)
@@ -1003,8 +1003,8 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
                     // カレントブロックを記憶
                     currentBlock = blockItem;
                     waitForValueY = currentBlock.getSearchRangeY();
-                    if (currentBlock instanceof BlancoCalcWriterTableBlock) {
-                        BlancoCalcWriterTableBlock block = (BlancoCalcWriterTableBlock) currentBlock;
+                    if (currentBlock instanceof BlancoCalcTransformerTableBlock) {
+                        BlancoCalcTransformerTableBlock block = (BlancoCalcTransformerTableBlock) currentBlock;
                         waitForIteratorTitleSearchY = block
                                 .getSearchRangeForTitleY();
                     }
@@ -1017,19 +1017,19 @@ public class BlancoCalcWriter extends AbstractBlancoCalcWriter {
         }
 
         //プロパティブロックまたはテーブルブロックのキー定義の中に、セル値があるかを検証
-        if (currentBlock instanceof BlancoCalcWriterPropertyBlock) {
+        if (currentBlock instanceof BlancoCalcTransformerPropertyBlock) {
             // キーを探す処理を行います。
-            final BlancoCalcWriterPropertyKey item = ((BlancoCalcWriterPropertyBlock) currentBlock)
+            final BlancoCalcTransformerPropertyKey item = ((BlancoCalcTransformerPropertyBlock) currentBlock)
                     .findByStartString(cellValue);
             if (item != null) {
                 currentKeyMapItem = item;
                 waitForValueX = item.getSearchRangeX();
             }
-        } else if (currentBlock instanceof BlancoCalcWriterTableBlock) {
-            final BlancoCalcWriterTableBlock block = (BlancoCalcWriterTableBlock) currentBlock;
+        } else if (currentBlock instanceof BlancoCalcTransformerTableBlock) {
+            final BlancoCalcTransformerTableBlock block = (BlancoCalcTransformerTableBlock) currentBlock;
 
             // タイトルを探す処理を行います
-            final BlancoCalcWriterTableColumn item = (block)
+            final BlancoCalcTransformerTableColumn item = (block)
                     .findByTitleString(cellValue);
             if (item != null) {
                 // タイトル位置をサーチできました。

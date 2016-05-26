@@ -17,9 +17,9 @@
  * Contributors:
  *    IGA Tosiki (NTT DATA BUSINESS BRAINS Corp.) - initial API and implementation
  *******************************************************************************/
-package blanco.commons.calc.parser.writertest;
+package blanco.commons.calc.parser.transformer;
 
-import blanco.commons.calc.parser.BlancoCalcWriter;
+import blanco.commons.calc.parser.BlancoCalcTransformer;
 import junit.framework.TestCase;
 
 import java.io.*;
@@ -32,10 +32,10 @@ import java.io.*;
  * 
  * @author IGA Tosiki
  */
-public class BlancoCalcWriterT001 extends TestCase {
+public class BlancoCalcTransformerT001 extends TestCase {
 
-    public void testBlancoCalcWriter() throws Exception {
-        new File("tmp/test/calc/parser/writertest").mkdirs();
+    public void testBlancoCalcTransformer() throws Exception {
+        new File("tmp/test/calc/parser/transformer").mkdirs();
 
         InputStream inStream = null;
         OutputStream outStream = null;
@@ -43,15 +43,15 @@ public class BlancoCalcWriterT001 extends TestCase {
         OutputStream outStreamExcel = null;
         try {
             inStream = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/writertest/templateT001.xlsx"));
+                    "./test/calc/parser/transformer/templateT001.xlsx"));
             outStream = new BufferedOutputStream(new FileOutputStream(
-                    "./tmp/test/calc/parser/writertest/t001x.out.xml"));
+                    "./tmp/test/calc/parser/transformer/t001x.out.xml"));
             inStreamDef = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/writertest/BlancoCarecoApiTestMeta2MetaT001.xml"));
+                    "./test/calc/parser/transformer/BlancoCarecoApiTestMeta2MetaT001.xml"));
             outStreamExcel = new BufferedOutputStream(new FileOutputStream(
-                    "./tmp/test/calc/parser/writertest/t001x.out.xlsx"));
+                    "./tmp/test/calc/parser/transformer/t001x.out.xlsx"));
 
-            new BlancoCalcWriter().process(inStreamDef, inStream, outStream, outStreamExcel);
+            new BlancoCalcTransformer().process(inStreamDef, inStream, outStream, outStreamExcel);
             outStream.flush();
         } finally {
             if (inStream != null) {

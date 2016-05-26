@@ -58,18 +58,18 @@
 
                 <tablecolumn name="no">
                     <value>No.</value>
-                    <columndata></columndata>
-                    <columndata></columndata>
+                    <columndata>1</columndata>
+                    <columndata>2</columndata>
                 </tablecolumn>
                 <tablecolumn name="fieldName">
                     <value>項目名</value>
-                    <columndata></columndata>
-                    <columndata></columndata>
+                    <columndata>reservationId</columndata>
+                    <columndata>arrayObject</columndata>
                 </tablecolumn>
                 <tablecolumn name="fieldType">
                     <value>型</value>
-                    <columndata></columndata>
-                    <columndata></columndata>
+                    <columndata>java.lang.String</columndata>
+                    <columndata>careco.api.objects.ArrayObjectSample</columndata>
                 </tablecolumn>
                 <tablecolumn name="fieldGeneric">
                     <value>総称型</value>

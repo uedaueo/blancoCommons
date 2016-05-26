@@ -26,7 +26,7 @@ import blanco.commons.calc.parser.constants.BlancoCommonsConstantsConstants;
  * 
  * @author j-amano
  */
-public class BlancoCalcWriterPropertyKey {
+public class BlancoCalcTransformerPropertyKey {
 
     private String keyName = "name";
 
@@ -45,7 +45,7 @@ public class BlancoCalcWriterPropertyKey {
      * @param name
      *            プロパティキーの名前。
      */
-    public BlancoCalcWriterPropertyKey(final String name) {
+    public BlancoCalcTransformerPropertyKey(final String name) {
         this.keyName = name;
     }
 
@@ -57,9 +57,9 @@ public class BlancoCalcWriterPropertyKey {
      * @param startString
      *            開始文字列の配列。
      */
-    public BlancoCalcWriterPropertyKey(final String name,
-                                       final String[] startString
-                                       ) {
+    public BlancoCalcTransformerPropertyKey(final String name,
+                                            final String[] startString
+    ) {
         this.keyName = name;
         this.startString = startString;
     }
@@ -74,9 +74,9 @@ public class BlancoCalcWriterPropertyKey {
      * @param propertyData
      *            挿入する文字列の配列。
      */
-    public BlancoCalcWriterPropertyKey(final String name,
-                                        final String[] startString,
-                                        final String[] propertyData) {
+    public BlancoCalcTransformerPropertyKey(final String name,
+                                            final String[] startString,
+                                            final String[] propertyData) {
         this.keyName = name;
         this.startString = startString;
         this.propertyData = propertyData;
