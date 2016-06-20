@@ -87,16 +87,16 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
     private static Workbook workbook = null;
 
     /**
-     * 現在は BlancoCalcWriterの起動エントリポイントとなっています。<br>
+     * 現在は BlancoCalcTransformerの起動エントリポイントとなっています。<br>
      * 例:
-     * <code>BlancoCalcWriter ./meta/BlancoCalcWriterDef.xml ./meta/blancoCsvTemplate.xls ./output.xml</code>
+     * <code>BlancoCalcTransformer ./meta/BlancoCalcTransformerDef.xml ./meta/blancoCsvTemplate.xls ./output.xml</code>
      *
      * @param args
      *            0番目:設定ファイル 1番目:入力ファイル 2番目:出力xmlファイル 3番目:出力excelファイル(追加)
      */
     public static final void main(final String[] args) {
         if (args.length < 4) {
-            System.out.println("usage: BlancoCalcWriter 設定ファイル 入力ファイル 出力xmlファイル 出力excelファイル");
+            System.out.println("usage: BlancoCalcTransformer 設定ファイル 入力ファイル 出力xmlファイル 出力excelファイル");
             return;
         }
 
@@ -155,7 +155,7 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
     }
 
     /**
-     * BlancoCalcWriterのコンストラクタ。
+     * BlancoCalcTransformerのコンストラクタ。
      */
     public BlancoCalcTransformer() {
     }
@@ -604,7 +604,7 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
     public final void parse(final InputSource inputSource) throws IOException,
             SAXException {
 
-        System.out.println("BlancoCalcWriter#:parse");
+        System.out.println("BlancoCalcTransformer#:parse");
 
 
         InputStream inStream = null;
@@ -764,12 +764,12 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
                             final BlancoCalcTransformerTableColumn item = blockLook
                                     .findByColumnPosition(intColumn + 1);//ColumnPositionは、1から始まる。
 
-                            //System.out.println("BlancoCalcWriter size:" + item.getColumnData().length);
+                            //System.out.println("BlancoCalcTransformer size:" + item.getColumnData().length);
                             for(int i = 0; i < item.getColumnData().length; i++){
                                 Row wbRow = sheet.getRow(row + i);
                                 Cell wbCell = wbRow.getCell(intColumn);
                                 String itemData = item.getColumnDataByIndex(i);
-                                System.out.println("BlancoCalcWriter data:" + itemData);
+                                System.out.println("BlancoCalcTransformer data:" + itemData);
                                 //excel出力
                                 wbCell.setCellValue(itemData);
 
@@ -780,7 +780,7 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
                                 mapTableData.get(i).put(item.getName(), itemData);
 
                             }
-                            //System.out.println("BlancoCalcWriter:" + currentKeyMapItem.getName() + "(" + row + "," + column + ",test)");
+                            //System.out.println("BlancoCalcTransformer:" + currentKeyMapItem.getName() + "(" + row + "," + column + ",test)");
                         }
                         //xml出力の為に保存
                         if(!mapTableData.isEmpty()){
@@ -864,7 +864,7 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
                 if(currentKeyMapItem != null){
 
                     cell.setCellValue(currentKeyMapItem.getConcatenatedPropertyData());
-                    //System.out.println("BlancoCalcWriter:" + currentKeyMapItem.getName() + "(" + row + "," + column + "," + currentKeyMapItem.getConcatenatedPropertyData() + ")");
+                    //System.out.println("BlancoCalcTransformer:" + currentKeyMapItem.getName() + "(" + row + "," + column + "," + currentKeyMapItem.getConcatenatedPropertyData() + ")");
                     // ここで何かしらの記憶処理
                     saveNode(currentKeyMapItem.getName(), currentKeyMapItem.getConcatenatedPropertyData());
 
