@@ -1080,26 +1080,6 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
         }
     }
 
-    /**
-     * ノードを保存します。
-     * 
-     * @param key
-     *            キー。
-     * @param value
-     *            値。
-     * @throws SAXException
-     *             SAX例外が発生した場合。
-     */
-    protected void saveNode(final String key, final String value)
-            throws SAXException {
-        getContentHandler().startElement("", key, key, new AttributesImpl());
-
-        final char[] charArray = value.toCharArray();
-
-        getContentHandler().characters(charArray, 0, charArray.length);
-        getContentHandler().endElement("", key, key);
-    }
-
     public void parseSheet(final Sheet sheet) throws SAXException {
         // シートのエレメントは上位クラスで処理
         System.out.println("ama debug:parseSheet:" + sheet.getSheetName());

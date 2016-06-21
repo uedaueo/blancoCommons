@@ -368,4 +368,24 @@ public abstract class AbstractBlancoCalcParser implements XMLReader {
         transformer.setOutputProperty("indent", "yes");
         return transformer;
     }
+
+    /**
+     * ノードを保存します。
+     *
+     * @param key
+     *            キー。
+     * @param value
+     *            値。
+     * @throws SAXException
+     *             SAX例外が発生した場合。
+     */
+    protected void saveNode(final String key, final String value)
+            throws SAXException {
+        getContentHandler().startElement("", key, key, new AttributesImpl());
+
+        final char[] charArray = value.toCharArray();
+
+        getContentHandler().characters(charArray, 0, charArray.length);
+        getContentHandler().endElement("", key, key);
+    }
 }
