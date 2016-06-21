@@ -771,7 +771,15 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
                                 String itemData = item.getColumnDataByIndex(i);
                                 System.out.println("BlancoCalcTransformer data:" + itemData);
                                 //excel出力
-                                wbCell.setCellValue(itemData);
+                                if(isNum(itemData)) {
+                                    //整数の場合
+                                    wbCell.setCellValue(Integer.valueOf(itemData).intValue());
+                                }else if(isDouble(itemData)){
+                                    //Doubleの場合
+                                    wbCell.setCellValue(Double.parseDouble(itemData));
+                                }else{
+                                    wbCell.setCellValue(itemData);
+                                }
 
                                 //xml出力処理の為に取っておく
                                 if(!mapTableData.containsKey(i)){
@@ -827,6 +835,24 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
         }
     }
 
+    static boolean isNum(String number) {
+        try {
+            Integer.parseInt(number);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    static boolean isDouble(String number) {
+        try {
+            Double.parseDouble(number);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     protected void startColumn(int column) throws SAXException {
     }
 
@@ -863,7 +889,16 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
                 //キーがある際に、Cellに割り込み値を代入
                 if(currentKeyMapItem != null){
 
-                    cell.setCellValue(currentKeyMapItem.getConcatenatedPropertyData());
+                    if(isNum(currentKeyMapItem.getConcatenatedPropertyData())) {
+                        //整数の場合
+                        cell.setCellValue(Integer.valueOf(currentKeyMapItem.getConcatenatedPropertyData()).intValue());
+                    }else if(isDouble(currentKeyMapItem.getConcatenatedPropertyData())){
+                        //Doubleの場合
+                        cell.setCellValue(Double.parseDouble(currentKeyMapItem.getConcatenatedPropertyData()));
+                    }else{
+                        cell.setCellValue(currentKeyMapItem.getConcatenatedPropertyData());
+                    }
+
                     //System.out.println("BlancoCalcTransformer:" + currentKeyMapItem.getName() + "(" + row + "," + column + "," + currentKeyMapItem.getConcatenatedPropertyData() + ")");
                     // ここで何かしらの記憶処理
                     saveNode(currentKeyMapItem.getName(), currentKeyMapItem.getConcatenatedPropertyData());

@@ -29,7 +29,9 @@ import java.io.*;
  * メタ情報からプロパティファイルやリソースバンドルアクセサJavaソースコードを自動生成 <br>
  * 
  * メタ情報を入力してXMLを出力(XMLへ変換)します。 <br>
- * 
+ *
+ *「CarecoApiTest処理定義・共通」で<propertydata><propertydata/>が２つあれば改行して挿入されます。
+ *
  * @author IGA Tosiki
  */
 public class BlancoCalcTransformerT003 extends TestCase {

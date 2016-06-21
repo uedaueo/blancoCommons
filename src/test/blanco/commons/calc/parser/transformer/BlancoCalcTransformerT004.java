@@ -30,29 +30,28 @@ import java.io.*;
  * 
  * メタ情報を入力してXMLを出力(XMLへ変換)します。 <br>
  *
- * 「テスト電文定義・一覧」に既存値がある場合は、既存値下に追記します。
- * 「テスト電文定義・共通」は上書きされます。
- *
+ * 整数や少数のフォーマットで出力
+ * 
  * @author IGA Tosiki
  */
-public class BlancoCalcTransformerT002 extends TestCase {
+public class BlancoCalcTransformerT004 extends TestCase {
 
     public void testBlancoCalcTransformer() throws Exception {
         new File("tmp/test/calc/parser/transformer").mkdirs();
 
-        InputStream inStreamDef = null;
         InputStream inStream = null;
         OutputStream outStream = null;
+        InputStream inStreamDef = null;
         OutputStream outStreamExcel = null;
         try {
-            inStreamDef = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/transformer/BlancoCarecoApiTestMeta2MetaT002.xml"));
             inStream = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/transformer/templateT002.xlsx"));
+                    "./test/calc/parser/transformer/templateT004.xlsx"));
             outStream = new BufferedOutputStream(new FileOutputStream(
-                    "./tmp/test/calc/parser/transformer/t002x.out.xml"));
+                    "./tmp/test/calc/parser/transformer/t004x.out.xml"));
+            inStreamDef = new BufferedInputStream(new FileInputStream(
+                    "./test/calc/parser/transformer/BlancoCarecoApiTestMeta2MetaT004.xml"));
             outStreamExcel = new BufferedOutputStream(new FileOutputStream(
-                    "./tmp/test/calc/parser/transformer/t002x.out.xlsx"));
+                    "./tmp/test/calc/parser/transformer/t004x.out.xlsx"));
 
             new BlancoCalcTransformer().process(inStreamDef, inStream, outStream, outStreamExcel);
             outStream.flush();
