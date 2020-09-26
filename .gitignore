@@ -5,8 +5,9 @@
 .project
 .idea
 .DS_Store
-/tmp
-/blanco/main
-/blanco.php/main
-/classes
 *.iml
+/target/
+/tmp
+/sample/
+/tmpTest/
+/classes

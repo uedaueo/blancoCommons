@@ -38,7 +38,7 @@
     <repositories>
         <repository>
             <id>central</id>
-            <url>http://central.maven.org/maven2/</url>
+            <url>https://repo1.maven.org/maven2/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -52,6 +52,13 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>blanco.anttask</groupId>
             <artifactId>blanco-anttask</artifactId>
@@ -67,6 +74,12 @@
         <dependency>
             <groupId>blanco.cg</groupId>
             <artifactId>blanco-cg</artifactId>
+            <version>[2.0,3.0)</version>
+        </dependency>
+
+        <dependency>
+            <groupId>blanco.valueobject</groupId>
+            <artifactId>blanco-valueobject</artifactId>
             <version>[2.0,3.0)</version>
         </dependency>
 
@@ -177,51 +190,6 @@
                     </execution>
 
                     <execution>
-                        <id>blanco-meta-meta2xml</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <target>
-                                <taskdef name="blancometa2xml" classname="blanco.meta2xml.task.BlancoMeta2XmlTask" classpathref="maven.runtime.classpath">
-                                </taskdef>
-                                <blancometa2xml metadir="meta/program" encoding="${project.build.sourceEncoding}" />
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>blanco-meta-resourcebundle</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <target>
-                                <taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask" classpathref="maven.runtime.classpath">
-                                </taskdef>
-                                <blancoresourcebundle metadir="meta/program" encoding="${project.build.sourceEncoding}" />
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
-                        <id>blanco-meta-valueobject</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <target>
-                                <taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask" classpathref="maven.runtime.classpath">
-                                </taskdef>
-                                <blancovalueobject metadir="meta/program" encoding="${project.build.sourceEncoding}" sheetType="php"/>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-
-                    <execution>
                         <id>blanco-meta-anttask</id>
                         <phase>generate-sources</phase>
                         <configuration>
@@ -288,14 +256,14 @@
                 </executions>
             </plugin>
 
-            <!-- compile as 1.6 compatible -->
+            <!-- compile as 1.8 compatible -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <excludes>
                         <exclude>blanco/sample/**/*</exclude>
                     </excludes>
@@ -324,20 +292,20 @@
             </plugin>
 
             <!-- copy jar files into lib directory. -->
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <artifactId>maven-dependency-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>install</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>copy-dependencies</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>com.github.github</groupId>
