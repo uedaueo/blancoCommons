@@ -1,7 +1,7 @@
 /*
  * blanco Framework
  * Copyright (C) 2004-2009 IGA Tosiki
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -56,7 +56,7 @@ import blanco.commons.calc.parser.concretesax.BlancoCalcParserDefHandler;
 /**
  * Calcを読み取るためのSAX2パーサです。 <br>
  * 開始文字列とエンティティ名との関連づけなどを実現します。
- * 
+ *
  * @author IGA Tosiki
  */
 public class BlancoCalcParser extends AbstractBlancoCalcParser {
@@ -94,7 +94,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
      * 現在は BlancoCalcParserの起動エントリポイントとなっています。<br>
      * 例:
      * <code>BlancoCalcParser ./meta/BlancoCalcParserDef.xml ./meta/blancoCsvTemplate.xls ./output.xml</code>
-     * 
+     *
      * @param args
      *            0番目:設定ファイル 1番目:入力ファイル 2番目:出力ファイル
      */
@@ -153,7 +153,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
 
     /**
      * 設定情報をもとにExcelファイルをXML化します。
-     * 
+     *
      * @param inStreamDef
      *            設定情報
      * @param inStreamCalc
@@ -178,7 +178,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
 
     /**
      * 指定の定義ファイルを読み込みます
-     * 
+     *
      * @param inStreamDef
      *            入力ストリーム。このストリームは内部的にクローズしません。
      * @throws TransformerException
@@ -499,7 +499,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
 
     /**
      * ブロックを追加します。
-     * 
+     *
      * @param block
      *            追加したいブロックオブジェクト。
      */
@@ -598,7 +598,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
 
     /**
      * セルがパースされた際に呼び出されます。
-     * 
+     *
      * @param column
      *            ここでは1オリジンで呼び出されます。
      * @param row
@@ -774,9 +774,9 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
         } catch (IOException e) {
             e.printStackTrace();
             throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
-        } catch (InvalidFormatException e) {
-            e.printStackTrace();
-            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
+//        } catch (InvalidFormatException e) {
+//            e.printStackTrace();
+//            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
         } finally {
             if (workbook != null) {
                 workbook.close();

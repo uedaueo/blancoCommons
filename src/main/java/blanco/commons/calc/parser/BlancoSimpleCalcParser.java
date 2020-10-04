@@ -1,7 +1,7 @@
 /*
  * blanco Framework
  * Copyright (C) 2004-2009 IGA Tosiki
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -34,7 +34,7 @@ import java.io.InputStream;
 /**
  * Calcを読み取ってみるための超簡単なSAX2パーサです。 <br>
  * 極めて単純なSAXパース実装としてのサンプルです。
- * 
+ *
  * @author IGA Tosiki
  */
 public class BlancoSimpleCalcParser extends AbstractBlancoCalcParser {
@@ -64,7 +64,7 @@ public class BlancoSimpleCalcParser extends AbstractBlancoCalcParser {
 
     /**
      * セルがパースされた際に呼び出されます。
-     * 
+     *
      * @param column
      *            ここでは1オリジンで呼び出されます。
      * @param row
@@ -128,9 +128,9 @@ public class BlancoSimpleCalcParser extends AbstractBlancoCalcParser {
         } catch (IOException e) {
             e.printStackTrace();
             throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
-        } catch (InvalidFormatException e) {
-            e.printStackTrace();
-            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
+//        } catch (InvalidFormatException e) {
+//            e.printStackTrace();
+//            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
         } finally {
             if (workbook != null) {
                 workbook.close();

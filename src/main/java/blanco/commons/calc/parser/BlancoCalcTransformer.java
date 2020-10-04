@@ -1,7 +1,7 @@
 /*
  * blanco Framework
  * Copyright (C) 2004-2009 IGA Tosiki
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -45,7 +45,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 /**
  * Calcを読み取るためのSAX2パーサです。 <br>
  * 開始文字列とエンティティ名との関連づけなどを実現します。
- * 
+ *
  * @author IGA Tosiki
  */
 public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
@@ -669,9 +669,9 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
         } catch (IOException e) {
             e.printStackTrace();
             throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
-        } catch (InvalidFormatException e) {
-            e.printStackTrace();
-            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
+//        } catch (InvalidFormatException e) {
+//            e.printStackTrace();
+//            throw new IOException("予期せぬ例外が発生しました.: " + e.toString());
         } finally {
             //ここで行わない。→process()にて。
 //            if (workbook != null) {
@@ -688,7 +688,7 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
 
     /**
      * ブロックを追加します。
-     * 
+     *
      * @param block
      *            追加したいブロックオブジェクト。
      */
@@ -915,7 +915,7 @@ public class BlancoCalcTransformer extends AbstractBlancoCalcParser {
 
     /**
      * セルがパースされた際に呼び出されます。
-     * 
+     *
      * @param column
      *            ここでは1オリジンで呼び出されます。
      * @param row
