@@ -752,7 +752,7 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
     public final void parse(final InputSource inputSource) throws IOException,
             SAXException {
 
-        System.out.println("AbstractBlancoCalcParser#:parse");
+//        System.out.println("AbstractBlancoCalcParser#:parse for " + inputSource.getPublicId());
 
         Workbook workbook = null;
 
@@ -818,9 +818,27 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                 for (int column = 0; column < line.getLastCellNum(); column++) {
 
                     startColumn(column + 1);
+//                    System.out.println("### ROW = " + row + ", COL = " + column);
                     Cell cell = line.getCell(column);
                     // コンテンツはtrim()せずに、そのままわたします。
-                    String value = getCellValue(cell);
+                    /*
+                     * apache poi 4.1.2 (xmlbeans 3.1.0) 対応
+                     * セルに数式が入っていた場合に、評価に失敗して
+                     * javax.xml.transform.TransformerException
+                     * を投げてくる場合があります。
+                     *
+                     * 数式を書き直す事で改善する場合がありますので、問題の箇所を可能な限りここで通知します。
+                     * by tueda, 2020/10/06
+                     */
+                    String value = "";
+                    try {
+                        value = getCellValue(cell);
+                    } catch (RuntimeException ex) {
+                        System.err.println("BlancoCalcParser:  RuntimeException occurs @(" + (row + 1) +", " + (column + 1) + ") of sheet " + sheet.getSheetName());
+                        ex.printStackTrace();
+                        // 処理の続行は諦める
+                        throw ex;
+                    }
                     fireCell(column + 1, row + 1, value);
                     endColumn(column + 1);
                 }
