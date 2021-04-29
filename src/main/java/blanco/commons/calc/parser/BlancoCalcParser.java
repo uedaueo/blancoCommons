@@ -706,6 +706,15 @@ public class BlancoCalcParser extends AbstractBlancoCalcParser {
                     BlancoCalcParserTableBlock block = (BlancoCalcParserTableBlock) currentBlock;
                     waitForIteratorTitleSearchY = block
                             .getSearchRangeForTitleY();
+                    /*
+                     * Clear all saved column posions.
+                     * Otherwise, first sheet column postions are used
+                     * if multi sheets exists in a book.
+                     */
+                    block.clearPositions();
+                    if (IS_DEBUG) {
+                        System.out.println("Saved column posions are cleared.");
+                    }
                 }
             }
         }

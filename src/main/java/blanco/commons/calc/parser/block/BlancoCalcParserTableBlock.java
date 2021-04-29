@@ -1,7 +1,7 @@
 /*
  * blanco Framework
  * Copyright (C) 2004-2009 IGA Tosiki
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * 繰り返し型のブロックを実装します。
- * 
+ *
  * @author IGA Tosiki
  */
 public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
@@ -39,7 +39,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * 繰り返し型のブロックオブジェクトのコンストラクタです。
-     * 
+     *
      * @param name
      *            ブロック名。
      */
@@ -49,7 +49,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * 繰り返し型のブロックオブジェクトにカラムを追加します。
-     * 
+     *
      * @param item
      *            ブロックへと追加したいカラム。
      */
@@ -59,7 +59,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * タイトル行をきっかけに、列アイテムを検索します。
-     * 
+     *
      * @param titleString
      *            タイトル文字列。
      * @return 発見された列アイテム。
@@ -78,7 +78,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * 列番号をきっかけに、列アイテムを検索します。
-     * 
+     *
      * @param pos
      *            列の番号。
      * @return 発見された列アイテム。
@@ -97,7 +97,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * Ｙ方向の検索範囲を取得します。
-     * 
+     *
      * @return Ｙ方向の検索範囲。
      */
     public int getSearchRangeForTitleY() {
@@ -106,7 +106,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * タイトル文字列からのＸ方向の検索範囲を取得します。
-     * 
+     *
      * @param arg
      *            Ｘ方向の検索範囲。
      */
@@ -116,7 +116,7 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * 列の名前を設定します。
-     * 
+     *
      * @param arg
      *            列の名前。
      */
@@ -126,10 +126,19 @@ public class BlancoCalcParserTableBlock extends AbstractBlancoCalcParserBlock {
 
     /**
      * 列の名前を取得します。
-     * 
+     *
      * @return 列の名前。
      */
     public String getRowName() {
         return blockRowName;
+    }
+
+    /**
+     * TableColumn の位置情報を全クリアします。
+     */
+    public void clearPositions() {
+        for (BlancoCalcParserTableColumn item : list) {
+            item.setColumnPosition(-1);
+        }
     }
 }

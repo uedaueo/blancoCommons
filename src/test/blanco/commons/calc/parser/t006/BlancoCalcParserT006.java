@@ -17,7 +17,7 @@
  * Contributors:
  *    IGA Tosiki (NTT DATA BUSINESS BRAINS Corp.) - initial API and implementation
  *******************************************************************************/
-package blanco.commons.calc.parser.t005;
+package blanco.commons.calc.parser.t006;
 
 import blanco.commons.calc.parser.BlancoCalcParser;
 import junit.framework.TestCase;
@@ -34,7 +34,7 @@ import java.io.*;
  *
  * @author IGA Tosiki
  */
-public class BlancoCalcParserT005 extends TestCase {
+public class BlancoCalcParserT006 extends TestCase {
 
     public void testBlancoCalcParser() throws Exception {
         new File("tmp/test/calc/parser").mkdirs();
@@ -44,11 +44,11 @@ public class BlancoCalcParserT005 extends TestCase {
         InputStream inStreamDef = null;
         try {
             inStream = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/t005/t005.xlsx"));
+                    "./test/calc/parser/t006/t006.xlsx"));
             outStream = new BufferedOutputStream(new FileOutputStream(
-                    "./tmp/test/calc/parser/t005.out.xml"));
+                    "./tmp/test/calc/parser/t006.out.xml"));
             inStreamDef = new BufferedInputStream(new FileInputStream(
-                    "./test/calc/parser/t005/t005.xml"));
+                    "./test/calc/parser/t006/t006.xml"));
             new BlancoCalcParser().process(inStreamDef, inStream, outStream);
             outStream.flush();
         } finally {

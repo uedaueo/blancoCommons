@@ -1,0 +1,1782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- blancoCalcParser define file for autotest -->
+<blanco version="0.1.0">
+    <target name="blancoCalcParser">
+        <blancocalcparser name="autotest">
+
+            <propertyblock name="autotest-testcase-common" waitY="1">
+                <startstring>BLANCO-REST-AUTOTESTテストケース・共通</startstring>
+                <propertykey name="name" waitX="2">
+                    <value>テストクラス名基部</value>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                </propertykey>
+                <propertykey name="description" waitX="2">
+                    <value>説明</value>
+                </propertykey>
+                <propertykey name="requestHeaderImple" waitX="2">
+                    <value>リクエストヘッダ情報実装クラス</value>
+                </propertykey>
+            </propertyblock>
+
+            <propertyblock name="autotest-testcase-extends" waitY="1">
+                <startstring>BLANCO-REST-AUTOTESTテストケース・継承</startstring>
+                <propertykey name="superClass" waitX="2">
+                    <value>クラス名</value>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                </propertykey>
+            </propertyblock>
+
+            <tableblock name="autotest-testcase-list" waitY="3" titleheight="4" rowname="case">
+                <startstring>BLANCO-REST-AUTOTESTテストケース・一覧</startstring>
+
+                <tablecolumn name="no">
+                    <value>№</value>
+                </tablecolumn>
+                <tablecolumn name="caseTitle">
+                    <value>テスト内容</value>
+                </tablecolumn>
+                <tablecolumn name="precondition">
+                    <value>Precondition</value>
+                </tablecolumn>
+                <tablecolumn name="api">
+                    <value>Api</value>
+                </tablecolumn>
+                <tablecolumn name="method">
+                    <value>Method</value>
+                </tablecolumn>
+                <tablecolumn name="refreshToken">
+                    <value>Token更新</value>
+                </tablecolumn>
+                <tablecolumn name="sqlScript">
+                    <value>SQL（実行型）</value>
+                </tablecolumn>
+                <tablecolumn name="preScript">
+                    <value>Pre-SCRIPT</value>
+                </tablecolumn>
+                <tablecolumn name="postScript">
+                    <value>Post-SCRIPT</value>
+                </tablecolumn>
+                <tablecolumn name="searchString">
+                    <value>検知文字列</value>
+                </tablecolumn>
+                <tablecolumn name="onDetect">
+                    <value>検知時動作</value>
+                </tablecolumn>
+                <tablecolumn name="targetCase">
+                    <value>使用ケース</value>
+                </tablecolumn>
+                <tablecolumn name="screenId">
+                    <value>screenId</value>
+                </tablecolumn>
+                <tablecolumn name="shopId">
+                    <value>shopId</value>
+                </tablecolumn>
+                <tablecolumn name="lang">
+                    <value>lang</value>
+                </tablecolumn>
+                <tablecolumn name="timezone">
+                    <value>tz</value>
+                </tablecolumn>
+                <tablecolumn name="currency">
+                    <value>currency</value>
+                </tablecolumn>
+                <tablecolumn name="version">
+                    <value>version</value>
+                </tablecolumn>
+                <tablecolumn name="time">
+                    <value>time</value>
+                </tablecolumn>
+                <tablecolumn name="result">
+                    <value>result</value>
+                </tablecolumn>
+                <tablecolumn name="errorCode">
+                    <value>e.code</value>
+                </tablecolumn>
+                <tablecolumn name="errorMessage">
+                    <value>e.message</value>
+                </tablecolumn>
+                <tablecolumn name="errorMessageNumber">
+                    <value>e.messageNumber</value>
+                </tablecolumn>
+                <tablecolumn name="messageCode">
+                    <value>m.code</value>
+                </tablecolumn>
+                <tablecolumn name="messageMessage">
+                    <value>m.message</value>
+                </tablecolumn>
+                <tablecolumn name="messageNumber">
+                    <value>m.messageNumber</value>
+                </tablecolumn>
+                <tablecolumn name="Bikou">
+                    <value>備考</value>
+                </tablecolumn>
+
+                <valuemapping>
+                    <result>true</result>
+                    <source>合格</source>
+                </valuemapping>
+
+                <valuemapping>
+                    <result>false</result>
+                    <source>不合格</source>
+                </valuemapping>
+
+            </tableblock>
+
+            <propertyblock name="autotest-InputResult-common" waitY="1">
+                <startstring>BLANCO-REST-AUTOTEST入出力定義・共通</startstring>
+                <propertykey name="name" waitX="2">
+                    <value>電文クラス名</value>
+                </propertykey>
+                <propertykey name="package" waitX="2">
+                    <value>パッケージ</value>
+                </propertykey>
+                <propertykey name="description" waitX="2">
+                    <value>説明</value>
+                </propertykey>
+                <propertykey name="method" waitX="2">
+                    <value>電文のMETHOD</value>
+                </propertykey>
+            </propertyblock>
+
+            <tableblock name="autotest-InputResult-list" waitY="1" titleheight="2" rowname="InputResult">
+                <startstring>BLANCO-REST-AUTOTEST入出力定義・一覧</startstring>
+
+                <tablecolumn name="InputNo">
+                    <value>番号</value>
+                </tablecolumn>
+
+                <tablecolumn name="kind">
+                    <value>種別</value>
+                </tablecolumn>
+
+                <tablecolumn name="case">
+                    <value>ケース</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input1">
+                    <value>Input1</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input2">
+                    <value>Input2</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input3">
+                    <value>Input3</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input4">
+                    <value>Input4</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input5">
+                    <value>Input5</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input6">
+                    <value>Input6</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input7">
+                    <value>Input7</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input8">
+                    <value>Input8</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input9">
+                    <value>Input9</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input10">
+                    <value>Input10</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input11">
+                    <value>Input11</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input12">
+                    <value>Input12</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input13">
+                    <value>Input13</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input14">
+                    <value>Input14</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input15">
+                    <value>Input15</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input16">
+                    <value>Input16</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input17">
+                    <value>Input17</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input18">
+                    <value>Input18</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input19">
+                    <value>Input19</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input20">
+                    <value>Input20</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input21">
+                    <value>Input21</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input22">
+                    <value>Input22</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input23">
+                    <value>Input23</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input24">
+                    <value>Input24</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input25">
+                    <value>Input25</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input26">
+                    <value>Input26</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input27">
+                    <value>Input27</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input28">
+                    <value>Input28</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input29">
+                    <value>Input29</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input30">
+                    <value>Input30</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input31">
+                    <value>Input31</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input32">
+                    <value>Input32</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input33">
+                    <value>Input33</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input34">
+                    <value>Input34</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input35">
+                    <value>Input35</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input36">
+                    <value>Input36</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input37">
+                    <value>Input37</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input38">
+                    <value>Input38</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input39">
+                    <value>Input39</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input40">
+                    <value>Input40</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input41">
+                    <value>Input41</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input42">
+                    <value>Input42</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input43">
+                    <value>Input43</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input44">
+                    <value>Input44</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input45">
+                    <value>Input45</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input46">
+                    <value>Input46</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input47">
+                    <value>Input47</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input48">
+                    <value>Input48</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input49">
+                    <value>Input49</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input50">
+                    <value>Input50</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input51">
+                    <value>Input51</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input52">
+                    <value>Input52</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input53">
+                    <value>Input53</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input54">
+                    <value>Input54</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input55">
+                    <value>Input55</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input56">
+                    <value>Input56</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input57">
+                    <value>Input57</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input58">
+                    <value>Input58</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input59">
+                    <value>Input59</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input60">
+                    <value>Input60</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input61">
+                    <value>Input61</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input62">
+                    <value>Input62</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input63">
+                    <value>Input63</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input64">
+                    <value>Input64</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input65">
+                    <value>Input65</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input66">
+                    <value>Input66</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input67">
+                    <value>Input67</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input68">
+                    <value>Input68</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input69">
+                    <value>Input69</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input70">
+                    <value>Input70</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input71">
+                    <value>Input71</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input72">
+                    <value>Input72</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input73">
+                    <value>Input73</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input74">
+                    <value>Input74</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input75">
+                    <value>Input75</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input76">
+                    <value>Input76</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input77">
+                    <value>Input77</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input78">
+                    <value>Input78</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input79">
+                    <value>Input79</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input80">
+                    <value>Input80</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input81">
+                    <value>Input81</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input82">
+                    <value>Input82</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input83">
+                    <value>Input83</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input84">
+                    <value>Input84</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input85">
+                    <value>Input85</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input86">
+                    <value>Input86</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input87">
+                    <value>Input87</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input88">
+                    <value>Input88</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input89">
+                    <value>Input89</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input90">
+                    <value>Input90</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input91">
+                    <value>Input91</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input92">
+                    <value>Input92</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input93">
+                    <value>Input93</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input94">
+                    <value>Input94</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input95">
+                    <value>Input95</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input96">
+                    <value>Input96</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input97">
+                    <value>Input97</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input98">
+                    <value>Input98</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input99">
+                    <value>Input99</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input100">
+                    <value>Input100</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input101">
+                    <value>Input101</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input102">
+                    <value>Input102</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input103">
+                    <value>Input103</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input104">
+                    <value>Input104</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input105">
+                    <value>Input105</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input106">
+                    <value>Input106</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input107">
+                    <value>Input107</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input108">
+                    <value>Input108</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input109">
+                    <value>Input109</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input110">
+                    <value>Input110</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input111">
+                    <value>Input111</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input112">
+                    <value>Input112</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input113">
+                    <value>Input113</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input114">
+                    <value>Input114</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input115">
+                    <value>Input115</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input116">
+                    <value>Input116</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input117">
+                    <value>Input117</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input118">
+                    <value>Input118</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input119">
+                    <value>Input119</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input120">
+                    <value>Input120</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input121">
+                    <value>Input121</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input122">
+                    <value>Input122</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input123">
+                    <value>Input123</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input124">
+                    <value>Input124</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input125">
+                    <value>Input125</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input126">
+                    <value>Input126</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input127">
+                    <value>Input127</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input128">
+                    <value>Input128</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input129">
+                    <value>Input129</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input130">
+                    <value>Input130</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input131">
+                    <value>Input131</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input132">
+                    <value>Input132</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input133">
+                    <value>Input133</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input134">
+                    <value>Input134</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input135">
+                    <value>Input135</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input136">
+                    <value>Input136</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input137">
+                    <value>Input137</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input138">
+                    <value>Input138</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input139">
+                    <value>Input139</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input140">
+                    <value>Input140</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input141">
+                    <value>Input141</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input142">
+                    <value>Input142</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input143">
+                    <value>Input143</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input144">
+                    <value>Input144</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input145">
+                    <value>Input145</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input146">
+                    <value>Input146</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input147">
+                    <value>Input147</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input148">
+                    <value>Input148</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input149">
+                    <value>Input149</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input150">
+                    <value>Input150</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input151">
+                    <value>Input151</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input152">
+                    <value>Input152</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input153">
+                    <value>Input153</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input154">
+                    <value>Input154</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input155">
+                    <value>Input155</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input156">
+                    <value>Input156</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input157">
+                    <value>Input157</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input158">
+                    <value>Input158</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input159">
+                    <value>Input159</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input160">
+                    <value>Input160</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input161">
+                    <value>Input161</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input162">
+                    <value>Input162</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input163">
+                    <value>Input163</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input164">
+                    <value>Input164</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input165">
+                    <value>Input165</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input166">
+                    <value>Input166</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input167">
+                    <value>Input167</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input168">
+                    <value>Input168</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input169">
+                    <value>Input169</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input170">
+                    <value>Input170</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input171">
+                    <value>Input171</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input172">
+                    <value>Input172</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input173">
+                    <value>Input173</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input174">
+                    <value>Input174</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input175">
+                    <value>Input175</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input176">
+                    <value>Input176</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input177">
+                    <value>Input177</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input178">
+                    <value>Input178</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input179">
+                    <value>Input179</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input180">
+                    <value>Input180</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input181">
+                    <value>Input181</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input182">
+                    <value>Input182</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input183">
+                    <value>Input183</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input184">
+                    <value>Input184</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input185">
+                    <value>Input185</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input186">
+                    <value>Input186</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input187">
+                    <value>Input187</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input188">
+                    <value>Input188</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input189">
+                    <value>Input189</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input190">
+                    <value>Input190</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input191">
+                    <value>Input191</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input192">
+                    <value>Input192</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input193">
+                    <value>Input193</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input194">
+                    <value>Input194</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input195">
+                    <value>Input195</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input196">
+                    <value>Input196</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input197">
+                    <value>Input197</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input198">
+                    <value>Input198</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input199">
+                    <value>Input199</value>
+                </tablecolumn>
+
+                <tablecolumn name="Input200">
+                    <value>Input200</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect1">
+                    <value>Expect1</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect2">
+                    <value>Expect2</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect3">
+                    <value>Expect3</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect4">
+                    <value>Expect4</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect5">
+                    <value>Expect5</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect6">
+                    <value>Expect6</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect7">
+                    <value>Expect7</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect8">
+                    <value>Expect8</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect9">
+                    <value>Expect9</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect10">
+                    <value>Expect10</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect11">
+                    <value>Expect11</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect12">
+                    <value>Expect12</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect13">
+                    <value>Expect13</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect14">
+                    <value>Expect14</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect15">
+                    <value>Expect15</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect16">
+                    <value>Expect16</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect17">
+                    <value>Expect17</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect18">
+                    <value>Expect18</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect19">
+                    <value>Expect19</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect20">
+                    <value>Expect20</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect21">
+                    <value>Expect21</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect22">
+                    <value>Expect22</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect23">
+                    <value>Expect23</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect24">
+                    <value>Expect24</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect25">
+                    <value>Expect25</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect26">
+                    <value>Expect26</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect27">
+                    <value>Expect27</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect28">
+                    <value>Expect28</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect29">
+                    <value>Expect29</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect30">
+                    <value>Expect30</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect31">
+                    <value>Expect31</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect32">
+                    <value>Expect32</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect33">
+                    <value>Expect33</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect34">
+                    <value>Expect34</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect35">
+                    <value>Expect35</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect36">
+                    <value>Expect36</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect37">
+                    <value>Expect37</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect38">
+                    <value>Expect38</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect39">
+                    <value>Expect39</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect40">
+                    <value>Expect40</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect41">
+                    <value>Expect41</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect42">
+                    <value>Expect42</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect43">
+                    <value>Expect43</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect44">
+                    <value>Expect44</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect45">
+                    <value>Expect45</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect46">
+                    <value>Expect46</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect47">
+                    <value>Expect47</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect48">
+                    <value>Expect48</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect49">
+                    <value>Expect49</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect50">
+                    <value>Expect50</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect51">
+                    <value>Expect51</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect52">
+                    <value>Expect52</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect53">
+                    <value>Expect53</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect54">
+                    <value>Expect54</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect55">
+                    <value>Expect55</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect56">
+                    <value>Expect56</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect57">
+                    <value>Expect57</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect58">
+                    <value>Expect58</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect59">
+                    <value>Expect59</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect60">
+                    <value>Expect60</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect61">
+                    <value>Expect61</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect62">
+                    <value>Expect62</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect63">
+                    <value>Expect63</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect64">
+                    <value>Expect64</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect65">
+                    <value>Expect65</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect66">
+                    <value>Expect66</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect67">
+                    <value>Expect67</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect68">
+                    <value>Expect68</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect69">
+                    <value>Expect69</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect70">
+                    <value>Expect70</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect71">
+                    <value>Expect71</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect72">
+                    <value>Expect72</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect73">
+                    <value>Expect73</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect74">
+                    <value>Expect74</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect75">
+                    <value>Expect75</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect76">
+                    <value>Expect76</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect77">
+                    <value>Expect77</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect78">
+                    <value>Expect78</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect79">
+                    <value>Expect79</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect80">
+                    <value>Expect80</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect81">
+                    <value>Expect81</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect82">
+                    <value>Expect82</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect83">
+                    <value>Expect83</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect84">
+                    <value>Expect84</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect85">
+                    <value>Expect85</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect86">
+                    <value>Expect86</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect87">
+                    <value>Expect87</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect88">
+                    <value>Expect88</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect89">
+                    <value>Expect89</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect90">
+                    <value>Expect90</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect91">
+                    <value>Expect91</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect92">
+                    <value>Expect92</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect93">
+                    <value>Expect93</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect94">
+                    <value>Expect94</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect95">
+                    <value>Expect95</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect96">
+                    <value>Expect96</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect97">
+                    <value>Expect97</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect98">
+                    <value>Expect98</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect99">
+                    <value>Expect99</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect100">
+                    <value>Expect100</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect101">
+                    <value>Expect101</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect102">
+                    <value>Expect102</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect103">
+                    <value>Expect103</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect104">
+                    <value>Expect104</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect105">
+                    <value>Expect105</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect106">
+                    <value>Expect106</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect107">
+                    <value>Expect107</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect108">
+                    <value>Expect108</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect109">
+                    <value>Expect109</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect110">
+                    <value>Expect110</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect111">
+                    <value>Expect111</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect112">
+                    <value>Expect112</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect113">
+                    <value>Expect113</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect114">
+                    <value>Expect114</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect115">
+                    <value>Expect115</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect116">
+                    <value>Expect116</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect117">
+                    <value>Expect117</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect118">
+                    <value>Expect118</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect119">
+                    <value>Expect119</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect120">
+                    <value>Expect120</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect121">
+                    <value>Expect121</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect122">
+                    <value>Expect122</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect123">
+                    <value>Expect123</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect124">
+                    <value>Expect124</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect125">
+                    <value>Expect125</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect126">
+                    <value>Expect126</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect127">
+                    <value>Expect127</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect128">
+                    <value>Expect128</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect129">
+                    <value>Expect129</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect130">
+                    <value>Expect130</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect131">
+                    <value>Expect131</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect132">
+                    <value>Expect132</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect133">
+                    <value>Expect133</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect134">
+                    <value>Expect134</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect135">
+                    <value>Expect135</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect136">
+                    <value>Expect136</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect137">
+                    <value>Expect137</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect138">
+                    <value>Expect138</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect139">
+                    <value>Expect139</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect140">
+                    <value>Expect140</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect141">
+                    <value>Expect141</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect142">
+                    <value>Expect142</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect143">
+                    <value>Expect143</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect144">
+                    <value>Expect144</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect145">
+                    <value>Expect145</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect146">
+                    <value>Expect146</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect147">
+                    <value>Expect147</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect148">
+                    <value>Expect148</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect149">
+                    <value>Expect149</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect150">
+                    <value>Expect150</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect151">
+                    <value>Expect151</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect152">
+                    <value>Expect152</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect153">
+                    <value>Expect153</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect154">
+                    <value>Expect154</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect155">
+                    <value>Expect155</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect156">
+                    <value>Expect156</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect157">
+                    <value>Expect157</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect158">
+                    <value>Expect158</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect159">
+                    <value>Expect159</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect160">
+                    <value>Expect160</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect161">
+                    <value>Expect161</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect162">
+                    <value>Expect162</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect163">
+                    <value>Expect163</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect164">
+                    <value>Expect164</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect165">
+                    <value>Expect165</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect166">
+                    <value>Expect166</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect167">
+                    <value>Expect167</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect168">
+                    <value>Expect168</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect169">
+                    <value>Expect169</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect170">
+                    <value>Expect170</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect171">
+                    <value>Expect171</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect172">
+                    <value>Expect172</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect173">
+                    <value>Expect173</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect174">
+                    <value>Expect174</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect175">
+                    <value>Expect175</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect176">
+                    <value>Expect176</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect177">
+                    <value>Expect177</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect178">
+                    <value>Expect178</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect179">
+                    <value>Expect179</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect180">
+                    <value>Expect180</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect181">
+                    <value>Expect181</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect182">
+                    <value>Expect182</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect183">
+                    <value>Expect183</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect184">
+                    <value>Expect184</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect185">
+                    <value>Expect185</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect186">
+                    <value>Expect186</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect187">
+                    <value>Expect187</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect188">
+                    <value>Expect188</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect189">
+                    <value>Expect189</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect190">
+                    <value>Expect190</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect191">
+                    <value>Expect191</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect192">
+                    <value>Expect192</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect193">
+                    <value>Expect193</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect194">
+                    <value>Expect194</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect195">
+                    <value>Expect195</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect196">
+                    <value>Expect196</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect197">
+                    <value>Expect197</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect198">
+                    <value>Expect198</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect199">
+                    <value>Expect199</value>
+                </tablecolumn>
+
+                <tablecolumn name="Expect200">
+                    <value>Expect200</value>
+                </tablecolumn>
+
+                <valuemapping>
+                    <result>property</result>
+                    <source>プロパティ</source>
+                </valuemapping>
+                <valuemapping>
+                    <result>property</result>
+                    <source>パラメータ</source>
+                </valuemapping>
+                <valuemapping>
+                    <result>assert</result>
+                    <source>比較方法</source>
+                </valuemapping>
+                <valuemapping>
+                    <result>value</result>
+                    <source>値</source>
+                </valuemapping>
+
+            </tableblock>
+
+        </blancocalcparser>
+    </target>
+</blanco>
